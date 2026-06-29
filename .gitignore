@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.uv/
+
+# Generated artifacts (do not commit)
+pages/processes/*.html
+dashboard/*.html
+docs/site/
+export/
+src/ecomech/datamodel/ecomech.py
+src/ecomech/datamodel/ecomech_pydantic.py
+src/ecomech/datamodel/__init__.py
+
+# Caches
+cache/
+.cache/
+*.pyc
+
+# Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Secrets
+.env
+*.env
+
+# Lock files (commit uv.lock, not others)
+# uv.lock is intentionally committed

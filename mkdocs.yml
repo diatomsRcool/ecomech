@@ -1,0 +1,34 @@
+site_name: EcoMech — Ecological Process Mechanisms
+site_description: >
+  A curated knowledge base of ecological process mechanisms, with structured
+  evidence from the scientific literature.
+site_url: https://your-org.github.io/ecomech
+repo_url: https://github.com/your-org/ecomech
+repo_name: your-org/ecomech
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: green
+      accent: teal
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Processes: processes/index.md
+  - Schema: schema/index.md
+  - Contributing: CONTRIBUTING.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

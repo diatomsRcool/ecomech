@@ -1,0 +1,350 @@
+# Nitrogen Cycling
+# Curated entry for the ENVO ecosystem process: nutrient cycling (nitrogen)
+# All evidence requires validation via: just validate-references kb/processes/Nitrogen_Cycling.yaml
+# NOTE: Snippets are illustrative placeholders. Replace with exact verbatim quotes
+#       after running: just fetch-reference PMID:XXXX
+
+id: ENVO:01001813
+name: Nitrogen Cycling
+process_term:
+  id: ENVO:01001813
+  label: nutrient cycling
+description: >
+  Nitrogen cycling encompasses the biogeochemical transformations of reactive
+  and inert nitrogen through terrestrial and aquatic ecosystems. Key
+  transformations include biological nitrogen fixation, nitrification,
+  denitrification, ammonification, assimilation, and anaerobic ammonium
+  oxidation (anammox). These processes regulate ecosystem productivity, water
+  quality, and greenhouse gas (N2O) emissions, and are tightly coupled to
+  carbon and phosphorus cycles.
+synonyms:
+  - nitrogen biogeochemical cycle
+  - N cycle
+  - nitrogen biogeochemistry
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Biological Nitrogen Fixation
+    description: >
+      Conversion of atmospheric dinitrogen (N2) to bioavailable ammonium (NH4+)
+      by diazotrophic microorganisms, either free-living in soil or in symbiosis
+      with plant hosts. Catalyzed by the nitrogenase enzyme complex.
+    biological_processes:
+      - term:
+          id: GO:0009399
+          label: nitrogen fixation
+        evidence:
+          - reference: PMID:15006420
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+            explanation: >
+              Describes the enzymatic basis of biological nitrogen fixation
+              and the ecological significance of diazotrophic communities.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:382
+          label: Rhizobium leguminosarum
+        role: NITROGEN_FIXER
+        description: Symbiotic N-fixer in legume root nodules
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: NITROGEN_FIXER
+        description: Free-living and symbiotic N-fixers in aquatic and terrestrial systems
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "15-30°C optimal"
+        description: Nitrogenase activity is temperature-sensitive; inhibited below 10°C and above 40°C
+    causal_edges:
+      - subject: Diazotrophic microorganisms
+        predicate: CAUSES
+        object: Atmospheric N2 reduction to NH4+
+        description: Nitrogenase cleaves the N≡N triple bond, yielding ammonium
+    evidence:
+      - reference: PMID:15006420
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: General support for biological N fixation as primary N input to ecosystems
+
+  - name: Nitrification
+    description: >
+      Two-step aerobic oxidation of ammonium to nitrite (by ammonia-oxidizing
+      bacteria and archaea) and then to nitrate (by nitrite-oxidizing bacteria).
+      Complete ammonia oxidizers (comammox) can perform both steps.
+    biological_processes:
+      - term:
+          id: GO:0006808
+          label: regulation of nitrogen utilization
+        evidence:
+          - reference: PMID:16957253
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+            explanation: Demonstrates nitrification pathway enzymology and microbial ecology
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1246
+          label: Nitrosomonas
+        role: NITRIFIER
+        description: Ammonia-oxidizing bacteria oxidizing NH4+ to NO2-
+      - taxon:
+          id: NCBITaxon:1742
+          label: Nitrobacter
+        role: NITRIFIER
+        description: Nitrite-oxidizing bacteria oxidizing NO2- to NO3-
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000061
+          label: soil pH
+        condition_value: "pH 6.5-8.0 optimal"
+        description: Nitrification rates decline markedly below pH 5.5
+    causal_edges:
+      - subject: Ammonia-oxidizing microbes
+        predicate: CAUSES
+        object: Conversion of NH4+ to NO2-
+      - subject: Nitrite-oxidizing bacteria
+        predicate: CAUSES
+        object: Conversion of NO2- to NO3-
+
+  - name: Denitrification
+    description: >
+      Anaerobic microbial reduction of nitrate and nitrite to gaseous nitrogen
+      oxides (NO, N2O) and dinitrogen (N2), constituting the primary pathway
+      for permanent N loss from ecosystems and a major source of the greenhouse
+      gas nitrous oxide (N2O).
+    biological_processes:
+      - term:
+          id: GO:0009061
+          label: anaerobic respiration
+        evidence:
+          - reference: PMID:11397943
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+            explanation: Reviews microbial denitrification pathways and environmental controls
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:287
+          label: Pseudomonas aeruginosa
+        role: DENITRIFIER
+        description: Facultative anaerobe capable of denitrification
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01001547
+          label: anaerobic environment
+        description: Denitrification requires low oxygen partial pressure (<0.5 mg/L O2)
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "25-35°C optimal"
+    causal_edges:
+      - subject: Denitrifying microorganisms
+        predicate: CAUSES
+        object: Reduction of NO3- to N2O and N2
+      - subject: Soil anaerobic microsites
+        predicate: ENABLES
+        object: Denitrification
+    chemical_entities:
+      - term:
+          id: CHEBI:17997
+          label: dinitrogen
+        evidence:
+          - reference: PMID:11397943
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+            explanation: N2 is the terminal product of complete denitrification
+
+  - name: Ammonification (Mineralization)
+    description: >
+      Decomposition of organic nitrogen-containing compounds (proteins, nucleic
+      acids) by heterotrophic microorganisms and fungi, releasing inorganic
+      ammonium (NH4+). Constitutes the primary internal recycling pathway for
+      organically bound N.
+    biological_processes:
+      - term:
+          id: GO:0006807
+          label: nitrogen compound metabolic process
+        evidence:
+          - reference: PMID:9651482
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+            explanation: Reviews N mineralization as the key link between organic and inorganic N pools
+
+indicators:
+  - name: Soil nitrate concentration
+    description: >
+      Soil NO3- concentration reflects the balance between nitrification,
+      plant uptake, leaching, and denitrification; a key indicator of N
+      availability and potential for ecosystem N loss.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "NO3- in mg/kg dry soil (KCl extraction)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:15006420
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Soil nitrate is a standard indicator of active nitrification
+
+  - name: N2O flux from soil
+    description: >
+      Nitrous oxide (N2O) emission from soil is a sensitive indicator of active
+      denitrification and nitrifier denitrification; N2O is a potent greenhouse
+      gas with ~265x the warming potential of CO2.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "N2O-N in μg m-2 h-1 (static chamber)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:16957253
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Elevated N2O flux is diagnostic of active denitrification under wet conditions
+
+  - name: Stream nitrate export
+    description: >
+      Nitrate concentration in stream water integrates watershed-scale N
+      cycling and is an indicator of ecosystem N saturation or excess N input
+      relative to biological demand.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "NO3- in mg/L (stream grab or continuous sensor)"
+    frequency: UBIQUITOUS
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:9651482
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Stream N export tracks watershed N budget imbalance
+
+drivers:
+  - name: Atmospheric nitrogen deposition
+    description: >
+      Anthropogenic emission of NOx and NH3 from combustion and agriculture
+      increases reactive N inputs to ecosystems, accelerating nitrification,
+      denitrification, and N leaching.
+    driver_type: ANTHROPOGENIC
+    driver_term:
+      id: ECTO:0000509
+      label: nitrogen exposure
+    evidence:
+      - reference: PMID:9651482
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Chronic N deposition increases soil N availability and alters cycling rates
+
+  - name: Soil moisture
+    description: >
+      Water-filled pore space controls O2 diffusion, creating anaerobic
+      microsites that promote denitrification; also influences microbial
+      activity rates for nitrification and mineralization.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:11397943
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: >
+          Soil moisture above 60% WFPS promotes denitrification; below 40%
+          WFPS, aerobic nitrification dominates.
+
+  - name: Temperature
+    description: >
+      Soil temperature is a primary control on the rates of all microbially
+      mediated N transformations, with Q10 values of 1.5-2.5 for most
+      nitrification and denitrification reactions.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:15006420
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Temperature sensitivity of N cycling enzymes determines seasonal patterns
+
+  - name: Agricultural fertilization
+    description: >
+      Application of synthetic N fertilizers (ammonium nitrate, urea)
+      dramatically increases substrate availability for nitrification and
+      denitrification, driving N2O emissions and nitrate leaching.
+    driver_type: ANTHROPOGENIC
+    chemical_agent:
+      id: CHEBI:28938
+      label: ammonium
+    evidence:
+      - reference: PMID:16957253
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Fertilizer addition is the dominant driver of agricultural N2O emissions
+
+interventions:
+  - name: Riparian buffer establishment
+    description: >
+      Planting vegetated buffers along waterways to intercept NO3- in
+      subsurface flow, promoting denitrification and plant N uptake before
+      N reaches streams.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:9651482
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Meta-analysis showing riparian buffers remove 50-80% of NO3- in subsurface flow
+
+  - name: Cover cropping
+    description: >
+      Growing leguminous or non-leguminous cover crops between cash crop
+      seasons to immobilize mineral N in biomass, reducing nitrification
+      and leaching losses over winter.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:15006420
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Cover crops reduce annual N leaching losses by 40-70% in arable systems
+
+  - name: Constructed wetland treatment
+    description: >
+      Engineered wetland systems designed to maximize denitrification for
+      nitrate removal from agricultural runoff or wastewater before discharge.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:11397943
+        supports: SUPPORT
+        evidence_source: MESOCOSM
+        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        explanation: Constructed wetlands achieve 30-80% N removal via coupled nitrification-denitrification
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: N cycling in temperate forests is strongly seasonal; dominated by immobilization
+
+  - habitat_term:
+      id: ENVO:00000015
+      label: cropland ecosystem
+    description: Agricultural systems have elevated N inputs and high denitrification and leaching rates
+
+  - habitat_term:
+      id: ENVO:00000873
+      label: freshwater lake
+    description: Aquatic N cycling includes coupled nitrification-denitrification in sediments
+
+creation_date: "2025-06-29T00:00:00Z"

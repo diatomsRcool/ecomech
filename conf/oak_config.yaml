@@ -1,0 +1,30 @@
+# OAK adapter configuration for ecomech term validation.
+# Maps ontology prefixes to OAK adapter strings.
+# Only prefixes listed here are validated; unlisted prefixes are skipped with a warning.
+#
+# SQLite adapters are used for offline/fast validation (recommended).
+# Replace with OLS adapters for live lookup: "ols:ONTOLOGY_ID"
+
+adapters:
+  # Core ecological ontologies
+  ENVO: "sqlite:obo:envo"           # Environment Ontology — processes, habitats, conditions
+  GO: "sqlite:obo:go"               # Gene Ontology — biological processes
+  NCBITaxon: "sqlite:obo:ncbitaxon" # NCBI Taxonomy — organisms
+  PATO: "sqlite:obo:pato"           # Phenotype and Trait Ontology — qualities, measurements
+  ECTO: "sqlite:obo:ecto"           # Environmental Conditions, Treatments, and Exposures
+  CHEBI: "sqlite:obo:chebi"         # Chemical Entities of Biological Interest
+  UBERON: "sqlite:obo:uberon"       # Uberon multi-species anatomy (for organs in eco context)
+
+  # Supplementary ontologies
+  NCBITaxon: "sqlite:obo:ncbitaxon"
+  OBI: "sqlite:obo:obi"             # Ontology for Biomedical Investigations
+  FOODON: "sqlite:obo:foodon"       # Food Ontology (for agroecosystem processes)
+
+  # Skip validation for schema / semantic web prefixes
+  linkml: ""
+  schema: ""
+  xsd: ""
+  rdf: ""
+  rdfs: ""
+  owl: ""
+  ecomech: ""

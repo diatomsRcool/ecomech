@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ecomech"
+description = "Ecological Process Mechanisms Knowledge Base"
+authors = [
+  {name = "EcoMech Contributors", email = "ecomech@example.org"},
+]
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dynamic = ["version"]
+
+dependencies = [
+  "beautifulsoup4>=4.14.3",
+  "httpx>=0.28.1",
+  "linkml-data-qc[viz]",
+  "linkml-reference-validator>=0.1.8",
+  "linkml-runtime>=1.9.4",
+  "linkml-term-validator>=0.4.0rc4",
+  "typer>=0.9.0",
+  "markdown>=3.5",
+  "jinja2>=3.1",
+  "pyyaml>=6.0",
+]
+
+[project.scripts]
+ecomech = "ecomech.cli:main"
+ecomech-inventory = "ecomech.export.inventory:main"
+
+[dependency-groups]
+dev = [
+    "linkml>=1.9.3",
+    "mkdocs-material>=8.2.8",
+    "pytest>=8.0",
+    "deep-research-client[cyberian]>=0.2.7",
+]
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+fallback-version = "0.0.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.codespell]
+skip = [
+  "LICENSE",
+  "pyproject.toml",
+  "uv.lock",
+  "cache/*",
+  "references_cache/*",
+  "src/ecomech/datamodel/ecomech.py",
+  "src/ecomech/datamodel/ecomech_pydantic.py",
+]
+quiet-level = 3
+
+[tool.ruff]
+exclude = [
+  "src/ecomech/datamodel/ecomech.py",
+  "src/ecomech/datamodel/ecomech_pydantic.py",
+  "src/ecomech/datamodel/__init__.py",
+]

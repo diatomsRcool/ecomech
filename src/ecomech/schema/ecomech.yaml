@@ -1,0 +1,809 @@
+id: https://w3id.org/ecomech/schema/ecomech
+name: ecomech
+title: Ecological Process Mechanisms Knowledge Base Schema
+description: >
+  LinkML schema for representing ecological process mechanisms, drivers,
+  indicators, and interventions with structured evidence from the scientific
+  literature. Ecological processes are drawn from the ENVO ecosystem process
+  branch (ENVO:02500000).
+license: BSD-3-Clause
+see_also:
+  - https://monarch-initiative.github.io/dismech
+  - http://purl.obolibrary.org/obo/envo.owl
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ecomech: https://w3id.org/ecomech/
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  GO: http://purl.obolibrary.org/obo/GO_
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  ECTO: http://purl.obolibrary.org/obo/ECTO_
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  RO: http://purl.obolibrary.org/obo/RO_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  schema: http://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: ecomech
+default_range: string
+
+imports:
+  - linkml:types
+
+# ---------------------------------------------------------------------------
+# Types
+# ---------------------------------------------------------------------------
+
+types:
+  CurieType:
+    uri: xsd:string
+    description: A compact URI (CURIE) referencing an ontology term
+
+# ---------------------------------------------------------------------------
+# Subsets
+# ---------------------------------------------------------------------------
+
+subsets:
+  required_subset:
+    description: Slots required for a minimally valid entry
+  evidence_subset:
+    description: Slots pertaining to evidence quality and provenance
+
+# ---------------------------------------------------------------------------
+# Enumerations
+# ---------------------------------------------------------------------------
+
+enums:
+
+  SupportEnum:
+    description: Whether evidence supports, refutes, or is neutral on a claim
+    permissible_values:
+      SUPPORT:
+        description: The evidence directly supports the claim
+      REFUTE:
+        description: The evidence contradicts the claim
+      PARTIAL:
+        description: The evidence partially supports the claim
+      NO_EVIDENCE:
+        description: The reference exists but provides no relevant evidence
+      WRONG_STATEMENT:
+        description: The claim itself is factually incorrect
+
+  EvidenceSourceEnum:
+    description: Type of study or data source providing the evidence
+    permissible_values:
+      FIELD_STUDY:
+        description: In situ observation or measurement in a natural system
+      MESOCOSM:
+        description: Controlled outdoor or semi-natural enclosure experiment
+      LABORATORY:
+        description: Controlled laboratory experiment
+      COMPUTATIONAL:
+        description: Computational model, simulation, or statistical analysis
+      META_ANALYSIS:
+        description: Systematic review or meta-analysis across multiple studies
+      REVIEW:
+        description: Narrative or expert review
+      REMOTE_SENSING:
+        description: Satellite or aerial remote sensing observation
+      LONG_TERM_MONITORING:
+        description: Long-term ecological research or monitoring dataset
+      EXPERT_OPINION:
+        description: Expert consensus, opinion, or grey literature
+      OTHER:
+        description: Evidence not fitting above categories
+
+  DriverTypeEnum:
+    description: Broad category of an ecological driver or stressor
+    permissible_values:
+      ABIOTIC:
+        description: Non-living physical or chemical environmental factor
+      BIOTIC:
+        description: Biological factor (organism, community, trophic interaction)
+      ANTHROPOGENIC:
+        description: Human-caused or human-mediated disturbance
+      CLIMATE:
+        description: Climate variable or meteorological factor
+      GEOCHEMICAL:
+        description: Geochemical or edaphic factor
+
+  InterventionTypeEnum:
+    description: Category of management or conservation intervention
+    permissible_values:
+      RESTORATION:
+        description: Active restoration of degraded habitat or ecosystem function
+      PROTECTION:
+        description: Preventing further degradation (e.g., protected areas)
+      MITIGATION:
+        description: Reducing the intensity or extent of a stressor
+      MONITORING:
+        description: Ongoing ecological observation and measurement
+      REMOVAL:
+        description: Removing stressors (e.g., invasive species, pollutants)
+      AUGMENTATION:
+        description: Adding organisms or materials to enhance ecosystem function
+      MANAGEMENT:
+        description: Ongoing active management of ecosystem components
+      POLICY:
+        description: Regulatory, legislative, or governance intervention
+
+  FrequencyEnum:
+    description: How frequently an indicator is observed in association with the process
+    permissible_values:
+      UBIQUITOUS:
+        description: Occurs in nearly all instances of the process
+      COMMON:
+        description: Occurs in most instances
+      UNCOMMON:
+        description: Occurs in some instances
+      RARE:
+        description: Occurs in few instances
+      VARIABLE:
+        description: Highly context-dependent
+
+  TemporalityEnum:
+    description: Temporal pattern of a mechanism or indicator
+    permissible_values:
+      ACUTE:
+        description: Short-term, rapid response (hours to days)
+      CHRONIC:
+        description: Long-term or persistent (years to decades)
+      SEASONAL:
+        description: Recurs on a seasonal or annual basis
+      EPISODIC:
+        description: Sporadic, event-driven (e.g., disturbance, drought)
+      PERMANENT:
+        description: Irreversible or quasi-permanent change
+      SUCCESSIONAL:
+        description: Changes over ecological succession timescales
+
+  EcologicalScaleEnum:
+    description: Spatial or organizational scale at which a process or mechanism operates
+    permissible_values:
+      INDIVIDUAL:
+        description: Individual organism level
+      POPULATION:
+        description: Population level
+      COMMUNITY:
+        description: Community or assemblage level
+      ECOSYSTEM:
+        description: Ecosystem level (including abiotic components)
+      LANDSCAPE:
+        description: Landscape or patch mosaic level
+      REGIONAL:
+        description: Regional biogeographic scale
+      GLOBAL:
+        description: Global biogeochemical or planetary scale
+
+  TaxonRoleEnum:
+    description: Functional role of a taxon in the ecological process
+    permissible_values:
+      PRIMARY_PRODUCER:
+        description: Autotrophic organism fixing carbon or energy
+      DECOMPOSER:
+        description: Organism breaking down organic matter
+      CONSUMER:
+        description: Heterotrophic consumer (herbivore, carnivore, omnivore)
+      DETRITIVORE:
+        description: Organism consuming dead organic material
+      NITROGEN_FIXER:
+        description: Diazotrophic nitrogen-fixing organism
+      NITRIFIER:
+        description: Nitrifying microorganism
+      DENITRIFIER:
+        description: Denitrifying microorganism
+      KEYSTONE_SPECIES:
+        description: Species with disproportionately large ecosystem effect
+      ENGINEER:
+        description: Ecosystem engineer that physically modifies habitat
+      VECTOR:
+        description: Vector species (for disease, seed dispersal, etc.)
+      HOST:
+        description: Host organism
+      SYMBIONT:
+        description: Symbiotic partner (mutualist, parasite, commensal)
+      FACILITATOR:
+        description: Species facilitating other species or processes
+      COMPETITOR:
+        description: Species in competitive interaction
+      PREDATOR:
+        description: Predatory species
+      PREY:
+        description: Prey species
+      POLLINATOR:
+        description: Pollinating organism
+      SEED_DISPERSER:
+        description: Seed dispersal agent
+      OTHER:
+        description: Other functional role
+
+  CausalDirectionEnum:
+    description: Type of directed causal relationship between mechanism nodes
+    permissible_values:
+      CAUSES:
+        description: A directly causes B
+      CONTRIBUTES_TO:
+        description: A contributes to B
+      INHIBITS:
+        description: A inhibits B
+      MODULATES:
+        description: A modulates the magnitude or rate of B
+      REGULATES:
+        description: A regulates B via a feedback mechanism
+      ENABLES:
+        description: A enables or is required for B
+      PRECEDES:
+        description: A precedes B temporally in the process
+
+  GroupingBasisEnum:
+    description: Rationale for grouping ecological processes together
+    permissible_values:
+      SHARED_MECHANISM:
+        description: Processes share core mechanistic components
+      SHARED_DRIVER:
+        description: Processes are driven by the same factors
+      SHARED_TAXON:
+        description: Processes involve the same or closely related taxa
+      SHARED_HABITAT:
+        description: Processes co-occur in the same habitat or biome type
+      SHARED_OUTCOME:
+        description: Processes produce similar ecological outcomes
+      FUNCTIONAL_GUILD:
+        description: Grouped by functional role or guild
+      BIOGEOGRAPHIC:
+        description: Grouped by geographic or biogeographic region
+      BIOGEOCHEMICAL_CYCLE:
+        description: Part of the same elemental biogeochemical cycle
+      OTHER:
+        description: Other grouping basis
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  id:
+    identifier: true
+    range: CurieType
+    description: CURIE identifier (typically an ENVO term ID for EcologicalProcess)
+    in_subset:
+      - required_subset
+
+  name:
+    required: true
+    range: string
+    description: Human-readable name of the entity
+    in_subset:
+      - required_subset
+
+  label:
+    range: string
+    description: Canonical ontology term label (must exactly match the authoritative ontology)
+
+  preferred_term:
+    range: string
+    description: >
+      Human-readable preferred display name; may be more specific than the
+      canonical ontology label when the ontology provides only a broad parent term
+
+  description:
+    range: string
+    description: Free-text description
+
+  synonyms:
+    multivalued: true
+    range: string
+    description: Alternative names and synonyms
+
+  # --- Term binding slots ---
+
+  process_term:
+    range: ENVOTerm
+    description: >
+      ENVO ecosystem process term binding for this entry (from the ENVO:02500000
+      ecosystem process branch)
+    required: true
+    in_subset:
+      - required_subset
+
+  habitat_term:
+    range: ENVOTerm
+    description: ENVO habitat, biome, or environmental system term
+
+  indicator_term:
+    range: PATOTerm
+    description: PATO term for the phenotypic quality or measurement
+
+  driver_term:
+    range: ECTOTerm
+    description: ECTO environmental exposure or ENVO environmental condition term
+
+  intervention_term:
+    range: InterventionTerm
+    description: Ontology term for the management or restoration intervention
+
+  taxon:
+    range: TaxonTerm
+    description: NCBITaxon term for the organism
+
+  role:
+    range: TaxonRoleEnum
+    description: Functional role of the taxon in the process
+
+  chemical_agent:
+    range: CHEBITerm
+    description: CHEBI chemical entity (nutrient, pollutant, compound)
+
+  # --- Evidence slots ---
+
+  reference:
+    required: true
+    range: string
+    description: >
+      Publication reference identifier (e.g., PMID:12345678, DOI:10.xxxx/xxxx)
+    in_subset:
+      - required_subset
+      - evidence_subset
+
+  supports:
+    range: SupportEnum
+    required: true
+    description: Whether this evidence supports, refutes, or is neutral on the claim
+    in_subset:
+      - evidence_subset
+
+  evidence_source:
+    range: EvidenceSourceEnum
+    required: true
+    description: >
+      Type of study presenting the evidence. Classifies the cited publication's
+      methodology, NOT the curation method.
+    in_subset:
+      - evidence_subset
+
+  snippet:
+    range: string
+    description: >
+      Exact verbatim quote from the cited reference abstract or main text.
+      Must be an unaltered substring of the cached reference content.
+    in_subset:
+      - evidence_subset
+
+  explanation:
+    range: string
+    description: Explanation of how and why this evidence supports or refutes the claim
+
+  evidence:
+    multivalued: true
+    range: EvidenceItem
+    description: List of evidence items supporting this assertion
+
+  # --- Structural / relational slots ---
+
+  subject:
+    range: string
+    description: Name of the subject node in a causal edge
+
+  predicate:
+    range: CausalDirectionEnum
+    description: Type of causal relationship
+
+  object:
+    range: string
+    description: Name of the object node in a causal edge
+
+  ecological_processes:
+    multivalued: true
+    range: ENVOProcessAnnotation
+    description: ENVO ecological subprocess terms with evidence
+
+  biological_processes:
+    multivalued: true
+    range: GOProcessAnnotation
+    description: GO biological process terms with evidence
+
+  chemical_entities:
+    multivalued: true
+    range: CHEBIAnnotation
+    description: CHEBI chemical entity terms with evidence
+
+  taxa_involved:
+    multivalued: true
+    range: TaxonDescriptor
+    description: Taxa involved in this mechanism, with functional roles
+
+  abiotic_conditions:
+    multivalued: true
+    range: AbioticCondition
+    description: Abiotic environmental conditions relevant to the mechanism
+
+  causal_edges:
+    multivalued: true
+    range: CausalEdge
+    description: Directed causal relationships between named nodes in the mechanism
+
+  mechanisms:
+    multivalued: true
+    range: Mechanism
+    description: Mechanistic components of the ecological process
+
+  indicators:
+    multivalued: true
+    range: EcologicalIndicator
+    description: Observable ecological indicators associated with the process
+
+  drivers:
+    multivalued: true
+    range: EcologicalDriver
+    description: Ecological drivers or stressors modulating the process
+
+  interventions:
+    multivalued: true
+    range: Intervention
+    description: Management, conservation, or restoration interventions
+
+  habitat_context:
+    multivalued: true
+    range: HabitatDescriptor
+    description: Habitat or biome contexts in which the process occurs
+
+  ecological_scale:
+    range: EcologicalScaleEnum
+    description: Primary organizational or spatial scale at which the process operates
+
+  temporal_scale:
+    range: TemporalityEnum
+    description: Characteristic temporal scale of the mechanism
+
+  spatial_scale:
+    range: EcologicalScaleEnum
+    description: Spatial scale of the mechanism
+
+  frequency:
+    range: FrequencyEnum
+    description: How frequently the indicator is observed in association with the process
+
+  temporality:
+    range: TemporalityEnum
+    description: Temporal pattern of the indicator
+
+  driver_type:
+    range: DriverTypeEnum
+    description: Broad category of this ecological driver
+
+  intervention_type:
+    range: InterventionTypeEnum
+    description: Category of this intervention
+
+  measurement:
+    range: string
+    description: How the indicator is measured or quantified (units, method)
+
+  envo_condition_term:
+    range: ENVOTerm
+    description: ENVO term for an abiotic environmental condition or variable
+
+  condition_value:
+    range: string
+    description: Value or range for the abiotic condition (with units)
+
+  members:
+    multivalued: true
+    range: string
+    description: CURIE IDs of EcologicalProcess entries that are members of this grouping
+
+  grouping_basis:
+    multivalued: true
+    range: GroupingBasisEnum
+    description: Basis or rationale category for this grouping
+
+  grouping_rationale:
+    range: string
+    description: Free-text description of why these processes are grouped together
+
+  creation_date:
+    range: string
+    description: ISO 8601 / RFC 3339 creation timestamp in UTC (e.g., 2025-01-15T12:00:00Z)
+
+  conforms_to:
+    multivalued: true
+    range: string
+    description: >
+      References to EcologicalModule nodes this mechanism conforms to,
+      in the format "module_name#Node Name"
+
+# ---------------------------------------------------------------------------
+# Classes
+# ---------------------------------------------------------------------------
+
+classes:
+
+  # --- Term descriptor classes ---
+
+  TermDescriptor:
+    description: Base class for an ontology term reference
+    abstract: true
+    slots:
+      - id
+      - label
+      - preferred_term
+
+  ENVOTerm:
+    description: >
+      An ENVO ontology term for an ecosystem process, habitat, biome,
+      or abiotic environmental condition
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^ENVO:\\d+$"
+
+  GOTerm:
+    description: A Gene Ontology biological process or molecular function term
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^GO:\\d+$"
+
+  TaxonTerm:
+    description: An NCBI Taxonomy term identifying an organism
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^NCBITaxon:\\d+$"
+
+  PATOTerm:
+    description: >
+      A PATO (Phenotype and Trait Ontology) term for a phenotypic quality,
+      physical measurement, or ecological attribute
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^PATO:\\d+$"
+
+  ECTOTerm:
+    description: An ECTO (Environmental Exposure Ontology) term for an environmental stressor or exposure
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^ECTO:\\d+$"
+
+  CHEBITerm:
+    description: A CHEBI chemical entity term (nutrient, pollutant, compound)
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^CHEBI:\\d+$"
+
+  InterventionTerm:
+    description: An ontology term for a management, restoration, or conservation action
+    is_a: TermDescriptor
+
+  # --- Evidence ---
+
+  EvidenceItem:
+    description: >
+      A single piece of evidence supporting or refuting a claim,
+      with a primary literature reference and exact quoted snippet.
+    slots:
+      - reference
+      - supports
+      - evidence_source
+      - snippet
+      - explanation
+    slot_usage:
+      reference:
+        required: true
+      supports:
+        required: true
+      evidence_source:
+        required: true
+
+  # --- Annotation wrappers (term + evidence) ---
+
+  ENVOProcessAnnotation:
+    description: An ENVO ecological process or condition annotation with supporting evidence
+    slots:
+      - term
+      - evidence
+    attributes:
+      term:
+        range: ENVOTerm
+        required: true
+
+  GOProcessAnnotation:
+    description: A GO biological process annotation with supporting evidence
+    slots:
+      - evidence
+    attributes:
+      term:
+        range: GOTerm
+        required: true
+
+  CHEBIAnnotation:
+    description: A CHEBI chemical entity annotation with supporting evidence
+    slots:
+      - evidence
+    attributes:
+      term:
+        range: CHEBITerm
+        required: true
+
+  # --- Structural classes ---
+
+  TaxonDescriptor:
+    description: A taxon involved in an ecological process, with its functional role
+    slots:
+      - taxon
+      - role
+      - description
+      - evidence
+
+  HabitatDescriptor:
+    description: A habitat, biome, or environmental system context for the process
+    slots:
+      - habitat_term
+      - description
+
+  AbioticCondition:
+    description: >
+      An abiotic environmental condition relevant to a mechanism,
+      with an optional quantitative value or range
+    slots:
+      - envo_condition_term
+      - condition_value
+      - description
+      - evidence
+
+  CausalEdge:
+    description: >
+      A directed causal relationship between two named nodes
+      in a mechanism's conceptual graph
+    slots:
+      - subject
+      - predicate
+      - object
+      - description
+      - evidence
+
+  # --- Core KB classes ---
+
+  Mechanism:
+    description: >
+      A mechanistic component of an ecological process, describing
+      the ecological, biological, and physicochemical steps involved,
+      with supporting evidence.
+    slots:
+      - name
+      - description
+      - ecological_processes
+      - biological_processes
+      - chemical_entities
+      - taxa_involved
+      - abiotic_conditions
+      - causal_edges
+      - temporal_scale
+      - spatial_scale
+      - evidence
+      - conforms_to
+    slot_usage:
+      name:
+        required: true
+
+  EcologicalIndicator:
+    description: >
+      An observable ecological outcome, measurement, or indicator
+      associated with the process and detectable in the field or laboratory.
+    slots:
+      - name
+      - description
+      - indicator_term
+      - measurement
+      - frequency
+      - temporality
+      - evidence
+    slot_usage:
+      name:
+        required: true
+
+  EcologicalDriver:
+    description: >
+      An abiotic, biotic, or anthropogenic factor that initiates,
+      amplifies, dampens, or otherwise modulates the ecological process.
+    slots:
+      - name
+      - description
+      - driver_term
+      - driver_type
+      - chemical_agent
+      - evidence
+    slot_usage:
+      name:
+        required: true
+
+  Intervention:
+    description: >
+      A management, conservation, or restoration action that can
+      modulate, enhance, or suppress the ecological process.
+    slots:
+      - name
+      - description
+      - intervention_term
+      - intervention_type
+      - evidence
+    slot_usage:
+      name:
+        required: true
+
+  EcologicalProcess:
+    description: >
+      A curated knowledge base entry documenting an ecological process —
+      its mechanisms, observable indicators, drivers, and management
+      interventions — all backed by primary literature evidence.
+      The process_term must come from the ENVO ecosystem process branch
+      (descendants of ENVO:02500000).
+    tree_root: true
+    slots:
+      - id
+      - name
+      - process_term
+      - description
+      - synonyms
+      - mechanisms
+      - indicators
+      - drivers
+      - interventions
+      - habitat_context
+      - ecological_scale
+      - creation_date
+    slot_usage:
+      id:
+        required: true
+      name:
+        required: true
+      process_term:
+        required: true
+      description:
+        required: true
+
+  EcologicalModule:
+    description: >
+      A reusable, conserved ecological mechanism module that encodes
+      a generalizable process component (e.g., "decomposition cascade",
+      "trophic amplification"). Can be referenced by multiple
+      EcologicalProcess entries via the conforms_to slot.
+      Not DRY — process entries fully duplicate content; conformance
+      is for consistency checking only.
+    tree_root: true
+    slots:
+      - id
+      - name
+      - description
+      - mechanisms
+      - creation_date
+    slot_usage:
+      id:
+        required: true
+      name:
+        required: true
+
+  Grouping:
+    description: >
+      A curated grouping of related EcologicalProcess entries sharing
+      common mechanisms, drivers, habitat types, or functional guild.
+      Membership is explicit (listed in members) rather than inferred.
+    tree_root: true
+    slots:
+      - id
+      - name
+      - description
+      - members
+      - grouping_basis
+      - grouping_rationale
+      - creation_date
+    slot_usage:
+      id:
+        required: true
+      name:
+        required: true
