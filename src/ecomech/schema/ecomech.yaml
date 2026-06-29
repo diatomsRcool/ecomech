@@ -38,6 +38,7 @@ imports:
 types:
   CurieType:
     uri: xsd:string
+    base: str
     description: A compact URI (CURIE) referencing an ontology term
 
 # ---------------------------------------------------------------------------
@@ -301,6 +302,7 @@ slots:
 
   process_term:
     range: ENVOTerm
+    inlined: true
     description: >
       ENVO ecosystem process term binding for this entry (from the ENVO:02500000
       ecosystem process branch)
@@ -310,22 +312,27 @@ slots:
 
   habitat_term:
     range: ENVOTerm
+    inlined: true
     description: ENVO habitat, biome, or environmental system term
 
   indicator_term:
     range: PATOTerm
+    inlined: true
     description: PATO term for the phenotypic quality or measurement
 
   driver_term:
     range: ECTOTerm
+    inlined: true
     description: ECTO environmental exposure or ENVO environmental condition term
 
   intervention_term:
     range: InterventionTerm
+    inlined: true
     description: Ontology term for the management or restoration intervention
 
   taxon:
     range: TaxonTerm
+    inlined: true
     description: NCBITaxon term for the organism
 
   role:
@@ -334,6 +341,7 @@ slots:
 
   chemical_agent:
     range: CHEBITerm
+    inlined: true
     description: CHEBI chemical entity (nutrient, pollutant, compound)
 
   # --- Evidence slots ---
@@ -377,6 +385,7 @@ slots:
 
   evidence:
     multivalued: true
+    inlined_as_list: true
     range: EvidenceItem
     description: List of evidence items supporting this assertion
 
@@ -396,56 +405,67 @@ slots:
 
   ecological_processes:
     multivalued: true
+    inlined_as_list: true
     range: ENVOProcessAnnotation
     description: ENVO ecological subprocess terms with evidence
 
   biological_processes:
     multivalued: true
+    inlined_as_list: true
     range: GOProcessAnnotation
     description: GO biological process terms with evidence
 
   chemical_entities:
     multivalued: true
+    inlined_as_list: true
     range: CHEBIAnnotation
     description: CHEBI chemical entity terms with evidence
 
   taxa_involved:
     multivalued: true
+    inlined_as_list: true
     range: TaxonDescriptor
     description: Taxa involved in this mechanism, with functional roles
 
   abiotic_conditions:
     multivalued: true
+    inlined_as_list: true
     range: AbioticCondition
     description: Abiotic environmental conditions relevant to the mechanism
 
   causal_edges:
     multivalued: true
+    inlined_as_list: true
     range: CausalEdge
     description: Directed causal relationships between named nodes in the mechanism
 
   mechanisms:
     multivalued: true
+    inlined_as_list: true
     range: Mechanism
     description: Mechanistic components of the ecological process
 
   indicators:
     multivalued: true
+    inlined_as_list: true
     range: EcologicalIndicator
     description: Observable ecological indicators associated with the process
 
   drivers:
     multivalued: true
+    inlined_as_list: true
     range: EcologicalDriver
     description: Ecological drivers or stressors modulating the process
 
   interventions:
     multivalued: true
+    inlined_as_list: true
     range: Intervention
     description: Management, conservation, or restoration interventions
 
   habitat_context:
     multivalued: true
+    inlined_as_list: true
     range: HabitatDescriptor
     description: Habitat or biome contexts in which the process occurs
 
@@ -483,6 +503,7 @@ slots:
 
   envo_condition_term:
     range: ENVOTerm
+    inlined: true
     description: ENVO term for an abiotic environmental condition or variable
 
   condition_value:
@@ -605,11 +626,11 @@ classes:
   ENVOProcessAnnotation:
     description: An ENVO ecological process or condition annotation with supporting evidence
     slots:
-      - term
       - evidence
     attributes:
       term:
         range: ENVOTerm
+        inlined: true
         required: true
 
   GOProcessAnnotation:
@@ -619,6 +640,7 @@ classes:
     attributes:
       term:
         range: GOTerm
+        inlined: true
         required: true
 
   CHEBIAnnotation:
@@ -628,6 +650,7 @@ classes:
     attributes:
       term:
         range: CHEBITerm
+        inlined: true
         required: true
 
   # --- Structural classes ---

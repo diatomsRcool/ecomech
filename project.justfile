@@ -1,8 +1,3 @@
-schema_path := "src/ecomech/schema/ecomech.yaml"
-processes_dir := "kb/processes"
-modules_dir := "kb/modules"
-groupings_dir := "kb/groupings"
-references_cache := "references_cache"
 
 # --- Research & Curation Helpers ---
 

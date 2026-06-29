@@ -16,7 +16,6 @@ adapters:
   UBERON: "sqlite:obo:uberon"       # Uberon multi-species anatomy (for organs in eco context)
 
   # Supplementary ontologies
-  NCBITaxon: "sqlite:obo:ncbitaxon"
   OBI: "sqlite:obo:obi"             # Ontology for Biomedical Investigations
   FOODON: "sqlite:obo:foodon"       # Food Ontology (for agroecosystem processes)
 

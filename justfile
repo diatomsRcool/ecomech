@@ -77,37 +77,38 @@ validate-modules:
 
 # Validate ontology terms in all process files
 validate-terms:
-    uv run linkml-term-validator -C EcologicalProcess \
-        --config conf/oak_config.yaml \
-        {{processes_dir}}/*.yaml
+    uv run linkml-term-validator validate {{processes_dir}}/*.yaml \
+        -s {{schema_path}} \
+        -c conf/oak_config.yaml
 
 # Validate ontology terms in a single file
 validate-terms-file file:
-    uv run linkml-term-validator -C EcologicalProcess \
-        --config conf/oak_config.yaml \
-        {{file}}
+    uv run linkml-term-validator validate {{file}} \
+        -s {{schema_path}} \
+        -c conf/oak_config.yaml
 
 # --- Reference Validation ---
 
 # Fetch and cache a PubMed reference
 fetch-reference ref:
-    uv run linkml-reference-validator fetch {{ref}} --cache-dir {{references_cache}}
+    uv run linkml-reference-validator cache reference {{ref}} \
+        -c {{references_cache}}
 
 # Validate references in a single file
 validate-references file:
-    uv run linkml-reference-validator validate \
-        --cache-dir {{references_cache}} \
-        --config .linkml-reference-validator.yaml \
-        {{file}}
+    uv run linkml-reference-validator validate data {{file}} \
+        -s {{schema_path}} \
+        -c {{references_cache}} \
+        --config .linkml-reference-validator.yaml
 
 # Validate references in all process files
 validate-references-all:
     @for f in {{processes_dir}}/*.yaml; do \
         echo "Validating references in $f..."; \
-        uv run linkml-reference-validator validate \
-            --cache-dir {{references_cache}} \
-            --config .linkml-reference-validator.yaml \
-            "$f" || exit 1; \
+        uv run linkml-reference-validator validate data "$f" \
+            -s {{schema_path}} \
+            -c {{references_cache}} \
+            --config .linkml-reference-validator.yaml || exit 1; \
     done
 
 # --- Quality Control ---
