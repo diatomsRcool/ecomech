@@ -22,6 +22,8 @@ prefixes:
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
   RO: http://purl.obolibrary.org/obo/RO_
   UBERON: http://purl.obolibrary.org/obo/UBERON_
+  oa: http://www.w3.org/ns/oa#
+  dcterms: http://purl.org/dc/terms/
   schema: http://schema.org/
   xsd: http://www.w3.org/2001/XMLSchema#
 
@@ -349,6 +351,7 @@ slots:
   reference:
     required: true
     range: string
+    slot_uri: dcterms:references
     description: >
       Publication reference identifier (e.g., PMID:12345678, DOI:10.xxxx/xxxx)
     in_subset:
@@ -373,6 +376,7 @@ slots:
 
   snippet:
     range: string
+    slot_uri: oa:exact
     description: >
       Exact verbatim quote from the cited reference abstract or main text.
       Must be an unaltered substring of the cached reference content.

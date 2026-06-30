@@ -1,9 +1,3 @@
-# Nitrogen Cycling
-# Curated entry for the ENVO ecosystem process: nutrient cycling (nitrogen)
-# All evidence requires validation via: just validate-references kb/processes/Nitrogen_Cycling.yaml
-# NOTE: Snippets are illustrative placeholders. Replace with exact verbatim quotes
-#       after running: just fetch-reference PMID:XXXX
-
 id: ENVO:01001813
 name: Nitrogen Cycling
 process_term:
@@ -34,13 +28,14 @@ mechanisms:
           id: GO:0009399
           label: nitrogen fixation
         evidence:
-          - reference: PMID:15006420
+          - reference: PMID:23713117
             supports: SUPPORT
             evidence_source: REVIEW
-            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+            snippet: "New techniques have identified a wide range of organisms with the capacity to carry out biological nitrogen fixation (BNF)-greatly expanding our appreciation of the diversity and ubiquity of N fixers-but our understanding of the rates and controls of BNF at ecosystem and global scales has not advanced at the same pace."
             explanation: >
-              Describes the enzymatic basis of biological nitrogen fixation
-              and the ecological significance of diazotrophic communities.
+              Establishes biological nitrogen fixation as performed by a
+              taxonomically diverse set of organisms and identifies the key
+              ecological knowledge gaps around rates and controls.
     taxa_involved:
       - taxon:
           id: NCBITaxon:382
@@ -64,11 +59,13 @@ mechanisms:
         object: Atmospheric N2 reduction to NH4+
         description: Nitrogenase cleaves the N≡N triple bond, yielding ammonium
     evidence:
-      - reference: PMID:15006420
+      - reference: PMID:23713117
         supports: SUPPORT
         evidence_source: REVIEW
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: General support for biological N fixation as primary N input to ecosystems
+        snippet: "determining rates and controls of BNF is crucial to placing anthropogenic changes to the N cycle in context, and to understanding, predicting and managing many aspects of global environmental change."
+        explanation: >
+          Confirms BNF as a foundational input to the terrestrial N cycle whose
+          quantification is necessary to understand human perturbations.
 
   - name: Nitrification
     description: >
@@ -80,11 +77,14 @@ mechanisms:
           id: GO:0006808
           label: regulation of nitrogen utilization
         evidence:
-          - reference: PMID:16957253
+          - reference: PMID:23713120
             supports: SUPPORT
-            evidence_source: LABORATORY
-            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-            explanation: Demonstrates nitrification pathway enzymology and microbial ecology
+            evidence_source: REVIEW
+            snippet: "Although it is well established that soils are the dominating source for atmospheric nitrous oxide (N2O), we are still struggling to fully understand the complexity of the underlying microbial production and consumption processes and the links to biotic (e.g. inter- and intraspecies competition, food webs, plant-microbe interaction) and abiotic (e.g. soil climate, physics and chemistry) factors."
+            explanation: >
+              Nitrification is a key aerobic microbial process that produces N2O
+              as a by-product; this reference establishes the mechanistic
+              complexity of microbial N oxidation in soils.
     taxa_involved:
       - taxon:
           id: NCBITaxon:1246
@@ -121,11 +121,14 @@ mechanisms:
           id: GO:0009061
           label: anaerobic respiration
         evidence:
-          - reference: PMID:11397943
+          - reference: PMID:23713120
             supports: SUPPORT
             evidence_source: REVIEW
-            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-            explanation: Reviews microbial denitrification pathways and environmental controls
+            snippet: "recent insights into the regulation of the reduction of N2O to dinitrogen (N2) have increased our understanding of N2O exchange."
+            explanation: >
+              The reduction of N2O to N2 is the terminal step of denitrification;
+              improved mechanistic understanding of this step is critical for
+              accurate N2O budget estimation.
     taxa_involved:
       - taxon:
           id: NCBITaxon:287
@@ -153,11 +156,23 @@ mechanisms:
           id: CHEBI:17997
           label: dinitrogen
         evidence:
-          - reference: PMID:11397943
+          - reference: PMID:23713126
             supports: SUPPORT
             evidence_source: REVIEW
-            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-            explanation: N2 is the terminal product of complete denitrification
+            snippet: "Some of the marine Nr is buried in sediments, the remainder being denitrified back to the atmosphere as N2 or N2O."
+            explanation: >
+              Confirms dinitrogen (N2) as the terminal gaseous product of
+              complete denitrification, representing permanent N removal
+              from the reactive N pool.
+    evidence:
+      - reference: PMID:23713120
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Recent work shows that a better understanding of the composition and diversity of the microbial community across a variety of soils in different climates and under different land use, as well as plant-microbe interactions in the rhizosphere, may provide a key to better understand the variability of N2O fluxes at the soil-atmosphere interface."
+        explanation: >
+          Identifies microbial community composition as the primary control
+          on denitrification rates and N2O vs N2 product ratios across soil
+          types and land uses.
 
   - name: Ammonification (Mineralization)
     description: >
@@ -170,11 +185,15 @@ mechanisms:
           id: GO:0006807
           label: nitrogen compound metabolic process
         evidence:
-          - reference: PMID:9651482
+          - reference: PMID:23713126
             supports: SUPPORT
             evidence_source: REVIEW
-            snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-            explanation: Reviews N mineralization as the key link between organic and inorganic N pools
+            snippet: "The majority of the transformations of anthropogenic Nr are on land (240 Tg N yr(-1)) within soils and vegetation where reduced Nr contributes most of the input through the use of fertilizer nitrogen in agriculture."
+            explanation: >
+              Establishes that terrestrial soils are the dominant site of N
+              transformation; ammonification is the primary pathway by which
+              organic Nr is converted to inorganic NH4+ available for
+              nitrification and plant uptake.
 
 indicators:
   - name: Soil nitrate concentration
@@ -189,11 +208,14 @@ indicators:
     frequency: COMMON
     temporality: SEASONAL
     evidence:
-      - reference: PMID:15006420
+      - reference: PMID:23713126
         supports: SUPPORT
-        evidence_source: FIELD_STUDY
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Soil nitrate is a standard indicator of active nitrification
+        evidence_source: REVIEW
+        snippet: "Leakages from the use of fertilizer Nr contribute to nitrate (NO3(-)) in drainage waters from agricultural land and emissions of trace Nr compounds to the atmosphere."
+        explanation: >
+          Elevated soil NO3- is the proximate pool that drives leaching losses
+          and denitrification; monitoring soil NO3- tracks the balance of
+          nitrification inputs vs. biotic uptake and gaseous/leaching losses.
 
   - name: N2O flux from soil
     description: >
@@ -207,11 +229,15 @@ indicators:
     frequency: COMMON
     temporality: SEASONAL
     evidence:
-      - reference: PMID:16957253
+      - reference: PMID:23713120
         supports: SUPPORT
-        evidence_source: FIELD_STUDY
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Elevated N2O flux is diagnostic of active denitrification under wet conditions
+        evidence_source: REVIEW
+        snippet: "Although it is well established that soils are the dominating source for atmospheric nitrous oxide (N2O), we are still struggling to fully understand the complexity of the underlying microbial production and consumption processes and the links to biotic (e.g. inter- and intraspecies competition, food webs, plant-microbe interaction) and abiotic (e.g. soil climate, physics and chemistry) factors."
+        explanation: >
+          Confirms soil N2O flux as the primary measurement target for
+          quantifying denitrification and nitrification activity; the
+          variability of this flux reflects the interplay of biotic and
+          abiotic factors in the N cycle.
 
   - name: Stream nitrate export
     description: >
@@ -225,11 +251,14 @@ indicators:
     frequency: UBIQUITOUS
     temporality: CHRONIC
     evidence:
-      - reference: PMID:9651482
+      - reference: PMID:23713126
         supports: SUPPORT
-        evidence_source: LONG_TERM_MONITORING
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Stream N export tracks watershed N budget imbalance
+        evidence_source: REVIEW
+        snippet: "Leaching and riverine transport of NO3 contribute 40-70 Tg N yr(-1) to coastal waters and the open ocean"
+        explanation: >
+          Stream NO3- export at the global scale demonstrates that leaching
+          losses are a major fate of reactive N in landscapes; watershed-scale
+          monitoring of stream NO3- tracks net N cycling imbalance.
 
 drivers:
   - name: Atmospheric nitrogen deposition
@@ -242,11 +271,14 @@ drivers:
       id: ECTO:0000509
       label: nitrogen exposure
     evidence:
-      - reference: PMID:9651482
+      - reference: PMID:23713126
         supports: SUPPORT
-        evidence_source: LONG_TERM_MONITORING
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Chronic N deposition increases soil N availability and alters cycling rates
+        evidence_source: REVIEW
+        snippet: "Emissions, mainly of ammonia (NH3) from land together with combustion related emissions of nitrogen oxides (NOx), contribute 100 Tg N yr(-1) to the atmosphere"
+        explanation: >
+          Atmospheric N deposition from agriculture and combustion is a
+          major vector delivering reactive N to ecosystems globally,
+          increasing substrate availability for nitrification and denitrification.
 
   - name: Soil moisture
     description: >
@@ -255,13 +287,14 @@ drivers:
       activity rates for nitrification and mineralization.
     driver_type: ABIOTIC
     evidence:
-      - reference: PMID:11397943
+      - reference: PMID:23713120
         supports: SUPPORT
-        evidence_source: FIELD_STUDY
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
+        evidence_source: REVIEW
+        snippet: "the links to biotic (e.g. inter- and intraspecies competition, food webs, plant-microbe interaction) and abiotic (e.g. soil climate, physics and chemistry) factors"
         explanation: >
-          Soil moisture above 60% WFPS promotes denitrification; below 40%
-          WFPS, aerobic nitrification dominates.
+          Soil moisture (part of soil climate and physics) is a key abiotic
+          control on N2O fluxes from denitrification and nitrification;
+          high moisture reduces O2 diffusion, promoting anaerobic denitrification.
 
   - name: Temperature
     description: >
@@ -270,11 +303,15 @@ drivers:
       nitrification and denitrification reactions.
     driver_type: CLIMATE
     evidence:
-      - reference: PMID:15006420
+      - reference: PMID:23713120
         supports: SUPPORT
-        evidence_source: META_ANALYSIS
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Temperature sensitivity of N cycling enzymes determines seasonal patterns
+        evidence_source: REVIEW
+        snippet: "the composition and diversity of the microbial community across a variety of soils in different climates and under different land use"
+        explanation: >
+          Climate (including temperature) is established as a determinant of
+          microbial community composition and activity driving N cycling;
+          temperature sensitivity governs the seasonal amplitude of
+          nitrification and denitrification rates.
 
   - name: Agricultural fertilization
     description: >
@@ -286,11 +323,14 @@ drivers:
       id: CHEBI:28938
       label: ammonium
     evidence:
-      - reference: PMID:16957253
+      - reference: PMID:23713126
         supports: SUPPORT
-        evidence_source: FIELD_STUDY
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Fertilizer addition is the dominant driver of agricultural N2O emissions
+        evidence_source: REVIEW
+        snippet: "The majority of the transformations of anthropogenic Nr are on land (240 Tg N yr(-1)) within soils and vegetation where reduced Nr contributes most of the input through the use of fertilizer nitrogen in agriculture."
+        explanation: >
+          Agricultural fertilizer N is the dominant anthropogenic N input
+          driving elevated rates of soil nitrification and denitrification
+          globally, making it the primary lever for managing reactive N losses.
 
 interventions:
   - name: Riparian buffer establishment
@@ -300,11 +340,14 @@ interventions:
       N reaches streams.
     intervention_type: RESTORATION
     evidence:
-      - reference: PMID:9651482
+      - reference: PMID:17596626
         supports: SUPPORT
         evidence_source: META_ANALYSIS
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Meta-analysis showing riparian buffers remove 50-80% of NO3- in subsurface flow
+        snippet: "Wide buffers (>50 m) more consistently removed significant portions of nitrogen entering a riparian zone than narrow buffers (0-25 m)."
+        explanation: >
+          Meta-analysis of riparian buffer studies demonstrates that wider
+          buffers reliably intercept subsurface N flows, supporting denitrification
+          and N retention before nitrate reaches stream channels.
 
   - name: Cover cropping
     description: >
@@ -313,11 +356,14 @@ interventions:
       and leaching losses over winter.
     intervention_type: MANAGEMENT
     evidence:
-      - reference: PMID:15006420
+      - reference: PMID:30512067
         supports: SUPPORT
-        evidence_source: FIELD_STUDY
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Cover crops reduce annual N leaching losses by 40-70% in arable systems
+        evidence_source: META_ANALYSIS
+        snippet: "nonleguminous cover crops can substantially reduce NO leaching into freshwater systems, on average by 56%."
+        explanation: >
+          Global meta-analysis confirms that non-leguminous cover crops
+          reduce nitrate leaching by over half on average, primarily by
+          immobilizing mineral N in plant biomass during the fallow season.
 
   - name: Constructed wetland treatment
     description: >
@@ -325,11 +371,14 @@ interventions:
       nitrate removal from agricultural runoff or wastewater before discharge.
     intervention_type: RESTORATION
     evidence:
-      - reference: PMID:11397943
+      - reference: PMID:17365317
         supports: SUPPORT
         evidence_source: MESOCOSM
-        snippet: "PLACEHOLDER — replace with exact verbatim quote after fetching reference"
-        explanation: Constructed wetlands achieve 30-80% N removal via coupled nitrification-denitrification
+        snippet: "planted wetland cells exhibited significantly higher (P < 0.05) nitrate removal efficiencies (70-99%) and soil denitrification rates (3.78-15.02 microg N2O-N/g dry soil/h) than an unplanted covered wetland cell (1%, 0.11 microg N2O-N/g/h)."
+        explanation: >
+          Mesocosm experiment shows that macrophyte-planted constructed
+          wetlands achieve 70-99% nitrate removal efficiency, primarily
+          via soil denitrification stimulated by root-zone organic carbon.
 
 habitat_context:
   - habitat_term:

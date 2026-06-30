@@ -98,6 +98,7 @@ fetch-reference ref:
 validate-references file:
     uv run linkml-reference-validator validate data {{file}} \
         -s {{schema_path}} \
+        -t EcologicalProcess \
         -c {{references_cache}} \
         --config .linkml-reference-validator.yaml
 
@@ -107,6 +108,7 @@ validate-references-all:
         echo "Validating references in $f..."; \
         uv run linkml-reference-validator validate data "$f" \
             -s {{schema_path}} \
+            -t EcologicalProcess \
             -c {{references_cache}} \
             --config .linkml-reference-validator.yaml || exit 1; \
     done
