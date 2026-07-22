@@ -1,0 +1,40 @@
+name: QC
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install just
+        uses: extractions/setup-just@v2
+
+      - name: Install dependencies
+        run: just install
+
+      - name: Cache OAK ontology databases
+        uses: actions/cache@v4
+        with:
+          path: ~/.data/oaklib
+          key: oaklib-${{ hashFiles('conf/oak_config.yaml') }}
+          restore-keys: oaklib-
+
+      - name: Validate schema and entries
+        run: just validate-all
+
+      - name: Validate ontology terms
+        run: just validate-terms
+
+      - name: Validate reference snippets
+        run: just validate-references-all
