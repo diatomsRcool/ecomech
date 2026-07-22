@@ -1,0 +1,437 @@
+id: ENVO:02500010
+name: Carbon Cycling
+process_term:
+  id: ENVO:02500010
+  label: carbon cycling
+description: >
+  Carbon cycling encompasses the biotic and abiotic transformations of carbon
+  among the atmosphere, living biomass, soil organic matter, and aquatic systems.
+  Photosynthesis (gross primary production) is the dominant carbon uptake flux;
+  autotrophic and heterotrophic respiration, decomposition, and combustion return
+  CO2 to the atmosphere. Terrestrial forests currently sequester ~2.4 Pg C yr⁻¹,
+  partially offsetting anthropogenic fossil fuel emissions. Soil respiration is the
+  second-largest terrestrial carbon flux and is sensitive to temperature, creating
+  a potential positive feedback under climate change. Tropical land-use change
+  (deforestation) is a major net carbon source. The global carbon cycle is tightly
+  coupled to the nitrogen and phosphorus cycles.
+synonyms:
+  - carbon biogeochemical cycle
+  - C cycle
+  - terrestrial carbon cycle
+ecological_scale: GLOBAL
+
+mechanisms:
+  - name: Gross Primary Production (Photosynthesis)
+    description: >
+      Autotrophic organisms—principally vascular plants, phytoplankton, and
+      cyanobacteria—fix atmospheric CO2 into organic carbon via photosynthesis.
+      Terrestrial GPP is estimated at ~123 Pg C yr⁻¹ globally, making it the
+      largest global CO2 flux. GPP is strongly controlled by light, temperature,
+      precipitation, and nutrient availability; tropical forests and savannahs
+      account for ~60% of terrestrial GPP.
+    biological_processes:
+      - term:
+          id: GO:0015977
+          label: carbon fixation
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Terrestrial gross primary production (GPP) is the largest global CO(2) flux driving several ecosystem functions."
+            explanation: >
+              Establishes GPP as the dominant global CO2 uptake flux, underpinning
+              the central role of photosynthetic carbon fixation in regulating
+              atmospheric CO2 and ecosystem productivity globally.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:33090
+          label: Viridiplantae
+        role: PRIMARY_PRODUCER
+        description: Land plants account for the majority of terrestrial GPP through C3, C4, and CAM photosynthesis
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: PRIMARY_PRODUCER
+        description: Cyanobacteria contribute substantially to marine and freshwater GPP and were responsible for Earth's early oxygenation
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: GPP shows a hump-shaped response to temperature; optimal at 15–30°C depending on ecosystem type
+    causal_edges:
+      - subject: Photosynthetically active radiation
+        predicate: ENABLES
+        object: CO2 fixation into organic carbon
+        description: Light drives the light-dependent reactions of photosynthesis
+      - subject: Stomatal conductance
+        predicate: MODULATES
+        object: CO2 diffusion into leaf mesophyll
+        description: Stomata regulate the trade-off between CO2 uptake and water loss
+    chemical_entities:
+      - term:
+          id: CHEBI:16526
+          label: carbon dioxide
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "We provide an observation-based estimate of this flux at 123 +/- 8 petagrams of carbon per year (Pg C year(-1)) using eddy covariance flux data and various diagnostic models."
+            explanation: >
+              Quantifies the global rate of atmospheric CO2 removal by photosynthesis;
+              CO2 is the substrate for carbon fixation and its drawdown is the
+              primary mechanism by which the terrestrial biosphere moderates
+              atmospheric greenhouse gas concentrations.
+    evidence:
+      - reference: PMID:20603496
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Tropical forests and savannahs account for 60%."
+        explanation: >
+          Demonstrates that tropical vegetation dominates global carbon fixation,
+          making the integrity of tropical forests critical to the regulation
+          of atmospheric CO2 and global climate.
+
+  - name: Ecosystem Respiration and Soil Carbon Decomposition
+    description: >
+      Autotrophic (plant) and heterotrophic (microbial and faunal) respiration
+      return organic carbon to the atmosphere as CO2. Soil respiration—the sum of
+      root respiration and microbial decomposition of soil organic matter—is the
+      second-largest terrestrial carbon flux at ~98 Pg C yr⁻¹ globally, and
+      increases with temperature (Q10 ≈ 1.5), potentially constituting a
+      positive feedback to climate warming.
+    biological_processes:
+      - term:
+          id: GO:0045333
+          label: cellular respiration
+        evidence:
+          - reference: PMID:20336143
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "Soil respiration, R(S), the flux of microbially and plant-respired carbon dioxide (CO(2)) from the soil surface to the atmosphere, is the second-largest terrestrial carbon flux."
+            explanation: >
+              Establishes soil respiration as the dominant pathway of carbon return
+              to the atmosphere in terrestrial ecosystems; its quantification is
+              essential for constraining the net terrestrial carbon balance.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        description: Saprotrophic fungi are the primary decomposers of recalcitrant organic matter (lignin, cellulose) in terrestrial soils
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: Soil bacteria decompose labile carbon fractions and drive a large fraction of total soil respiration
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "Q10 = 1.5 globally"
+        description: >
+          Soil respiration increases exponentially with temperature; global R(S) rose
+          by 0.1 Pg C yr⁻¹ between 1989 and 2008, correlated with air temperature anomaly
+    causal_edges:
+      - subject: Soil temperature increase
+        predicate: CAUSES
+        object: Increased microbial decomposition rates
+        description: Enzymatic reaction rates accelerate with temperature following Arrhenius kinetics
+      - subject: Soil moisture
+        predicate: MODULATES
+        object: Microbial respiration activity
+        description: Moisture controls substrate diffusion and aeration, mediating decomposition rates
+    chemical_entities:
+      - term:
+          id: CHEBI:16526
+          label: carbon dioxide
+        evidence:
+          - reference: PMID:20336143
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "We estimate that the global R(S) in 2008 (that is, the flux integrated over the Earth's land surface over 2008) was 98 +/- 12 Pg C and that it increased by 0.1 Pg C yr(-1) between 1989 and 2008, implying a global R(S) response to air temperature (Q(10)) of 1.5."
+            explanation: >
+              Quantifies the magnitude of global soil CO2 efflux and its temperature
+              sensitivity; the observed 0.1 Pg C yr⁻¹ increase is consistent with
+              a warming-driven acceleration of the carbon cycle.
+    evidence:
+      - reference: PMID:20336143
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "The available data are, however, consistent with an acceleration of the terrestrial carbon cycle in response to global climate change."
+        explanation: >
+          The long-term increase in global soil respiration is consistent with
+          climate-driven positive feedback in the carbon cycle; as warming
+          accelerates decomposition, additional CO2 is released that may amplify
+          warming in a self-reinforcing loop.
+
+  - name: Forest Biomass Carbon Sequestration
+    description: >
+      Net accumulation of carbon in living forest biomass (aboveground and
+      belowground) represents the primary long-term terrestrial carbon sink.
+      Global intact forests sequester ~2.4 Pg C yr⁻¹, partially offsetting
+      fossil fuel emissions, while tropical deforestation releases ~1.3 Pg C yr⁻¹.
+      Carbon residence time in biomass ranges from decades (fast-growing tropical
+      trees) to centuries (old-growth temperate and boreal forests).
+    biological_processes:
+      - term:
+          id: GO:0015977
+          label: carbon fixation
+        evidence:
+          - reference: PMID:21764754
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "we estimate a total forest sink of 2.4 ± 0.4 petagrams of carbon per year (Pg C year(-1)) globally for 1990 to 2007"
+            explanation: >
+              Quantifies the global forest carbon sink from inventory and long-term
+              flux data; this sink represents net carbon fixation exceeding carbon
+              losses from respiration and disturbance in forests worldwide.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:33090
+          label: Viridiplantae
+        role: PRIMARY_PRODUCER
+        description: Forest trees accumulate the majority of terrestrial above-ground biomass carbon
+    causal_edges:
+      - subject: Net photosynthesis exceeding autotrophic respiration
+        predicate: CAUSES
+        object: Net biomass carbon accumulation in forest ecosystems
+      - subject: Tropical deforestation
+        predicate: CAUSES
+        object: Net release of forest biomass carbon to atmosphere
+        description: Conversion of forests to agriculture reverses the forest carbon sink
+    chemical_entities:
+      - term:
+          id: CHEBI:16526
+          label: carbon dioxide
+        evidence:
+          - reference: PMID:21764754
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "We also estimate a source of 1.3 ± 0.7 Pg C year(-1) from tropical land-use change, consisting of a gross tropical deforestation emission of 2.9 ± 0.5 Pg C year(-1) partially compensated by a carbon sink in tropical forest regrowth of 1.6 ± 0.5 Pg C year(-1)."
+            explanation: >
+              Demonstrates the dual role of tropical forests as both a large
+              carbon source (when cleared) and sink (during regrowth), with the
+              net balance critically dependent on deforestation rates and the
+              extent of secondary forest recovery.
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "The terrestrial carbon sink has been large in recent decades, but its size and location remain uncertain."
+        explanation: >
+          Pan et al. establish the magnitude of the global forest carbon sink
+          using forest inventory data; the persistent sink results from net
+          carbon uptake in temperate and boreal forests exceeding tropical
+          deforestation emissions.
+
+indicators:
+  - name: Net Ecosystem Production
+    description: >
+      NEP is the net carbon balance between GPP and total ecosystem respiration
+      (autotrophic + heterotrophic), measured by eddy covariance flux towers. A
+      positive NEP indicates net carbon uptake; negative NEP indicates a net
+      carbon source. NEP integrates both photosynthetic and respiratory components
+      of ecosystem carbon cycling.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "NEP in g C m(-2) yr(-1) (eddy covariance flux tower, gap-filled)"
+    frequency: UBIQUITOUS
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:20603496
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "GPP over 40% of the vegetated land is associated with precipitation."
+        explanation: >
+          The strong climate covariation of GPP (and thus NEP) identified here
+          confirms that eddy-covariance-derived NEP is an effective indicator
+          of ecosystem carbon status and its climate sensitivity.
+
+  - name: Soil organic carbon stock
+    description: >
+      The mass of organic carbon stored in the soil profile (0–100 cm) represents
+      the largest terrestrial carbon pool (~1,500 Pg C in the top meter). Changes
+      in soil organic carbon stocks integrate the balance between organic matter
+      inputs and decomposition and are a key indicator of ecosystem carbon
+      sequestration or loss.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "SOC in Mg C ha(-1) (loss-on-ignition or Walkley-Black, 0–30 cm)"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:20336143
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "We find that the air temperature anomaly (the deviation from the 1961-1990 mean) is significantly and positively correlated with changes in R(S)."
+        explanation: >
+          The positive correlation between temperature and soil respiration
+          indicates that warming accelerates soil organic matter decomposition;
+          monitoring SOC stocks over time captures net losses driven by this
+          temperature sensitivity.
+
+  - name: Atmospheric CO2 concentration trend
+    description: >
+      Atmospheric CO2 concentration (ppm) measured at background monitoring
+      stations (e.g., Mauna Loa) provides a global integrator of all carbon
+      cycle fluxes. Seasonal drawdown reflects GPP; the long-term annual increase
+      reflects the imbalance between anthropogenic emissions and natural sinks.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "CO2 in ppm (NDIR spectroscopy, continuous monitoring)"
+    frequency: UBIQUITOUS
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "Our total forest sink estimate is equivalent in magnitude to the terrestrial sink deduced from fossil fuel emissions and land-use change sources minus ocean and atmospheric sinks."
+        explanation: >
+          Atmospheric CO2 bookkeeping—using fossil fuel emissions and atmospheric
+          accumulation—is the primary method for inferring the global terrestrial
+          carbon sink size estimated by Pan et al., confirming atmospheric CO2
+          trend as the master carbon cycle indicator.
+
+drivers:
+  - name: Temperature
+    description: >
+      Temperature is the primary climatic control on both GPP (via enzymatic
+      rates and growing season length) and respiration (via microbial and
+      autotrophic metabolic rates), with the net effect on the carbon balance
+      depending on the relative sensitivity of production vs. decomposition.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:20336143
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "Ecosystem warming experiments, modelling analyses and fundamental biokinetics all suggest that R(S) should change with climate."
+        explanation: >
+          Multiple lines of evidence converge on temperature as the dominant
+          driver of soil respiration rates; warming-driven increases in R(S)
+          represent the primary mechanism by which climate change could shift
+          ecosystems from carbon sinks to sources.
+
+  - name: Precipitation and soil moisture
+    description: >
+      Water availability limits GPP over 40% of the vegetated land surface,
+      particularly in semi-arid and seasonally dry ecosystems. Drought reduces
+      stomatal conductance and photosynthesis while also modulating microbial
+      respiration rates.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:20603496
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "GPP over 40% of the vegetated land is associated with precipitation."
+        explanation: >
+          Water limitation of GPP across 40% of vegetated land underscores
+          precipitation as a co-equal climate driver with temperature;
+          projected drying under climate change will reduce carbon uptake
+          in these precipitation-controlled ecosystems.
+
+  - name: Land-use change and deforestation
+    description: >
+      Conversion of forest to agriculture is the second-largest anthropogenic
+      CO2 emission source after fossil fuels. Tropical deforestation releases
+      stored biomass and soil carbon while simultaneously eliminating the
+      ongoing forest carbon sink.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "We also estimate a source of 1.3 ± 0.7 Pg C year(-1) from tropical land-use change, consisting of a gross tropical deforestation emission of 2.9 ± 0.5 Pg C year(-1) partially compensated by a carbon sink in tropical forest regrowth of 1.6 ± 0.5 Pg C year(-1)."
+        explanation: >
+          Quantifies the net carbon source from tropical land-use change at
+          1.3 Pg C yr⁻¹, representing a major anthropogenic perturbation to
+          the global carbon cycle that partially offsets the intact forest sink.
+
+  - name: Atmospheric CO2 fertilization
+    description: >
+      Rising atmospheric CO2 concentrations increase photosynthetic carbon
+      fixation rates in many plant species (the CO2 fertilization effect),
+      contributing to the observed enhancement of the global terrestrial carbon
+      sink over recent decades.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "Together, the fluxes comprise a net global forest sink of 1.1 ± 0.8 Pg C year(-1), with tropical estimates having the largest uncertainties."
+        explanation: >
+          The persistent and globally distributed forest carbon sink documented
+          here is partly attributable to CO2 fertilization alongside N deposition
+          and recovery from historical disturbance; disentangling these drivers
+          remains a central challenge in carbon cycle science.
+
+interventions:
+  - name: Reforestation and forest restoration
+    description: >
+      Restoration of degraded forests and reforestation of former agricultural
+      land restores the biomass carbon sink, with tropical reforestation offering
+      the highest rates of carbon sequestration per unit area.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "a carbon sink in tropical forest regrowth of 1.6 ± 0.5 Pg C year(-1)"
+        explanation: >
+          Tropical secondary forest regrowth is already sequestering 1.6 Pg C yr⁻¹
+          globally, demonstrating the carbon sequestration potential of allowing
+          or actively promoting forest recovery on degraded tropical lands.
+
+  - name: Reduced tropical deforestation
+    description: >
+      Policies and programs that reduce deforestation rates in tropical regions
+      (REDD+) avoid large carbon emissions from biomass combustion and decomposition
+      while maintaining ongoing forest carbon sinks and ecosystem services.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "a gross tropical deforestation emission of 2.9 ± 0.5 Pg C year(-1) partially compensated by a carbon sink in tropical forest regrowth of 1.6 ± 0.5 Pg C year(-1)."
+        explanation: >
+          The large gross deforestation emission of 2.9 Pg C yr⁻¹ demonstrates
+          the climate impact of halting tropical deforestation; avoided emissions
+          from protecting intact tropical forests represent one of the largest
+          near-term climate mitigation opportunities.
+
+  - name: Soil carbon management through cover cropping
+    description: >
+      Growing cover crops during fallow periods increases organic matter inputs
+      to soil, builds soil organic carbon stocks, and reduces decomposition of
+      existing SOC by maintaining soil biological activity and structure.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:20336143
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "An increasing global R(S) value does not necessarily constitute a positive feedback to the atmosphere, as it could be driven by higher carbon inputs to soil rather than by mobilization of stored older carbon."
+        explanation: >
+          Management practices that increase carbon inputs (like cover cropping)
+          can drive increases in soil respiration that represent cycling of new
+          organic matter rather than loss of stored carbon; distinguishing these
+          pathways is key to effective soil carbon management.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: Temperate forests are significant carbon sinks; soil carbon pools often exceed biomass carbon
+
+  - habitat_term:
+      id: ENVO:00000873
+      label: freshwater lake
+    description: Lakes are small but important carbon processing nodes, emitting CO2 and CH4 while burying organic carbon in sediments
+
+  - habitat_term:
+      id: ENVO:00000015
+      label: cropland ecosystem
+    description: Agricultural soils have lost significant SOC through tillage; soil carbon restoration is a major management target
+
+creation_date: "2025-07-22T00:00:00Z"

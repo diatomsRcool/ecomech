@@ -1,0 +1,421 @@
+id: ENVO:01001331
+name: Sulfur Cycling
+process_term:
+  id: ENVO:01001331
+  label: sulfur cycling
+description: >
+  Sulfur cycling encompasses the biogeochemical transformations of sulfur through
+  its multiple oxidation states (−2 to +6) across terrestrial, freshwater, and
+  marine ecosystems. Dissimilatory sulfate reduction by anaerobic microorganisms
+  is the dominant pathway in marine sediments, where sulfate (SO4²⁻) serves as
+  the terminal electron acceptor for organic matter decomposition, producing
+  hydrogen sulfide (H2S). Chemolithotrophic sulfur-oxidizing bacteria and archaea
+  reoxidize reduced sulfur compounds back to sulfate in aerobic and chemocline
+  environments. Volatile organic sulfur compounds (DMS, methanethiol) are
+  important intermediates in ocean-atmosphere sulfur exchange. Anthropogenic
+  emissions of SO2 from fossil fuel combustion have profoundly perturbed the
+  atmospheric sulfur cycle through acid rain deposition.
+synonyms:
+  - sulfur biogeochemical cycle
+  - S cycle
+  - sulfur biogeochemistry
+ecological_scale: GLOBAL
+
+mechanisms:
+  - name: Dissimilatory Sulfate Reduction
+    description: >
+      Sulfate-reducing bacteria and archaea (SRB/SRA) use dissolved sulfate as
+      the terminal electron acceptor for anaerobic oxidation of organic carbon
+      or hydrogen, producing hydrogen sulfide (H2S). This process is the dominant
+      anaerobic decomposition pathway in marine sediments and is estimated to be
+      responsible for up to 50% of organic matter remineralization in coastal
+      sediments. It is one of Earth's oldest metabolic pathways, with isotopic
+      evidence extending back ~3.47 billion years.
+    biological_processes:
+      - term:
+          id: GO:0009061
+          label: anaerobic respiration
+        evidence:
+          - reference: PMID:11242044
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Sulphate-reducing microbes affect the modern sulphur cycle, and may be quite ancient, though when they evolved is uncertain. These organisms produce sulphide while oxidizing organic matter or hydrogen with sulphate."
+            explanation: >
+              Establishes the core biochemistry of dissimilatory sulfate reduction—
+              coupling organic matter oxidation to sulfate reduction—and provides
+              geological evidence for its antiquity, confirming it as the foundational
+              anaerobic respiratory pathway in the sulfur cycle.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:872
+          label: Desulfovibrio
+        role: OTHER
+        description: Sulfate-reducing bacteria that couple organic matter or H2 oxidation to sulfate reduction under anaerobic conditions
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01001547
+          label: anaerobic environment
+        description: Sulfate reduction requires anoxic conditions; typically active below the sulfate-oxygen transition zone
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "20–35°C optimal"
+        description: Mesophilic sulfate reducers dominate most environments; thermophilic SRB active in hydrothermal settings
+    causal_edges:
+      - subject: Sulfate-reducing microorganisms
+        predicate: CAUSES
+        object: Reduction of SO4(2-) to H2S
+        description: Anaerobic respiration using sulfate as terminal electron acceptor
+      - subject: H2S production
+        predicate: CAUSES
+        object: Precipitation of iron sulfide minerals (FeS, FeS2)
+        description: H2S reacts with ferrous iron to form pyrite, permanently sequestering sulfur in sediments
+    chemical_entities:
+      - term:
+          id: CHEBI:16189
+          label: sulfate
+        evidence:
+          - reference: PMID:28419734
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Sulfur cycling, which is primarily driven by sulfate reduction, is tightly interwoven with other important element cycles (carbon, nitrogen, iron, manganese) and therefore has profound implications for both cellular- and ecosystem-level processes."
+            explanation: >
+              Confirms sulfate reduction as the dominant sulfur transformation
+              in marine sediments and highlights its coupling to carbon and iron
+              cycles; sulfate consumption in sediments is the primary driver
+              of the global marine sulfur cycle.
+    evidence:
+      - reference: PMID:11242044
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Our results extend the geological record of microbial sulphate reduction back more than 750 million years, and represent direct evidence of an early specific metabolic pathway--allowing time calibration of a deep node on the tree of life."
+        explanation: >
+          The antiquity of dissimilatory sulfate reduction establishes it as
+          one of the earliest evolved metabolic pathways; the 3.47 Ga fossil
+          record demonstrates that sulfur cycling has been a core component
+          of Earth's biogeochemistry since the Archaean.
+
+  - name: Chemolithotrophic Sulfur Oxidation
+    description: >
+      Sulfur-oxidizing bacteria (SOB) and archaea oxidize reduced sulfur compounds
+      (H2S, elemental sulfur S°, thiosulfate S2O3²⁻, sulfite SO3²⁻) back to sulfate,
+      completing the sulfur redox cycle. Alphaproteobacteria possessing the Sox
+      multienzyme system perform complete oxidation to sulfate; other lineages
+      use alternative pathways. SOB include aerobic chemolithotrophs (Thiobacillus,
+      Beggiatoa), anoxygenic phototrophs (Chlorobium), and endosymbionts.
+    biological_processes:
+      - term:
+          id: GO:0015977
+          label: carbon fixation
+        evidence:
+          - reference: PMID:15939347
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "members of the Alphaproteobacteria harbor the complete sulfur-oxidizing Sox enzyme system, whereas members of the beta and gamma subclass and the Chlorobiaceae contain sox gene clusters that lack the genes encoding sulfur dehydrogenase."
+            explanation: >
+              Chemolithoautotrophic SOB fix CO2 using energy from sulfur oxidation;
+              the diversity of Sox enzyme configurations across bacterial lineages
+              reflects the multiple evolutionary routes to sulfur-based
+              chemolithotrophy, coupling sulfur oxidation to primary production
+              in anoxic and chemocline environments.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:921
+          label: Thiobacillus
+        role: OTHER
+        description: Chemolithotrophic sulfur-oxidizing bacteria oxidizing H2S and thiosulfate to sulfate in aerobic and microaerobic zones
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000061
+          label: soil pH
+        description: Acidophilic sulfur oxidizers (Acidithiobacillus) active at pH <4; circumneutral-pH SOB dominate neutral soils and sediments
+    causal_edges:
+      - subject: Sulfur-oxidizing bacteria
+        predicate: CAUSES
+        object: Oxidation of H2S and S0 to sulfate
+        description: Enzymatic oxidation using Sox system or alternative thiosulfate pathways
+      - subject: Sulfur oxidation zones
+        predicate: ENABLES
+        object: Chemolithoautotrophic primary production in dark sediments and hydrothermal vents
+    evidence:
+      - reference: PMID:15939347
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Acidophilic bacteria oxidize sulfur by a system different from the Sox enzyme system, as do chemotrophic endosymbiotic bacteria."
+        explanation: >
+          Demonstrates the mechanistic diversity of sulfur oxidation across
+          different bacterial lineages and ecological niches; this diversity
+          enables SOB to occupy the full range of oxic/anoxic transition zones
+          in soils, sediments, and hydrothermal environments.
+
+  - name: Volatile Organic Sulfur Compound (VOSC) Cycling
+    description: >
+      Dimethyl sulfide (DMS) and methanethiol (MT) are the dominant volatile
+      organic sulfur compounds cycling through freshwater and marine ecosystems.
+      In marine systems, DMS originates primarily from enzymatic cleavage of
+      dimethylsulfoniopropionate (DMSP) produced by marine phytoplankton; in
+      freshwater systems, methylation of H2S and degradation of sulfur-containing
+      amino acids are the main production routes. DMS is the largest natural
+      source of atmospheric sulfur and contributes to cloud condensation nuclei
+      formation. Most DMS and MT is degraded anaerobically by methanogens before
+      reaching the atmosphere.
+    biological_processes:
+      - term:
+          id: GO:0009061
+          label: anaerobic respiration
+        evidence:
+          - reference: PMID:12022467
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Inhibition studies have revealed that the major part of the endogenously produced MT and DMS is degraded anaerobically by methanogens."
+            explanation: >
+              Establishes that anaerobic methanogens are the primary sink for
+              endogenously produced volatile sulfur compounds in freshwater sediments;
+              this anaerobic consumption limits VOSC flux to the atmosphere and
+              maintains low VOSC concentrations in freshwater systems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2157
+          label: Archaea
+        role: DECOMPOSER
+        description: Methanogenic archaea are the primary anaerobic consumers of DMS and methanethiol in freshwater sediments
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01001547
+          label: anaerobic environment
+        description: VOSC formation and anaerobic consumption occur at the oxic/anoxic interface of sediments
+    causal_edges:
+      - subject: Sulfide methylation by anaerobic bacteria
+        predicate: CAUSES
+        object: Formation of dimethyl sulfide (DMS) and methanethiol
+        description: O-demethylation of methoxylated aromatic compounds is the main DMS/MT formation route in freshwater
+      - subject: Methanogenic archaea
+        predicate: CAUSES
+        object: Anaerobic consumption of DMS and methanethiol
+        description: Methanogens use C1 sulfur compounds as methylated substrates
+    chemical_entities:
+      - term:
+          id: CHEBI:17437
+          label: dimethyl sulfide
+        evidence:
+          - reference: PMID:12022467
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Microbial cycling of volatile organic sulfur compounds (VOSCs), especially dimethyl sulfide (DMS) and methanethiol (MT), is intensively studied because these compounds play an important role in the processes of global warming, acid precipitation, and the global sulfur cycle."
+            explanation: >
+              Confirms DMS and MT as the key VOSC intermediates linking
+              microbial sulfur metabolism in sediments to the atmosphere;
+              their climatic relevance through cloud condensation nuclei
+              formation places VOSC cycling at the intersection of the
+              sulfur cycle and climate regulation.
+    evidence:
+      - reference: PMID:12022467
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "In contrast to marine ecosystems, where dimethylsulfoniopropionate is the main precursor of MT and DMS, in freshwater ecosystems, VOSCs are formed mainly by methylation of sulfide and to a lesser extent from the degradation of S-containing amino acids."
+        explanation: >
+          Identifies the ecosystem-specific pathways of VOSC formation,
+          distinguishing marine DMSP cleavage from freshwater sulfide methylation;
+          this mechanistic contrast has important implications for quantifying
+          DMS emissions from different aquatic ecosystem types.
+
+indicators:
+  - name: Porewater sulfate concentration profile
+    description: >
+      Depth profiles of dissolved sulfate in sediment porewater reveal the rate
+      and depth of sulfate reduction; steep gradients indicate active sulfate
+      reduction and are used to calculate sulfate reduction rates via Fick's law.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "SO4(2-) in mM (porewater extraction, ion chromatography)"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:28419734
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Almost the entire seafloor is covered with sediments that can be more than 10 000 m thick and represent a vast microbial ecosystem that is a major component of Earth's element and energy cycles."
+        explanation: >
+          The vast extent of sulfate-bearing marine sediments establishes porewater
+          sulfate profiles as a globally representative indicator of sulfur cycling
+          activity; sulfate depletion with depth is the standard field evidence
+          for active dissimilatory sulfate reduction.
+
+  - name: Hydrogen sulfide flux from sediments
+    description: >
+      H2S efflux from anoxic sediments to the overlying water column integrates
+      sulfate reduction rates and is a direct indicator of active sulfur cycling.
+      High H2S concentrations create toxic conditions for benthic fauna and indicate
+      hypoxic/euxinic conditions in bottom waters.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "H2S in μmol m(-2) d(-1) (benthic flux chamber or microelectrode profiling)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:28419734
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Sulfur cycling, which is primarily driven by sulfate reduction, is tightly interwoven with other important element cycles (carbon, nitrogen, iron, manganese) and therefore has profound implications for both cellular- and ecosystem-level processes."
+        explanation: >
+          H2S flux integrates sulfate reduction rates and reports the strength
+          of sulfur cycling coupling to carbon and iron cycles; elevated H2S
+          efflux is the proximate indicator of euxinic conditions with
+          cascading effects on benthic biodiversity and nutrient cycling.
+
+  - name: Sulfur isotope fractionation (δ34S)
+    description: >
+      Microbial sulfate reduction preferentially reduces the lighter 32S isotope,
+      leaving sulfate 34S-enriched relative to sulfide. The degree of fractionation
+      (Δδ34S) between coexisting sulfate and sulfide reflects the rate and
+      completeness of sulfate reduction and has been used to reconstruct the
+      history of microbial sulfur cycling in the geological record.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "δ34S in ‰ VCDT (isotope ratio mass spectrometry)"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:11242044
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Here we report microscopic sulphides in approximately 3.47-Gyr-old barites from North Pole, Australia, with maximum fractionations of 21.1/1000, about a mean of 11.6/1000, clearly indicating microbial sulphate reduction."
+        explanation: >
+          Sulfur isotope fractionation is validated as an indicator of microbial
+          sulfate reduction activity with a geological track record extending 3.47
+          billion years; fractionation magnitude reflects sulfate concentration
+          and rate of reduction, making δ34S a quantitative proxy for
+          sulfur cycling intensity.
+
+drivers:
+  - name: Organic matter availability
+    description: >
+      The supply of labile organic carbon is the primary control on sulfate
+      reduction rates in sediments; organic-rich sediments sustain high rates
+      of dissimilatory sulfate reduction while carbon limitation suppresses
+      sulfur cycling activity.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:28419734
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Extraordinary discoveries have increased our knowledge on microbial sulfur cycling, mainly in sulfate-rich surface sediments, yet many questions remain regarding how sulfur redox processes may sustain the deep-subsurface biosphere and the impact of organic sulfur compounds on the marine sulfur cycle."
+        explanation: >
+          Carbon substrate availability limits sulfate reduction in deep sediments
+          where labile organic matter has been exhausted; understanding organic
+          sulfur compound utilization is a key frontier for explaining sulfur
+          cycling in carbon-limited deep sediments.
+
+  - name: Oxygen availability and redox stratification
+    description: >
+      Dissimilatory sulfate reduction and sulfur oxidation are segregated by
+      redox gradients; sulfate reduction dominates below the oxycline, while
+      sulfur oxidation occurs in the aerobic/microaerobic transition zone.
+      Hypoxia expansion driven by eutrophication and warming extends the
+      zone of active sulfate reduction.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:12022467
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "VOSC concentrations in freshwater sediments are low due to the balance between the formation and degradation of these compounds. These reactions occur for the greater part at the oxic/anoxic interphase of sediment and water column."
+        explanation: >
+          The oxic/anoxic interface is the primary zone of VOSC formation and
+          degradation; oxygen availability controls redox stratification and thus
+          the activity balance between sulfate reduction and sulfur oxidation
+          throughout the water column and sediment profile.
+
+  - name: Anthropogenic SO2 emissions and acid deposition
+    description: >
+      Combustion of sulfur-containing fossil fuels emits SO2 to the atmosphere,
+      which is oxidized to sulfate aerosol and deposited as acid rain, acidifying
+      soils and freshwaters and providing excess sulfate substrate to accelerate
+      sulfate reduction in receiving ecosystems.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:18497287
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "These genes created and coevolved with biogeochemical cycles and were passed from microbe to microbe primarily by horizontal gene transfer."
+        explanation: >
+          The microbial metabolic machinery for sulfur transformations is
+          evolutionarily ancient and highly conserved; anthropogenic SO2 inputs
+          provide excess oxidized sulfur substrate to this pre-existing microbial
+          machinery, accelerating sulfate reduction in downwind ecosystems.
+
+  - name: Sulfate availability in marine vs. freshwater
+    description: >
+      Marine sulfate concentration (~28 mM) is ~100-fold higher than typical
+      freshwater concentrations, driving much higher rates of dissimilatory sulfate
+      reduction per unit organic matter in marine sediments compared to freshwater
+      systems, and producing ecosystem-specific VOSC cycling pathways.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:12022467
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "In contrast to marine ecosystems, where dimethylsulfoniopropionate is the main precursor of MT and DMS, in freshwater ecosystems, VOSCs are formed mainly by methylation of sulfide and to a lesser extent from the degradation of S-containing amino acids."
+        explanation: >
+          The contrast in VOSC formation pathways between marine and freshwater
+          systems reflects the fundamental difference in sulfate availability
+          and algal community composition; sulfate concentration is the primary
+          driver of sulfur cycling intensity and pathway structure across aquatic
+          ecosystem types.
+
+interventions:
+  - name: SO2 emission controls and desulfurization
+    description: >
+      Flue gas desulfurization (scrubbing) and fuel switching in power generation
+      and industry reduce atmospheric SO2 emissions, decreasing acid sulfate
+      deposition to terrestrial and freshwater ecosystems.
+    intervention_type: MITIGATION
+    evidence:
+      - reference: PMID:18497287
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Virtually all nonequilibrium electron transfers on Earth are driven by a set of nanobiological machines composed largely of multimeric protein complexes associated with a small number of prosthetic groups."
+        explanation: >
+          The microbial sulfur cycling machinery that processes anthropogenic
+          sulfate deposition is highly conserved and responds rapidly to changes
+          in sulfate loading; reducing SO2 emissions removes the anthropogenic
+          sulfate substrate from receiving ecosystems, allowing natural redox
+          gradients and sulfur cycle rates to recover.
+
+  - name: Wetland restoration for sulfur retention
+    description: >
+      Restoration of drained peatlands and coastal wetlands re-establishes anaerobic
+      conditions that promote sulfate reduction and sulfide mineral precipitation,
+      retaining sulfur in sediment organic complexes rather than allowing oxidized
+      sulfate to leach to aquatic systems.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:28419734
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Sulfur cycling, which is primarily driven by sulfate reduction, is tightly interwoven with other important element cycles (carbon, nitrogen, iron, manganese) and therefore has profound implications for both cellular- and ecosystem-level processes."
+        explanation: >
+          Wetland restoration creates the anoxic conditions required for sulfate
+          reduction; in restoring these conditions, wetlands also rebuild the
+          coupled carbon, iron, and nitrogen cycling that characterizes healthy
+          sediment biogeochemistry, with sulfur retention as a co-benefit.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000873
+      label: freshwater lake
+    description: Freshwater lake sediments cycle sulfur via sulfate reduction at oxic/anoxic interfaces; sulfate concentrations are typically low
+
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: Terrestrial sulfur cycling is driven by SO2 deposition, plant uptake, and microbial mineralization of organic sulfur in soil
+
+  - habitat_term:
+      id: ENVO:00000015
+      label: cropland ecosystem
+    description: Agricultural soils receive sulfur via atmospheric deposition and some fertilizers; sulfur deficiency is increasing with reduced acid deposition
+
+creation_date: "2025-07-22T00:00:00Z"

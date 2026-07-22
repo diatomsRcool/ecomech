@@ -1,0 +1,358 @@
+id: ENVO:01001332
+name: Phosphorus Cycling
+process_term:
+  id: ENVO:01001332
+  label: phosphorous cycling
+description: >
+  Phosphorus cycling encompasses the biogeochemical transformations of phosphorus
+  through terrestrial, freshwater, and marine ecosystems. Unlike nitrogen, there
+  is no atmospheric reservoir; P enters ecosystems through weathering of primary
+  minerals (mainly apatite), cycles through biological uptake, mineralization of
+  organic forms, and is lost via leaching and erosion. Mycorrhizal fungi, phosphate-
+  solubilizing microorganisms, and extracellular phosphatases are the primary
+  biological agents of P mobilization. Human activities have massively altered
+  the global P cycle through mining of phosphate rock and application of P
+  fertilizers in agriculture.
+synonyms:
+  - phosphorus biogeochemical cycle
+  - P cycle
+  - phosphorus biogeochemistry
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Geochemical Weathering and Mineral Phosphorus Release
+    description: >
+      Physical and chemical dissolution of phosphate-bearing primary minerals
+      (principally apatite, Ca5(PO4)3(OH/F/Cl)) releases inorganic orthophosphate
+      (Pi) into soil solution. Weathering rate controls the long-term ecosystem
+      P budget and is the primary mechanism of P input on millennial timescales.
+    biological_processes:
+      - term:
+          id: GO:0006796
+          label: phosphate-containing compound metabolic process
+        evidence:
+          - reference: PMID:20349827
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The best known of these is depletion-driven limitation, in which accumulated P losses during long-term soil and ecosystem development contribute to what Walker and Syers termed a \"terminal steady state\" of profound P depletion and limitation."
+            explanation: >
+              Establishes mineral weathering and its eventual exhaustion as the
+              primary control on long-term P availability in terrestrial ecosystems,
+              with P depletion during pedogenesis creating ultimate P limitation.
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: Weathering rates increase with temperature; tropical soils weather more rapidly
+    causal_edges:
+      - subject: Apatite dissolution
+        predicate: CAUSES
+        object: Release of inorganic orthophosphate to soil solution
+        description: Chemical hydrolysis of mineral-bound phosphate
+      - subject: Long-term soil development
+        predicate: CAUSES
+        object: Depletion of primary mineral phosphorus
+        description: Pedogenesis progressively exhausts geochemical P reserves
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "We identify and discuss six mechanisms that could drive P limitation in terrestrial ecosystems."
+        explanation: >
+          Synthesizes the mechanistic basis for P limitation across terrestrial
+          ecosystems, centering on geochemical weathering as the primary P input
+          pathway and its progressive depletion during ecosystem development.
+
+  - name: Biological Mineralization of Organic Phosphorus
+    description: >
+      Decomposer microorganisms and plant roots release extracellular phosphatase
+      enzymes (phosphomonoesterases, phosphodiesterases, phytases) that hydrolyze
+      organic phosphate esters to inorganic orthophosphate, constituting the
+      primary internal recycling pathway for organically bound P in soils.
+    biological_processes:
+      - term:
+          id: GO:0006796
+          label: phosphate-containing compound metabolic process
+        evidence:
+          - reference: PMID:17922835
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Via a large-scale meta-analysis of experimental enrichments, we show that P limitation is equally strong across these major habitats and that N and P limitation are equivalent within both terrestrial and freshwater systems."
+            explanation: >
+              The pervasiveness of P limitation across ecosystems implies that
+              biological P mineralization is insufficient to meet biological demand,
+              underlining the importance of enzymatic organic P hydrolysis as the
+              primary but rate-limiting recycling pathway.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        description: Saprotrophic fungi produce extracellular phosphatases and are major drivers of organic P mineralization
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: Phosphate-solubilizing bacteria release extracellular phosphatases and organic acids that mobilize inorganic P
+    causal_edges:
+      - subject: Phosphatase-producing microorganisms
+        predicate: CAUSES
+        object: Hydrolysis of organic phosphate esters to orthophosphate
+        description: Enzymatic cleavage of C-O-P bonds releases plant-available Pi
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Nutrient limitation to primary productivity and other biological processes is widespread in terrestrial ecosystems, and nitrogen (N) and phosphorus (P) are the most common limiting elements, both individually and in combination."
+        explanation: >
+          Establishes the widespread nature of P limitation in terrestrial ecosystems,
+          which reflects the balance between organic P mineralization rates and
+          biological demand; when mineralization cannot keep pace, P limitation results.
+
+  - name: Mycorrhizal Phosphorus Uptake
+    description: >
+      Arbuscular mycorrhizal fungi (AMF) and ectomycorrhizal fungi form symbioses
+      with plant roots, extending the effective P depletion zone through hyphal
+      networks that access soil pores too small for roots. Fungi transfer P to
+      the host plant in exchange for photosynthate, often dominating the total P
+      supply to the plant irrespective of growth response magnitude.
+    biological_processes:
+      - term:
+          id: GO:0006796
+          label: phosphate-containing compound metabolic process
+        evidence:
+          - reference: PMID:17922835
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Furthermore, simultaneous N and P enrichment produces strongly positive synergistic responses in all three environments."
+            explanation: >
+              Co-limitation by N and P implies that mycorrhizal P acquisition
+              interacts with N availability; AMF-mediated P supply enables plants
+              to exploit N availability, consistent with synergistic N+P responses.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:214504
+          label: Glomeromycota
+        role: SYMBIONT
+        description: Arbuscular mycorrhizal fungi (AMF) forming obligate symbioses with ~80% of terrestrial plant species
+    causal_edges:
+      - subject: AMF hyphal networks
+        predicate: CAUSES
+        object: Extended soil P depletion zone beyond root hair reach
+      - subject: AMF-plant symbiosis
+        predicate: ENABLES
+        object: Plant P acquisition under P-limiting conditions
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Of the mechanisms that drive P limitation, we suggest that depletion, soil barriers, and low-P parent material often cause ultimate limitation because they control the ecosystem mass balance of P."
+        explanation: >
+          Soil barriers—which AMF hyphae partially overcome—represent a key
+          mechanism of P limitation; mycorrhizal uptake is the primary biological
+          adaptation to soil P physical inaccessibility identified by Vitousek et al.
+
+indicators:
+  - name: Soil resin-extractable phosphorus
+    description: >
+      Resin-extractable inorganic P in surface soils provides an integrative
+      measure of plant-available P, capturing the labile Pi pool in equilibrium
+      with soil solution. A key indicator of P limitation status and fertilization
+      history.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Pi in mg/kg dry soil (anion exchange resin extraction)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "depletion, soil barriers, and low-P parent material often cause ultimate limitation because they control the ecosystem mass balance of P."
+        explanation: >
+          Resin-extractable P is the standard field measurement of the P pool
+          controlled by the mechanisms of depletion and soil barriers described
+          here as ultimate P limitation drivers.
+
+  - name: Foliar phosphorus concentration
+    description: >
+      Foliar P concentration (mass fraction of P in dry leaf tissue) reflects
+      plant P status and the degree of P limitation; leaf P:N ratios below ~1:14
+      indicate P relative to N limitation.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "P in mg/g dry leaf mass (acid digestion / ICP-MS)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:17922835
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "contrary to some prevailing paradigms, freshwater, marine and terrestrial ecosystems are surprisingly similar in terms of N and P limitation."
+        explanation: >
+          The convergence of N and P limitation across biomes—detected through
+          enrichment experiments—is reflected in foliar stoichiometry; foliar P
+          is the most accessible integrator of plant P status across ecosystem types.
+
+  - name: Phosphatase enzyme activity in soil
+    description: >
+      Extracellular phosphatase (acid/alkaline phosphomonoesterase) activity in
+      soil reflects microbial and root investment in organic P acquisition; activity
+      increases under P limitation and is a functional indicator of P cycling rate.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "p-nitrophenol released in μmol g(-1) h(-1) (MUB-phosphate colorimetric assay)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Mechanisms that drive P limitation, and their interactions with the N cycle, have received less attention than mechanisms causing N limitation."
+        explanation: >
+          Phosphatase activity is the primary enzyme indicator of biological P
+          cycling investment; its measurement closes the gap in mechanistic
+          understanding of P limitation relative to the well-studied N cycle.
+
+drivers:
+  - name: Soil parent material age and P content
+    description: >
+      Long-term pedogenesis progressively depletes primary mineral P, driving
+      a shift from N limitation in young soils to P limitation in old, highly
+      weathered soils. Parent material P content sets the ceiling for ecosystem
+      P inputs over geological timescales.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The best known of these is depletion-driven limitation, in which accumulated P losses during long-term soil and ecosystem development contribute to what Walker and Syers termed a \"terminal steady state\" of profound P depletion and limitation."
+        explanation: >
+          Ecosystem age and parent material P content are the primary abiotic
+          controls on long-term P availability; this mechanism predicts the
+          well-documented P limitation gradient from young to old soils globally.
+
+  - name: Agricultural phosphorus fertilization
+    description: >
+      Application of inorganic P fertilizers (superphosphate, triple superphosphate,
+      MAP/DAP) and animal manure massively increases P inputs to agricultural soils,
+      creating large P surpluses in intensive systems while P deficits persist in
+      subsistence farming regions.
+    driver_type: ANTHROPOGENIC
+    chemical_agent:
+      id: CHEBI:18367
+      label: phosphate ion
+    evidence:
+      - reference: PMID:21282605
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Increased phosphorus (P) fertilizer use and livestock production has fundamentally altered the global P cycle."
+        explanation: >
+          Agricultural P inputs have disrupted the global P cycle at a magnitude
+          comparable to anthropogenic N inputs, creating spatial P imbalances
+          that drive eutrophication of freshwater systems downstream.
+
+  - name: Soil pH and iron/aluminum oxide chemistry
+    description: >
+      Soil pH controls the speciation and sorption of phosphate; P is most
+      available near pH 6–7 and strongly sorbed (fixed) at acidic pH by Fe/Al
+      oxides and at alkaline pH by Ca precipitation, creating soil barriers
+      to P bioavailability independent of total P content.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:20349827
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "soil barriers that prevent access to P"
+        explanation: >
+          Soil pH-driven sorption is identified as a distinct mechanism of P
+          limitation ("soil barriers") beyond depletion; iron and aluminum
+          oxide surfaces in acidic soils are the primary sorbents.
+
+  - name: Eutrophication from P loading
+    description: >
+      Runoff of agricultural P to freshwater lakes and coastal zones elevates
+      dissolved P concentrations, driving algal blooms, anoxia, and the loss
+      of aquatic biodiversity.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21282605
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Such reforms are needed to increase global agricultural productivity while maintaining or improving freshwater quality."
+        explanation: >
+          Agricultural P surpluses are the primary driver of freshwater
+          eutrophication; reducing P imbalances through more efficient fertilizer
+          use and manure recycling is the key management lever.
+
+interventions:
+  - name: Manure phosphorus recycling
+    description: >
+      Returning animal manure to croplands as an organic P fertilizer substitutes
+      for mined phosphate rock, closes regional P cycles, and reduces P surplus
+      in intensive livestock regions while alleviating P deficits in crop-only systems.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:21282605
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Resolving agronomic P imbalances may be possible with more efficient use of P fertilizers and more effective recycling of manure P."
+        explanation: >
+          MacDonald et al. identify manure P recycling as a key lever for
+          correcting cropland P imbalances globally, reducing both P surplus-driven
+          eutrophication and P deficit-driven yield gaps.
+
+  - name: Precision phosphorus fertilization
+    description: >
+      Site-specific P fertilizer application matched to soil P status and crop
+      demand reduces P surpluses in intensively managed systems, improving P-use
+      efficiency and limiting runoff losses to freshwater.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:21282605
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Although agronomic inputs of P fertilizer (14.2 Tg of P·y(-1)) and manure (9.6 Tg of P·y(-1)) collectively exceeded P removal by harvested crops (12.3 Tg of P·y(-1)) at the global scale, P deficits covered almost 30% of the global cropland area."
+        explanation: >
+          The coexistence of global P surplus with 30% P-deficit cropland area
+          demonstrates that precision fertilization—matching inputs to actual
+          crop demand—could simultaneously reduce eutrophication risk and improve
+          yields in P-limited smallholder systems.
+
+  - name: Riparian buffer zones for phosphorus retention
+    description: >
+      Vegetated buffers along waterways intercept surface runoff and shallow
+      subsurface flow carrying dissolved and particulate P from agricultural
+      fields, reducing P loading to aquatic systems.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:17922835
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "The cycles of the key nutrient elements nitrogen (N) and phosphorus (P) have been massively altered by anthropogenic activities."
+        explanation: >
+          The scale of anthropogenic P cycle alteration identified by Elser et al.
+          underlines the need for landscape-level P retention measures; riparian
+          buffers are the primary field-scale intervention for intercepting agricultural
+          P before it reaches watercourses.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: P cycling in temperate forests is dominated by tight biological recycling; P limitation increases with soil age
+
+  - habitat_term:
+      id: ENVO:00000015
+      label: cropland ecosystem
+    description: Agricultural soils have altered P cycles due to fertilization inputs and harvest-driven P removal
+
+  - habitat_term:
+      id: ENVO:00000873
+      label: freshwater lake
+    description: Lacustrine P cycling is driven by sedimentation and internal loading; P is the primary eutrophication driver
+
+creation_date: "2025-07-22T00:00:00Z"
