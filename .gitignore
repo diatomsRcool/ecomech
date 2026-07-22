@@ -9,7 +9,6 @@ venv/
 .uv/
 
 # Generated artifacts (do not commit)
-pages/processes/*.html
 dashboard/*.html
 docs/site/
 export/
