@@ -74,13 +74,15 @@ oak-envo-ecosystem-processes:
 
 # Run compliance analysis (field coverage across all entries)
 compliance:
-    uv run python -m ecomech.analysis.compliance \
-        --input {{processes_dir}} \
-        --output dashboard/compliance.html
+    uv run python -m ecomech.analysis.compliance
 
-# Generate QC dashboard
-dashboard: compliance
-    @echo "Dashboard generated at dashboard/compliance.html"
+# Run compliance analysis with JSON output
+compliance-json:
+    uv run python -m ecomech.analysis.compliance --json
+
+# Run compliance on a single file
+compliance-file file:
+    uv run python -m ecomech.analysis.compliance {{file}}
 
 # --- History ---
 
