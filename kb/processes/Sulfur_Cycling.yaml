@@ -49,7 +49,7 @@ mechanisms:
       - taxon:
           id: NCBITaxon:872
           label: Desulfovibrio
-        role: OTHER
+        role: DECOMPOSER
         description: Sulfate-reducing bacteria that couple organic matter or H2 oxidation to sulfate reduction under anaerobic conditions
     abiotic_conditions:
       - envo_condition_term:
@@ -122,8 +122,8 @@ mechanisms:
       - taxon:
           id: NCBITaxon:921
           label: Thiobacillus
-        role: OTHER
-        description: Chemolithotrophic sulfur-oxidizing bacteria oxidizing H2S and thiosulfate to sulfate in aerobic and microaerobic zones
+        role: PRIMARY_PRODUCER
+        description: Chemolithoautotrophic sulfur-oxidizing bacteria that fix CO2 using energy from H2S and thiosulfate oxidation in aerobic and microaerobic zones
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000061

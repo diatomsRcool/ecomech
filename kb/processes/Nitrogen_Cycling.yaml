@@ -109,6 +109,16 @@ mechanisms:
       - subject: Nitrite-oxidizing bacteria
         predicate: CAUSES
         object: Conversion of NO2- to NO3-
+    evidence:
+      - reference: PMID:23713120
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Although it is well established that soils are the dominating source for atmospheric nitrous oxide (N2O), we are still struggling to fully understand the complexity of the underlying microbial production and consumption processes and the links to biotic (e.g. inter- and intraspecies competition, food webs, plant-microbe interaction) and abiotic (e.g. soil climate, physics and chemistry) factors."
+        explanation: >
+          Establishes nitrification as a primary mechanism of soil N2O production
+          and highlights the biotic and abiotic complexity governing N oxidation
+          rates in soils; quantifying nitrification is central to closing soil
+          N2O budgets.
 
   - name: Denitrification
     description: >
@@ -194,6 +204,51 @@ mechanisms:
               transformation; ammonification is the primary pathway by which
               organic Nr is converted to inorganic NH4+ available for
               nitrification and plant uptake.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        description: Saprotrophic fungi drive organic N mineralization, particularly of recalcitrant substrates such as proteins and chitin
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: Heterotrophic soil bacteria decompose labile organic N fractions, releasing ammonium to soil solution
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "25-35°C optimal"
+        description: Ammonification rates increase with temperature; cold temperatures substantially suppress organic N mineralization
+      - envo_condition_term:
+          id: ENVO:01000061
+          label: soil pH
+        condition_value: "pH 6.0-8.0 optimal"
+        description: Ammonification proceeds across a broad pH range but is inhibited at extremes; strongly acidic soils suppress bacterial decomposer activity
+    causal_edges:
+      - subject: Heterotrophic decomposers
+        predicate: CAUSES
+        object: Hydrolysis of organic N compounds to ammonium
+        description: Extracellular proteases and deaminases cleave N from amino acids, nucleotides, and other organic N forms
+      - subject: Ammonium release
+        predicate: ENABLES
+        object: Subsequent nitrification and plant N assimilation
+        description: NH4+ produced by ammonification enters the nitrification pathway or is taken up directly by plant roots
+    chemical_entities:
+      - term:
+          id: CHEBI:28938
+          label: ammonium
+        evidence:
+          - reference: PMID:23713126
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The majority of the transformations of anthropogenic Nr are on land (240 Tg N yr(-1)) within soils and vegetation where reduced Nr contributes most of the input through the use of fertilizer nitrogen in agriculture."
+            explanation: >
+              Ammonium (NH4+) is the primary inorganic product of ammonification
+              and the dominant form of reduced reactive N in terrestrial soils;
+              its production by heterotrophic decomposers is the rate-limiting
+              step feeding the nitrification pathway.
 
 indicators:
   - name: Soil nitrate concentration

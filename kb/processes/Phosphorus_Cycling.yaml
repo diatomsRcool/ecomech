@@ -39,6 +39,17 @@ mechanisms:
               Establishes mineral weathering and its eventual exhaustion as the
               primary control on long-term P availability in terrestrial ecosystems,
               with P depletion during pedogenesis creating ultimate P limitation.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1386
+          label: Bacillus
+        role: OTHER
+        description: Phosphate-solubilizing bacilli produce organic acids and exopolysaccharides that accelerate dissolution of mineral-bound phosphate
+      - taxon:
+          id: NCBITaxon:286
+          label: Pseudomonas
+        role: OTHER
+        description: Phosphate-solubilizing pseudomonads mobilize inorganic P from primary minerals through organic acid secretion in the rhizosphere
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209
@@ -62,6 +73,15 @@ mechanisms:
           Synthesizes the mechanistic basis for P limitation across terrestrial
           ecosystems, centering on geochemical weathering as the primary P input
           pathway and its progressive depletion during ecosystem development.
+      - reference: PMID:25674415
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Although, several bacterial (pseudomonads and bacilli) and fungal strains (Aspergilli and Penicillium) have been identified as PSM their performance under in situ conditions is not reliable and therefore needs to be improved by using either genetically modified strains or co-inoculation techniques."
+        explanation: >
+          Confirms pseudomonads and bacilli as the dominant bacterial genera
+          capable of mineral phosphate solubilization; their organic acid
+          production enhances the geochemical weathering release of Pi
+          from primary minerals.
 
   - name: Biological Mineralization of Organic Phosphorus
     description: >

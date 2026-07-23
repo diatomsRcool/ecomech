@@ -191,6 +191,15 @@ mechanisms:
           label: Viridiplantae
         role: PRIMARY_PRODUCER
         description: Forest trees accumulate the majority of terrestrial above-ground biomass carbon
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Net biomass accumulation depends on the balance between GPP and autotrophic
+          respiration; boreal forests have long carbon residence times due to cold
+          temperatures suppressing decomposition, while tropical forests have higher
+          GPP but also higher respiration rates
     causal_edges:
       - subject: Net photosynthesis exceeding autotrophic respiration
         predicate: CAUSES
