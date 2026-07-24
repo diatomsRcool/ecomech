@@ -36,16 +36,36 @@ mechanisms:
               Establishes biological nitrogen fixation as performed by a
               taxonomically diverse set of organisms and identifies the key
               ecological knowledge gaps around rates and controls.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:23713117
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "New techniques have identified a wide range of organisms with the capacity to carry out biological nitrogen fixation (BNF)-greatly expanding our appreciation of the diversity and ubiquity of N fixers-but our understanding of the rates and controls of BNF at ecosystem and global scales has not advanced at the same pace."
+            explanation: >
+              The wide range of diazotrophs identified includes photoautotrophic
+              cyanobacteria that fix N2 and CO2 simultaneously; photoautotrophy
+              is the dominant trophic mode of free-living diazotrophs in both
+              terrestrial and aquatic ecosystems.
     taxa_involved:
       - taxon:
           id: NCBITaxon:382
           label: Rhizobium leguminosarum
         role: NITROGEN_FIXER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Symbiotic N-fixer in legume root nodules
       - taxon:
           id: NCBITaxon:1177
           label: Cyanobacteria
         role: NITROGEN_FIXER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Free-living and symbiotic N-fixers in aquatic and terrestrial systems
     abiotic_conditions:
       - envo_condition_term:
@@ -85,16 +105,36 @@ mechanisms:
               Nitrification is a key aerobic microbial process that produces N2O
               as a by-product; this reference establishes the mechanistic
               complexity of microbial N oxidation in soils.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000014
+          label: lithotrophy
+        evidence:
+          - reference: PMID:23713120
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Although it is well established that soils are the dominating source for atmospheric nitrous oxide (N2O), we are still struggling to fully understand the complexity of the underlying microbial production and consumption processes and the links to biotic (e.g. inter- and intraspecies competition, food webs, plant-microbe interaction) and abiotic (e.g. soil climate, physics and chemistry) factors."
+            explanation: >
+              Nitrification is driven by obligate chemolithotrophic ammonia-oxidizing
+              bacteria and archaea that extract energy from the inorganic oxidation of
+              NH4+ to N-oxides; the microbial production and consumption processes
+              described here are mechanistically grounded in this lithotrophic metabolism.
     taxa_involved:
       - taxon:
           id: NCBITaxon:1246
           label: Nitrosomonas
         role: NITRIFIER
+        ecological_function:
+          id: ECOCORE:00000124
+          label: chemolithoautotroph
         description: Ammonia-oxidizing bacteria oxidizing NH4+ to NO2-
       - taxon:
           id: NCBITaxon:1742
           label: Nitrobacter
         role: NITRIFIER
+        ecological_function:
+          id: ECOCORE:00000124
+          label: chemolithoautotroph
         description: Nitrite-oxidizing bacteria oxidizing NO2- to NO3-
     abiotic_conditions:
       - envo_condition_term:
@@ -139,11 +179,28 @@ mechanisms:
               The reduction of N2O to N2 is the terminal step of denitrification;
               improved mechanistic understanding of this step is critical for
               accurate N2O budget estimation.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000011
+          label: heterotrophy
+        evidence:
+          - reference: PMID:23713120
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "recent insights into the regulation of the reduction of N2O to dinitrogen (N2) have increased our understanding of N2O exchange."
+            explanation: >
+              Denitrification is a heterotrophic process in which bacteria oxidize
+              organic carbon while using N-oxides as terminal electron acceptors;
+              the terminal step of N2O reduction to N2 is performed by chemoheterotrophs,
+              establishing heterotrophy as the dominant trophic mode in denitrifying communities.
     taxa_involved:
       - taxon:
           id: NCBITaxon:287
           label: Pseudomonas aeruginosa
         role: DENITRIFIER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Facultative anaerobe capable of denitrification
     abiotic_conditions:
       - envo_condition_term:
@@ -204,16 +261,36 @@ mechanisms:
               transformation; ammonification is the primary pathway by which
               organic Nr is converted to inorganic NH4+ available for
               nitrification and plant uptake.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:23713126
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The majority of the transformations of anthropogenic Nr are on land (240 Tg N yr(-1)) within soils and vegetation where reduced Nr contributes most of the input through the use of fertilizer nitrogen in agriculture."
+            explanation: >
+              Ammonification is the microbial decomposition of organic N compounds
+              in soils; the dominant role of terrestrial soils in reactive N
+              transformation reflects heterotrophic decomposition as the primary
+              internal recycling mechanism for organically bound nitrogen.
     taxa_involved:
       - taxon:
           id: NCBITaxon:4751
           label: Fungi
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000056
+          label: saprotroph
         description: Saprotrophic fungi drive organic N mineralization, particularly of recalcitrant substrates such as proteins and chitin
       - taxon:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000054
+          label: decomposer
         description: Heterotrophic soil bacteria decompose labile organic N fractions, releasing ammonium to soil solution
     abiotic_conditions:
       - envo_condition_term:
@@ -272,11 +349,28 @@ mechanisms:
               Establishes marine N2 fixation as foundational to ocean productivity,
               supplying new reactive nitrogen to oligotrophic basins where fixed N
               is chronically depleted through denitrification and anammox losses.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:37658011
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Cyanobacterial N2 fixation, once thought to be primarily due to free-living cyanobacteria, now also appears to be dependent on microbial interactions, from microbiomes to unicellular symbioses, which remain poorly characterized."
+            explanation: >
+              Marine N2 fixation is dominated by photoautotrophic cyanobacteria
+              (Trichodesmium, UCYN-A) that simultaneously fix N2 and CO2 via
+              oxygenic photosynthesis; photoautotrophy is the defining trophic
+              mode of the major marine diazotrophs in oligotrophic ocean gyres.
     taxa_involved:
       - taxon:
           id: NCBITaxon:1177
           label: Cyanobacteria
         role: NITROGEN_FIXER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Diazotrophic cyanobacteria including Trichodesmium and unicellular UCYN-A are the dominant marine N2-fixers in warm, stratified, oligotrophic tropical and subtropical gyres
     abiotic_conditions:
       - envo_condition_term:
@@ -339,11 +433,28 @@ mechanisms:
               pathways in OMZs; both rely on anaerobic respiration using N-oxides as
               terminal electron acceptors, making OMZs the primary sites of permanent
               fixed-nitrogen loss from the marine water column.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000011
+          label: heterotrophy
+        evidence:
+          - reference: PMID:21329208
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "N-loss in OMZs is attributable to anammox and heterotrophic denitrification, whereas nitrate reduction to nitrite along with dissimilatory nitrate reduction to ammonium are major remineralization pathways."
+            explanation: >
+              Heterotrophic denitrification is explicitly named as one of the two
+              dominant N-loss pathways in OMZs; heterotrophic bacteria oxidize
+              organic carbon using N-oxides as terminal electron acceptors,
+              confirming heterotrophy as the trophic mode of N-loss communities.
     taxa_involved:
       - taxon:
           id: NCBITaxon:2
           label: Bacteria
         role: DENITRIFIER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Proteobacteria perform heterotrophic denitrification and Planctomycetes (Candidatus Scalindua) carry out anammox in OMZ waters; both groups produce N2 gas from fixed nitrogen
     abiotic_conditions:
       - envo_condition_term:

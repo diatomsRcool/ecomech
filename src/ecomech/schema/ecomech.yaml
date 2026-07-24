@@ -22,6 +22,7 @@ prefixes:
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
   RO: http://purl.obolibrary.org/obo/RO_
   UBERON: http://purl.obolibrary.org/obo/UBERON_
+  ECOCORE: http://purl.obolibrary.org/obo/ECOCORE_
   oa: http://www.w3.org/ns/oa#
   dcterms: http://purl.org/dc/terms/
   schema: http://schema.org/
@@ -410,8 +411,8 @@ slots:
   ecological_processes:
     multivalued: true
     inlined_as_list: true
-    range: ENVOProcessAnnotation
-    description: ENVO ecological subprocess terms with evidence
+    range: ECOCOREAnnotation
+    description: ECOCORE trophic process terms with evidence (e.g., photoautotrophy, lithotrophy, decomposition)
 
   biological_processes:
     multivalued: true
@@ -504,6 +505,13 @@ slots:
   measurement:
     range: string
     description: How the indicator is measured or quantified (units, method)
+
+  ecological_function:
+    range: ECOCORETerm
+    inlined: true
+    description: >
+      ECOCORE term for the ecological functional type of a taxon
+      (e.g., decomposer, chemolithoautotroph, photoautotroph, sulfur reducer)
 
   envo_condition_term:
     range: ENVOTerm
@@ -601,6 +609,15 @@ classes:
       id:
         pattern: "^CHEBI:\\d+$"
 
+  ECOCORETerm:
+    description: >
+      An ECOCORE term for an ecological functional type or trophic process
+      (e.g., decomposer, chemolithoautotroph, photoautotrophy, lithotrophy)
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^ECOCORE:\\d+$"
+
   InterventionTerm:
     description: An ontology term for a management, restoration, or conservation action
     is_a: TermDescriptor
@@ -657,6 +674,18 @@ classes:
         inlined: true
         required: true
 
+  ECOCOREAnnotation:
+    description: >
+      An ECOCORE trophic process or ecological function annotation
+      with supporting evidence
+    slots:
+      - evidence
+    attributes:
+      term:
+        range: ECOCORETerm
+        inlined: true
+        required: true
+
   # --- Structural classes ---
 
   TaxonDescriptor:
@@ -664,6 +693,7 @@ classes:
     slots:
       - taxon
       - role
+      - ecological_function
       - description
       - evidence
 

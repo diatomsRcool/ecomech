@@ -14,6 +14,7 @@ adapters:
   ECTO: "sqlite:obo:ecto"           # Environmental Conditions, Treatments, and Exposures
   CHEBI: "sqlite:obo:chebi"         # Chemical Entities of Biological Interest
   UBERON: "sqlite:obo:uberon"       # Uberon multi-species anatomy (for organs in eco context)
+  ECOCORE: "sqlite:obo:ecocore"     # ECOCORE — ecological functional types and trophic processes
 
   # Supplementary ontologies
   OBI: "sqlite:obo:obi"             # Ontology for Biomedical Investigations
