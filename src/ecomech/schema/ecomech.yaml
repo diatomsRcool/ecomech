@@ -304,11 +304,12 @@ slots:
   # --- Term binding slots ---
 
   process_term:
-    range: ENVOTerm
+    range: ProcessTerm
     inlined: true
     description: >
-      ENVO ecosystem process term binding for this entry (from the ENVO:02500000
-      ecosystem process branch)
+      Ontology term binding for this entry's ecological process. Accepts ENVO
+      ecosystem process terms (descendants of ENVO:02500000) or ECOCORE terms
+      when no suitable ENVO term exists.
     required: true
     in_subset:
       - required_subset
@@ -563,6 +564,16 @@ classes:
       - label
       - preferred_term
 
+  ProcessTerm:
+    description: >
+      An ontology term identifying an ecological process. Accepts ENVO ecosystem
+      process terms (ENVO:) or ECOCORE trophic/production process terms
+      (ECOCORE:) when no suitable ENVO term exists.
+    is_a: TermDescriptor
+    slot_usage:
+      id:
+        pattern: "^(ENVO|ECOCORE):\\d+$"
+
   ENVOTerm:
     description: >
       An ENVO ontology term for an ecosystem process, habitat, biome,
@@ -798,8 +809,8 @@ classes:
       A curated knowledge base entry documenting an ecological process —
       its mechanisms, observable indicators, drivers, and management
       interventions — all backed by primary literature evidence.
-      The process_term must come from the ENVO ecosystem process branch
-      (descendants of ENVO:02500000).
+      The process_term is typically an ENVO ecosystem process term (descendants
+      of ENVO:02500000) or an ECOCORE term when no suitable ENVO term exists.
     tree_root: true
     slots:
       - id
