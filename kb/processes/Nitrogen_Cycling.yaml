@@ -250,6 +250,140 @@ mechanisms:
               its production by heterotrophic decomposers is the rate-limiting
               step feeding the nitrification pathway.
 
+  - name: Marine Biological Nitrogen Fixation
+    description: >
+      Open ocean nitrogen fixation by diazotrophic cyanobacteria—principally the
+      colonial filamentous Trichodesmium and the unicellular symbiont UCYN-A
+      (Candidatus Atelocyanobacterium thalassa)—supplies the dominant new reactive
+      nitrogen input to oligotrophic tropical and subtropical ocean basins. Marine
+      diazotrophy is co-limited by iron and phosphorus availability and is estimated
+      to contribute ~100–140 Tg N yr⁻¹ globally, partially balancing fixed-nitrogen
+      losses from denitrification and anammox.
+    biological_processes:
+      - term:
+          id: GO:0009399
+          label: nitrogen fixation
+        evidence:
+          - reference: PMID:37658011
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Biological nitrogen (N2) fixation is critical in global biogeochemical cycles and in sustaining the productivity of the oceans."
+            explanation: >
+              Establishes marine N2 fixation as foundational to ocean productivity,
+              supplying new reactive nitrogen to oligotrophic basins where fixed N
+              is chronically depleted through denitrification and anammox losses.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: NITROGEN_FIXER
+        description: Diazotrophic cyanobacteria including Trichodesmium and unicellular UCYN-A are the dominant marine N2-fixers in warm, stratified, oligotrophic tropical and subtropical gyres
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: ">20°C optimal"
+        description: Marine N2 fixation is concentrated in warm, stratified surface waters; iron and phosphorus availability are primary co-limitations on diazotroph activity
+    causal_edges:
+      - subject: Diazotrophic cyanobacteria
+        predicate: CAUSES
+        object: Conversion of dissolved N2 to bioavailable ammonium in the photic zone
+      - subject: Marine N2 fixation
+        predicate: ENABLES
+        object: Phytoplankton productivity in N-limited oligotrophic surface waters
+    chemical_entities:
+      - term:
+          id: CHEBI:17997
+          label: dinitrogen
+        evidence:
+          - reference: PMID:37658011
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The fundamental balance of N input and losses has not been fully resolved."
+            explanation: >
+              Atmospheric N2 is the substrate for marine diazotrophy; quantifying
+              the global balance between marine N2 fixation inputs and denitrification
+              plus anammox losses is central to constraining the oceanic fixed-N inventory.
+    evidence:
+      - reference: PMID:37658011
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "One of the major N2-fixers, Trichodesmium, remains an enigma with intriguing biological and ecological secrets."
+        explanation: >
+          Trichodesmium is the best-studied and ecologically dominant marine
+          diazotroph; Zehr & Capone (2024) identify major unresolved questions
+          about its rates and ecological controls, underlining the centrality of
+          marine N2 fixation to the oceanic N budget.
+
+  - name: Nitrogen Loss in Oceanic Oxygen Minimum Zones
+    description: >
+      Oceanic oxygen minimum zones (OMZs)—expanded suboxic water masses in the
+      eastern tropical Pacific, Arabian Sea, and eastern tropical Atlantic—are
+      the dominant sites of water-column fixed-nitrogen loss from the ocean.
+      Anammox (anaerobic ammonium oxidation) and heterotrophic denitrification
+      jointly convert ammonium and nitrate to N2, accounting for an estimated
+      20–40% of global marine fixed-nitrogen removal. OMZ expansion driven by
+      ocean warming and eutrophication is predicted to increase nitrogen loss
+      and further deplete the oceanic nitrogen inventory.
+    biological_processes:
+      - term:
+          id: GO:0009061
+          label: anaerobic respiration
+        evidence:
+          - reference: PMID:21329208
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "N-loss in OMZs is attributable to anammox and heterotrophic denitrification, whereas nitrate reduction to nitrite along with dissimilatory nitrate reduction to ammonium are major remineralization pathways."
+            explanation: >
+              Establishes anammox and denitrification as the co-dominant N2-producing
+              pathways in OMZs; both rely on anaerobic respiration using N-oxides as
+              terminal electron acceptors, making OMZs the primary sites of permanent
+              fixed-nitrogen loss from the marine water column.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DENITRIFIER
+        description: Proteobacteria perform heterotrophic denitrification and Planctomycetes (Candidatus Scalindua) carry out anammox in OMZ waters; both groups produce N2 gas from fixed nitrogen
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01001547
+          label: anaerobic environment
+        description: Denitrification and anammox require suboxic to anoxic conditions (<20 μM O2); OMZ water columns provide the critical low-oxygen environment sustaining marine N loss
+    causal_edges:
+      - subject: Anammox bacteria
+        predicate: CAUSES
+        object: Oxidation of ammonium with nitrite to N2 under anoxic conditions
+      - subject: Heterotrophic denitrifiers
+        predicate: CAUSES
+        object: Stepwise reduction of nitrate to N2 using organic carbon as electron donor
+      - subject: OMZ expansion
+        predicate: CAUSES
+        object: Increased marine fixed-nitrogen loss
+        description: Warming-driven OMZ expansion increases the water volume supporting N-loss processes, reducing the oceanic fixed-N inventory
+    chemical_entities:
+      - term:
+          id: CHEBI:17997
+          label: dinitrogen
+        evidence:
+          - reference: PMID:21329208
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Conditions therein enable an almost complete nitrogen (N) cycle and substantial N-loss."
+            explanation: >
+              N2 is the terminal gaseous product of both anammox and denitrification
+              in OMZs; its production represents permanent removal of fixed nitrogen
+              from the marine N pool, closing the oceanic N cycle.
+    evidence:
+      - reference: PMID:21329208
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Oxygen minimum zones (OMZs) harbor unique microbial communities that rely on alternative electron acceptors for respiration."
+        explanation: >
+          OMZ microbial communities are adapted to exploit N-oxide electron acceptors
+          in lieu of oxygen; Lam & Kuypers (2011) establish OMZs as disproportionately
+          important sites of marine fixed-nitrogen removal relative to their water volume.
+
 indicators:
   - name: Soil nitrate concentration
     description: >

@@ -172,6 +172,53 @@ mechanisms:
           mechanism of P limitation; mycorrhizal uptake is the primary biological
           adaptation to soil P physical inaccessibility identified by Vitousek et al.
 
+  - name: Marine Microbial Phosphorus Remineralization
+    description: >
+      In marine systems, microorganisms drive the remineralization of organic
+      phosphorus back to dissolved inorganic phosphate (DIP), sustaining primary
+      production in P-limited oceanic regions. Both assimilation of P by
+      phytoplankton and its regeneration by heterotrophic bacteria form a tightly
+      coupled marine P cycle that connects surface productivity to deep-ocean P
+      reservoirs.
+    biological_processes:
+      - term:
+          id: GO:0006796
+          label: phosphate-containing compound metabolic process
+        evidence:
+          - reference: PMID:24405427
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "In the sea, microorganisms are primarily responsible for P assimilation and remineralization, including recently discovered P reduction-oxidation bioenergetic processes that add new complexity to the marine microbial P cycle."
+            explanation: >
+              Karl 2014 establishes that marine microorganisms are the primary
+              agents of P assimilation and remineralization, linking microbial
+              metabolism directly to the marine P cycle.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: Marine heterotrophic bacteria remineralize dissolved organic phosphorus, releasing inorganic phosphate that sustains phytoplankton growth
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "2-30°C (ocean surface range)"
+        description: Temperature modulates microbial enzyme activity and rates of P remineralization across ocean regions
+    chemical_entities:
+      - term:
+          id: CHEBI:18367
+          label: phosphate ion
+        evidence:
+          - reference: PMID:24405427
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "In the sea, microorganisms are primarily responsible for P assimilation and remineralization, including recently discovered P reduction-oxidation bioenergetic processes that add new complexity to the marine microbial P cycle."
+            explanation: >
+              Phosphate ion (inorganic Pi) is the primary product of microbial P
+              remineralization in marine systems and the form assimilated by
+              phytoplankton for primary production.
+
 indicators:
   - name: Soil resin-extractable phosphorus
     description: >

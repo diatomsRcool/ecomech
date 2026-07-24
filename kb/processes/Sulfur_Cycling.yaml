@@ -219,6 +219,58 @@ mechanisms:
           this mechanistic contrast has important implications for quantifying
           DMS emissions from different aquatic ecosystem types.
 
+  - name: Marine DMSP Production and Oceanic DMS Emission
+    description: >
+      Marine phytoplankton and macroalgae synthesize dimethylsulfoniopropionate
+      (DMSP) as an osmolyte, antioxidant, and grazing deterrent. Enzymatic cleavage
+      of DMSP by phytoplankton and heterotrophic bacteria produces dimethyl sulfide
+      (DMS), the most abundant volatile sulfur gas in the ocean. Oceanic DMS
+      emissions to the atmosphere influence cloud condensation nuclei formation
+      and represent a major pathway in the global sulfur cycle.
+    biological_processes:
+      - term:
+          id: GO:0009061
+          label: anaerobic respiration
+        evidence:
+          - reference: PMID:31231779
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Dimethyl sulfide (DMS) is the most abundant form of volatile sulfur in Earth's oceans, and is mainly produced by the enzymatic clevage of dimethylsulfoniopropionate (DMSP)."
+            explanation: >
+              Zhang et al. 2019 establish the central role of DMSP cleavage by
+              marine microorganisms in producing oceanic DMS, the dominant pathway
+              of biogenic volatile sulfur emission from the ocean surface.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2759
+          label: Eukaryota
+        role: PRIMARY_PRODUCER
+        description: Marine phytoplankton and macroalgae are the primary synthesizers of DMSP, which is subsequently cleaved to DMS by enzymatic action
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: Marine heterotrophic bacteria are the major degraders of DMSP via demethylation and cleavage pathways, producing DMS and other sulfur compounds
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "surface ocean: 0-30°C"
+        description: Temperature influences DMSP synthesis rates in phytoplankton and bacterial DMSP degradation kinetics across ocean regions
+    chemical_entities:
+      - term:
+          id: CHEBI:17437
+          label: dimethyl sulfide
+        evidence:
+          - reference: PMID:31231779
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Dimethyl sulfide (DMS) is the most abundant form of volatile sulfur in Earth's oceans, and is mainly produced by the enzymatic clevage of dimethylsulfoniopropionate (DMSP)."
+            explanation: >
+              Dimethyl sulfide is the key volatile sulfur product of the marine
+              DMSP cycle; Zhang et al. review its global distribution, biosynthetic
+              origins, and importance for the atmospheric sulfur cycle.
+
 indicators:
   - name: Porewater sulfate concentration profile
     description: >

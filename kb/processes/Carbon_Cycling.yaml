@@ -233,6 +233,100 @@ mechanisms:
           carbon uptake in temperate and boreal forests exceeding tropical
           deforestation emissions.
 
+  - name: Marine Gross Primary Production
+    description: >
+      Marine phytoplankton, dominated by cyanobacteria and microalgae, fix
+      dissolved carbon dioxide into organic matter via photosynthesis, accounting
+      for approximately half of global net primary production. Ocean NPP is
+      controlled by light availability, nutrient supply, and temperature, with
+      strong spatial and temporal heterogeneity across ocean basins.
+    biological_processes:
+      - term:
+          id: GO:0015977
+          label: carbon fixation
+        evidence:
+          - reference: PMID:9657713
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Integrating conceptually similar models of the growth of marine and terrestrial primary producers yielded an estimated global net primary production (NPP) of 104.9 petagrams of carbon per year, with roughly equal contributions from land and oceans."
+            explanation: >
+              Field et al. 1998 establish that marine primary production contributes
+              approximately half of global NPP (~52 Pg C/yr), demonstrating the
+              central role of marine photosynthetic carbon fixation in the global
+              carbon cycle.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: PRIMARY_PRODUCER
+        description: Marine cyanobacteria including Prochlorococcus and Synechococcus dominate oligotrophic ocean regions and are major contributors to open-ocean primary production
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "0-35°C (ocean surface range)"
+        description: Sea surface temperature limits phytoplankton growth rates and controls the geographic distribution of marine primary production
+    chemical_entities:
+      - term:
+          id: CHEBI:16526
+          label: carbon dioxide
+        evidence:
+          - reference: PMID:9657713
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "The spatial and temporal distributions of ocean NPP are consistent with primary limitation by light, nutrients, and temperature."
+            explanation: >
+              Marine NPP consumes dissolved CO2 via photosynthetic carbon fixation;
+              Field et al. identify the physical and nutrient controls on this CO2
+              uptake across ocean regions.
+
+  - name: Biological Carbon Pump
+    description: >
+      The biological carbon pump (BCP) transfers organic carbon from surface
+      waters to the deep ocean and seafloor via sinking of particulate organic
+      matter produced by phytoplankton. This biological export sequesters carbon
+      away from the atmosphere for decades to millennia and constitutes one of
+      Earth's most critical ecosystem services for climate regulation.
+    biological_processes:
+      - term:
+          id: GO:0015977
+          label: carbon fixation
+        evidence:
+          - reference: PMID:32836116
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The ocean's biological carbon pump (BCP) sequesters carbon from the surface to the deep ocean and seabed, constituting one of Earth's most valuable ecosystem services."
+            explanation: >
+              Jin et al. 2020 establish that the BCP is driven by biological carbon
+              fixation at the surface; photosynthetic production by phytoplankton
+              is the essential first step that loads the biological pump and
+              ultimately sequesters CO2 in the deep ocean.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: PRIMARY_PRODUCER
+        description: Phytoplankton including cyanobacteria produce the particulate organic carbon that sinks from the euphotic zone, driving the biological carbon pump
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        condition_value: "thermocline depth and stratification"
+        description: Ocean thermal stratification determines the depth of the mixed layer, controlling nutrient supply to the euphotic zone and the efficiency of particulate carbon export
+    chemical_entities:
+      - term:
+          id: CHEBI:16526
+          label: carbon dioxide
+        evidence:
+          - reference: PMID:32836116
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Significant uncertainty exists surrounding the amounts and rates of organic carbon sequestered in the oceans, however."
+            explanation: >
+              The BCP removes CO2 equivalents from surface waters by converting
+              dissolved carbon into sinking particulate organic matter; Jin et al.
+              highlight the uncertainty in quantifying this sequestration flux.
+
 indicators:
   - name: Net Ecosystem Production
     description: >
