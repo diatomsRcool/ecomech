@@ -39,16 +39,36 @@ mechanisms:
               Establishes mineral weathering and its eventual exhaustion as the
               primary control on long-term P availability in terrestrial ecosystems,
               with P depletion during pedogenesis creating ultimate P limitation.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000011
+          label: heterotrophy
+        evidence:
+          - reference: PMID:25674415
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Although, several bacterial (pseudomonads and bacilli) and fungal strains (Aspergilli and Penicillium) have been identified as PSM their performance under in situ conditions is not reliable and therefore needs to be improved by using either genetically modified strains or co-inoculation techniques."
+            explanation: >
+              Phosphate-solubilizing bacteria (pseudomonads and bacilli) are
+              chemoheterotrophs that gain energy from organic substrates while
+              producing organic acids that mobilize mineral-bound phosphate;
+              heterotrophy is the trophic basis of biological P solubilization.
     taxa_involved:
       - taxon:
           id: NCBITaxon:1386
           label: Bacillus
         role: OTHER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Phosphate-solubilizing bacilli produce organic acids and exopolysaccharides that accelerate dissolution of mineral-bound phosphate
       - taxon:
           id: NCBITaxon:286
           label: Pseudomonas
         role: OTHER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Phosphate-solubilizing pseudomonads mobilize inorganic P from primary minerals through organic acid secretion in the rhizosphere
     abiotic_conditions:
       - envo_condition_term:
@@ -103,16 +123,36 @@ mechanisms:
               biological P mineralization is insufficient to meet biological demand,
               underlining the importance of enzymatic organic P hydrolysis as the
               primary but rate-limiting recycling pathway.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:17922835
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Via a large-scale meta-analysis of experimental enrichments, we show that P limitation is equally strong across these major habitats and that N and P limitation are equivalent within both terrestrial and freshwater systems."
+            explanation: >
+              Pervasive P limitation across ecosystems reflects the rate-limiting
+              nature of saprotrophic decomposition of organic P compounds; enzymatic
+              hydrolysis of organic P esters by decomposer fungi and bacteria is the
+              primary internal recycling pathway for P in terrestrial and aquatic systems.
     taxa_involved:
       - taxon:
           id: NCBITaxon:4751
           label: Fungi
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000056
+          label: saprotroph
         description: Saprotrophic fungi produce extracellular phosphatases and are major drivers of organic P mineralization
       - taxon:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000054
+          label: decomposer
         description: Phosphate-solubilizing bacteria release extracellular phosphatases and organic acids that mobilize inorganic P
     causal_edges:
       - subject: Phosphatase-producing microorganisms
@@ -149,11 +189,29 @@ mechanisms:
               Co-limitation by N and P implies that mycorrhizal P acquisition
               interacts with N availability; AMF-mediated P supply enables plants
               to exploit N availability, consistent with synergistic N+P responses.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000161
+          label: photosymbiosis
+        evidence:
+          - reference: PMID:20349827
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "soil barriers that prevent access to P"
+            explanation: >
+              Mycorrhizal photosymbiosis is the primary biological mechanism
+              for overcoming soil barriers to P access; AMF hyphae penetrate
+              pores too small for roots in exchange for plant photosynthate,
+              constituting a photosymbiotic trophic process at the heart of
+              terrestrial P cycling.
     taxa_involved:
       - taxon:
           id: NCBITaxon:214504
           label: Glomeromycota
         role: SYMBIONT
+        ecological_function:
+          id: ECOCORE:00000045
+          label: symbiotroph
         description: Arbuscular mycorrhizal fungi (AMF) forming obligate symbioses with ~80% of terrestrial plant species
     causal_edges:
       - subject: AMF hyphal networks
@@ -193,11 +251,28 @@ mechanisms:
               Karl 2014 establishes that marine microorganisms are the primary
               agents of P assimilation and remineralization, linking microbial
               metabolism directly to the marine P cycle.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:24405427
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "In the sea, microorganisms are primarily responsible for P assimilation and remineralization, including recently discovered P reduction-oxidation bioenergetic processes that add new complexity to the marine microbial P cycle."
+            explanation: >
+              Marine microbial P remineralization is a decomposition process in
+              which heterotrophic bacteria break down dissolved organic phosphorus
+              compounds, releasing inorganic phosphate that sustains phytoplankton
+              primary production in the surface ocean.
     taxa_involved:
       - taxon:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000054
+          label: decomposer
         description: Marine heterotrophic bacteria remineralize dissolved organic phosphorus, releasing inorganic phosphate that sustains phytoplankton growth
     abiotic_conditions:
       - envo_condition_term:

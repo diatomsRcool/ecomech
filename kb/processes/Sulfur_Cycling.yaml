@@ -45,11 +45,29 @@ mechanisms:
               coupling organic matter oxidation to sulfate reduction—and provides
               geological evidence for its antiquity, confirming it as the foundational
               anaerobic respiratory pathway in the sulfur cycle.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000011
+          label: heterotrophy
+        evidence:
+          - reference: PMID:11242044
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Sulphate-reducing microbes affect the modern sulphur cycle, and may be quite ancient, though when they evolved is uncertain. These organisms produce sulphide while oxidizing organic matter or hydrogen with sulphate."
+            explanation: >
+              Dissimilatory sulfate reduction is a form of heterotrophy in which
+              organic carbon (or H2) serves as the electron donor for anaerobic
+              respiration; sulfate-reducing microbes are chemoheterotrophic
+              decomposers that gain energy from oxidizing organic matter coupled
+              to sulfate reduction.
     taxa_involved:
       - taxon:
           id: NCBITaxon:872
           label: Desulfovibrio
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000171
+          label: sulfur reducer
         description: Sulfate-reducing bacteria that couple organic matter or H2 oxidation to sulfate reduction under anaerobic conditions
     abiotic_conditions:
       - envo_condition_term:
@@ -118,11 +136,29 @@ mechanisms:
               reflects the multiple evolutionary routes to sulfur-based
               chemolithotrophy, coupling sulfur oxidation to primary production
               in anoxic and chemocline environments.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000014
+          label: lithotrophy
+        evidence:
+          - reference: PMID:15939347
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "members of the Alphaproteobacteria harbor the complete sulfur-oxidizing Sox enzyme system, whereas members of the beta and gamma subclass and the Chlorobiaceae contain sox gene clusters that lack the genes encoding sulfur dehydrogenase."
+            explanation: >
+              Chemolithotrophic sulfur oxidation is a form of lithotrophy in which
+              SOB extract energy from the oxidation of reduced inorganic sulfur
+              compounds (H2S, S0, thiosulfate); the diversity of Sox enzyme
+              systems across bacterial lineages reflects multiple evolutionary
+              routes to sulfur-based chemolithotrophy.
     taxa_involved:
       - taxon:
           id: NCBITaxon:921
           label: Thiobacillus
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000124
+          label: chemolithoautotroph
         description: Chemolithoautotrophic sulfur-oxidizing bacteria that fix CO2 using energy from H2S and thiosulfate oxidation in aerobic and microaerobic zones
     abiotic_conditions:
       - envo_condition_term:
@@ -173,11 +209,29 @@ mechanisms:
               endogenously produced volatile sulfur compounds in freshwater sediments;
               this anaerobic consumption limits VOSC flux to the atmosphere and
               maintains low VOSC concentrations in freshwater systems.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000011
+          label: heterotrophy
+        evidence:
+          - reference: PMID:12022467
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Inhibition studies have revealed that the major part of the endogenously produced MT and DMS is degraded anaerobically by methanogens."
+            explanation: >
+              VOSC consumption by methanogenic archaea is a form of heterotrophy
+              in which C1 sulfur compounds serve as methyl donors; methanogens
+              are chemoheterotrophic anaerobes whose uptake of DMS and MT
+              constitutes the primary anaerobic sink for volatile organic sulfur
+              in freshwater sediments.
     taxa_involved:
       - taxon:
           id: NCBITaxon:2157
           label: Archaea
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Methanogenic archaea are the primary anaerobic consumers of DMS and methanethiol in freshwater sediments
     abiotic_conditions:
       - envo_condition_term:
@@ -240,16 +294,49 @@ mechanisms:
               Zhang et al. 2019 establish the central role of DMSP cleavage by
               marine microorganisms in producing oceanic DMS, the dominant pathway
               of biogenic volatile sulfur emission from the ocean surface.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:31231779
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "It was long believed that only marine eukaryotes such as phytoplankton produce DMSP."
+            explanation: >
+              DMSP synthesis is primarily a photoautotrophic process; marine
+              phytoplankton (photoautotrophs) are the dominant producers of DMSP,
+              which they synthesize as an osmolyte and antioxidant using
+              photosynthetically-derived carbon from CO2 fixation.
+      - term:
+          id: ECOCORE:00000011
+          label: heterotrophy
+        evidence:
+          - reference: PMID:31231779
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Marine heterotrophic bacteria are likely the major degraders of DMSP, using two known pathways: demethylation and cleavage."
+            explanation: >
+              DMSP degradation to DMS is driven by marine heterotrophic bacteria,
+              which catabolize DMSP via demethylation or cleavage for carbon and
+              sulfur nutrition; heterotrophy is the trophic basis of the primary
+              DMSP sink in marine systems.
     taxa_involved:
       - taxon:
           id: NCBITaxon:2759
           label: Eukaryota
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Marine phytoplankton and macroalgae are the primary synthesizers of DMSP, which is subsequently cleaved to DMS by enzymatic action
       - taxon:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
         description: Marine heterotrophic bacteria are the major degraders of DMSP via demethylation and cleavage pathways, producing DMS and other sulfur compounds
     abiotic_conditions:
       - envo_condition_term:

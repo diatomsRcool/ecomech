@@ -42,16 +42,36 @@ mechanisms:
               Establishes GPP as the dominant global CO2 uptake flux, underpinning
               the central role of photosynthetic carbon fixation in regulating
               atmospheric CO2 and ecosystem productivity globally.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Terrestrial gross primary production (GPP) is the largest global CO(2) flux driving several ecosystem functions."
+            explanation: >
+              GPP is the global manifestation of photoautotrophy — the process
+              by which primary producers convert atmospheric CO2 to organic carbon
+              using solar energy; this ECOCORE term captures the trophic basis of
+              the largest global CO2 uptake flux.
     taxa_involved:
       - taxon:
           id: NCBITaxon:33090
           label: Viridiplantae
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Land plants account for the majority of terrestrial GPP through C3, C4, and CAM photosynthesis
       - taxon:
           id: NCBITaxon:1177
           label: Cyanobacteria
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Cyanobacteria contribute substantially to marine and freshwater GPP and were responsible for Earth's early oxygenation
     abiotic_conditions:
       - envo_condition_term:
@@ -112,16 +132,36 @@ mechanisms:
               Establishes soil respiration as the dominant pathway of carbon return
               to the atmosphere in terrestrial ecosystems; its quantification is
               essential for constraining the net terrestrial carbon balance.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:20336143
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "Soil respiration, R(S), the flux of microbially and plant-respired carbon dioxide (CO(2)) from the soil surface to the atmosphere, is the second-largest terrestrial carbon flux."
+            explanation: >
+              Soil respiration is dominated by microbial decomposition of organic
+              matter; decomposer fungi and bacteria are the primary drivers of
+              the heterotrophic component of soil CO2 efflux, making decomposition
+              the ECOCORE trophic process at the heart of ecosystem carbon return.
     taxa_involved:
       - taxon:
           id: NCBITaxon:4751
           label: Fungi
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000056
+          label: saprotroph
         description: Saprotrophic fungi are the primary decomposers of recalcitrant organic matter (lignin, cellulose) in terrestrial soils
       - taxon:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000054
+          label: decomposer
         description: Soil bacteria decompose labile carbon fractions and drive a large fraction of total soil respiration
     abiotic_conditions:
       - envo_condition_term:
@@ -185,11 +225,28 @@ mechanisms:
               Quantifies the global forest carbon sink from inventory and long-term
               flux data; this sink represents net carbon fixation exceeding carbon
               losses from respiration and disturbance in forests worldwide.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:21764754
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "we estimate a total forest sink of 2.4 ± 0.4 petagrams of carbon per year (Pg C year(-1)) globally for 1990 to 2007"
+            explanation: >
+              The global forest carbon sink is the net product of photoautotrophy
+              exceeding respiratory losses; forest biomass sequestration is driven
+              by the photoautotrophic fixation of CO2 into long-residence-time
+              woody biomass.
     taxa_involved:
       - taxon:
           id: NCBITaxon:33090
           label: Viridiplantae
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Forest trees accumulate the majority of terrestrial above-ground biomass carbon
     abiotic_conditions:
       - envo_condition_term:
@@ -254,11 +311,28 @@ mechanisms:
               approximately half of global NPP (~52 Pg C/yr), demonstrating the
               central role of marine photosynthetic carbon fixation in the global
               carbon cycle.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:9657713
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Integrating conceptually similar models of the growth of marine and terrestrial primary producers yielded an estimated global net primary production (NPP) of 104.9 petagrams of carbon per year, with roughly equal contributions from land and oceans."
+            explanation: >
+              Marine GPP is the global manifestation of photoautotrophy in ocean
+              systems; phytoplankton photoautotrophs account for ~half of global
+              NPP, fixing ~52 Pg C yr⁻¹ from dissolved CO2 using solar energy
+              in the euphotic zone.
     taxa_involved:
       - taxon:
           id: NCBITaxon:1177
           label: Cyanobacteria
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Marine cyanobacteria including Prochlorococcus and Synechococcus dominate oligotrophic ocean regions and are major contributors to open-ocean primary production
     abiotic_conditions:
       - envo_condition_term:
@@ -301,11 +375,29 @@ mechanisms:
               fixation at the surface; photosynthetic production by phytoplankton
               is the essential first step that loads the biological pump and
               ultimately sequesters CO2 in the deep ocean.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000013
+          label: photoautotrophy
+        evidence:
+          - reference: PMID:32836116
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The ocean's biological carbon pump (BCP) sequesters carbon from the surface to the deep ocean and seabed, constituting one of Earth's most valuable ecosystem services."
+            explanation: >
+              The BCP is initiated by photoautotrophic primary production in the
+              euphotic zone; phytoplankton photoautotrophs convert dissolved CO2
+              to particulate organic carbon that sinks to the deep ocean,
+              effectively exporting the products of photoautotrophy away from
+              the atmosphere.
     taxa_involved:
       - taxon:
           id: NCBITaxon:1177
           label: Cyanobacteria
         role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
         description: Phytoplankton including cyanobacteria produce the particulate organic carbon that sinks from the euphotic zone, driving the biological carbon pump
     abiotic_conditions:
       - envo_condition_term:
