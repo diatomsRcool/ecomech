@@ -56,27 +56,51 @@ before KB entries can be curated. The EcoMech schema now accepts both `ENVO:` an
    is published; the sqlite adapter will pick up new terms automatically.
 
 **Scaling strategy:** Draft all needed terms in one template pass rather than
-issue-by-issue. The ~30–50 target processes in the table below likely need
-10–15 new ECOCORE terms (many processes will reuse existing broad terms like
-`photoautotrophy` or `decomposition` via the `process_term` binding, with
-specificity carried by the entry `name` and `description`). Prioritize terms
-that cover multiple EcoMech entries.
+issue-by-issue. The remaining gaps (~10 processes) need new ECOCORE terms covering
+DOM mineralization, trophic cascades, disturbance/succession, biogeochemical coupling,
+and ecosystem services. Terms added in the 2026-08 ECOCORE release (ECOCORE:00000183–00000190)
+now cover all primary production and symbiosis targets. Prioritize terms that cover
+multiple EcoMech entries.
+
+> **Note:** Query the live OWL rather than the sqlite mirror for the most current terms:
+> ```bash
+> uv run runoak -i pronto:/tmp/ecocore.owl terms | grep "^ECOCORE:"
+> # or: curl -L -o /tmp/ecocore.owl http://purl.obolibrary.org/obo/ecocore.owl
+> ```
 
 ### 2b — KB entry curation
 
 Prioritize **30–50 foundational ecological processes** covering the major
 biogeochemical cycles and ecosystem function categories:
 
-| Category | Target Processes | ENVO term? |
+| Category | Target Processes | Term |
 |---|---|---|
-| Nutrient cycles | Nitrogen cycling, phosphorus cycling, carbon cycling, sulfur cycling | ✅ all in ENVO |
-| Primary production | Terrestrial NPP, marine primary production, benthic production | ❌ need ECOCORE terms |
-| Decomposition | Litter decomposition, dissolved organic matter mineralization | ⚠️ check ENVO |
-| Trophic processes | Herbivory, predation, detritivory, trophic cascades | ⚠️ check ENVO |
-| Symbioses | Mycorrhizal association, root nodule symbiosis, coral-zooxanthellae | ⚠️ check ENVO |
-| Disturbance/succession | Wildfire succession, gap dynamics, flood pulse | ⚠️ check ENVO |
-| Biogeochemical coupling | Redox dynamics, methane cycling, iron cycling | ⚠️ check ENVO |
-| Ecosystem services | Pollination, seed dispersal, water filtration, carbon sequestration | ⚠️ check ENVO |
+| Nutrient cycles | Nitrogen cycling | ✅ ENVO:01001813 |
+| Nutrient cycles | Phosphorus cycling | ✅ ENVO (existing) |
+| Nutrient cycles | Carbon cycling | ✅ ENVO (existing) |
+| Nutrient cycles | Sulfur cycling | ✅ ENVO (existing) |
+| Primary production | Terrestrial NPP | ✅ ECOCORE:00000183 |
+| Primary production | Marine primary production | ✅ ECOCORE:00000184 |
+| Primary production | Benthic production | ✅ ECOCORE:00000185 |
+| Decomposition | Litter decomposition | ✅ ECOCORE:00000186 |
+| Decomposition | Dissolved organic matter mineralization | ❌ need ECOCORE term |
+| Trophic processes | Herbivory | ✅ ECOCORE:00000020 |
+| Trophic processes | Predation | ✅ ECOCORE:00000102 |
+| Trophic processes | Detritivory | ✅ ECOCORE:00000057 |
+| Trophic processes | Trophic cascades | ❌ need ECOCORE term |
+| Symbioses | Mycorrhizal association | ✅ ECOCORE:00000188 |
+| Symbioses | Root nodule symbiosis | ✅ ECOCORE:00000189 |
+| Symbioses | Coral-zooxanthellae symbiosis | ✅ ECOCORE:00000190 |
+| Disturbance/succession | Wildfire succession | ❌ need ECOCORE term |
+| Disturbance/succession | Gap dynamics | ❌ need ECOCORE term |
+| Disturbance/succession | Flood pulse | ❌ need ECOCORE term |
+| Biogeochemical coupling | Redox dynamics | ❌ need ECOCORE term |
+| Biogeochemical coupling | Methane cycling | ❌ need ECOCORE term |
+| Biogeochemical coupling | Iron cycling | ❌ need ECOCORE term |
+| Ecosystem services | Pollination | ❌ need ECOCORE term |
+| Ecosystem services | Seed dispersal | ❌ need ECOCORE term |
+| Ecosystem services | Water filtration | ❌ need ECOCORE term |
+| Ecosystem services | Carbon sequestration | ❌ need ECOCORE term |
 
 For each process:
 - Confirm or add ontology term (ENVO preferred; ECOCORE if ENVO gap)
