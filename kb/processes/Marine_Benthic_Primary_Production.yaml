@@ -1,0 +1,423 @@
+id: ECOCORE:00000185
+name: Marine Benthic Primary Production
+process_term:
+  id: ECOCORE:00000185
+  label: marine benthic primary production
+description: >
+  Marine benthic primary production is the fixation of CO2 into organic biomass
+  by photosynthetic organisms living on or in seafloor sediments, including
+  microphytobenthos (MPB), seagrasses, macroalgae, and benthic cyanobacteria.
+  Globally, benthic microalgal productivity reaches ~500 million tons of carbon
+  per year, with estuarine MPB contributing 27-234 g C m-2 yr-1. Benthic
+  primary production is critical to coastal and estuarine food webs and
+  sediment carbon dynamics. Key controls include light penetration through the
+  water column, sediment disturbance, tidal exposure, and nutrient availability.
+  Unlike pelagic production, benthic primary producers experience steep physical
+  and chemical gradients and are subjected to highly variable tidal regimes.
+synonyms:
+  - benthic primary production
+  - microphytobenthos production
+  - MPB primary production
+  - seafloor primary production
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Microphytobenthos (MPB) Photosynthesis
+    description: >
+      Sediment-attached assemblages of diatoms, cyanobacteria, and other
+      microalgae—collectively termed microphytobenthos—are the dominant primary
+      producers in intertidal and shallow subtidal environments. MPB diatoms
+      perform photosynthesis within the upper millimeters of illuminated
+      sediment, often migrating vertically in response to tidal cycles and
+      light gradients to optimize light and carbon availability. Global
+      annual benthic microalgal productivity reaches 500 million tons of carbon.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:28717024
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Diatom-dominated microphytobenthos (MPB) is the main primary producer of many intertidal and shallow subtidal environments, being therefore of critical importance to estuarine and coastal food webs."
+            explanation: >
+              Establishes MPB as the dominant photosynthetic primary producer
+              in intertidal and shallow subtidal benthic environments, confirming
+              that phototrophic carbon fixation by sediment-attached diatoms is
+              the primary mechanism of benthic primary production in coastal
+              and estuarine ecosystems.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:34153859
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Global annual benthic microalgal productivity was 500 million tons of carbon, 50% of which contributed towards the autochthonous carbon fixation in the estuaries."
+            explanation: >
+              Quantifies global benthic microalgal autotrophy at 500 million tons
+              of carbon per year, with half of this production contributing to
+              in-situ estuarine carbon fixation; establishes MPB autotrophy as
+              a globally significant primary production pathway.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2836
+          label: Bacillariophyta
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Epipelic and epipsammic diatoms are the dominant MPB primary producers
+          in estuarine and intertidal sediments; motile epipelic diatoms migrate
+          upward to the sediment surface during emersion to optimize light exposure,
+          then downward during tidal flooding to avoid resuspension
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Benthic cyanobacteria form biofilms and microbial mats in intertidal
+          zones, contributing to both photosynthetic carbon fixation and biological
+          nitrogen fixation in oligotrophic benthic systems
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Tidal exposure subjects intertidal MPB to temperature extremes
+          (desiccation and heat stress during emersion); temperature interacts
+          with light to control photosynthetic rates and photoinhibition
+    causal_edges:
+      - subject: MPB diatoms
+        predicate: CAUSES
+        object: CO2 fixation in illuminated surface sediments
+      - subject: Tidal cycles
+        predicate: ENABLES
+        object: Vertical migration of epipelic diatoms optimizing light and carbon access
+      - subject: Light penetration to sediment surface
+        predicate: ENABLES
+        object: MPB photosynthesis
+    evidence:
+      - reference: PMID:34153859
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Intertidal microbial communities occur as biofilms or microphytobenthos (MPB) which are sediment-attached assemblages of bacteria, protozoa, fungi, algae, diatoms embedded in extracellular polymeric substances."
+        explanation: >
+          Describes the structural organization of MPB communities that carry
+          out benthic photosynthesis; the biofilm architecture of MPB, embedding
+          photoautotrophic diatoms and cyanobacteria in an EPS matrix, defines
+          the physical context of benthic primary production in intertidal sediments.
+
+  - name: Carbon Limitation of Benthic Photosynthesis
+    description: >
+      Unlike pelagic phytoplankton, benthic diatoms in dense MPB mats experience
+      rapid drawdown of dissolved inorganic carbon (DIC) within the photic
+      sediment layer, creating localized carbon limitation that constrains
+      photosynthetic rates. Vertical migration of motile diatoms may partially
+      overcome this limitation by shuttling cells between carbon-depleted surface
+      layers and carbon-replete deeper sediment.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:28717024
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "We present evidence of carbon limitation of photosynthesis in benthic diatom mats and highly productive MPB natural communities."
+            explanation: >
+              Provides direct evidence that photosynthesis in benthic diatom
+              mats is carbon-limited, identifying DIC depletion within the
+              sediment photic layer as a distinctive constraint on benthic
+              primary production not encountered by pelagic phytoplankton.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:28717024
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "benthic diatoms evolved adaptation mechanisms to these harsh conditions, including the capacity to move within steep physical and chemical gradients, allowing them to perform photosynthesis efficiently."
+            explanation: >
+              Vertical migration is an autotrophic adaptation unique to benthic
+              systems, enabling MPB diatoms to maintain efficient photosynthesis
+              despite steep DIC and light gradients in surface sediments;
+              this migration-based autotrophic strategy distinguishes benthic
+              primary production from its pelagic counterpart.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2836
+          label: Bacillariophyta
+        role: PRIMARY_PRODUCER
+        description: >
+          Epipelic motile diatoms (e.g. Navicula, Nitzschia) migrate vertically
+          through sediments in response to light and DIC gradients, alternately
+          accessing surface light and subsurface DIC to sustain photosynthesis
+          in carbon-limited benthic mats
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          High temperatures during tidal emersion accelerate DIC drawdown by
+          stimulating photosynthetic rates; combined light and temperature stress
+          increases photoinhibition risk in intertidal MPB communities
+    causal_edges:
+      - subject: Dense MPB photosynthesis
+        predicate: CAUSES
+        object: Rapid depletion of dissolved inorganic carbon in the photic sediment layer
+      - subject: DIC depletion
+        predicate: INHIBITS
+        object: Continued photosynthesis in the surface sediment layer
+      - subject: Vertical migration of epipelic diatoms
+        predicate: ENABLES
+        object: Access to DIC-replete deeper sediment and sustained photosynthesis
+    evidence:
+      - reference: PMID:28717024
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Owing to tidal cycles, intertidal MPB diatoms are subjected to environmental conditions far more variable than the ones experienced by pelagic diatoms (e.g. light, temperature, salinity, desiccation and nutrient availability)."
+        explanation: >
+          Documents the uniquely variable physicochemical environment experienced
+          by intertidal MPB, explaining why benthic primary production is
+          subject to distinct constraints (DIC limitation, desiccation, salinity
+          variation) not encountered in pelagic phytoplankton systems.
+
+  - name: MPB Contribution to Estuarine Carbon and Food Web Dynamics
+    description: >
+      Microphytobenthos production supports benthic invertebrate food webs and
+      contributes substantially to estuarine autochthonous carbon fixation.
+      In many estuaries, MPB primary production rivals or exceeds phytoplankton
+      production per unit area, making benthic production a critical subsidy to
+      pelagic food webs via benthic-pelagic coupling.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:34153859
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Primary production by MPB was 27-234 gCm-2y-1 in the estuaries of Asia, Europe and the United States."
+            explanation: >
+              Quantifies MPB photosynthetic production rates across three continents
+              at 27-234 g C m-2 yr-1; this range encompasses a large fraction
+              of estuarine carbon budgets and establishes MPB as a major source
+              of autochthonous carbon in shallow coastal systems.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:34153859
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Global annual benthic microalgal productivity was 500 million tons of carbon, 50% of which contributed towards the autochthonous carbon fixation in the estuaries."
+            explanation: >
+              The 50% autochthonous contribution of MPB to estuarine carbon
+              fixation establishes benthic autotrophy as a co-dominant primary
+              production pathway in estuarine ecosystems alongside phytoplankton;
+              this carbon underpins benthic invertebrate food webs and
+              benthic-pelagic energy coupling.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2836
+          label: Bacillariophyta
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Benthic diatom biofilms produce organic carbon and EPS that directly
+          support meiofauna, macrobenthos, and surface-feeding fish and shorebirds;
+          MPB production is a critical trophic subsidy in estuarine food webs
+    causal_edges:
+      - subject: MPB photosynthesis
+        predicate: CAUSES
+        object: Autochthonous organic carbon production in estuarine sediments
+      - subject: MPB-derived organic carbon
+        predicate: ENABLES
+        object: Benthic invertebrate secondary production and benthic-pelagic coupling
+    evidence:
+      - reference: PMID:34153859
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Global annual benthic microalgal productivity was 500 million tons of carbon, 50% of which contributed towards the autochthonous carbon fixation in the estuaries."
+        explanation: >
+          Quantifies the global scale of MPB autotrophic production and its
+          disproportionate contribution to estuarine carbon fixation; the 500
+          million ton annual estimate establishes marine benthic primary production
+          as a globally significant, if under-recognized, component of the
+          biospheric carbon cycle.
+
+indicators:
+  - name: Sediment surface chlorophyll-a
+    description: >
+      Chlorophyll-a concentration in the upper few millimeters of sediment
+      is the standard proxy for MPB biomass; measured by in situ fluorometry,
+      spectroradiometry, or laboratory extraction from sediment cores.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Chlorophyll-a in mg m-2 or μg g-1 dry sediment (surface scrape or core)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:28717024
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Diatom-dominated microphytobenthos (MPB) is the main primary producer of many intertidal and shallow subtidal environments, being therefore of critical importance to estuarine and coastal food webs."
+        explanation: >
+          Establishing MPB as the dominant primary producer in intertidal and
+          subtidal sediments makes sediment chlorophyll-a the primary indicator
+          of benthic photosynthetic capacity; chlorophyll-a is the standard
+          measure of MPB biomass and a proxy for potential primary production.
+
+  - name: MPB primary production rate
+    description: >
+      Benthic primary production is measured by 14C or 13C bicarbonate incubation,
+      oxygen microelectrode profiling, or pulse-amplitude modulated (PAM)
+      fluorometry, yielding areal production estimates in g C m-2 per unit time.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "MPB NPP in g C m-2 yr-1 (incubation or oxygen microsensor)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:34153859
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Primary production by MPB was 27-234 gCm-2y-1 in the estuaries of Asia, Europe and the United States."
+        explanation: >
+          Provides the standard reference range for MPB primary production
+          rates across continents (27-234 g C m-2 yr-1); this range defines
+          the expected measurement envelope for monitoring benthic primary
+          production in estuarine systems.
+
+  - name: Sediment oxygen flux
+    description: >
+      Net sediment oxygen flux (production minus benthic respiration) integrates
+      MPB photosynthesis and sediment community respiration; measured by
+      benthic landers or core incubations, it is a proxy for net benthic
+      primary production in illuminated sediments.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Net O2 flux in mmol O2 m-2 h-1 (benthic lander or core incubation)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:28717024
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "We present evidence of carbon limitation of photosynthesis in benthic diatom mats and highly productive MPB natural communities."
+        explanation: >
+          Carbon limitation in high-productivity MPB communities implies that
+          photosynthesis-driven oxygen production is often near maximum in the
+          photic zone; net sediment oxygen flux thus tracks the productivity
+          of benthic photosynthesis and its sensitivity to DIC and light availability.
+
+drivers:
+  - name: Light attenuation through the water column
+    description: >
+      Turbidity, water depth, and particulate matter in the overlying water
+      column attenuate downwelling irradiance, setting the lower depth limit
+      for benthic photosynthesis. High turbidity is the primary reason MPB
+      production is concentrated in shallow intertidal and subtidal zones.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:28717024
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Diatom-dominated microphytobenthos (MPB) is the main primary producer of many intertidal and shallow subtidal environments, being therefore of critical importance to estuarine and coastal food webs."
+        explanation: >
+          MPB dominance is confined to intertidal and shallow subtidal environments,
+          indicating that light availability—controlled by water depth and turbidity—
+          is the primary physical constraint determining where benthic primary
+          production can occur.
+
+  - name: Tidal exposure and desiccation
+    description: >
+      Tidal cycles alternately expose intertidal sediments to aerial conditions
+      (promoting photosynthesis and desiccation stress) and submerge them (enabling
+      nutrient and DIC resupply). The timing and duration of emersion regulates
+      MPB productivity and triggers vertical migration behavior.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:28717024
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Owing to tidal cycles, intertidal MPB diatoms are subjected to environmental conditions far more variable than the ones experienced by pelagic diatoms (e.g. light, temperature, salinity, desiccation and nutrient availability)."
+        explanation: >
+          Tidal cycles are the defining environmental driver of intertidal MPB
+          ecology; the extreme variability imposed by tidal exposure in light,
+          temperature, salinity, and desiccation stress makes tidal regime
+          the primary control on MPB community composition and productivity.
+
+  - name: Sediment disturbance and resuspension
+    description: >
+      Physical disturbance by waves, currents, bioturbation, and trawling
+      resuspends surface sediments, disrupting MPB biofilms and transferring
+      benthic primary producers to the water column where they are grazed or
+      exported. Reduced disturbance promotes MPB biomass accumulation.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:34153859
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Intertidal microbial communities occur as biofilms or microphytobenthos (MPB) which are sediment-attached assemblages of bacteria, protozoa, fungi, algae, diatoms embedded in extracellular polymeric substances."
+        explanation: >
+          The biofilm structure of MPB—diatoms and cyanobacteria embedded in
+          EPS on sediment surfaces—makes the community vulnerable to physical
+          resuspension; disturbance that disrupts the biofilm matrix directly
+          removes primary producers from the benthic habitat, reducing
+          in-situ benthic primary production.
+
+interventions:
+  - name: Reduction of coastal turbidity from land runoff
+    description: >
+      Reducing sediment and nutrient runoff from agricultural and urban land
+      decreases water column turbidity in estuaries and coastal zones, increasing
+      light penetration to benthic habitats and expanding the depth range and
+      productivity of MPB and seagrass communities.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:28717024
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Diatom-dominated microphytobenthos (MPB) is the main primary producer of many intertidal and shallow subtidal environments, being therefore of critical importance to estuarine and coastal food webs."
+        explanation: >
+          MPB importance to estuarine food webs makes the restoration of light
+          conditions necessary for benthic photosynthesis a priority intervention;
+          turbidity reduction directly enables the light penetration required
+          for MPB production, restoring a foundational trophic subsidy to
+          estuarine ecosystems.
+
+  - name: Reduction of bottom trawling in shallow coastal zones
+    description: >
+      Banning or restricting bottom trawling in shallow coastal and estuarine
+      zones reduces chronic sediment disturbance and MPB biofilm disruption,
+      allowing benthic primary producer communities to recover and accumulate
+      biomass.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:34153859
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Global annual benthic microalgal productivity was 500 million tons of carbon, 50% of which contributed towards the autochthonous carbon fixation in the estuaries."
+        explanation: >
+          The globally significant MPB productivity (500 Mt C yr-1) and its
+          importance as an autochthonous carbon source in estuaries justifies
+          protection from chronic physical disturbance; bottom trawling is
+          one of the most destructive forms of such disturbance, directly
+          disrupting the sediment-surface biofilms responsible for benthic
+          carbon fixation.
+
+creation_date: "2026-08-17T00:00:00Z"

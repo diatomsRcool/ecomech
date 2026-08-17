@@ -1,0 +1,401 @@
+id: ECOCORE:00000183
+name: Terrestrial Primary Production
+process_term:
+  id: ECOCORE:00000183
+  label: terrestrial primary production
+description: >
+  Terrestrial primary production is the fixation of atmospheric CO2 into organic
+  biomass by land plants through photosynthesis. Gross primary production (GPP)
+  represents the total carbon fixed, while net primary production (NPP) is GPP
+  minus autotrophic respiration. At ~123 Pg C yr-1 globally, terrestrial GPP is
+  the largest biospheric CO2 flux and the foundation of all terrestrial food webs
+  and carbon cycling. Production is controlled by solar radiation, water
+  availability, temperature, and nutrient supply, with tropical forests and
+  savannahs accounting for ~60% of global GPP.
+synonyms:
+  - terrestrial NPP
+  - terrestrial net primary productivity
+  - terrestrial GPP
+  - land primary production
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Photosynthetic Carbon Fixation by Land Plants
+    description: >
+      Land plants capture solar energy via chlorophyll and fix atmospheric CO2
+      through the Calvin cycle, producing carbohydrates that fuel plant growth
+      and ecosystem energy flow. This autotrophic process is the primary driver
+      of terrestrial carbon uptake and is quantified globally at ~123 Pg C yr-1.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Terrestrial gross primary production (GPP) is the largest global CO(2) flux driving several ecosystem functions."
+            explanation: >
+              Identifies terrestrial GPP—the direct product of land-plant
+              photosynthesis—as the largest global CO2 flux, establishing
+              photosynthetic carbon fixation as the foundational mechanism
+              of terrestrial primary production.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "We provide an observation-based estimate of this flux at 123 +/- 8 petagrams of carbon per year (Pg C year(-1)) using eddy covariance flux data and various diagnostic models."
+            explanation: >
+              The 123 Pg C yr-1 observation-based GPP estimate quantifies global
+              terrestrial autotrophy directly; eddy covariance data confirm
+              photosynthetic CO2 uptake as the dominant autotrophic process
+              driving terrestrial ecosystem carbon budgets.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3193
+          label: Embryophyta
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Land plants are the exclusive primary producers in terrestrial ecosystems;
+          tropical trees and C4 savannahs account for 60% of global GPP,
+          with temperate and boreal forests contributing most of the remainder
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Temperature modulates enzymatic rates of photosynthesis and
+          respiration; rising temperatures historically increased NPP where
+          water was non-limiting
+    causal_edges:
+      - subject: Land plants
+        predicate: CAUSES
+        object: Fixation of atmospheric CO2 into organic biomass
+        description: Photosynthesis converts CO2 + H2O to carbohydrates using solar energy
+      - subject: Solar radiation
+        predicate: ENABLES
+        object: Terrestrial photosynthesis
+    evidence:
+      - reference: PMID:9657713
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Integrating conceptually similar models of the growth of marine and terrestrial primary producers yielded an estimated global net primary production (NPP) of 104.9 petagrams of carbon per year, with roughly equal contributions from land and oceans."
+        explanation: >
+          Establishes the global scale of terrestrial plant photosynthesis;
+          land contributes ~52 Pg C yr-1 to global NPP, confirming land-plant
+          photosynthesis as a globally dominant carbon fixation mechanism.
+
+  - name: Water Limitation of Terrestrial NPP
+    description: >
+      Precipitation and soil moisture availability impose primary constraints on
+      terrestrial NPP across dryland and seasonally dry ecosystems. Water stress
+      causes stomatal closure, reducing CO2 uptake and photosynthetic rates.
+      Large-scale droughts can reduce global NPP measurably, counteracting the
+      stimulatory effects of warming on plant photosynthesis.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:20724633
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Large-scale droughts have reduced regional NPP, and a drying trend in the Southern Hemisphere has decreased NPP in that area, counteracting the increased NPP over the Northern Hemisphere."
+            explanation: >
+              Demonstrates that drought-driven water limitation is sufficient
+              to reduce terrestrial photosynthesis at regional to global scales;
+              Southern Hemisphere drying trend caused net global NPP decline
+              despite warming-driven gains in the Northern Hemisphere.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:9657713
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "On land, water limitation imposes additional constraints."
+            explanation: >
+              Explicitly identifies water as an additional constraint on terrestrial
+              autotrophic production beyond the light and temperature limits shared
+              with marine systems; water availability is the primary differentiator
+              between high-NPP and low-NPP terrestrial biomes.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3193
+          label: Embryophyta
+        role: PRIMARY_PRODUCER
+        description: >
+          Under water stress, land plants reduce stomatal aperture, limiting
+          CO2 diffusion into mesophyll cells and directly suppressing
+          photosynthetic carbon fixation rates
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: Drought interacts with warming to reduce NPP; the warmest decade on record still saw NPP decline due to drying trends
+    causal_edges:
+      - subject: Drought and drying climate trends
+        predicate: CAUSES
+        object: Reduction in regional and global terrestrial NPP
+      - subject: Water limitation
+        predicate: INHIBITS
+        object: Stomatal CO2 uptake and photosynthesis
+    evidence:
+      - reference: PMID:20724633
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Terrestrial net primary production (NPP) quantifies the amount of atmospheric carbon fixed by plants and accumulated as biomass."
+        explanation: >
+          Defines terrestrial NPP as the net atmospheric carbon fixed by plants—
+          the variable directly suppressed by drought-induced water limitation;
+          establishing NPP as the integrative measure of terrestrial primary
+          production across climate gradients.
+
+  - name: Tropical Dominance of Global Terrestrial GPP
+    description: >
+      Tropical forests and savannahs account for approximately 60% of global
+      terrestrial GPP due to high solar irradiance, warm temperatures, and
+      abundant precipitation in equatorial and subtropical regions. These biomes
+      maintain high year-round photosynthetic rates, making them disproportionately
+      important to the global carbon cycle.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Tropical forests and savannahs account for 60%."
+            explanation: >
+              Directly quantifies tropical and savannah biomes as responsible
+              for 60% of global GPP; the dominance of tropical photosynthesis
+              reflects the compound effect of high irradiance, temperature,
+              and water availability on plant carbon fixation rates.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:20603496
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "GPP over 40% of the vegetated land is associated with precipitation."
+            explanation: >
+              Confirms precipitation as the primary control on autotrophic
+              production across 40% of vegetated land; tropical wet forests,
+              where precipitation is non-limiting, sustain the highest
+              autotrophic production rates globally.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3193
+          label: Embryophyta
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Tropical trees and C4 savannah grasses drive the dominant fraction
+          of global GPP through year-round high-irradiance photosynthesis;
+          C4 grasses are particularly efficient at high temperatures and low
+          water availability
+    causal_edges:
+      - subject: High solar irradiance and temperature in tropical zones
+        predicate: ENABLES
+        object: Year-round high-rate photosynthesis in tropical forests and savannahs
+      - subject: Tropical forest canopy
+        predicate: CAUSES
+        object: 60% of global terrestrial GPP
+    evidence:
+      - reference: PMID:20603496
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Terrestrial gross primary production (GPP) is the largest global CO(2) flux driving several ecosystem functions."
+        explanation: >
+          Establishes terrestrial GPP as the largest global CO2 flux; tropical
+          dominance of this flux underscores the critical role of tropical
+          biomes in the global carbon cycle and their sensitivity to land-use
+          change and deforestation.
+
+indicators:
+  - name: Eddy covariance GPP
+    description: >
+      Tower-based CO2 flux measurements partition net ecosystem exchange into
+      GPP and ecosystem respiration, providing direct observations of photosynthetic
+      carbon uptake at ecosystem scale with sub-daily temporal resolution.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "GPP in g C m-2 day-1 (eddy covariance flux towers, FLUXNET network)"
+    frequency: UBIQUITOUS
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:20603496
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "We provide an observation-based estimate of this flux at 123 +/- 8 petagrams of carbon per year (Pg C year(-1)) using eddy covariance flux data and various diagnostic models."
+        explanation: >
+          Eddy covariance flux data are the observational foundation for
+          global terrestrial GPP estimates; tower-based measurements are
+          the primary validated method for quantifying photosynthetic
+          carbon uptake at ecosystem and global scales.
+
+  - name: Satellite-derived terrestrial NPP
+    description: >
+      Satellite observations of vegetation indices (NDVI, EVI) and absorbed
+      photosynthetically active radiation (fPAR) drive global NPP models,
+      enabling spatially continuous NPP estimation at landscape to global scales.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "NPP in g C m-2 yr-1 (MODIS MOD17 product or equivalent)"
+    frequency: UBIQUITOUS
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:9657713
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Approaches based on satellite indices of absorbed solar radiation indicate marked heterogeneity in NPP for both land and oceans, reflecting the influence of physical and ecological processes."
+        explanation: >
+          Validates satellite-based absorbed radiation indices as the standard
+          approach for global NPP estimation; heterogeneity in satellite-derived
+          NPP captures the responses of terrestrial primary production to
+          climate and ecological gradients.
+
+  - name: Global NPP interannual anomaly
+    description: >
+      Year-to-year variation in global terrestrial NPP, estimated from satellite
+      vegetation models, tracks the sensitivity of land primary production to
+      climate variability including ENSO-driven drought and temperature anomalies.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "NPP anomaly in Pg C yr-1 (global model ensemble)"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:20724633
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "our estimates suggest a reduction in the global NPP of 0.55 petagrams of carbon"
+        explanation: >
+          The measured 0.55 Pg C global NPP reduction from 2000-2009 demonstrates
+          that global terrestrial NPP is quantifiable as an interannual anomaly
+          signal; this metric tracks the sensitivity of land primary production
+          to climate variability and is a key indicator for carbon sink monitoring.
+
+drivers:
+  - name: Solar radiation (PAR)
+    description: >
+      Photosynthetically active radiation (400-700 nm) is the energy source
+      driving terrestrial photosynthesis; GPP increases linearly with absorbed
+      PAR until other factors become limiting, making solar radiation the
+      ultimate control on terrestrial primary production potential.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:9657713
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Approaches based on satellite indices of absorbed solar radiation indicate marked heterogeneity in NPP for both land and oceans, reflecting the influence of physical and ecological processes."
+        explanation: >
+          Confirms absorbed solar radiation as the primary driver of spatial
+          heterogeneity in terrestrial NPP; satellite-based radiation indices
+          are the standard tool for quantifying light-driven variation in
+          primary production across biomes.
+
+  - name: Precipitation and drought
+    description: >
+      Precipitation is the primary control on terrestrial NPP in dryland and
+      seasonally dry biomes; drought is the dominant mechanism driving interannual
+      to decadal NPP declines globally, capable of overriding warming-driven
+      NPP gains.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:20724633
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Large-scale droughts have reduced regional NPP, and a drying trend in the Southern Hemisphere has decreased NPP in that area, counteracting the increased NPP over the Northern Hemisphere."
+        explanation: >
+          Establishes precipitation deficit as the dominant climate driver of
+          global NPP decline; large-scale droughts can reduce NPP across entire
+          hemispheres, demonstrating water as the primary limiting factor for
+          terrestrial primary production at decadal time scales.
+
+  - name: Temperature
+    description: >
+      Temperature modulates enzymatic rates of photosynthesis and respiration;
+      historically warming has increased NPP in the Northern Hemisphere, but
+      this gain is countered by water limitation under drying trends.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:20724633
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Previous studies have shown that climate constraints were relaxing with increasing temperature and solar radiation, allowing an upward trend in NPP from 1982 through 1999."
+        explanation: >
+          Confirms temperature as a positive driver of NPP in the historical
+          record (1982-1999 upward trend); the subsequent decline despite
+          continued warming reveals the context-dependence of temperature
+          effects and the primacy of water limitation under future drying.
+
+interventions:
+  - name: Forest restoration and reforestation
+    description: >
+      Restoring degraded forests and reforesting cleared land re-establishes
+      high-productivity plant canopies, increasing terrestrial NPP and
+      strengthening the terrestrial carbon sink as a climate mitigation strategy.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:20724633
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "A continued decline in NPP would not only weaken the terrestrial carbon sink, but it would also intensify future competition between food demand and proposed biofuel production."
+        explanation: >
+          Identifies the terrestrial carbon sink as the key ecosystem service
+          threatened by NPP decline; forest restoration directly counteracts
+          NPP loss by re-establishing the plant canopies responsible for
+          the highest carbon fixation rates in terrestrial biomes.
+
+  - name: Drought-resilient land management
+    description: >
+      Adapting agricultural and forest management to increase water-use
+      efficiency and resilience to drought (e.g., agroforestry, soil moisture
+      conservation, drought-tolerant varieties) sustains terrestrial NPP
+      under increasing climate aridity.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:20724633
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "A continued decline in NPP would not only weaken the terrestrial carbon sink, but it would also intensify future competition between food demand and proposed biofuel production."
+        explanation: >
+          The projected intensification of food–biofuel competition under
+          declining NPP highlights the urgent need for management strategies
+          that sustain land primary production under increasing drought frequency;
+          water-use efficiency improvements directly target the primary
+          limiting factor identified by global NPP analyses.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: >
+      Temperate forests contribute substantially to Northern Hemisphere terrestrial
+      NPP; seasonally limited by low winter temperatures and periodic drought
+
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Broadleaf temperate forests have high summer NPP peaks; sensitive to
+      drought-induced NPP reductions and vulnerable to climate-driven regime shifts
+
+creation_date: "2026-08-17T00:00:00Z"

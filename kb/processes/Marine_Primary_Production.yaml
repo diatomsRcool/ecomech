@@ -1,0 +1,425 @@
+id: ECOCORE:00000184
+name: Marine Primary Production
+process_term:
+  id: ECOCORE:00000184
+  label: marine primary production
+description: >
+  Marine primary production is the fixation of CO2 into organic biomass by
+  phytoplankton in the sunlit surface waters of the ocean. Contributing roughly
+  half of the biosphere's total net primary production (~50 Pg C yr-1), oceanic
+  phytoplankton photosynthesis drives the marine food web, fuels the biological
+  carbon pump, and links living and inorganic carbon stocks. Production is
+  primarily limited by light availability and nutrient supply (nitrogen, phosphate,
+  iron), which are in turn regulated by ocean circulation, mixed-layer dynamics,
+  upwelling, and temperature-driven stratification. Climate change is altering
+  these physical controls, with consequences for marine productivity and food web
+  structure.
+synonyms:
+  - marine NPP
+  - ocean primary production
+  - oceanic primary productivity
+  - phytoplankton primary production
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Phytoplankton Photosynthesis
+    description: >
+      Oceanic phytoplankton—including diatoms, cyanobacteria, dinoflagellates,
+      and coccolithophores—fix more than 100 million tons of CO2 daily into
+      organic material in the euphotic zone. This photosynthetic production
+      fuels marine food webs through sinking particles and grazing, and drives
+      the ocean biological carbon pump.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Contributing roughly half of the biosphere's net primary production (NPP), photosynthesis by oceanic phytoplankton is a vital link in the cycling of carbon between living and inorganic stocks."
+            explanation: >
+              Directly establishes phytoplankton photosynthesis as responsible
+              for ~50% of global NPP and identifies it as the mechanistic link
+              between inorganic CO2 and living organic carbon stocks in the ocean.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Each day, more than a hundred million tons of carbon in the form of CO2 are fixed into organic material by these ubiquitous, microscopic plants of the upper ocean, and each day a similar amount of organic carbon is transferred into marine ecosystems by sinking and grazing."
+            explanation: >
+              Quantifies the daily scale of phytoplankton autotrophic production
+              and demonstrates the dual fate of fixed carbon via sinking (biological
+              pump) and grazing (food web), establishing autotrophy as the foundation
+              of marine ecosystem carbon and energy flow.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2836
+          label: Bacillariophyta
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Diatoms are the dominant phytoplankton in nutrient-rich, temperate, and
+          polar oceans; they are the most important group for silica cycling
+          and contribute disproportionately to carbon export
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Prochlorococcus and Synechococcus are numerically dominant phytoplankton
+          in oligotrophic tropical and subtropical gyres, contributing substantially
+          to marine NPP in nutrient-depleted surface waters
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Upper-ocean warming increases stratification, reducing nutrient supply
+          from deep water and suppressing phytoplankton growth in stratified,
+          low-latitude oceans
+    causal_edges:
+      - subject: Phytoplankton
+        predicate: CAUSES
+        object: Fixation of dissolved CO2 into particulate organic carbon in the euphotic zone
+      - subject: Solar radiation
+        predicate: ENABLES
+        object: Phytoplankton photosynthesis in the upper ocean
+    evidence:
+      - reference: PMID:9657713
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Integrating conceptually similar models of the growth of marine and terrestrial primary producers yielded an estimated global net primary production (NPP) of 104.9 petagrams of carbon per year, with roughly equal contributions from land and oceans."
+        explanation: >
+          Establishes ocean phytoplankton photosynthesis as contributing ~52 Pg C
+          yr-1 to global NPP—roughly equal to the terrestrial contribution—
+          confirming the global significance of marine photoautotrophy in the
+          biospheric carbon cycle.
+
+  - name: Nutrient Limitation of Ocean NPP
+    description: >
+      Phytoplankton growth in most ocean surface waters is limited by the
+      availability of nitrogen, phosphate, or iron, which are supplied by
+      upwelling, mixing, atmospheric deposition, and biological recycling.
+      Nutrient supply is regulated by physical ocean dynamics, making marine
+      NPP tightly coupled to ocean circulation and stratification.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron)."
+            explanation: >
+              Directly identifies nutrients (N, P, Fe) alongside light as the
+              co-limiting factors defining phytoplankton biomass and NPP
+              distribution globally; nutrient availability is thus the proximate
+              control on where photosynthetic production can occur in the ocean.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "These growth-limiting factors are in turn regulated by physical processes of ocean circulation, mixed-layer dynamics, upwelling, atmospheric dust deposition, and the solar cycle."
+            explanation: >
+              Establishes the physical-biological coupling: autotrophic phytoplankton
+              growth depends on nutrients whose supply is determined entirely by
+              ocean circulation processes; autotrophic production is thus an
+              emergent property of ocean physics interacting with phytoplankton
+              biology.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2836
+          label: Bacillariophyta
+        role: PRIMARY_PRODUCER
+        description: >
+          Diatoms dominate nutrient-rich, high-productivity regions such as
+          coastal upwelling zones and polar seas; their frustules require
+          dissolved silica in addition to N and P, making silica availability
+          an additional constraint in some systems
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Temperature stratification controls the depth of the mixed layer and
+          thus the flux of deep, nutrient-rich water to the euphotic zone;
+          warming-driven stratification intensification is the primary mechanism
+          by which climate change suppresses marine NPP
+    causal_edges:
+      - subject: Ocean upwelling and mixing
+        predicate: CAUSES
+        object: Nutrient supply to the euphotic zone enabling phytoplankton growth
+      - subject: Nutrient depletion in surface waters
+        predicate: INHIBITS
+        object: Phytoplankton photosynthesis and NPP
+      - subject: Increased ocean stratification from warming
+        predicate: CAUSES
+        object: Reduced nutrient supply and declining marine NPP
+    chemical_entities:
+      - term:
+          id: CHEBI:17632
+          label: nitrate
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron)."
+            explanation: >
+              Nitrate (as inorganic nitrogen) is one of the three primary
+              nutrients limiting phytoplankton growth and marine NPP; its
+              availability defines the spatial distribution of productive
+              vs. oligotrophic ocean regions.
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "These growth-limiting factors are in turn regulated by physical processes of ocean circulation, mixed-layer dynamics, upwelling, atmospheric dust deposition, and the solar cycle."
+        explanation: >
+          Establishes the multi-level control hierarchy of marine NPP: nutrients
+          limit phytoplankton growth, while physics controls nutrient supply;
+          this mechanism explains the productivity maxima at upwelling zones
+          and the low productivity of stratified subtropical gyres.
+
+  - name: Climate-Driven Decline in Stratified Ocean Productivity
+    description: >
+      Climate warming is intensifying upper-ocean thermal stratification in
+      low-latitude oceans, reducing the flux of deep, nutrient-rich water to
+      the euphotic zone. This has produced a measurable decline in marine NPP
+      in stratified tropical and subtropical regions, with implications for
+      marine food webs and the ocean carbon sink.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "The observed reductions in ocean productivity during the recent post-1999 warming period provide insight on how future climate change can alter marine food webs."
+            explanation: >
+              Directly links observed post-1999 ocean productivity reductions
+              to climate warming, demonstrating that climate-driven stratification
+              is already suppressing phytoplankton photosynthesis and marine NPP
+              in low-latitude oceans.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000009
+          label: autotrophy
+        evidence:
+          - reference: PMID:17151666
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "These trends are driven by changes occurring in the expansive stratified low-latitude oceans and are tightly coupled to coincident climate variability."
+            explanation: >
+              Climate variability is tightly coupled to changes in autotrophic
+              production in the most extensive ocean biome (stratified low-latitude
+              oceans); autotrophy in these oligotrophic regions is highly sensitive
+              to stratification-driven nutrient limitation.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1177
+          label: Cyanobacteria
+        role: PRIMARY_PRODUCER
+        description: >
+          Prochlorococcus and Synechococcus cyanobacteria dominate in stratified,
+          nutrient-poor tropical and subtropical gyres; while adapted to low
+          nutrients, they are sensitive to further stratification and light limitation
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Warming-driven stratification is the proximate mechanism reducing NPP;
+          upper-ocean temperature increases thermocline strength, preventing
+          nutrient entrainment from below
+    causal_edges:
+      - subject: Climate warming
+        predicate: CAUSES
+        object: Intensified thermal stratification in low-latitude oceans
+      - subject: Intensified stratification
+        predicate: CAUSES
+        object: Reduced nutrient supply to euphotic zone and declining NPP
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "This link between the physical environment and ocean biology functions through changes in upper-ocean temperature and stratification, which influence the availability of nutrients for phytoplankton growth."
+        explanation: >
+          Establishes the mechanistic chain linking climate to marine NPP:
+          temperature → stratification → nutrient availability → phytoplankton
+          growth; this mechanism predicts continued NPP decline in stratified
+          ocean regions under projected warming.
+
+indicators:
+  - name: Satellite ocean color (chlorophyll-a)
+    description: >
+      Ocean color sensors (MODIS, SeaWiFS, PACE) measure sea-surface chlorophyll-a
+      concentration as a proxy for phytoplankton biomass, enabling global marine
+      NPP estimation at daily to decadal time scales.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Chlorophyll-a in mg m-3 (ocean color remote sensing)"
+    frequency: UBIQUITOUS
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Satellite measurements of ocean colour provide a means of quantifying ocean productivity on a global scale and linking its variability to environmental factors."
+        explanation: >
+          Confirms satellite ocean color as the primary tool for global marine
+          NPP monitoring; chlorophyll-a retrievals are the empirical basis for
+          NPP algorithms linking phytoplankton biomass to carbon fixation rates.
+
+  - name: Satellite-derived marine NPP
+    description: >
+      Vertically generalized production models (VGPM) and similar algorithms
+      translate satellite chlorophyll-a, sea-surface temperature, and irradiance
+      into spatially resolved marine NPP estimates at global scale.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "NPP in mg C m-2 day-1 (satellite-derived VGPM or equivalent)"
+    frequency: UBIQUITOUS
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:9657713
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The spatial and temporal distributions of ocean NPP are consistent with primary limitation by light, nutrients, and temperature."
+        explanation: >
+          Validates the use of satellite-derived physical parameters (light,
+          sea surface temperature as nutrient proxy) for global NPP estimation;
+          spatial and temporal distributions from satellite NPP algorithms
+          are consistent with physical-ecological controls on marine production.
+
+  - name: Global ocean NPP trend
+    description: >
+      Decade-scale trends in global marine NPP derived from satellite time
+      series track the sensitivity of ocean primary production to climate
+      variability and long-term warming.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Change in global ocean NPP in Tg C yr-1 (satellite time series)"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The period is dominated by an initial increase in NPP of 1,930 teragrams of carbon a year (Tg C yr(-1)), followed by a prolonged decrease averaging 190 Tg C yr(-1)."
+        explanation: >
+          Documents a measurable decade-scale NPP trend signal in the satellite
+          record, with a prolonged ~190 Tg C yr-1 annual decline following an
+          initial increase; the magnitude and sign of this trend is the primary
+          metric for assessing the response of marine primary production to
+          climate change.
+
+drivers:
+  - name: Nutrient supply from upwelling and mixing
+    description: >
+      Deep-water upwelling and turbulent mixing supply the nitrate, phosphate,
+      and iron required for phytoplankton growth; upwelling intensity is the
+      primary control on NPP in coastal productive zones such as the California,
+      Peru, and Benguela currents.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "These growth-limiting factors are in turn regulated by physical processes of ocean circulation, mixed-layer dynamics, upwelling, atmospheric dust deposition, and the solar cycle."
+        explanation: >
+          Identifies upwelling and mixed-layer dynamics as the primary physical
+          regulators of nutrient supply to phytoplankton; upwelling intensity
+          is the direct driver of NPP in the most productive coastal marine
+          ecosystems globally.
+
+  - name: Ocean warming and stratification
+    description: >
+      Anthropogenic warming intensifies upper-ocean thermal stratification,
+      deepening the thermocline and reducing nutrient entrainment into the
+      euphotic zone, driving NPP decline in tropical and subtropical oceans.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The observed reductions in ocean productivity during the recent post-1999 warming period provide insight on how future climate change can alter marine food webs."
+        explanation: >
+          Post-1999 ocean warming is directly linked to observed NPP decline,
+          confirming warming-driven stratification as the dominant anthropogenic
+          driver suppressing marine primary production in the largest ocean biome.
+
+  - name: Light availability
+    description: >
+      Photosynthetically active radiation at the sea surface, attenuated by
+      water depth and turbidity, sets the lower boundary of the euphotic zone
+      and limits phytoplankton production; seasonal light cycles drive polar
+      ocean bloom dynamics.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron)."
+        explanation: >
+          Light is co-equal with nutrients as a defining control on phytoplankton
+          biomass and NPP distribution; light limitation drives the depth
+          structure of marine productivity and the seasonal dynamics of
+          high-latitude ocean blooms.
+
+interventions:
+  - name: Reduction of coastal nutrient pollution
+    description: >
+      Reducing nitrogen and phosphorus inputs from agricultural runoff and
+      wastewater prevents coastal eutrophication and hypoxia, maintaining
+      balanced phytoplankton community composition and preventing harmful
+      algal blooms that degrade marine food webs.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron)."
+        explanation: >
+          Nutrient availability defines phytoplankton biomass and NPP distribution;
+          reducing anthropogenic nutrient inputs to coastal zones directly
+          addresses the primary control on eutrophication-driven shifts in
+          phytoplankton community structure and coastal marine NPP quality.
+
+  - name: Marine protected areas in productive zones
+    description: >
+      Establishing marine protected areas in high-productivity upwelling zones
+      and coastal ecosystems reduces fishing pressure on upper trophic levels,
+      maintaining food web structure that supports efficient transfer of
+      phytoplankton production to higher trophic levels.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:17151666
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The observed reductions in ocean productivity during the recent post-1999 warming period provide insight on how future climate change can alter marine food webs."
+        explanation: >
+          Documented NPP declines directly threaten marine food webs; protecting
+          high-productivity zones preserves the phytoplankton production base
+          on which fisheries and upper trophic levels depend, particularly as
+          climate-driven NPP reductions reduce the available primary production.
+
+creation_date: "2026-08-17T00:00:00Z"
