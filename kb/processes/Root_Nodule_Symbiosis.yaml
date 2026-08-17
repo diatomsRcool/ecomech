@@ -1,0 +1,426 @@
+id: ECOCORE:00000189
+name: Root Nodule Symbiosis
+process_term:
+  id: ECOCORE:00000189
+  label: nitrogen-fixing symbiosis
+description: >
+  Root nodule symbiosis is the mutualistic association between nitrogen-fixing
+  bacteria (rhizobia) and the roots of host leguminous plants (Fabaceae), in
+  which bacteria fix atmospheric dinitrogen (N2) into ammonium within specialized
+  root organs (nodules) in exchange for plant-supplied carbon. This symbiosis is
+  the dominant pathway of biological nitrogen fixation in terrestrial ecosystems,
+  contributing an estimated 40-60 Tg N yr-1 globally and underpinning legume
+  cultivation across agricultural systems. The symbiosis is initiated by
+  rhizobial Nod factor signaling that triggers root hair curling, bacterial
+  infection thread formation, and cortical cell division leading to nodule
+  organogenesis. Within mature nodules, rhizobia are housed in plant-derived
+  symbiosomes where the nitrogenase enzyme converts N2 to NH3 under the low-O2
+  conditions maintained by leghemoglobin. Partner sanctions enforce mutualism
+  stability: plants penalize nodules that fail to fix nitrogen by restricting
+  oxygen supply, preventing cheating by non-fixing rhizobial strains.
+synonyms:
+  - legume-rhizobium symbiosis
+  - rhizobial nitrogen fixation
+  - biological nitrogen fixation symbiosis
+  - nodule symbiosis
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Nod Factor Signaling and Nodule Organogenesis
+    description: >
+      The legume-rhizobium symbiosis is established through a molecular
+      dialogue: the plant secretes flavonoid signals that induce rhizobial
+      production of lipochitooligosaccharide Nod factors. Nod factor perception
+      by plant receptor kinases triggers a calcium spiking signal that activates
+      a cascade of events—polarized root hair tip growth, bacterial infection
+      thread formation, and promotion of cortical cell division—leading to nodule
+      meristem formation and nodule organogenesis. The plant strictly controls
+      each step of bacterial entry, enforcing host specificity and limiting
+      colonization to compatible rhizobial strains.
+    biological_processes:
+      - term:
+          id: GO:0009399
+          label: nitrogen fixation
+        evidence:
+          - reference: PMID:21838550
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The nodules and associated symbiosomes are structured for efficient nitrogen fixation."
+            explanation: >
+              Establishes that nodule organogenesis—the outcome of Nod factor
+              signaling—produces structures specifically optimized for nitrogen
+              fixation; the symbiotic developmental program is the prerequisite
+              for the nitrogen fixation biological process that delivers
+              ecosystem-level benefits.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000189
+          label: nitrogen-fixing symbiosis
+        evidence:
+          - reference: PMID:21838550
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Entry into root cells requires appropriate recognition of the rhizobial Nod factor signaling molecule, and this recognition activates a series of events, including polarized root-hair tip growth, invagination associated with bacterial infection, and the promotion of cell division in the cortex leading to the nodule meristem."
+            explanation: >
+              Establishes Nod factor recognition as the initiating signal for the
+              nitrogen-fixing symbiosis; the specificity of Nod factor recognition
+              explains host-range restriction to compatible rhizobial strains and
+              the molecular basis for the intimate mutualistic co-evolution between
+              legume hosts and their rhizobial symbionts.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:382
+          label: Rhizobium leguminosarum
+        role: SYMBIONT
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
+        description: >
+          Rhizobium and allied genera (Bradyrhizobium, Mesorhizobium, Sinorhizobium)
+          are the bacterial symbionts; they reside in plant-derived symbiosomes
+          within nodule cells where nitrogenase catalyzes N2 reduction under
+          low-O2 conditions maintained by leghemoglobin
+    causal_edges:
+      - subject: Rhizobial Nod factor signals
+        predicate: CAUSES
+        object: Root hair curling, infection thread formation, and cortical cell division
+      - subject: Nodule organogenesis
+        predicate: ENABLES
+        object: Intracellular housing of nitrogen-fixing bacteria in symbiosomes
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Rhizobial bacteria enter a symbiotic association with leguminous plants, resulting in differentiated bacteria enclosed in intracellular compartments called symbiosomes within nodules on the root."
+        explanation: >
+          Describes the developmental outcome of Nod factor signaling: rhizobial
+          differentiation into bacteroids enclosed in plant-derived symbiosomes
+          within nodules; this cellular architecture is directly necessary for
+          efficient nitrogen fixation, establishing the mechanistic link between
+          nodule organogenesis and the ecological nitrogen fixation function.
+
+  - name: Atmospheric N2 Fixation and Ammonium Export to the Plant
+    description: >
+      Within the low-oxygen environment of the symbiosome, differentiated
+      rhizobia (bacteroids) express the nitrogenase enzyme complex (nif genes)
+      that catalyzes the reduction of atmospheric N2 to ammonium (NH3). Ammonium
+      is immediately assimilated by plant glutamine synthetase and exported to
+      the plant shoot as asparagine or ureides (allantoin, allantoate) depending
+      on the legume species. The plant provides bacteroids with dicarboxylate
+      carbon substrates (malate, succinate) as the energy source for the
+      ATP-intensive nitrogen fixation reaction (16 ATP per N2 reduced).
+    biological_processes:
+      - term:
+          id: GO:0009399
+          label: nitrogen fixation
+        evidence:
+          - reference: PMID:21838550
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The plant's command of the infection process has been highlighted by its enforcement of terminal differentiation upon the bacteria within nodules of some legumes, and this can result in a loss of bacterial viability while permitting effective nitrogen fixation."
+            explanation: >
+              Documents plant-enforced terminal bacteroid differentiation as the
+              developmental state in which nitrogen fixation is maximized at the
+              cost of bacterial viability; this extreme symbiotic specialization
+              demonstrates the plant's control over the nitrogen fixation function
+              within nodules.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:382
+          label: Rhizobium leguminosarum
+        role: NITROGEN_FIXER
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
+        description: >
+          Bacteroids within symbiosomes fix N2 via nitrogenase; the enzyme
+          requires strict O2 exclusion (O2 inactivates nitrogenase) while
+          bacteroids need O2 for respiration—this paradox is resolved by
+          leghemoglobin, which buffers O2 concentration in the nodule cortex
+    causal_edges:
+      - subject: Bacteroid nitrogenase enzyme
+        predicate: CAUSES
+        object: Conversion of atmospheric N2 to plant-available ammonium
+      - subject: Symbiosome-enclosed bacteroids
+        predicate: ENABLES
+        object: Low-oxygen nitrogen fixation environment maintained by leghemoglobin
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The nodules and associated symbiosomes are structured for efficient nitrogen fixation."
+        explanation: >
+          Confirms that nodule and symbiosome structure is specifically optimized
+          for nitrogen fixation efficiency; the cellular architecture—including
+          leghemoglobin-mediated O2 buffering, carbon substrate delivery, and
+          ammonium export pathways—is the mechanistic basis for the high nitrogen
+          fixation rates that underpin the ecological and agricultural significance
+          of legume-rhizobium symbiosis.
+
+  - name: Partner Sanctions Stabilizing Mutualism Against Cheating
+    description: >
+      Mutualistic symbiosis is evolutionarily vulnerable to exploitation by
+      cheating partners that receive host benefits without providing the
+      agreed service. In the legume-rhizobium symbiosis, plants enforce
+      mutualism stability by sanctioning nodules occupied by rhizobia that
+      fail to fix nitrogen: non-fixing nodules receive less oxygen supply,
+      reducing bacterial reproductive success by approximately 50%. Host
+      sanctions create selection pressure for effective N2 fixation, stabilizing
+      the mutualism against invasion by non-fixing strains and maintaining the
+      ecological function of nitrogen fixation.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000189
+          label: nitrogen-fixing symbiosis
+        evidence:
+          - reference: PMID:12955144
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "such sanctions by one or both partners may be important in stabilizing a wide range of mutualistic symbioses."
+            explanation: >
+              Generalizes host sanctions as a mechanism for mutualism stability
+              beyond the legume-rhizobium system; partner sanctions are an
+              ecological mechanism that prevents defection from mutualism,
+              ensuring that the nitrogen-fixing function is evolutionarily stable
+              and maintained over ecological time.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:382
+          label: Rhizobium leguminosarum
+        role: SYMBIONT
+        ecological_function:
+          id: ECOCORE:00000132
+          label: chemoheterotroph
+        description: >
+          Rhizobia are subject to plant-imposed oxygen sanctions if they fail
+          to fix nitrogen; the approximately 50% reduction in reproductive
+          success of non-fixing strains under plant sanction provides strong
+          selection for maintenance of nitrogenase function in the symbiosis
+    causal_edges:
+      - subject: Plant detection of non-fixing nodules
+        predicate: CAUSES
+        object: Oxygen restriction reducing non-fixing rhizobial reproductive success by ~50%
+      - subject: Host sanctions
+        predicate: ENABLES
+        object: Evolutionary stability of nitrogen-fixing mutualism against cheating strains
+    evidence:
+      - reference: PMID:12955144
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "soybeans penalize rhizobia that fail to fix N2 inside their root nodules"
+        explanation: >
+          Direct experimental demonstration that soybeans impose penalties on
+          non-fixing rhizobia; this sanction mechanism explains how an individually
+          costly symbiosis remains evolutionarily stable, ensuring that the
+          nitrogen fixation service is maintained across generations of symbiotic
+          partners.
+      - reference: PMID:12955144
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "forcing non-cooperation (analogous to cheating) decreased the reproductive success of rhizobia by about 50%."
+        explanation: >
+          Quantifies the magnitude of plant sanctions: a 50% reduction in
+          rhizobial reproductive success in non-fixing nodules is strong
+          enough selection pressure to maintain honest nitrogen fixation
+          behavior; this result demonstrates that mutualism enforcement
+          is ecologically effective in stabilizing symbiotic nitrogen fixation.
+
+indicators:
+  - name: Nodule number and biomass
+    description: >
+      The number and fresh or dry biomass of root nodules per plant integrates
+      the plant's investment in nitrogen-fixing symbiosis. High nodule number
+      and biomass indicate active symbiosis and predict high nitrogen fixation
+      rates; nodule senescence (pink to brown interior transition) indicates
+      declining symbiosis activity.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Nodule count per plant and nodule fresh biomass (mg plant-1)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Rhizobial bacteria enter a symbiotic association with leguminous plants, resulting in differentiated bacteria enclosed in intracellular compartments called symbiosomes within nodules on the root."
+        explanation: >
+          The nodule as the structural unit of rhizobial differentiation and
+          nitrogen fixation validates nodule count and biomass as direct
+          indicators of symbiosis establishment and activity; the intracellular
+          symbiosome architecture within each nodule is the proximate site of
+          nitrogen fixation.
+
+  - name: Acetylene reduction assay (ARA)
+    description: >
+      The acetylene reduction assay measures nitrogenase activity in intact
+      nodules by quantifying ethylene production from acetylene reduction as
+      an analogue for N2 reduction. ARA provides a real-time estimate of
+      active nitrogen fixation rate per nodule or per plant and is the standard
+      field and laboratory method for quantifying symbiotic nitrogen fixation.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Ethylene production rate (nmol C2H4 g-1 nodule h-1) via gas chromatography"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The nodules and associated symbiosomes are structured for efficient nitrogen fixation."
+        explanation: >
+          Nodule and symbiosome structure optimized for nitrogen fixation
+          efficiency motivates ARA as the functional indicator; the enzymatic
+          nitrogenase activity measured by ARA directly quantifies the rate
+          of the nitrogen fixation function for which nodule architecture is
+          specifically designed.
+
+  - name: Plant tissue nitrogen content under N-free conditions
+    description: >
+      In nitrogen-free culture or on soils with very low mineral N, legume
+      plant tissue N content and biomass accumulation measure symbiotic N2
+      fixation as the sole N source. Comparison of inoculated vs. uninoculated
+      legumes in N-free conditions quantifies the net agronomic benefit of
+      nodule symbiosis.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Shoot N content (mg N plant-1) in nitrogen-free conditions with and without rhizobial inoculation"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:12955144
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "soybeans penalize rhizobia that fail to fix N2 inside their root nodules"
+        explanation: >
+          The experimental framework of penalizing non-fixers uses plant N
+          uptake as the functional endpoint; plant tissue N accumulation in
+          N-free conditions is therefore the integrated indicator of symbiotic
+          nitrogen fixation success that the plant itself uses to assess rhizobial
+          cooperation.
+
+drivers:
+  - name: Soil mineral nitrogen availability
+    description: >
+      High soil mineral nitrogen (NH4+, NO3-) suppresses nodule formation
+      and nitrogen fixation activity because the carbon cost of nodule
+      maintenance is not justified when the plant can acquire N directly
+      from the soil. Nitrogen fixation is most active in N-poor soils where
+      symbiotic N is the primary plant N source.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The plant's command of the infection process has been highlighted by its enforcement of terminal differentiation upon the bacteria within nodules of some legumes"
+        explanation: >
+          Plant control over nodule development—including suppression under
+          high-N conditions—establishes soil nitrogen availability as the
+          primary abiotic driver; plant enforcement of terminal differentiation
+          is the mechanism by which plants regulate the cost-benefit balance
+          of nitrogen fixation investment in response to soil N supply.
+
+  - name: Rhizobial strain diversity and competitiveness
+    description: >
+      The diversity and relative frequency of effective (fixing) vs. ineffective
+      (non-fixing) rhizobial strains in soil determines the nitrogen fixation
+      benefit obtained from nodulation. Cheating rhizobial strains that form
+      nodules but fix little nitrogen reduce symbiosis efficiency; partner
+      sanctions partially but incompletely exclude cheating strains.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:12955144
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "forcing non-cooperation (analogous to cheating) decreased the reproductive success of rhizobia by about 50%."
+        explanation: >
+          The 50% but not 100% reduction in cheating rhizobial reproductive
+          success confirms that partner sanctions are an incomplete filter
+          for cheating strains; rhizobial soil community composition—specifically
+          the frequency of effective vs. ineffective strains—thus remains a
+          significant driver of the nitrogen fixation benefit from nodulation.
+
+  - name: Agricultural nitrogen fertilization
+    description: >
+      Synthetic nitrogen fertilization in agricultural systems suppresses
+      legume nodulation and rhizobial nitrogen fixation, reducing reliance on
+      the symbiosis. The Green Revolution legacy of high-N agriculture has
+      driven a global shift away from legume-based nitrogen management toward
+      synthetic N dependence, increasing N2O emissions and groundwater
+      nitrate pollution.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Rhizobial bacteria enter a symbiotic association with leguminous plants, resulting in differentiated bacteria enclosed in intracellular compartments called symbiosomes within nodules on the root. The nodules and associated symbiosomes are structured for efficient nitrogen fixation."
+        explanation: >
+          The mechanistic complexity of nodule establishment and nitrogen
+          fixation highlights the sensitivity of this system to disruption by
+          high-N fertilization; agricultural N application reduces the plant's
+          investment in this intricate and energetically costly symbiosis,
+          substituting synthetic for biological nitrogen fixation.
+
+interventions:
+  - name: Rhizobial inoculation for legume-based agriculture
+    description: >
+      Inoculating legume seeds with effective rhizobial strains before sowing
+      establishes vigorous nitrogen-fixing symbiosis, reducing or eliminating
+      synthetic nitrogen fertilizer requirements. Legume-based crop rotations
+      (soybean, clover, alfalfa) build soil nitrogen stocks that benefit
+      subsequent cereal crops through the following season.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:21838550
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The nodules and associated symbiosomes are structured for efficient nitrogen fixation."
+        explanation: >
+          The efficiency of the nodule-symbiosome system for nitrogen fixation
+          makes rhizobial inoculation a high-return management intervention;
+          establishing effective symbiosis through inoculation with competitively
+          superior, high-fixing strains maximizes biological nitrogen input and
+          reduces synthetic fertilizer dependency.
+
+  - name: Legume incorporation into crop rotations
+    description: >
+      Including nitrogen-fixing legumes (soybean, clover, vetch, chickpea)
+      in crop rotations transfers biologically fixed nitrogen to the soil,
+      reducing the synthetic N requirement of subsequent crops. Legume-cereal
+      rotations can supply 100-200 kg N ha-1 yr-1 in addition to symbiotic
+      N exported in harvested grain.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:12955144
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "such sanctions by one or both partners may be important in stabilizing a wide range of mutualistic symbioses."
+        explanation: >
+          The evolutionary stability of the legume-rhizobium mutualism—maintained
+          by partner sanctions—means that legume incorporation in rotations reliably
+          delivers biological nitrogen fixation benefits; the mutualism will not
+          collapse under agricultural rotation conditions because sanctions maintain
+          effective rhizobial strains in the soil community.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: >
+      Temperate forests with nitrogen-fixing trees (Alnus, Robinia) support
+      ectomycorrhizal and nodule symbiosis simultaneously; nitrogen-fixing
+      trees can locally enrich soil nitrogen, altering competitive dynamics
+      and understory plant community composition
+
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Broadleaf forests dominated by leguminous trees (e.g., Robinia pseudoacacia
+      in North America, Acacia in Australia) can fix substantial nitrogen,
+      potentially accelerating N cycling and altering forest N status;
+      legume invasions into N-limited forests can cause N enrichment cascades
+
+creation_date: "2026-08-17T00:00:00Z"

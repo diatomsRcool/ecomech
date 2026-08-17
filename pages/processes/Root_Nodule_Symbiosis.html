@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Root Nodule Symbiosis — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Root Nodule Symbiosis
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000189
+    </a>
+    &nbsp;nitrogen-fixing symbiosis
+  </div>
+  
+  <h1>Root Nodule Symbiosis</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Root nodule symbiosis is the mutualistic association between nitrogen-fixing bacteria (rhizobia) and the roots of host leguminous plants (Fabaceae), in which bacteria fix atmospheric dinitrogen (N2) into ammonium within specialized root organs (nodules) in exchange for plant-supplied carbon. This symbiosis is the dominant pathway of biological nitrogen fixation in terrestrial ecosystems, contributing an estimated 40-60 Tg N yr-1 globally and underpinning legume cultivation across agricultural systems. The symbiosis is initiated by rhizobial Nod factor signaling that triggers root hair curling, bacterial infection thread formation, and cortical cell division leading to nodule organogenesis. Within mature nodules, rhizobia are housed in plant-derived symbiosomes where the nitrogenase enzyme converts N2 to NH3 under the low-O2 conditions maintained by leghemoglobin. Partner sanctions enforce mutualism stability: plants penalize nodules that fail to fix nitrogen by restricting oxygen supply, preventing cheating by non-fixing rhizobial strains.
+</div>
+  
+  <div class="synonyms">Also known as: legume-rhizobium symbiosis, rhizobial nitrogen fixation, biological nitrogen fixation symbiosis, nodule symbiosis</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Nod Factor Signaling and Nodule Organogenesis</div>
+      <div class="card-desc">The legume-rhizobium symbiosis is established through a molecular dialogue: the plant secretes flavonoid signals that induce rhizobial production of lipochitooligosaccharide Nod factors. Nod factor perception by plant receptor kinases triggers a calcium spiking signal that activates a cascade of events—polarized root hair tip growth, bacterial infection thread formation, and promotion of cortical cell division—leading to nodule meristem formation and nodule organogenesis. The plant strictly controls each step of bacterial entry, enforcing host specificity and limiting colonization to compatible rhizobial strains.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009399" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>nitrogen fixation</span>
+          <span class="term-id">GO:0009399</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The nodules and associated symbiosomes are structured for efficient nitrogen fixation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes that nodule organogenesis—the outcome of Nod factor signaling—produces structures specifically optimized for nitrogen fixation; the symbiotic developmental program is the prerequisite for the nitrogen fixation biological process that delivers ecosystem-level benefits.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>nitrogen-fixing symbiosis</span>
+          <span class="term-id">ECOCORE:00000189</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Entry into root cells requires appropriate recognition of the rhizobial Nod factor signaling molecule, and this recognition activates a series of events, including polarized root-hair tip growth, invagination associated with bacterial infection, and the promotion of cell division in the cortex leading to the nodule meristem.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes Nod factor recognition as the initiating signal for the nitrogen-fixing symbiosis; the specificity of Nod factor recognition explains host-range restriction to compatible rhizobial strains and the molecular basis for the intimate mutualistic co-evolution between legume hosts and their rhizobial symbionts.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=382" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Rhizobium leguminosarum</em></span>
+          <span class="term-id">NCBITaxon:382</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">SYMBIONT</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Rhizobium and allied genera (Bradyrhizobium, Mesorhizobium, Sinorhizobium) are the bacterial symbionts; they reside in plant-derived symbiosomes within nodule cells where nitrogenase catalyzes N2 reduction under low-O2 conditions maintained by leghemoglobin
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Rhizobial Nod factor signals</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Root hair curling, infection thread formation, and cortical cell division</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Nodule organogenesis</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Intracellular housing of nitrogen-fixing bacteria in symbiosomes</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Rhizobial bacteria enter a symbiotic association with leguminous plants, resulting in differentiated bacteria enclosed in intracellular compartments called symbiosomes within nodules on the root.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Describes the developmental outcome of Nod factor signaling: rhizobial differentiation into bacteroids enclosed in plant-derived symbiosomes within nodules; this cellular architecture is directly necessary for efficient nitrogen fixation, establishing the mechanistic link between nodule organogenesis and the ecological nitrogen fixation function.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Atmospheric N2 Fixation and Ammonium Export to the Plant</div>
+      <div class="card-desc">Within the low-oxygen environment of the symbiosome, differentiated rhizobia (bacteroids) express the nitrogenase enzyme complex (nif genes) that catalyzes the reduction of atmospheric N2 to ammonium (NH3). Ammonium is immediately assimilated by plant glutamine synthetase and exported to the plant shoot as asparagine or ureides (allantoin, allantoate) depending on the legume species. The plant provides bacteroids with dicarboxylate carbon substrates (malate, succinate) as the energy source for the ATP-intensive nitrogen fixation reaction (16 ATP per N2 reduced).
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009399" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>nitrogen fixation</span>
+          <span class="term-id">GO:0009399</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The plant&amp;#39;s command of the infection process has been highlighted by its enforcement of terminal differentiation upon the bacteria within nodules of some legumes, and this can result in a loss of bacterial viability while permitting effective nitrogen fixation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Documents plant-enforced terminal bacteroid differentiation as the developmental state in which nitrogen fixation is maximized at the cost of bacterial viability; this extreme symbiotic specialization demonstrates the plant&amp;#39;s control over the nitrogen fixation function within nodules.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=382" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Rhizobium leguminosarum</em></span>
+          <span class="term-id">NCBITaxon:382</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">NITROGEN_FIXER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Bacteroids within symbiosomes fix N2 via nitrogenase; the enzyme requires strict O2 exclusion (O2 inactivates nitrogenase) while bacteroids need O2 for respiration—this paradox is resolved by leghemoglobin, which buffers O2 concentration in the nodule cortex
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Bacteroid nitrogenase enzyme</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Conversion of atmospheric N2 to plant-available ammonium</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Symbiosome-enclosed bacteroids</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Low-oxygen nitrogen fixation environment maintained by leghemoglobin</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The nodules and associated symbiosomes are structured for efficient nitrogen fixation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Confirms that nodule and symbiosome structure is specifically optimized for nitrogen fixation efficiency; the cellular architecture—including leghemoglobin-mediated O2 buffering, carbon substrate delivery, and ammonium export pathways—is the mechanistic basis for the high nitrogen fixation rates that underpin the ecological and agricultural significance of legume-rhizobium symbiosis.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Partner Sanctions Stabilizing Mutualism Against Cheating</div>
+      <div class="card-desc">Mutualistic symbiosis is evolutionarily vulnerable to exploitation by cheating partners that receive host benefits without providing the agreed service. In the legume-rhizobium symbiosis, plants enforce mutualism stability by sanctioning nodules occupied by rhizobia that fail to fix nitrogen: non-fixing nodules receive less oxygen supply, reducing bacterial reproductive success by approximately 50%. Host sanctions create selection pressure for effective N2 fixation, stabilizing the mutualism against invasion by non-fixing strains and maintaining the ecological function of nitrogen fixation.
+</div>
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>nitrogen-fixing symbiosis</span>
+          <span class="term-id">ECOCORE:00000189</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12955144/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:12955144&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;such sanctions by one or both partners may be important in stabilizing a wide range of mutualistic symbioses.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Generalizes host sanctions as a mechanism for mutualism stability beyond the legume-rhizobium system; partner sanctions are an ecological mechanism that prevents defection from mutualism, ensuring that the nitrogen-fixing function is evolutionarily stable and maintained over ecological time.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=382" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Rhizobium leguminosarum</em></span>
+          <span class="term-id">NCBITaxon:382</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">SYMBIONT</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Rhizobia are subject to plant-imposed oxygen sanctions if they fail to fix nitrogen; the approximately 50% reduction in reproductive success of non-fixing strains under plant sanction provides strong selection for maintenance of nitrogenase function in the symbiosis
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Plant detection of non-fixing nodules</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Oxygen restriction reducing non-fixing rhizobial reproductive success by ~50%</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Host sanctions</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Evolutionary stability of nitrogen-fixing mutualism against cheating strains</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (2 items)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12955144/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:12955144&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;soybeans penalize rhizobia that fail to fix N2 inside their root nodules&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Direct experimental demonstration that soybeans impose penalties on non-fixing rhizobia; this sanction mechanism explains how an individually costly symbiosis remains evolutionarily stable, ensuring that the nitrogen fixation service is maintained across generations of symbiotic partners.
+&lt;/div&gt;
+  
+&lt;/div&gt;&lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12955144/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:12955144&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;forcing non-cooperation (analogous to cheating) decreased the reproductive success of rhizobia by about 50%.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantifies the magnitude of plant sanctions: a 50% reduction in rhizobial reproductive success in non-fixing nodules is strong enough selection pressure to maintain honest nitrogen fixation behavior; this result demonstrates that mutualism enforcement is ecologically effective in stabilizing symbiotic nitrogen fixation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Nodule number and biomass</div>
+      <div class="card-desc">The number and fresh or dry biomass of root nodules per plant integrates the plant&#39;s investment in nitrogen-fixing symbiosis. High nodule number and biomass indicate active symbiosis and predict high nitrogen fixation rates; nodule senescence (pink to brown interior transition) indicates declining symbiosis activity.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Nodule count per plant and nodule fresh biomass (mg plant-1)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Rhizobial bacteria enter a symbiotic association with leguminous plants, resulting in differentiated bacteria enclosed in intracellular compartments called symbiosomes within nodules on the root.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The nodule as the structural unit of rhizobial differentiation and nitrogen fixation validates nodule count and biomass as direct indicators of symbiosis establishment and activity; the intracellular symbiosome architecture within each nodule is the proximate site of nitrogen fixation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Acetylene reduction assay (ARA)</div>
+      <div class="card-desc">The acetylene reduction assay measures nitrogenase activity in intact nodules by quantifying ethylene production from acetylene reduction as an analogue for N2 reduction. ARA provides a real-time estimate of active nitrogen fixation rate per nodule or per plant and is the standard field and laboratory method for quantifying symbiotic nitrogen fixation.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Ethylene production rate (nmol C2H4 g-1 nodule h-1) via gas chromatography</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The nodules and associated symbiosomes are structured for efficient nitrogen fixation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Nodule and symbiosome structure optimized for nitrogen fixation efficiency motivates ARA as the functional indicator; the enzymatic nitrogenase activity measured by ARA directly quantifies the rate of the nitrogen fixation function for which nodule architecture is specifically designed.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Plant tissue nitrogen content under N-free conditions</div>
+      <div class="card-desc">In nitrogen-free culture or on soils with very low mineral N, legume plant tissue N content and biomass accumulation measure symbiotic N2 fixation as the sole N source. Comparison of inoculated vs. uninoculated legumes in N-free conditions quantifies the net agronomic benefit of nodule symbiosis.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Shoot N content (mg N plant-1) in nitrogen-free conditions with and without rhizobial inoculation</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12955144/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:12955144&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;soybeans penalize rhizobia that fail to fix N2 inside their root nodules&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The experimental framework of penalizing non-fixers uses plant N uptake as the functional endpoint; plant tissue N accumulation in N-free conditions is therefore the integrated indicator of symbiotic nitrogen fixation success that the plant itself uses to assess rhizobial cooperation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Soil mineral nitrogen availability</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">High soil mineral nitrogen (NH4+, NO3-) suppresses nodule formation and nitrogen fixation activity because the carbon cost of nodule maintenance is not justified when the plant can acquire N directly from the soil. Nitrogen fixation is most active in N-poor soils where symbiotic N is the primary plant N source.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The plant&amp;#39;s command of the infection process has been highlighted by its enforcement of terminal differentiation upon the bacteria within nodules of some legumes&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Plant control over nodule development—including suppression under high-N conditions—establishes soil nitrogen availability as the primary abiotic driver; plant enforcement of terminal differentiation is the mechanism by which plants regulate the cost-benefit balance of nitrogen fixation investment in response to soil N supply.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Rhizobial strain diversity and competitiveness</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">The diversity and relative frequency of effective (fixing) vs. ineffective (non-fixing) rhizobial strains in soil determines the nitrogen fixation benefit obtained from nodulation. Cheating rhizobial strains that form nodules but fix little nitrogen reduce symbiosis efficiency; partner sanctions partially but incompletely exclude cheating strains.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12955144/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:12955144&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;forcing non-cooperation (analogous to cheating) decreased the reproductive success of rhizobia by about 50%.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The 50% but not 100% reduction in cheating rhizobial reproductive success confirms that partner sanctions are an incomplete filter for cheating strains; rhizobial soil community composition—specifically the frequency of effective vs. ineffective strains—thus remains a significant driver of the nitrogen fixation benefit from nodulation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Agricultural nitrogen fertilization</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Synthetic nitrogen fertilization in agricultural systems suppresses legume nodulation and rhizobial nitrogen fixation, reducing reliance on the symbiosis. The Green Revolution legacy of high-N agriculture has driven a global shift away from legume-based nitrogen management toward synthetic N dependence, increasing N2O emissions and groundwater nitrate pollution.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Rhizobial bacteria enter a symbiotic association with leguminous plants, resulting in differentiated bacteria enclosed in intracellular compartments called symbiosomes within nodules on the root. The nodules and associated symbiosomes are structured for efficient nitrogen fixation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The mechanistic complexity of nodule establishment and nitrogen fixation highlights the sensitivity of this system to disruption by high-N fertilization; agricultural N application reduces the plant&amp;#39;s investment in this intricate and energetically costly symbiosis, substituting synthetic for biological nitrogen fixation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Rhizobial inoculation for legume-based agriculture</span>
+        
+        <span class="intervention-badge intervention-MANAGEMENT">MANAGEMENT</span>
+        
+      </div>
+      <div class="card-desc">Inoculating legume seeds with effective rhizobial strains before sowing establishes vigorous nitrogen-fixing symbiosis, reducing or eliminating synthetic nitrogen fertilizer requirements. Legume-based crop rotations (soybean, clover, alfalfa) build soil nitrogen stocks that benefit subsequent cereal crops through the following season.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21838550/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21838550&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The nodules and associated symbiosomes are structured for efficient nitrogen fixation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The efficiency of the nodule-symbiosome system for nitrogen fixation makes rhizobial inoculation a high-return management intervention; establishing effective symbiosis through inoculation with competitively superior, high-fixing strains maximizes biological nitrogen input and reduces synthetic fertilizer dependency.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Legume incorporation into crop rotations</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Including nitrogen-fixing legumes (soybean, clover, vetch, chickpea) in crop rotations transfers biologically fixed nitrogen to the soil, reducing the synthetic N requirement of subsequent crops. Legume-cereal rotations can supply 100-200 kg N ha-1 yr-1 in addition to symbiotic N exported in harvested grain.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/12955144/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:12955144&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;such sanctions by one or both partners may be important in stabilizing a wide range of mutualistic symbioses.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The evolutionary stability of the legume-rhizobium mutualism—maintained by partner sanctions—means that legume incorporation in rotations reliably delivers biological nitrogen fixation benefits; the mutualism will not collapse under agricultural rotation conditions because sanctions maintain effective rhizobial strains in the soil community.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000245" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate mixed forest biome</strong>
+        <span class="term-id">ENVO:01000245</span>
+         — <span style="font-size:0.88rem;color:#555;">Temperate forests with nitrogen-fixing trees (Alnus, Robinia) support ectomycorrhizal and nodule symbiosis simultaneously; nitrogen-fixing trees can locally enrich soil nitrogen, altering competitive dynamics and understory plant community composition
+</span>
+      </div>
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000446" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate broadleaf mixed forest biome</strong>
+        <span class="term-id">ENVO:00000446</span>
+         — <span style="font-size:0.88rem;color:#555;">Broadleaf forests dominated by leguminous trees (e.g., Robinia pseudoacacia in North America, Acacia in Australia) can fix substantial nitrogen, potentially accelerating N cycling and altering forest N status; legume invasions into N-limited forests can cause N enrichment cascades
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-08-17
+  
+</footer>
+
+</body>
+</html>

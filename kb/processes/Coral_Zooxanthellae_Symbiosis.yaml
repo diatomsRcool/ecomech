@@ -1,0 +1,444 @@
+id: ECOCORE:00000190
+name: Coral-Zooxanthellae Symbiosis
+process_term:
+  id: ECOCORE:00000190
+  label: coral-zooxanthellae symbiosis
+description: >
+  Coral-zooxanthellae symbiosis is the obligate mutualistic association between
+  reef-building scleractinian corals (Cnidaria: Scleractinia) and intracellular
+  dinoflagellate microalgae of the family Symbiodiniaceae (informally called
+  zooxanthellae), which is fundamental to the productivity and structural
+  complexity of tropical coral reef ecosystems. Zooxanthellae reside within
+  membrane-bound vacuoles (symbiosomes) in coral gastrodermal cells, where they
+  photosynthesize and translocate the majority of their photosynthate to the coral
+  host as sugars, glycerol, and amino acids. This photosynthetic subsidy powers
+  coral calcification, growth, and reproduction in otherwise nutrient-poor
+  (oligotrophic) tropical oceans. In return, the coral provides the algae with
+  metabolic CO2, nitrogen, phosphorus, and a protected intracellular niche.
+  Thermal stress disrupts this intimate association, causing bleaching—the
+  expulsion of zooxanthellae from coral tissues—and threatening reef survival
+  globally as ocean temperatures rise.
+synonyms:
+  - coral symbiosis
+  - zooxanthellate coral
+  - Symbiodiniaceae symbiosis
+  - photosymbiosis in corals
+  - cnidarian-dinoflagellate symbiosis
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Photosynthate Transfer from Zooxanthellae to Coral Host
+    description: >
+      Intracellular Symbiodiniaceae photosynthesize using solar energy
+      penetrating the coral tissue and translocate the majority of their
+      photosynthetically fixed carbon (sugars, glycerol, amino acids) to the
+      coral host. This photosynthate subsidy can meet 90-100% of coral energy
+      requirements under optimal light conditions, enabling calcification and
+      rapid growth in the nutrient-poor tropical ocean. Zooxanthellae are
+      functionally phototrophic within the animal host, and the coral host
+      adopts convergent physiological adaptations to maximize light capture
+      (morphology changes, carbon concentrating mechanisms, UV screening).
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:19046402
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "the symbiotic association between corals and their endosymbiotic algae (called zooxanthellae) is fundamental to the development of coral reefs in oligotrophic tropical oceans because zooxanthellae transfer the major part of their photosynthates to the coral host (autotrophic nutrition)."
+            explanation: >
+              Establishes zooxanthellae photosynthesis and photosynthate transfer
+              as the foundational mechanism enabling coral reef development in
+              oligotrophic oceans; without this phototrophic subsidy, corals
+              cannot sustain the calcification rates needed to build reefs in
+              nutrient-poor tropical waters.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000161
+          label: photosymbiosis
+        evidence:
+          - reference: PMID:29650460
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Cnidarians (corals and sea anemones) harbouring photosynthetic microalgae derive several benefits from their association."
+            explanation: >
+              Confirms photosymbiosis as the ecological process governing coral-
+              zooxanthellae interaction; the multiple benefits derived by cnidarians
+              from harboring photosynthetic microalgae establish photosymbiosis as
+              the ecological category unifying the mechanism of zooxanthellae
+              photosynthate transfer with its host-level energetic consequences.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6447
+          label: Scleractinia
+        role: HOST
+        ecological_function:
+          id: ECOCORE:00000009
+          label: autotrophy
+        description: >
+          Reef-building stony corals (Scleractinia) are the host partner;
+          coral morphology (branching, massive, foliose forms) maximizes
+          light capture by zooxanthellae while skeletal calcium carbonate
+          secretion provides the structural framework of coral reefs
+      - taxon:
+          id: NCBITaxon:2950
+          label: Dinophyceae
+        role: SYMBIONT
+        ecological_function:
+          id: ECOCORE:00000130
+          label: photoautotroph
+        description: >
+          Symbiodiniaceae dinoflagellates (formerly Symbiodinium) are the
+          photosynthetic symbionts; they reside in membrane-bound symbiosomes
+          within coral gastrodermal cells and translocate photosynthate to
+          the host while receiving CO2, N, and P from host metabolism
+    causal_edges:
+      - subject: Zooxanthellae photosynthesis within coral tissue
+        predicate: CAUSES
+        object: Transfer of photosynthate meeting 90-100% of coral energy requirements
+      - subject: Coral photosynthate supply from zooxanthellae
+        predicate: ENABLES
+        object: Coral calcification and reef growth in oligotrophic tropical ocean
+    evidence:
+      - reference: PMID:29650460
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "this intracellular localization imposes that they rely completely upon the host for their nutrient supply (nitrogen, CO2)."
+        explanation: >
+          Demonstrates the reciprocal metabolic dependency: zooxanthellae supply
+          photosynthate to the coral while relying entirely on the coral host for
+          nitrogen, CO2, and other nutrients; this bidirectional exchange is the
+          mechanistic basis of the obligate mutualism and explains why the
+          association is maintained despite the energy cost to each partner.
+
+  - name: Thermal Bleaching — Symbiosis Disruption by Ocean Warming
+    description: >
+      When sea surface temperatures exceed the thermal tolerance of the symbiosis
+      by 1-2°C above the seasonal maximum for sustained periods (degree heating
+      weeks, DHW), oxidative stress damages the photosynthetic machinery of
+      zooxanthellae and triggers their expulsion from coral tissues—coral
+      bleaching. Bleached corals lose their photosynthetic energy supply and
+      rely entirely on heterotrophy for energy, which can sustain corals for
+      weeks but leads to mortality under prolonged or repeated bleaching.
+      Global warming is increasing bleaching frequency and severity, threatening
+      coral reef persistence.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:28300113
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "During 2015-2016, record temperatures triggered a pan-tropical episode of coral bleaching, the third global-scale event since mass bleaching was first documented in the 1980s."
+            explanation: >
+              Documents temperature-triggered bleaching as a pan-tropical,
+              recurrent disruption of coral photosymbiosis; the 2015-2016 global
+              bleaching event represents mass failure of zooxanthellae photosynthesis
+              within coral hosts across the entire tropical ocean, linking ocean
+              warming directly to disruption of the photosynthetic mechanism
+              underpinning coral reef ecosystems.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000190
+          label: coral-zooxanthellae symbiosis
+        evidence:
+          - reference: PMID:28300113
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Water quality and fishing pressure had minimal effect on the unprecedented bleaching in 2016, suggesting that local protection of reefs affords little or no resistance to extreme heat."
+            explanation: >
+              Demonstrates that coral-zooxanthellae symbiosis disruption by
+              ocean warming cannot be prevented by local stressor management;
+              the dominance of thermal stress over local factors confirms
+              climate warming as the overriding threat to the symbiosis at
+              the global scale.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6447
+          label: Scleractinia
+        role: HOST
+        ecological_function:
+          id: ECOCORE:00000009
+          label: autotrophy
+        description: >
+          Bleached corals are white because zooxanthellae (which provide coral
+          pigmentation) have been expelled; severely bleached corals survive
+          weeks to months without zooxanthellae before starvation-induced
+          mortality if temperatures do not return to normal
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Sea surface temperature 1-2°C above seasonal maximum for ≥4 weeks
+          is sufficient to cause severe bleaching; degree heating weeks (DHW)
+          index integrates thermal anomaly magnitude and duration as the
+          primary abiotic driver of bleaching severity
+    causal_edges:
+      - subject: Ocean warming above thermal tolerance threshold
+        predicate: CAUSES
+        object: Oxidative damage to zooxanthellae photosynthesis and symbiosis disruption
+      - subject: Coral bleaching
+        predicate: INHIBITS
+        object: Coral growth, calcification, and reef accretion
+    evidence:
+      - reference: PMID:28300113
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "immediate global action to curb future warming is essential to secure a future for coral reefs."
+        explanation: >
+          Establishes ocean warming as the existential threat to coral-zooxanthellae
+          symbiosis at the global scale; the conclusion that only global climate
+          action can secure coral reefs confirms thermal bleaching as the
+          mechanism linking climate change to mass coral symbiosis disruption
+          and reef ecosystem collapse.
+
+  - name: Coral Heterotrophy as Backup Energy During Bleaching
+    description: >
+      Corals are mixotrophic: in addition to zooxanthellae-derived photosynthate,
+      many coral species actively capture zooplankton and particulate organic
+      matter. During bleaching, when photosynthate supply drops to near zero,
+      heterotrophic feeding can supply up to 100% of metabolic requirements
+      and provides nitrogen and phosphorus not available from zooxanthellae.
+      Increased heterotrophy during bleaching can delay mortality and accelerate
+      recovery if temperatures return to normal, but cannot substitute fully
+      for zooxanthellae carbon supply over extended bleaching events.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:19046402
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Heterotrophy accounts for between 0 and 66% of the fixed carbon incorporated into coral skeletons and can meet from 15 to 35% of daily metabolic requirements in healthy corals and up to 100% in bleached corals."
+            explanation: >
+              Quantifies heterotrophic contribution to coral carbon budgets:
+              up to 100% of metabolic requirements in bleached corals confirms
+              that heterotrophic feeding behavior is the critical backup energy
+              pathway when zooxanthellae photosynthate supply is disrupted by
+              bleaching.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000190
+          label: coral-zooxanthellae symbiosis
+        evidence:
+          - reference: PMID:19046402
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "A recent study showed that during bleaching events some coral species, by increasing their feeding rates, are able to maintain and restore energy reserves."
+            explanation: >
+              Identifies active upregulation of heterotrophic feeding during
+              bleaching as a symbiosis-buffering mechanism; species able to
+              increase feeding rates can maintain energy reserves during thermal
+              stress, linking heterotrophy to symbiosis resilience and post-
+              bleaching recovery.
+    causal_edges:
+      - subject: Coral zooplankton capture and particulate feeding
+        predicate: CAUSES
+        object: Supplemental carbon, nitrogen, and phosphorus acquisition independent of zooxanthellae
+      - subject: Bleaching-induced zooxanthellae loss
+        predicate: CAUSES
+        object: Increased heterotrophic feeding rate as compensatory energy acquisition
+    evidence:
+      - reference: PMID:19046402
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the symbiotic association between corals and their endosymbiotic algae (called zooxanthellae) is fundamental to the development of coral reefs in oligotrophic tropical oceans because zooxanthellae transfer the major part of their photosynthates to the coral host (autotrophic nutrition)."
+        explanation: >
+          The primacy of zooxanthellae photosynthate in oligotrophic oceans
+          contextualizes heterotrophy as a supplemental rather than primary energy
+          pathway; the contrast between photosynthate dominance and heterotrophic
+          backup capacity reveals the vulnerability of the symbiosis to thermal
+          disruption in nutrient-poor tropical waters.
+
+indicators:
+  - name: Coral bleaching extent and severity
+    description: >
+      Bleaching extent (% of reef area affected) and severity (% of colony
+      surface bleached, measured on a 5-point visual scale) quantify symbiosis
+      disruption during thermal stress events. Aerial and underwater surveys
+      combined with satellite-derived sea surface temperature anomalies
+      provide synoptic assessment of bleaching events.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "% reef area bleached (aerial survey) and % colony bleached (underwater visual census)"
+    frequency: UNCOMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:28300113
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "The distinctive geographic footprints of recurrent bleaching on the Great Barrier Reef in 1998, 2002 and 2016 were determined by the spatial pattern of sea temperatures in each year."
+        explanation: >
+          Validates the combination of aerial bleaching surveys and satellite
+          sea surface temperature maps as the standard monitoring approach
+          for coral symbiosis disruption at reef scale; the geographic
+          footprint of bleaching serves as an integrated indicator of cumulative
+          thermal stress intensity across the reef.
+
+  - name: Zooxanthellae density in coral tissue
+    description: >
+      Zooxanthellae cell density (cells per cm2 of coral tissue area) and
+      chlorophyll-a content per zooxanthella quantify the symbiosis status.
+      Bleached corals have dramatically reduced zooxanthellae density; tracking
+      density before, during, and after thermal stress events quantifies
+      bleaching dynamics and symbiosis recovery.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Zooxanthellae density (cells cm-2) via hemocytometry from coral tissue airbrushed in known volume"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:29650460
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Cnidarians (corals and sea anemones) harbouring photosynthetic microalgae derive several benefits from their association."
+        explanation: >
+          The benefits of harboring photosynthetic microalgae depend on
+          maintaining adequate zooxanthellae density; cell density is therefore
+          the primary proximal indicator of symbiosis health and the direct
+          measurement linking photosynthetic capacity to coral energetics.
+
+  - name: Degree heating weeks (DHW)
+    description: >
+      Degree heating weeks integrate the magnitude and duration of sea surface
+      temperature anomalies above the local maximum monthly mean. DHW thresholds
+      of ≥4 DHW predict bleaching and ≥8 DHW predict significant mortality;
+      DHW is the primary satellite-derived indicator of bleaching risk and
+      coral reef thermal stress globally.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Degree heating weeks (°C-weeks) from NOAA Coral Reef Watch satellite SST products"
+    frequency: UBIQUITOUS
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:28300113
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "During 2015-2016, record temperatures triggered a pan-tropical episode of coral bleaching, the third global-scale event since mass bleaching was first documented in the 1980s."
+        explanation: >
+          The documentation of three pan-tropical bleaching events driven by
+          record temperatures validates DHW as the indicator linking global
+          warming to mass bleaching; each event corresponds to anomalously
+          high DHW values across tropical oceans, confirming thermal accumulation
+          as the mechanism quantified by this indicator.
+
+drivers:
+  - name: Ocean warming and marine heat waves
+    description: >
+      Sea surface temperature anomalies driven by global climate change and
+      ENSO events are the dominant driver of coral bleaching and symbiosis
+      disruption. Even small sustained temperature increases (1-2°C above
+      seasonal maximum) are sufficient to trigger mass bleaching; the frequency
+      and severity of thermal events is increasing with global warming.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:28300113
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "immediate global action to curb future warming is essential to secure a future for coral reefs."
+        explanation: >
+          Identifies greenhouse gas-driven ocean warming as the primary driver
+          requiring global-scale action; the conclusion that only climate
+          mitigation can protect coral reefs confirms ocean warming as the
+          overriding driver of coral symbiosis disruption at the global scale.
+
+  - name: Ocean acidification
+    description: >
+      Anthropogenic CO2 absorption by the ocean reduces seawater pH and
+      carbonate ion concentration, impeding coral calcification and weakening
+      reef structural integrity. While distinct from bleaching, acidification
+      interacts synergistically with warming to reduce coral resilience and
+      recovery from bleaching events.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:29650460
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Symbiotic-dependent adaptations imposed to the animal host by phototrophic symbiosis are more relevant to photosynthetic organisms than to metazoans"
+        explanation: >
+          The extensive coral physiological adaptations supporting zooxanthellae
+          photosynthesis—including carbon-concentrating mechanisms—highlight the
+          metabolic investment in the symbiosis that ocean acidification threatens;
+          disrupted carbonate chemistry reduces the calcification capacity that
+          the symbiosis powers, compounding thermal bleaching effects.
+
+  - name: Local stressors (sedimentation, eutrophication, fishing)
+    description: >
+      Local stressors including sedimentation, coastal eutrophication, and
+      overfishing can reduce coral health and bleaching resistance through
+      elevated turbidity (reducing light availability for zooxanthellae),
+      nutrient enrichment favoring algal overgrowth, and disruption of
+      herbivore fish communities. However, local protection does not prevent
+      thermally-induced bleaching from ocean warming.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:28300113
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Water quality and fishing pressure had minimal effect on the unprecedented bleaching in 2016, suggesting that local protection of reefs affords little or no resistance to extreme heat."
+        explanation: >
+          Great Barrier Reef-wide surveys demonstrate that local stressor
+          management cannot prevent warming-induced bleaching; this result
+          distinguishes local anthropogenic drivers (secondary) from global
+          warming (primary) in the hierarchy of drivers threatening coral
+          symbiosis, informing the relative priority of intervention strategies.
+
+interventions:
+  - name: Global greenhouse gas emission reduction
+    description: >
+      Limiting global average temperature increase to 1.5°C through rapid
+      decarbonization is the only intervention capable of maintaining coral
+      reef systems at ecological scale. At 2°C warming, projections indicate
+      70-90% loss of coral reefs; below 1.5°C, approximately 10-30% of reefs
+      are projected to survive thermally-induced bleaching events.
+    intervention_type: MITIGATION
+    evidence:
+      - reference: PMID:28300113
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "immediate global action to curb future warming is essential to secure a future for coral reefs."
+        explanation: >
+          The Great Barrier Reef bleaching survey concludes that only global
+          climate action can secure coral reefs; greenhouse gas emission reduction
+          is therefore the primary intervention for protecting the coral-zooxanthellae
+          symbiosis at global scale, directly targeting the dominant driver of
+          symbiosis disruption.
+
+  - name: Coral reef protected area management and local stressor reduction
+    description: >
+      Marine protected areas (MPAs) reduce local stressors, maintain herbivore
+      fish communities that suppress algal overgrowth post-bleaching, and
+      improve reef recovery rates between bleaching events. Local protection
+      cannot prevent bleaching from ocean warming but can extend the window
+      of reef survival under moderate warming scenarios.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:19046402
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "A recent study showed that during bleaching events some coral species, by increasing their feeding rates, are able to maintain and restore energy reserves."
+        explanation: >
+          Healthy heterotrophic capacity—maintained by robust zooplankton
+          communities in well-managed reefs—provides corals with bleaching
+          resistance through backup energy supply; MPAs that protect the trophic
+          structure supporting coral zooplankton prey improve bleaching survival
+          rates and accelerate post-bleaching symbiosis recovery.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000447
+      label: tropical marine coral reef biome
+    description: >
+      Tropical coral reefs are the direct habitat of coral-zooxanthellae
+      symbiosis; the entire structural and biological diversity of coral reefs
+      depends on this symbiosis powering coral calcification in oligotrophic
+      tropical oceans
+
+creation_date: "2026-08-17T00:00:00Z"

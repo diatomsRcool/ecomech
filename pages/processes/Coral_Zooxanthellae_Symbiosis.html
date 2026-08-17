@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coral-Zooxanthellae Symbiosis — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Coral-Zooxanthellae Symbiosis
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000190
+    </a>
+    &nbsp;coral-zooxanthellae symbiosis
+  </div>
+  
+  <h1>Coral-Zooxanthellae Symbiosis</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Coral-zooxanthellae symbiosis is the obligate mutualistic association between reef-building scleractinian corals (Cnidaria: Scleractinia) and intracellular dinoflagellate microalgae of the family Symbiodiniaceae (informally called zooxanthellae), which is fundamental to the productivity and structural complexity of tropical coral reef ecosystems. Zooxanthellae reside within membrane-bound vacuoles (symbiosomes) in coral gastrodermal cells, where they photosynthesize and translocate the majority of their photosynthate to the coral host as sugars, glycerol, and amino acids. This photosynthetic subsidy powers coral calcification, growth, and reproduction in otherwise nutrient-poor (oligotrophic) tropical oceans. In return, the coral provides the algae with metabolic CO2, nitrogen, phosphorus, and a protected intracellular niche. Thermal stress disrupts this intimate association, causing bleaching—the expulsion of zooxanthellae from coral tissues—and threatening reef survival globally as ocean temperatures rise.
+</div>
+  
+  <div class="synonyms">Also known as: coral symbiosis, zooxanthellate coral, Symbiodiniaceae symbiosis, photosymbiosis in corals, cnidarian-dinoflagellate symbiosis</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Photosynthate Transfer from Zooxanthellae to Coral Host</div>
+      <div class="card-desc">Intracellular Symbiodiniaceae photosynthesize using solar energy penetrating the coral tissue and translocate the majority of their photosynthetically fixed carbon (sugars, glycerol, amino acids) to the coral host. This photosynthate subsidy can meet 90-100% of coral energy requirements under optimal light conditions, enabling calcification and rapid growth in the nutrient-poor tropical ocean. Zooxanthellae are functionally phototrophic within the animal host, and the coral host adopts convergent physiological adaptations to maximize light capture (morphology changes, carbon concentrating mechanisms, UV screening).
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19046402/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:19046402&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;the symbiotic association between corals and their endosymbiotic algae (called zooxanthellae) is fundamental to the development of coral reefs in oligotrophic tropical oceans because zooxanthellae transfer the major part of their photosynthates to the coral host (autotrophic nutrition).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes zooxanthellae photosynthesis and photosynthate transfer as the foundational mechanism enabling coral reef development in oligotrophic oceans; without this phototrophic subsidy, corals cannot sustain the calcification rates needed to build reefs in nutrient-poor tropical waters.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>photosymbiosis</span>
+          <span class="term-id">ECOCORE:00000161</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/29650460/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:29650460&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Cnidarians (corals and sea anemones) harbouring photosynthetic microalgae derive several benefits from their association.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Confirms photosymbiosis as the ecological process governing coral- zooxanthellae interaction; the multiple benefits derived by cnidarians from harboring photosynthetic microalgae establish photosymbiosis as the ecological category unifying the mechanism of zooxanthellae photosynthate transfer with its host-level energetic consequences.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6447" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Scleractinia</em></span>
+          <span class="term-id">NCBITaxon:6447</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">HOST</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Reef-building stony corals (Scleractinia) are the host partner; coral morphology (branching, massive, foliose forms) maximizes light capture by zooxanthellae while skeletal calcium carbonate secretion provides the structural framework of coral reefs
+</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2950" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Dinophyceae</em></span>
+          <span class="term-id">NCBITaxon:2950</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">SYMBIONT</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Symbiodiniaceae dinoflagellates (formerly Symbiodinium) are the photosynthetic symbionts; they reside in membrane-bound symbiosomes within coral gastrodermal cells and translocate photosynthate to the host while receiving CO2, N, and P from host metabolism
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Zooxanthellae photosynthesis within coral tissue</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Transfer of photosynthate meeting 90-100% of coral energy requirements</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Coral photosynthate supply from zooxanthellae</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Coral calcification and reef growth in oligotrophic tropical ocean</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/29650460/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:29650460&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;this intracellular localization imposes that they rely completely upon the host for their nutrient supply (nitrogen, CO2).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Demonstrates the reciprocal metabolic dependency: zooxanthellae supply photosynthate to the coral while relying entirely on the coral host for nitrogen, CO2, and other nutrients; this bidirectional exchange is the mechanistic basis of the obligate mutualism and explains why the association is maintained despite the energy cost to each partner.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Thermal Bleaching — Symbiosis Disruption by Ocean Warming</div>
+      <div class="card-desc">When sea surface temperatures exceed the thermal tolerance of the symbiosis by 1-2°C above the seasonal maximum for sustained periods (degree heating weeks, DHW), oxidative stress damages the photosynthetic machinery of zooxanthellae and triggers their expulsion from coral tissues—coral bleaching. Bleached corals lose their photosynthetic energy supply and rely entirely on heterotrophy for energy, which can sustain corals for weeks but leads to mortality under prolonged or repeated bleaching. Global warming is increasing bleaching frequency and severity, threatening coral reef persistence.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;During 2015-2016, record temperatures triggered a pan-tropical episode of coral bleaching, the third global-scale event since mass bleaching was first documented in the 1980s.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Documents temperature-triggered bleaching as a pan-tropical, recurrent disruption of coral photosymbiosis; the 2015-2016 global bleaching event represents mass failure of zooxanthellae photosynthesis within coral hosts across the entire tropical ocean, linking ocean warming directly to disruption of the photosynthetic mechanism underpinning coral reef ecosystems.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>coral-zooxanthellae symbiosis</span>
+          <span class="term-id">ECOCORE:00000190</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Water quality and fishing pressure had minimal effect on the unprecedented bleaching in 2016, suggesting that local protection of reefs affords little or no resistance to extreme heat.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Demonstrates that coral-zooxanthellae symbiosis disruption by ocean warming cannot be prevented by local stressor management; the dominance of thermal stress over local factors confirms climate warming as the overriding threat to the symbiosis at the global scale.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6447" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Scleractinia</em></span>
+          <span class="term-id">NCBITaxon:6447</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">HOST</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Bleached corals are white because zooxanthellae (which provide coral pigmentation) have been expelled; severely bleached corals survive weeks to months without zooxanthellae before starvation-induced mortality if temperatures do not return to normal
+</div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Abiotic Conditions</div>
+        
+        <div class="abiotic-row">
+          
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000209" target="_blank" rel="noopener">
+            <span class="badge badge-envo" style="margin-right:0.3rem;">ENVO</span>
+          </a>
+          <strong>temperature</strong>
+          
+          
+           — <span style="font-size:0.83rem;color:#555;">Sea surface temperature 1-2°C above seasonal maximum for ≥4 weeks is sufficient to cause severe bleaching; degree heating weeks (DHW) index integrates thermal anomaly magnitude and duration as the primary abiotic driver of bleaching severity
+</span>
+        </div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Ocean warming above thermal tolerance threshold</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Oxidative damage to zooxanthellae photosynthesis and symbiosis disruption</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Coral bleaching</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Coral growth, calcification, and reef accretion</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;immediate global action to curb future warming is essential to secure a future for coral reefs.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes ocean warming as the existential threat to coral-zooxanthellae symbiosis at the global scale; the conclusion that only global climate action can secure coral reefs confirms thermal bleaching as the mechanism linking climate change to mass coral symbiosis disruption and reef ecosystem collapse.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Coral Heterotrophy as Backup Energy During Bleaching</div>
+      <div class="card-desc">Corals are mixotrophic: in addition to zooxanthellae-derived photosynthate, many coral species actively capture zooplankton and particulate organic matter. During bleaching, when photosynthate supply drops to near zero, heterotrophic feeding can supply up to 100% of metabolic requirements and provides nitrogen and phosphorus not available from zooxanthellae. Increased heterotrophy during bleaching can delay mortality and accelerate recovery if temperatures return to normal, but cannot substitute fully for zooxanthellae carbon supply over extended bleaching events.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0007631" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>feeding behavior</span>
+          <span class="term-id">GO:0007631</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19046402/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:19046402&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Heterotrophy accounts for between 0 and 66% of the fixed carbon incorporated into coral skeletons and can meet from 15 to 35% of daily metabolic requirements in healthy corals and up to 100% in bleached corals.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantifies heterotrophic contribution to coral carbon budgets: up to 100% of metabolic requirements in bleached corals confirms that heterotrophic feeding behavior is the critical backup energy pathway when zooxanthellae photosynthate supply is disrupted by bleaching.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>coral-zooxanthellae symbiosis</span>
+          <span class="term-id">ECOCORE:00000190</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19046402/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:19046402&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;A recent study showed that during bleaching events some coral species, by increasing their feeding rates, are able to maintain and restore energy reserves.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Identifies active upregulation of heterotrophic feeding during bleaching as a symbiosis-buffering mechanism; species able to increase feeding rates can maintain energy reserves during thermal stress, linking heterotrophy to symbiosis resilience and post- bleaching recovery.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Coral zooplankton capture and particulate feeding</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Supplemental carbon, nitrogen, and phosphorus acquisition independent of zooxanthellae</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Bleaching-induced zooxanthellae loss</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Increased heterotrophic feeding rate as compensatory energy acquisition</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19046402/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:19046402&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;the symbiotic association between corals and their endosymbiotic algae (called zooxanthellae) is fundamental to the development of coral reefs in oligotrophic tropical oceans because zooxanthellae transfer the major part of their photosynthates to the coral host (autotrophic nutrition).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The primacy of zooxanthellae photosynthate in oligotrophic oceans contextualizes heterotrophy as a supplemental rather than primary energy pathway; the contrast between photosynthate dominance and heterotrophic backup capacity reveals the vulnerability of the symbiosis to thermal disruption in nutrient-poor tropical waters.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Coral bleaching extent and severity</div>
+      <div class="card-desc">Bleaching extent (% of reef area affected) and severity (% of colony surface bleached, measured on a 5-point visual scale) quantify symbiosis disruption during thermal stress events. Aerial and underwater surveys combined with satellite-derived sea surface temperature anomalies provide synoptic assessment of bleaching events.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">UNCOMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>% reef area bleached (aerial survey) and % colony bleached (underwater visual census)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The distinctive geographic footprints of recurrent bleaching on the Great Barrier Reef in 1998, 2002 and 2016 were determined by the spatial pattern of sea temperatures in each year.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Validates the combination of aerial bleaching surveys and satellite sea surface temperature maps as the standard monitoring approach for coral symbiosis disruption at reef scale; the geographic footprint of bleaching serves as an integrated indicator of cumulative thermal stress intensity across the reef.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Zooxanthellae density in coral tissue</div>
+      <div class="card-desc">Zooxanthellae cell density (cells per cm2 of coral tissue area) and chlorophyll-a content per zooxanthella quantify the symbiosis status. Bleached corals have dramatically reduced zooxanthellae density; tracking density before, during, and after thermal stress events quantifies bleaching dynamics and symbiosis recovery.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Zooxanthellae density (cells cm-2) via hemocytometry from coral tissue airbrushed in known volume</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/29650460/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:29650460&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Cnidarians (corals and sea anemones) harbouring photosynthetic microalgae derive several benefits from their association.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The benefits of harboring photosynthetic microalgae depend on maintaining adequate zooxanthellae density; cell density is therefore the primary proximal indicator of symbiosis health and the direct measurement linking photosynthetic capacity to coral energetics.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Degree heating weeks (DHW)</div>
+      <div class="card-desc">Degree heating weeks integrate the magnitude and duration of sea surface temperature anomalies above the local maximum monthly mean. DHW thresholds of ≥4 DHW predict bleaching and ≥8 DHW predict significant mortality; DHW is the primary satellite-derived indicator of bleaching risk and coral reef thermal stress globally.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">UBIQUITOUS</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Degree heating weeks (°C-weeks) from NOAA Coral Reef Watch satellite SST products</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;During 2015-2016, record temperatures triggered a pan-tropical episode of coral bleaching, the third global-scale event since mass bleaching was first documented in the 1980s.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The documentation of three pan-tropical bleaching events driven by record temperatures validates DHW as the indicator linking global warming to mass bleaching; each event corresponds to anomalously high DHW values across tropical oceans, confirming thermal accumulation as the mechanism quantified by this indicator.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Ocean warming and marine heat waves</span>
+        
+        <span class="driver-badge driver-CLIMATE">CLIMATE</span>
+        
+      </div>
+      <div class="card-desc">Sea surface temperature anomalies driven by global climate change and ENSO events are the dominant driver of coral bleaching and symbiosis disruption. Even small sustained temperature increases (1-2°C above seasonal maximum) are sufficient to trigger mass bleaching; the frequency and severity of thermal events is increasing with global warming.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;immediate global action to curb future warming is essential to secure a future for coral reefs.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Identifies greenhouse gas-driven ocean warming as the primary driver requiring global-scale action; the conclusion that only climate mitigation can protect coral reefs confirms ocean warming as the overriding driver of coral symbiosis disruption at the global scale.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Ocean acidification</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Anthropogenic CO2 absorption by the ocean reduces seawater pH and carbonate ion concentration, impeding coral calcification and weakening reef structural integrity. While distinct from bleaching, acidification interacts synergistically with warming to reduce coral resilience and recovery from bleaching events.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/29650460/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:29650460&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Symbiotic-dependent adaptations imposed to the animal host by phototrophic symbiosis are more relevant to photosynthetic organisms than to metazoans&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The extensive coral physiological adaptations supporting zooxanthellae photosynthesis—including carbon-concentrating mechanisms—highlight the metabolic investment in the symbiosis that ocean acidification threatens; disrupted carbonate chemistry reduces the calcification capacity that the symbiosis powers, compounding thermal bleaching effects.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Local stressors (sedimentation, eutrophication, fishing)</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Local stressors including sedimentation, coastal eutrophication, and overfishing can reduce coral health and bleaching resistance through elevated turbidity (reducing light availability for zooxanthellae), nutrient enrichment favoring algal overgrowth, and disruption of herbivore fish communities. However, local protection does not prevent thermally-induced bleaching from ocean warming.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Water quality and fishing pressure had minimal effect on the unprecedented bleaching in 2016, suggesting that local protection of reefs affords little or no resistance to extreme heat.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Great Barrier Reef-wide surveys demonstrate that local stressor management cannot prevent warming-induced bleaching; this result distinguishes local anthropogenic drivers (secondary) from global warming (primary) in the hierarchy of drivers threatening coral symbiosis, informing the relative priority of intervention strategies.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Global greenhouse gas emission reduction</span>
+        
+        <span class="intervention-badge intervention-MITIGATION">MITIGATION</span>
+        
+      </div>
+      <div class="card-desc">Limiting global average temperature increase to 1.5°C through rapid decarbonization is the only intervention capable of maintaining coral reef systems at ecological scale. At 2°C warming, projections indicate 70-90% loss of coral reefs; below 1.5°C, approximately 10-30% of reefs are projected to survive thermally-induced bleaching events.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/28300113/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:28300113&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;immediate global action to curb future warming is essential to secure a future for coral reefs.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The Great Barrier Reef bleaching survey concludes that only global climate action can secure coral reefs; greenhouse gas emission reduction is therefore the primary intervention for protecting the coral-zooxanthellae symbiosis at global scale, directly targeting the dominant driver of symbiosis disruption.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Coral reef protected area management and local stressor reduction</span>
+        
+        <span class="intervention-badge intervention-PROTECTION">PROTECTION</span>
+        
+      </div>
+      <div class="card-desc">Marine protected areas (MPAs) reduce local stressors, maintain herbivore fish communities that suppress algal overgrowth post-bleaching, and improve reef recovery rates between bleaching events. Local protection cannot prevent bleaching from ocean warming but can extend the window of reef survival under moderate warming scenarios.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19046402/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:19046402&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;A recent study showed that during bleaching events some coral species, by increasing their feeding rates, are able to maintain and restore energy reserves.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Healthy heterotrophic capacity—maintained by robust zooplankton communities in well-managed reefs—provides corals with bleaching resistance through backup energy supply; MPAs that protect the trophic structure supporting coral zooplankton prey improve bleaching survival rates and accelerate post-bleaching symbiosis recovery.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000447" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>tropical marine coral reef biome</strong>
+        <span class="term-id">ENVO:00000447</span>
+         — <span style="font-size:0.88rem;color:#555;">Tropical coral reefs are the direct habitat of coral-zooxanthellae symbiosis; the entire structural and biological diversity of coral reefs depends on this symbiosis powering coral calcification in oligotrophic tropical oceans
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-08-17
+  
+</footer>
+
+</body>
+</html>
