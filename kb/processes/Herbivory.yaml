@@ -1,0 +1,413 @@
+id: ECOCORE:00000020
+name: Herbivory
+process_term:
+  id: ECOCORE:00000020
+  label: herbivory
+description: >
+  Herbivory is the consumption of living plant or algal tissue by animals,
+  coupling primary production to higher trophic levels and regulating plant
+  community structure, biomass, and nutrient cycling. Large mammalian
+  herbivores exert strong top-down control on terrestrial ecosystems, shaping
+  vegetation structure, carbon stocks, hydrological cycles, and fire regimes.
+  Insect herbivores collectively consume comparable quantities of plant biomass
+  and impose intense selective pressure on plant defense chemistry. Plants
+  respond to herbivory with induced chemical and structural defenses mediated
+  by jasmonate signaling cascades and can communicate damage signals to
+  neighboring plants via herbivore-induced plant volatiles. Herbivory drives
+  coevolutionary arms races between plant defense and herbivore counter-adaptation.
+synonyms:
+  - plant consumption
+  - grazing
+  - browsing
+  - phytophagy
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Large Mammalian Herbivore Top-Down Control of Vegetation
+    description: >
+      Large mammalian herbivores (body mass ≥100 kg) exert strong top-down
+      control on plant communities by consuming substantial quantities of
+      biomass, transforming landscape structure and reducing above- and
+      below-ground carbon stocks. Through selective foraging, grazing, and
+      browsing they shift plant species composition, alter litter inputs, and
+      modify fire regimes and hydrology, generating cascading effects that
+      extend to carnivores, scavengers, and abiotic ecosystem processes.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:21635684
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Large mammalian herbivores manifest a strong top-down control on ecosystems that can transform entire landscapes"
+            explanation: >
+              Meta-analysis of 108 herbivore exclusion studies across 52 vegetation
+              types establishes large mammalian herbivore feeding behavior as the
+              proximal mechanism of top-down ecosystem control; selective consumption
+              of plant biomass transforms landscapes and modifies carbon stocks.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000099
+          label: herbivorous grazing
+        evidence:
+          - reference: PMID:26601172
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Loss of large herbivores can have cascading effects on other species including large carnivores, scavengers, mesoherbivores, small mammals, and ecological processes involving vegetation, hydrology, nutrient cycling, and fire regimes."
+            explanation: >
+              Establishes herbivorous grazing as a keystone ecological process
+              whose removal cascades through trophic levels and abiotic ecosystem
+              processes; grazing by large mammals directly links plant biomass
+              consumption to cascading changes in carnivore abundance, fire
+              regimes, and nutrient cycling.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:40674
+          label: Mammalia
+        role: CONSUMER
+        ecological_function:
+          id: ECOCORE:00000019
+          label: herbivory organism
+        description: >
+          Large mammalian herbivores (ungulates, elephants, rhinoceroses) consume
+          plant biomass via grazing or browsing; ~74 species of large herbivores
+          (body mass ≥100 kg) shape global vegetation structure, with ~60%
+          currently threatened with extinction
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Temperature and precipitation gradients modulate plant biomass availability,
+          setting the upper bounds on herbivore carrying capacity and the intensity
+          of top-down control across grassland and savannah biomes
+    causal_edges:
+      - subject: Large mammalian herbivores
+        predicate: CAUSES
+        object: Reduction in plant biomass and carbon stocks across vegetation types
+      - subject: Selective herbivore foraging
+        predicate: MODULATES
+        object: Plant community composition, fire regime, and nutrient cycling
+    evidence:
+      - reference: PMID:21635684
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "herbivores can reduce terrestrial above- and below-ground carbon stocks across vegetation types but reductions in carbon stocks may approach zero given sufficient periods of time for systems to respond to herbivory (i.e. decades)."
+        explanation: >
+          Quantifies large herbivore effects on terrestrial carbon stocks from
+          108 exclusion studies; the time-dependent recovery of carbon stocks
+          demonstrates that herbivory is a persistent, reversible top-down
+          process regulating ecosystem carbon balance.
+
+  - name: Herbivore-Induced Plant Defense
+    description: >
+      Herbivore attack triggers rapid changes in plant defense chemistry and
+      morphology through jasmonate-mediated signaling cascades. Constitutive
+      defenses—preformed chemical barriers (terpenes, alkaloids, phenolics)
+      and structural features—are supplemented by induced defenses synthesized
+      de novo following damage. Induced plant volatiles additionally recruit
+      natural enemies of herbivores, creating indirect defense pathways that
+      link herbivory to higher trophic levels.
+    biological_processes:
+      - term:
+          id: GO:0006952
+          label: defense response
+        evidence:
+          - reference: PMID:26019168
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Induced defences can be characterized by alterations in plant morphology and molecular chemistry and are associated with a decrease in herbivore performance."
+            explanation: >
+              Review evidence establishes herbivore-induced defense as a universal
+              plant biological response characterized by measurable alterations in
+              plant morphology and chemistry that reduce herbivore fitness; these
+              induced defense responses are directly triggered by herbivore feeding
+              damage signals.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000020
+          label: herbivory
+        evidence:
+          - reference: PMID:26019168
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Plants are hotbeds for parasites such as arthropod herbivores, which acquire nutrients and energy from their hosts in order to grow and reproduce. Hence plants are selected to evolve resistance, which in turn selects for herbivores that can cope with this resistance."
+            explanation: >
+              Establishes herbivory as the fundamental selective pressure driving
+              the coevolutionary arms race between plant defense and herbivore
+              counter-adaptation; the reciprocal selection between plant resistance
+              and herbivore offense is the ecological engine of herbivore-plant
+              coevolution.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6960
+          label: Insecta
+        role: CONSUMER
+        ecological_function:
+          id: ECOCORE:00000019
+          label: herbivory organism
+        description: >
+          Arthropod herbivores (especially insects) impose intense selection
+          pressure on plant defense chemistry through phloem-feeding, leaf-chewing,
+          and gall-forming feeding guilds; insect herbivore diversity drives
+          diversification of plant secondary metabolite chemistry
+    causal_edges:
+      - subject: Herbivore wounding and feeding signals
+        predicate: CAUSES
+        object: Jasmonate-mediated induction of plant defense metabolites and structural barriers
+      - subject: Herbivore-induced plant volatiles
+        predicate: ENABLES
+        object: Recruitment of natural enemies as indirect plant defense
+    evidence:
+      - reference: PMID:26019168
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "a subset of induced metabolites are released into the air as volatiles and function as a beacon for foraging natural enemies searching for prey, and this is referred to as induced indirect defence."
+        explanation: >
+          Identifies herbivore-induced plant volatiles as the mechanism linking
+          plant defense to tri-trophic interactions; herbivore feeding triggers
+          volatile release that attracts natural enemies, extending the ecological
+          effects of herbivory upward through the food web beyond the direct
+          plant-herbivore interaction.
+
+  - name: Large Herbivore Nutrient Cycling via Excretion and Landscape Engineering
+    description: >
+      Large herbivores accelerate nutrient cycling through urine and feces
+      deposition, returning biologically processed plant nutrients to the
+      soil in highly available forms. Concentrated excretion near water
+      sources, wallowing sites, and resting areas creates heterogeneous
+      nutrient hotspots. Trampling modifies soil structure and water
+      infiltration. Collectively, these processes make herbivores major
+      ecosystem engineers affecting vegetation, nutrient cycling, and hydrology.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000101
+          label: herbivorous browsing
+        evidence:
+          - reference: PMID:26601172
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Large wild herbivores are crucial to ecosystems and human societies."
+            explanation: >
+              Establishes large herbivores as crucial ecosystem components, not
+              just consumers; their ecosystem engineering functions—vegetation
+              modification, nutrient cycling, hydrological effects—are the
+              basis for their indispensability to ecosystem structure and function.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:40674
+          label: Mammalia
+        role: ENGINEER
+        ecological_function:
+          id: ECOCORE:00000019
+          label: herbivory organism
+        description: >
+          Large mammals (elephants, ungulates) physically modify vegetation
+          structure and create nutrient hotspots through excretion, trampling,
+          and wallowing; their decline removes key ecosystem engineering services
+    causal_edges:
+      - subject: Large herbivore excretion and trampling
+        predicate: CAUSES
+        object: Heterogeneous soil nutrient hotspots and modified vegetation structure
+      - subject: Loss of large herbivores
+        predicate: INHIBITS
+        object: Ecosystem nutrient cycling, hydrology, and fire regime regulation
+    evidence:
+      - reference: PMID:26601172
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The rate of large herbivore decline suggests that ever-larger swaths of the world will soon lack many of the vital ecological services these animals provide, resulting in enormous ecological and social costs."
+        explanation: >
+          Establishes the ecosystem service perspective on large herbivore
+          ecological functions: nutrient cycling, vegetation management,
+          hydrological regulation, and fire regime control are services at risk
+          from herbivore population collapse, quantifying the ecosystem-level
+          consequence of herbivore loss.
+
+indicators:
+  - name: Plant biomass and NDVI under herbivore exclusion
+    description: >
+      Herbivore exclusion fences (exclosures) enable direct measurement of
+      net herbivory effects on plant standing biomass, species composition,
+      and landscape greenness (NDVI). Comparison of exclosures versus grazed
+      plots quantifies herbivore top-down control of vegetation across ecosystem
+      types.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Aboveground plant biomass in g m-2 (or NDVI) inside vs. outside exclosures"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:21635684
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "We calculate the difference in carbon stocks resulting from herbivore exclusion using the results of 108 studies from 52 vegetation types."
+        explanation: >
+          Validates herbivore exclusion as the gold-standard approach for
+          quantifying herbivory effects on vegetation and carbon stocks;
+          108 studies across 52 vegetation types establish the statistical
+          robustness of the exclosure method for measuring herbivore top-down control.
+
+  - name: Large herbivore population density and range
+    description: >
+      Population size and geographic range of large herbivore species integrate
+      herbivory pressure on plant communities. Declining populations reduce
+      top-down control intensity, releasing plants from herbivory and altering
+      vegetation structure, fire regimes, and nutrient cycling.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Herbivore density (individuals km-2) and range area (km2)"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:26601172
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Large herbivores are generally facing dramatic population declines and range contractions, such that ~60% are threatened with extinction."
+        explanation: >
+          Documents large herbivore population declines as the primary indicator
+          of reduced herbivory pressure globally; range contractions and population
+          crashes directly quantify the loss of top-down control on vegetation
+          and the associated ecosystem services.
+
+  - name: Herbivore-induced plant volatile emission
+    description: >
+      Emission rates of herbivore-induced plant volatiles (HIPVs) from
+      damaged plants indicate the magnitude of herbivory pressure and
+      the activation of plant indirect defense. HIPV profiles are taxon-
+      and feeding-mode-specific, reflecting the diversity of plant-herbivore
+      interactions.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "HIPV emission rate in nmol plant-1 hr-1 (PTR-ToF-MS or GC-MS)"
+    frequency: UNCOMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:26019168
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Herbivores have evolved diverse strategies, which are not mutually exclusive, to decrease the negative effects of plant defences in order to maximize the conversion of plant material into offspring."
+        explanation: >
+          Herbivore counter-evolution to plant defenses indicates the ongoing
+          arms race that HIPV emission reflects; diverse herbivore strategies
+          (feeding mode, defense suppression) produce distinct HIPV profiles
+          that can be used to identify herbivore identity and feeding guild
+          from plant volatile signatures.
+
+drivers:
+  - name: Herbivore population size and diversity
+    description: >
+      The density and functional diversity of herbivore communities determines
+      the intensity and selectivity of top-down control on vegetation. High
+      herbivore density increases biomass removal while diverse feeding guilds
+      (grazers, browsers, mixed feeders) create heterogeneous plant community
+      responses.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:21635684
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "Large mammalian herbivores manifest a strong top-down control on ecosystems that can transform entire landscapes"
+        explanation: >
+          Meta-analysis confirms that large mammalian herbivore abundance is
+          the primary driver of top-down ecosystem control; herbivore density
+          scales with the intensity of vegetation transformation, establishing
+          population size as the key herbivory driver.
+
+  - name: Plant defense chemistry and palatability
+    description: >
+      The constitutive and induced chemical defense levels of plant communities
+      govern herbivore selectivity and consumption rates. High-defense, low-
+      palatability vegetation reduces herbivory; low-defense, high-palatability
+      plants experience intense herbivory, driving community composition shifts.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:26019168
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Induced defences can be characterized by alterations in plant morphology and molecular chemistry and are associated with a decrease in herbivore performance."
+        explanation: >
+          Plant defense chemistry is the primary bottom-up driver moderating
+          herbivore consumption rates; induced alterations in plant chemistry and
+          morphology reduce herbivore performance, demonstrating that plant
+          palatability directly governs herbivory intensity.
+
+  - name: Hunting and land-use change
+    description: >
+      Anthropogenic hunting, land conversion, and livestock competition are
+      the primary drivers of large herbivore population decline globally.
+      Removal of large herbivores propagates as trophic cascades through
+      the ecosystem, releasing vegetation from top-down control and modifying
+      nutrient cycling, fire regimes, and mesopredator populations.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:26601172
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Nearly all threatened species are in developing countries, where major threats include hunting, land-use change, and resource depression by livestock."
+        explanation: >
+          Identifies hunting, land-use change, and livestock competition as the
+          three dominant anthropogenic drivers of large herbivore decline; these
+          threats are concentrated in developing countries where the highest
+          large herbivore diversity persists, making anthropogenic pressure the
+          primary driver modifying global herbivory intensity.
+
+interventions:
+  - name: Large carnivore and herbivore rewilding
+    description: >
+      Reintroducing locally extirpated large herbivores restores top-down
+      vegetation control, nutrient cycling, and ecosystem engineering services.
+      Rewilding projects in Africa, North America, and Europe have demonstrated
+      restoration of plant community structure, nutrient hotspots, and
+      associated food web components following herbivore reintroduction.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:26601172
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Loss of large herbivores can have cascading effects on other species including large carnivores, scavengers, mesoherbivores, small mammals, and ecological processes involving vegetation, hydrology, nutrient cycling, and fire regimes."
+        explanation: >
+          The cascading effects of large herbivore loss motivate restoration:
+          rewilding large herbivores is expected to reverse vegetation release,
+          restore nutrient cycling, re-establish fire regime control, and
+          rebuild the trophic interactions disrupted by herbivore decline.
+
+  - name: Anti-poaching enforcement and protected area management
+    description: >
+      Strengthening protected area governance, anti-poaching enforcement, and
+      international wildlife trade regulations reduces hunting pressure on large
+      herbivore populations, slowing population decline and range contraction.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:26601172
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The rate of large herbivore decline suggests that ever-larger swaths of the world will soon lack many of the vital ecological services these animals provide, resulting in enormous ecological and social costs."
+        explanation: >
+          The projected ecological and social costs of herbivore loss at global
+          scale justify protection as a priority intervention; protected areas
+          represent the primary mechanism for slowing herbivore population
+          declines and maintaining top-down ecosystem control.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: >
+      Temperate forests support browser and grazer communities that regulate
+      tree regeneration; deer and ungulate browsing can prevent forest
+      regeneration following disturbance in the absence of predator control
+
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Broadleaf forests support diverse insect herbivore guilds that consume
+      substantial fractions of canopy leaf area; large mammalian herbivores
+      regulate understory vegetation structure and forest floor litter inputs
+
+creation_date: "2026-08-17T00:00:00Z"

@@ -1,0 +1,383 @@
+id: ECOCORE:00000102
+name: Predation
+process_term:
+  id: ECOCORE:00000102
+  label: predation
+description: >
+  Predation is the consumption of living prey by a predator, coupling
+  energy flow between trophic levels and regulating prey population
+  dynamics, community structure, and ecosystem processes through top-down
+  control. Apex predators—large carnivores at the top of food webs—exert
+  disproportionate effects on ecosystems through trophic cascades: their
+  removal releases prey from predation pressure, driving cascading changes
+  in vegetation, nutrient cycling, fire regimes, disease dynamics, and
+  carbon sequestration. The decline or extirpation of apex predators, driven
+  primarily by human hunting and habitat loss, represents one of humanity's
+  most pervasive influences on nature. Predator reintroduction can restore
+  top-down regulation and reverse trophic downgrading in degraded ecosystems.
+synonyms:
+  - carnivory
+  - top-down control
+  - apex predation
+  - predator-prey interaction
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Apex Predator Regulation of Prey Populations
+    description: >
+      Large apex carnivores regulate prey population size and behavior through
+      direct lethal effects (consumption) and non-lethal effects (risk effects
+      modifying prey habitat use, foraging behavior, and vigilance). Both
+      direct and indirect predation effects cascade through food webs to alter
+      plant community structure, vegetation biomass, and abiotic ecosystem
+      processes. The loss of large carnivores—trophic downgrading—represents
+      humankind's most pervasive influence on natural systems.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:21764740
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "recent research reveals extensive cascading effects of their disappearance in marine, terrestrial, and freshwater ecosystems worldwide"
+            explanation: >
+              Establishes apex predator feeding as the mechanism linking top-down
+              control to ecosystem-wide cascades; the extensive cascading effects
+              of apex predator disappearance demonstrate that predator feeding
+              behavior is the keystone process regulating community structure across
+              biomes from marine to terrestrial to freshwater.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000102
+          label: predation
+        evidence:
+          - reference: PMID:24408439
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Large carnivores have substantial effects on the structure and function of diverse ecosystems."
+            explanation: >
+              Global review of 31 large carnivore species confirms predation by
+              apex carnivores as the mechanism generating substantial effects on
+              ecosystem structure and function; these effects operate through
+              direct prey consumption and indirect behavioral modification of
+              prey habitat use.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:40674
+          label: Mammalia
+        role: CONSUMER
+        ecological_function:
+          id: ECOCORE:00000095
+          label: apex predator
+        description: >
+          Large mammalian carnivores (wolves, lions, tigers, cougars, sharks)
+          are the primary apex predators structuring food webs across terrestrial
+          and marine ecosystems; their extirpation triggers trophic downgrading
+          with cascading effects on prey abundance and vegetation
+    causal_edges:
+      - subject: Apex predator
+        predicate: CAUSES
+        object: Regulation of prey population size and spatial distribution
+      - subject: Prey behavior modification by predation risk
+        predicate: MODULATES
+        object: Vegetation structure and ecosystem processes via trophic cascade
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The loss of these animals may be humankind's most pervasive influence on nature."
+        explanation: >
+          Identifies loss of apex predators as humanity's most pervasive influence
+          on natural ecosystems, establishing predation as a foundational ecological
+          process whose disruption propagates across all trophic levels and abiotic
+          ecosystem processes from carbon sequestration to disease dynamics.
+
+  - name: Trophic Cascade via Prey Release
+    description: >
+      When apex predators are extirpated, prey populations increase (prey
+      release) and alter their foraging behavior, generating trophic cascades
+      that propagate downward through food webs to plants, soils, and abiotic
+      processes. Trophic cascades mediated by large carnivores affect vegetation
+      biomass, tree recruitment, riparian plant communities, stream morphology,
+      carbon sequestration, disease prevalence, and wildfire frequency. Their
+      magnitude depends on food web complexity, ecosystem productivity, and
+      whether multiple carnivore species are present.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000102
+          label: predation
+        evidence:
+          - reference: PMID:24408439
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Significant cascading trophic interactions, mediated by their prey or sympatric mesopredators, arise when some of these carnivores are extirpated from or repatriated to ecosystems."
+            explanation: >
+              Documents trophic cascades mediated by prey release and mesopredator
+              suppression as the primary mechanism linking large carnivore presence
+              or absence to ecosystem-wide effects; extirpation experiments and
+              reintroductions confirm bidirectionality of cascade effects.
+    causal_edges:
+      - subject: Apex predator extirpation
+        predicate: CAUSES
+        object: Prey population increase and behavioral release from predation risk
+      - subject: Prey release
+        predicate: CAUSES
+        object: Cascading reduction in vegetation, altered nutrient cycling, and increased fire risk
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Unexpected effects of trophic cascades on various taxa and processes include changes to bird, mammal, invertebrate, and herpetofauna abundance or richness; subsidies to scavengers; altered disease dynamics; carbon sequestration; modified stream morphology; and crop damage."
+        explanation: >
+          Catalogue of trophic cascade outcomes following carnivore loss spans
+          bird, mammal, invertebrate, and herpetofauna abundance, disease dynamics,
+          carbon sequestration, and geomorphology; the breadth of cascade effects
+          demonstrates that predation is a fundamental regulator of biodiversity
+          and ecosystem processes across taxa and abiotic domains.
+
+  - name: Non-Lethal Predation Risk Effects on Prey Behavior
+    description: >
+      Predation risk modifies prey behavior even in the absence of direct
+      predation mortality. Prey shift habitat use, reduce foraging time, and
+      increase vigilance in response to predator presence—the "ecology of fear."
+      These behavioral effects propagate as landscape-scale changes in
+      vegetation through reduced herbivory in high-risk patches, potentially
+      equivalent in magnitude to direct predation effects on prey populations.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000102
+          label: predation
+        evidence:
+          - reference: PMID:21764740
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "This empirical work supports long-standing theory about the role of top-down forcing in ecosystems but also highlights the unanticipated impacts of trophic cascades on processes as diverse as the dynamics of disease, wildfire, carbon sequestration, invasive species, and biogeochemical cycles."
+            explanation: >
+              Confirms empirical support for top-down forcing theory while
+              documenting unanticipated predation-mediated effects on abiotic
+              processes; non-lethal predation risk effects are included among
+              the mechanisms generating trophic cascades across diverse ecosystem
+              processes from disease to carbon sequestration to biogeochemical cycles.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:40674
+          label: Mammalia
+        role: CONSUMER
+        ecological_function:
+          id: ECOCORE:00000095
+          label: apex predator
+        description: >
+          Mammalian apex predators create spatial gradients in predation risk
+          that modify prey habitat use; wolves in Yellowstone suppressed elk
+          browsing in riverbottom vegetation through risk effects, triggering
+          vegetation recovery in stream corridors without proportional change
+          in elk population size
+    causal_edges:
+      - subject: Predation risk perception by prey
+        predicate: CAUSES
+        object: Behavioral modification of prey foraging and habitat selection
+      - subject: Spatial distribution of predation risk
+        predicate: MODULATES
+        object: Landscape-scale vegetation structure via non-lethal fear effects
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Promoting tolerance and coexistence with large carnivores is a crucial societal challenge that will ultimately determine the fate of Earth's largest carnivores and all that depends upon them, including humans."
+        explanation: >
+          Frames large carnivore conservation as essential for maintaining
+          predation risk effects and the trophic regulation they provide;
+          coexistence with large carnivores is the prerequisite for both
+          lethal and non-lethal top-down control of prey populations and
+          the cascading ecosystem processes they govern.
+
+indicators:
+  - name: Prey population density in carnivore presence vs. absence
+    description: >
+      Prey population density inside and outside carnivore range, or before
+      and after carnivore extirpation or reintroduction, quantifies the
+      magnitude of top-down predation control on prey populations and serves
+      as a leading indicator of trophic cascade intensity.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Prey density (individuals km-2) in areas with vs. without apex predators"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Significant cascading trophic interactions, mediated by their prey or sympatric mesopredators, arise when some of these carnivores are extirpated from or repatriated to ecosystems."
+        explanation: >
+          Documents prey density changes following carnivore extirpation or
+          reintroduction as the primary indicator of trophic cascade initiation;
+          prey population responses to carnivore presence or absence are the
+          standard metric for quantifying the strength of top-down predation control.
+
+  - name: Large carnivore population status and range
+    description: >
+      Population size, density, and geographic range of apex predator species
+      integrate the intensity of top-down control across ecosystems. Carnivore
+      population declines quantify trophic downgrading risk and the ecosystem
+      services lost when predation is reduced or eliminated.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Carnivore abundance (individuals per 100 km2) and range size (km2)"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The loss of these animals may be humankind's most pervasive influence on nature."
+        explanation: >
+          Establishes apex predator population status as the primary indicator
+          of trophic downgrading risk; population declines directly quantify
+          the loss of predation-mediated top-down control, identifying carnivore
+          abundance as the leading ecosystem health indicator for predation.
+
+  - name: Trophic cascade strength index
+    description: >
+      Quantitative measures of trophic cascade strength—including changes in
+      vegetation biomass, tree recruitment, or plant community composition
+      correlated with carnivore presence—integrate the ecosystem-wide effects
+      of predation top-down control and are used to compare cascade strength
+      across ecosystems.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Relative change in vegetation biomass or species richness per unit change in carnivore density"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Unexpected effects of trophic cascades on various taxa and processes include changes to bird, mammal, invertebrate, and herpetofauna abundance or richness; subsidies to scavengers; altered disease dynamics; carbon sequestration; modified stream morphology; and crop damage."
+        explanation: >
+          The diversity of trophic cascade effects catalogued across taxa and
+          processes establishes the breadth of indicators needed to quantify
+          cascade strength; changes in vegetation, biodiversity, carbon stocks,
+          and geomorphology are all validated metrics for measuring predation-
+          mediated trophic cascade intensity.
+
+drivers:
+  - name: Human hunting and persecution of large carnivores
+    description: >
+      Hunting, predator persecution, and retaliatory killing in response to
+      livestock depredation are the primary drivers of apex predator population
+      decline globally. Large carnivores are extirpated from the majority of
+      their historic range, reducing top-down trophic control across broad
+      geographic areas.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The loss of these animals may be humankind's most pervasive influence on nature."
+        explanation: >
+          Frames large carnivore loss as humanity's most pervasive influence on
+          nature; human hunting and persecution as primary causes of apex predator
+          decline are the dominant anthropogenic driver suppressing predation
+          and trophic cascade processes globally.
+
+  - name: Prey availability and habitat quality
+    description: >
+      Prey population size, diversity, and spatial distribution determine the
+      carrying capacity for predator populations and the intensity of predation
+      pressure. Habitat fragmentation reduces prey availability and disrupts
+      predator hunting ranges, weakening top-down control even where predators
+      are nominally present.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Large carnivores face serious threats and are experiencing massive declines in their populations and geographic ranges around the world."
+        explanation: >
+          Population and range declines of large carnivores reflect deteriorating
+          habitat quality and prey availability as drivers of predation weakening;
+          geographic range contraction directly limits the area of ecosystem
+          over which top-down predation control can operate.
+
+  - name: Food web complexity and trophic redundancy
+    description: >
+      The number of trophic levels, the presence of alternative predators, and
+      the degree of trophic omnivory determine how strongly trophic cascades
+      propagate following apex predator loss. High trophic redundancy (multiple
+      species at each level) dampens cascade strength; simple food webs produce
+      strong, predictable cascades from single predator losses.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "These findings emphasize the urgent need for interdisciplinary research to forecast the effects of trophic downgrading on process, function, and resilience in global ecosystems."
+        explanation: >
+          The call for interdisciplinary forecasting of trophic downgrading effects
+          reflects the complexity of food web structure as a driver of cascade
+          magnitude; interdisciplinary approaches are needed because food web
+          complexity, omnivory, and trophic redundancy moderate the outcome of
+          predator loss in ways that single-discipline approaches cannot predict.
+
+interventions:
+  - name: Apex predator reintroduction and rewilding
+    description: >
+      Reintroducing locally extirpated apex predators (wolves, cougars, lynx,
+      large felids) restores top-down trophic control, prey population regulation,
+      and the cascading ecosystem effects of predation on vegetation, nutrient
+      cycling, and biodiversity. Rewilding programs in North America and Europe
+      have demonstrated measurable ecosystem recovery following predator restoration.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Significant cascading trophic interactions, mediated by their prey or sympatric mesopredators, arise when some of these carnivores are extirpated from or repatriated to ecosystems."
+        explanation: >
+          Documents bidirectional trophic cascades—both extirpation and
+          repatriation of carnivores trigger significant cascading interactions—
+          confirming that predator reintroduction is a validated mechanism for
+          restoring top-down trophic control and associated ecosystem processes.
+
+  - name: Large carnivore coexistence policies and human-wildlife conflict mitigation
+    description: >
+      Livestock protection measures (guardian dogs, predator-proof corrals,
+      compensation schemes) and public education reduce retaliatory killing
+      of large carnivores, enabling predator population recovery in human-
+      dominated landscapes and restoring trophic regulation at landscape scale.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Promoting tolerance and coexistence with large carnivores is a crucial societal challenge that will ultimately determine the fate of Earth's largest carnivores and all that depends upon them, including humans."
+        explanation: >
+          Identifies coexistence as the pivotal societal challenge for large
+          carnivore conservation; coexistence policies addressing human-wildlife
+          conflict directly counteract the primary anthropogenic driver of
+          carnivore decline, making them the most critical intervention for
+          maintaining predation-driven trophic control.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: >
+      Temperate mixed forests historically supported apex predators (wolves, bears,
+      cougars) whose loss has released deer and elk populations from top-down
+      control, causing overbrowsing and suppressing tree regeneration
+
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Broadleaf forests are subject to trophic cascades from mesopredator release
+      following large carnivore extirpation; fox and raccoon populations expand,
+      altering bird nesting success, small mammal dynamics, and forest understory
+      structure
+
+creation_date: "2026-08-17T00:00:00Z"

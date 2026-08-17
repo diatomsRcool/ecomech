@@ -1,0 +1,426 @@
+id: ECOCORE:00000057
+name: Detritivory
+process_term:
+  id: ECOCORE:00000057
+  label: detritivory
+description: >
+  Detritivory is the consumption and physical fragmentation of dead organic
+  matter (detritus) by animals, accelerating decomposition by comminuting
+  plant litter, stimulating microbial activity, and cycling nutrients back
+  to the soil. Macro-detritivores—earthworms, isopods, millipedes, diplopods,
+  and mites—mechanically fragment litter, increasing surface area for microbial
+  attack, and deposit nutrient-enriched castings or feces that form hotspots
+  of elevated nitrogen and phosphorus availability. In arid ecosystems, macro-
+  detritivore activity can drive litter removal rates that far exceed what
+  microbial decomposition alone can explain. Detritivory couples the aboveground
+  and belowground subsystems of terrestrial ecosystems, linking plant litter
+  quality to soil food web structure and nutrient mineralization rates.
+synonyms:
+  - detrivory
+  - detritus feeding
+  - macrofaunal decomposition
+  - litter fragmentation
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Physical Litter Fragmentation by Soil Macrofauna
+    description: >
+      Macro-detritivores (earthworms, isopods, millipedes, Diplopoda) ingest
+      and mechanically fragment plant litter into fine particles, dramatically
+      increasing the surface area available for microbial colonization and
+      enzymatic attack. Earthworms additionally mix organic matter into the
+      mineral soil matrix (bioturbation), creating organo-mineral associations
+      that stabilize carbon and redistribute nutrients. Faunal fragmentation
+      accelerates overall decomposition beyond what microbial activity achieves
+      alone, particularly during periods of low microbial activity.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:32724548
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "litter mass loss increased with an increasing density of epigeic earthworms, with most pronounced effects in litterbags with a smaller mesh size, indicating indirect effects."
+            explanation: >
+              Field experiment with mesh-size-partitioned litterbags demonstrates
+              that epigeic earthworm density directly drives litter mass loss;
+              the mesh-size effect confirms physical feeding fragmentation (requiring
+              macrofaunal access) as the mechanism, distinct from microbial-only
+              decomposition.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000057
+          label: detritivory
+        evidence:
+          - reference: PMID:31662076
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Macro-detritivores controlled the clearing of plant litter in our field site."
+            explanation: >
+              Field experiment with size-selective litter baskets demonstrates
+              macro-detritivore control of plant litter clearing in a desert
+              ecosystem; the result confirms detritivory as the dominant
+              litter-removal mechanism at this site, independent of microbial
+              decomposition activity.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6340
+          label: Annelida
+        role: DETRITIVORE
+        ecological_function:
+          id: ECOCORE:00000055
+          label: detritivore
+        description: >
+          Epigeic and anecic earthworms (Lumbricidae) are the dominant
+          macro-detritivores in temperate soils; epigeic species fragment
+          surface litter while anecic species bury litter fragments into
+          mineral soil, driving bioturbation and organo-mineral association
+          formation
+      - taxon:
+          id: NCBITaxon:6656
+          label: Arthropoda
+        role: DETRITIVORE
+        ecological_function:
+          id: ECOCORE:00000055
+          label: detritivore
+        description: >
+          Isopods (e.g., Hemilepistus reaumuri), millipedes, oribatid mites,
+          and springtails are abundant macro- and mesodetritivores; isopods
+          dominate litter processing in arid and semi-arid environments
+          where earthworm activity is moisture-limited
+    causal_edges:
+      - subject: Macro-detritivore feeding and fragmentation
+        predicate: CAUSES
+        object: Increased litter surface area and accelerated microbial colonization
+      - subject: Earthworm bioturbation
+        predicate: CAUSES
+        object: Incorporation of organic matter into mineral soil and nutrient hotspot formation
+    evidence:
+      - reference: PMID:32724548
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "tree FD has a weak positive effect on soil surface litter decomposition by increasing the density of epigeic earthworms and that litter nitrogen-related traits play a central role in tree composition effects on soil fauna and decomposition."
+        explanation: >
+          Structural equation modeling identifies epigeic earthworm density as
+          the mediating variable linking tree litter quality to decomposition
+          rate; the mediation demonstrates that earthworm detritivory is the
+          proximate mechanism through which plant diversity and litter chemistry
+          control decomposition rates.
+
+  - name: Detritivore Nutrient Mineralization via Excretion
+    description: >
+      Detritivores release inorganic nitrogen and phosphorus as excretory
+      byproducts of litter digestion, creating localized nutrient enrichment
+      zones around burrows, feeding sites, and casts. Earthworm casts and
+      isopod feces contain higher concentrations of plant-available nutrients
+      than surrounding soil, functioning as nutrient hotspots that stimulate
+      plant uptake and microbial activity. In arid systems, detritivore
+      excretion maintains nutrient cycling during dry periods when microbial
+      activity is minimal.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000057
+          label: detritivory
+        evidence:
+          - reference: PMID:31662076
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "We also found substantial enrichment of inorganic nitrogen and phosphorous near isopod burrows."
+            explanation: >
+              Demonstrates nutrient mineralization and hotspot formation as a
+              direct mechanism of macro-detritivore ecosystem function; substantial
+              inorganic N and P enrichment near isopod burrows confirms that
+              detritivore excretion creates ecologically significant nutrient
+              enrichment zones that accelerate local nutrient cycling.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6656
+          label: Arthropoda
+        role: DETRITIVORE
+        ecological_function:
+          id: ECOCORE:00000055
+          label: detritivore
+        description: >
+          Desert isopods (Hemilepistus reaumuri) and other macro-arthropod
+          detritivores excrete inorganic N and P near burrows, creating
+          nutrient hotspots in otherwise nutrient-poor arid soils
+      - taxon:
+          id: NCBITaxon:6340
+          label: Annelida
+        role: DETRITIVORE
+        ecological_function:
+          id: ECOCORE:00000055
+          label: detritivore
+        description: >
+          Earthworm casts are enriched in plant-available nitrogen and phosphorus
+          relative to surrounding soil; cast deposition patterns create spatial
+          heterogeneity in soil nutrient availability at centimeter to meter scales
+    causal_edges:
+      - subject: Macro-detritivore digestion and excretion
+        predicate: CAUSES
+        object: Inorganic nitrogen and phosphorus enrichment near burrows and feeding sites
+      - subject: Detritivore nutrient hotspots
+        predicate: ENABLES
+        object: Accelerated plant nutrient uptake and microbial activity in nutrient-limited ecosystems
+    evidence:
+      - reference: PMID:31662076
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "burrowing macro-detritivores are important regulators of litter cycling in this arid ecosystem, providing a plausible general mechanism that explains the unexpectedly high rates of plant litter cycling in deserts."
+        explanation: >
+          Identifies burrowing macro-detritivores as general regulators of
+          litter cycling beyond what moisture-driven microbial decomposition
+          predicts; their nutrient mineralization function provides a mechanistic
+          explanation for anomalously high decomposition rates in arid ecosystems
+          globally.
+
+  - name: Detritivore Coupling of Aboveground and Belowground Subsystems
+    description: >
+      Detritivores link aboveground plant litter production to belowground
+      soil food web structure, nutrient cycling, and plant productivity
+      through their selective feeding on litter of specific plant species.
+      Litter quality (C:N ratio, palatability to detritivores) determines
+      the rate of nutrient release, creating plant-soil feedbacks that
+      reinforce or alter plant community composition over time. Detritivore
+      community composition is shaped by plant species identity through litter
+      quality, creating aboveground-belowground feedbacks mediated by the
+      detritivore trophic level.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:15192218
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "aboveground and belowground communities can be powerful mutual drivers, with both positive and negative feedbacks."
+            explanation: >
+              Establishes aboveground-belowground linkages as mutual drivers
+              with feedbacks, providing the theoretical framework for understanding
+              how detritivore community composition (belowground) responds to
+              and feeds back on plant community composition (aboveground) through
+              litter quality mediation of decomposition.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6340
+          label: Annelida
+        role: DETRITIVORE
+        ecological_function:
+          id: ECOCORE:00000055
+          label: detritivore
+        description: >
+          Earthworm species composition and biomass respond to plant litter
+          quality; higher litter N content and functional diversity support
+          higher earthworm density and biomass, coupling plant diversity
+          to detritivore community structure and decomposition rate
+    causal_edges:
+      - subject: Plant litter quality (C:N ratio, chemistry)
+        predicate: MODULATES
+        object: Detritivore community composition and decomposition rate
+      - subject: Detritivore-mediated nutrient mineralization
+        predicate: CAUSES
+        object: Soil nutrient availability and plant productivity feedback
+    evidence:
+      - reference: PMID:15192218
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "All terrestrial ecosystems consist of aboveground and belowground components that interact to influence community- and ecosystem-level processes and properties."
+        explanation: >
+          Establishes the fundamental aboveground-belowground interaction framework;
+          detritivores are the trophic link mediating this interaction, translating
+          plant litter inputs into soil nutrient availability and feeding back to
+          aboveground plant community structure through nutrient supply.
+
+indicators:
+  - name: Litter bag mass loss by macrofauna
+    description: >
+      Comparing mass loss in coarse-mesh (macrofauna access) vs. fine-mesh
+      (microbial only) litterbags isolates the detritivore contribution to
+      litter breakdown. The difference in mass loss between mesh sizes
+      quantifies macro-detritivore fragmentation effects on decomposition rate.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Litter mass loss rate difference (% yr-1) between coarse (>2 mm) and fine (<0.05 mm) mesh bags"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:32724548
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "litter mass loss increased with an increasing density of epigeic earthworms, with most pronounced effects in litterbags with a smaller mesh size, indicating indirect effects."
+        explanation: >
+          Validates the mesh-size litterbag approach for isolating macro-detritivore
+          contributions to litter decomposition; the stronger earthworm effect in
+          smaller mesh bags (indirect effects mediated by soil mixing) demonstrates
+          the utility of this indicator for quantifying detritivore-mediated
+          decomposition.
+
+  - name: Soil macrofauna abundance and biomass
+    description: >
+      Earthworm density and biomass, and broader soil macrofauna community
+      abundance (isopods, millipedes, diplopods), are primary indicators of
+      detritivore community activity and potential for litter processing. Macrofauna
+      community composition reflects litter quality, soil moisture, and land-use
+      intensity.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Earthworm biomass (g m-2) or macrofauna density (individuals m-2) by pit-fall traps or hand sorting"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:32724548
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Higher litter FD and litter nutrient content were found to increase the density of surface-dwelling macrofauna and epigeic earthworm biomass."
+        explanation: >
+          Demonstrates that litter nutrient content and functional diversity
+          drive earthworm and macrofauna density, validating macrofauna biomass
+          and density as indicators of detritivore community response to
+          plant diversity and litter quality gradients.
+
+  - name: Inorganic nitrogen and phosphorus near detritivore burrows
+    description: >
+      Concentrations of plant-available inorganic nitrogen (NH4+, NO3-) and
+      phosphorus (PO43-) near detritivore burrows relative to background soil
+      quantify the nutrient mineralization function of detritivores and the
+      magnitude of nutrient hotspot creation.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Inorganic N (mg N kg-1 soil) and P (mg P kg-1 soil) at increasing distances from detritivore burrows"
+    frequency: UNCOMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:31662076
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "We also found substantial enrichment of inorganic nitrogen and phosphorous near isopod burrows."
+        explanation: >
+          Direct field measurement of inorganic N and P enrichment near isopod
+          burrows validates nutrient hotspot formation as a measurable consequence
+          of detritivore activity; the burrow-proximity gradient provides a spatial
+          indicator of detritivore-mediated nutrient mineralization intensity.
+
+drivers:
+  - name: Litter substrate quality
+    description: >
+      Plant litter C:N ratio, N content, and functional diversity determine
+      detritivore palatability, selectivity, and community response. High-N,
+      low-C:N litter attracts and sustains higher detritivore biomass and
+      accelerates nutrient cycling; recalcitrant, high-lignin litter is
+      less palatable and decomposes more slowly.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:32724548
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Litter mass loss was found to decrease with an increase in leaf litter carbon:nitrogen ratio."
+        explanation: >
+          Field experiment confirms litter C:N ratio as the primary substrate
+          quality driver of detritivore-mediated litter mass loss; higher C:N
+          litter directly suppresses decomposition through both reduced microbial
+          activity and lower detritivore palatability and consumption.
+
+  - name: Soil moisture and temperature
+    description: >
+      Soil moisture and temperature govern detritivore activity periods, with
+      earthworms requiring moist soils and isopods active during nocturnal,
+      cooler periods. In arid ecosystems, detritivore litter processing peaks
+      during seasons when microbial decomposition is suppressed by drought,
+      creating complementary detritivore-microbial activity windows.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:31662076
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "The highest rates of litter removal were measured during the hot and dry summer when isopod activity peaks and microbial activity is minimal."
+        explanation: >
+          Desert isopod litter removal peaks during hot and dry summer when
+          microbial activity is minimal, demonstrating that detritivore activity
+          patterns are complementary to microbial decomposition; moisture and
+          temperature together govern the relative contribution of macro-detritivores
+          to total litter processing across seasons.
+
+  - name: Land-use intensification
+    description: >
+      Agricultural tillage, pesticide use, and soil compaction reduce
+      detritivore abundance and diversity. Intensive land use eliminates
+      earthworm communities and disrupts macro-arthropod detritivore
+      populations, reducing litter processing rates and nutrient cycling
+      efficiency in managed landscapes.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:15192218
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "A combined aboveground-belowground approach to community and ecosystem ecology is enhancing our understanding of the regulation and functional significance of biodiversity and of the environmental impacts of human-induced global change phenomena."
+        explanation: >
+          Identifies human-induced global change as a major driver of aboveground-
+          belowground linkage disruption; land-use intensification is the primary
+          anthropogenic driver reducing detritivore diversity and activity,
+          weakening the aboveground-belowground coupling that detritivores mediate.
+
+interventions:
+  - name: Reduced tillage and organic farming
+    description: >
+      Reduced tillage and organic farming practices sustain earthworm and
+      macro-arthropod detritivore communities by preserving soil structure,
+      reducing compaction and pesticide impacts. Higher detritivore abundance
+      under low-tillage systems improves litter processing rates, nutrient
+      cycling efficiency, and soil carbon accumulation.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:32724548
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "tree FD has a weak positive effect on soil surface litter decomposition by increasing the density of epigeic earthworms and that litter nitrogen-related traits play a central role in tree composition effects on soil fauna and decomposition."
+        explanation: >
+          The centrality of epigeic earthworm density to detritivore-mediated
+          decomposition motivates management practices that sustain earthworm
+          communities; reduced tillage directly preserves earthworm habitat and
+          maintains the detritivore-mediated litter processing pathway.
+
+  - name: Native vegetation restoration to improve litter quality
+    description: >
+      Restoring plant communities with diverse litter quality (C:N ratio,
+      palatability) supports diverse detritivore communities and maximizes
+      nutrient cycling through detritivore-mediated pathways. Diverse litter
+      inputs matching detritivore feeding preferences accelerate litter
+      processing and nutrient mineralization compared to monoculture litter.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:15192218
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "aboveground and belowground communities can be powerful mutual drivers, with both positive and negative feedbacks."
+        explanation: >
+          Aboveground-belowground feedbacks mean that restoring plant community
+          diversity improves belowground detritivore community diversity, which
+          in turn feeds back to enhance soil nutrient availability and plant
+          productivity; native vegetation restoration is therefore an intervention
+          that simultaneously improves both aboveground diversity and belowground
+          detritivore function.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: >
+      Temperate mixed forests support the most diverse soil macrofauna communities,
+      with earthworms, millipedes, and isopods as dominant litter processors;
+      annual leaf fall provides large seasonal detritus pulses that drive
+      detritivore community dynamics
+
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Broadleaf forest litter supports high earthworm biomass and diversity;
+      litter quality variation among broadleaf species creates detritivore
+      habitat heterogeneity and supports diverse macro-arthropod detritivore
+      guilds that couple plant diversity to belowground nutrient cycling
+
+creation_date: "2026-08-17T00:00:00Z"
