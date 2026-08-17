@@ -192,6 +192,6 @@ Always point downward via explicit `members:` lists rather than upward inference
 
 - Open PRs from origin, not forks
 - Use worktrees for parallel work
-- Commit: `kb/`, `references_cache/`, `src/`, `scripts/`, `tests/`
-- Do NOT commit: `pages/processes/*.html`, `dashboard/`, `docs/site/`
+- Commit: `kb/`, `references_cache/`, `src/`, `scripts/`, `tests/`, `pages/processes/*.html`
+- Do NOT commit: `dashboard/`, `docs/site/`
 - Never force-push to main
