@@ -1,0 +1,418 @@
+id: ECOCORE:00000186
+name: Litter Decomposition
+process_term:
+  id: ECOCORE:00000186
+  label: litter decomposition
+description: >
+  Litter decomposition is the biological breakdown of dead plant material—leaves,
+  roots, woody debris, and other organic residues—into simpler compounds by
+  saprotrophic fungi, bacteria, and invertebrates. It is the primary mechanism
+  returning carbon and nutrients from plant biomass back to the soil and
+  atmosphere, coupling the carbon, nitrogen, and phosphorus cycles. Decomposition
+  rates are governed by temperature (the dominant abiotic control), litter
+  substrate quality (C:N ratio, lignin content, tissue type), and the composition
+  of the decomposer community. Anthropogenic nitrogen deposition modifies
+  decomposition dynamics in a stage-dependent manner, accelerating early labile
+  breakdown while suppressing late-stage recalcitrant fraction decay.
+synonyms:
+  - plant litter decomposition
+  - leaf litter decomposition
+  - lignocellulose decomposition
+  - saprotrophic decomposition
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Fungal Enzymatic Breakdown of Lignocellulose
+    description: >
+      Saprotrophic Basidiomycota fungi are the primary agents of plant litter
+      and woody debris decomposition in terrestrial ecosystems. They secrete
+      oxidative (laccases, manganese peroxidases) and hydrolytic (cellulases,
+      xylanases) enzymes that break down the recalcitrant lignocellulosic
+      matrix of plant cell walls into simple sugars and monomers, releasing
+      carbon and nutrients into the soil. Decay strategy—white rot, brown rot,
+      or litter-decomposing—determines the specific enzyme complement and
+      substrate preference of each fungal species.
+    biological_processes:
+      - term:
+          id: GO:0030245
+          label: cellulose catabolic process
+        evidence:
+          - reference: PMID:31906600
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "Filamentous saprotrophic fungi of Basidiomycota play an important role in the cycling of carbon and other elements due to their capacity to convert the complex biopolymeric carbohydrate components of the compact plant cell wall lignocelluloses into sugars and monomeric compounds"
+            explanation: >
+              Establishes Basidiomycota saprotrophic fungi as the primary agents
+              of lignocellulose conversion; enzymatic breakdown of plant cell
+              wall polysaccharides (including cellulose) to simple sugars is
+              the central biological mechanism of litter decomposition.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000059
+          label: saprotrophy
+        evidence:
+          - reference: PMID:31906600
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "both litter-decomposers and wood-decaying Agaricomycetes fungi play an important role in recycling of carbon and other nutrients especially in the forest ecosystems"
+            explanation: >
+              Confirms saprotrophic Agaricomycetes as the dominant recyclers of
+              carbon and nutrients in forest ecosystems; their saprotrophic
+              lifestyle drives enzymatic breakdown of plant litter lignocellulose,
+              making saprotrophy the defining ecological process of litter decomposition.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:5204
+          label: Basidiomycota
+        role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000056
+          label: saprotroph
+        description: >
+          White rot Basidiomycota (e.g., Phlebia radiata) degrade wood lignin
+          via laccase and manganese peroxidase while depolymerizing cellulose
+          and hemicellulose; litter-decomposing Agaricomycetes (e.g., Coprinopsis
+          cinerea) preferentially break down hemicellulose fractions of plant
+          residues on the forest floor
+    causal_edges:
+      - subject: Saprotrophic Basidiomycota fungi
+        predicate: CAUSES
+        object: Enzymatic breakdown of plant cell wall lignocellulose to sugars and monomers
+      - subject: Fungal laccase and manganese peroxidase enzymes
+        predicate: ENABLES
+        object: Oxidative lignin degradation and cellulose depolymerization
+    evidence:
+      - reference: PMID:31906600
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "plant cell wall decomposition ability of taxonomically and ecologically divergent fungi is in line with their enzymatic decay strategy, which is fundamental in understanding their physiology and potential for biotechnological applications."
+        explanation: >
+          Demonstrates that enzymatic decay strategy is the mechanistic basis
+          for fungal lignocellulose decomposition capacity across taxonomically
+          divergent Basidiomycota; enzyme profiles explain the eco-physiological
+          differentiation of white rot, brown rot, and litter-decomposing fungi.
+
+  - name: Temperature Control of Decomposition Kinetics
+    description: >
+      Temperature is the dominant abiotic control on litter decomposition rates
+      across climatic and soil gradients. Across a 3500-km geographic transect,
+      decomposition kinetics become uniform once temperature effects are removed,
+      demonstrating that soil properties exert no independent effect. Climate
+      warming is projected to accelerate both labile and recalcitrant litter
+      fractions decomposition, reducing soil carbon residence times and
+      constraining future terrestrial carbon storage.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:27633488
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "the kinetics of litter decomposition were similar once the effect of temperature had been removed, indicating no measurable effect of soil properties"
+            explanation: >
+              10-site Canadian transect study demonstrates temperature is the
+              dominant, overriding control on litter decomposition kinetics;
+              once temperature is accounted for, soil properties exert no
+              measurable additional effect across 3500 km of climatic and
+              edaphic variation.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000054
+          label: decomposition organism
+        description: >
+          Soil bacteria co-decompose plant litter with fungi; microbial community
+          decomposition rates respond strongly to temperature-driven changes in
+          metabolic activity, with warming accelerating turnover of labile
+          carbon fractions across diverse soil types
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        ecological_function:
+          id: ECOCORE:00000056
+          label: saprotroph
+        description: >
+          Saprotrophic fungi are major litter decomposers whose enzyme activities
+          are temperature-sensitive; warming accelerates fungal lignocellulose
+          breakdown rates, reducing soil carbon residence times in forest
+          and agricultural soils
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Temperature drives decomposition kinetics through effects on microbial
+          metabolic rates; climate warming projected to reduce time to decompose
+          50% of labile fractions by 1-4 months and 90% of total litter by
+          1-2 years across cooler to warmer sites
+    causal_edges:
+      - subject: Temperature increase
+        predicate: CAUSES
+        object: Accelerated litter decomposition kinetics across soil types
+      - subject: Climate warming
+        predicate: INHIBITS
+        object: Future soil carbon storage through accelerated decomposition of labile and recalcitrant fractions
+    evidence:
+      - reference: PMID:27633488
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "time required to decompose 50% of the litter (i.e. the labile fractions) would be reduced by 1-4 months, whereas time required to decompose 90% of the litter (including recalcitrant fractions) would be reduced by 1 year in cooler sites to as much as 2 years in warmer sites"
+        explanation: >
+          Quantifies projected climate warming effects on decomposition of both
+          labile and recalcitrant litter fractions across a 3500-km Canadian
+          transect; acceleration of recalcitrant fraction decomposition by
+          1-2 years has direct consequences for long-term soil carbon storage.
+
+  - name: Nitrogen Effects on Decomposition Stage Dynamics
+    description: >
+      Anthropogenic nitrogen fertilization alters litter decomposition dynamics
+      in opposing ways depending on decomposition stage. Nitrogen addition
+      consistently accelerates early-stage breakdown of labile litter fractions
+      while suppressing late-stage decomposition of recalcitrant fractions.
+      This stage-dependent pattern affects the pathway of carbon from fresh
+      litter to stable soil organic matter, modifying the terrestrial carbon sink.
+      Plant litter chemistry (C:N ratio, lignin) further mediates how nitrogen
+      availability feeds back to decomposition rates through plant-soil interactions.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:33583093
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "N fertilisation consistently accelerates early-stage but slows late-stage decomposition when the model structure allows for flexibility in decomposition rates through time."
+            explanation: >
+              Global meta-analysis confirms nitrogen fertilization produces
+              opposing stage-dependent effects on litter decomposition kinetics;
+              this pattern holds across globally distributed experiments and
+              requires flexible decomposition models to detect.
+    causal_edges:
+      - subject: Nitrogen fertilization
+        predicate: CAUSES
+        object: Accelerated early-stage litter decomposition
+      - subject: Nitrogen fertilization
+        predicate: INHIBITS
+        object: Late-stage decomposition of recalcitrant litter fractions
+      - subject: Plant litter C:N ratio
+        predicate: MODULATES
+        object: Decomposition rate and plant-soil nutrient feedbacks
+    evidence:
+      - reference: PMID:33583093
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "Plant litter decomposition is a central process in the carbon (C) cycle and sensitive to ongoing anthropogenic nitrogen (N) fertilisation."
+        explanation: >
+          Establishes plant litter decomposition as both a central carbon cycle
+          process and a globally sensitive responder to anthropogenic nitrogen
+          enrichment; this dual framing motivates the inclusion of nitrogen
+          deposition as a key mechanistic driver of decomposition dynamics.
+      - reference: PMID:25900044
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "mechanisms emerging since my previous review might weaken these positive feedbacks, such as negative effects of nitrogen on decomposition, while others might strengthen them, such as slower decomposition of roots compared to leaf litter"
+        explanation: >
+          Review evidence confirms negative effects of nitrogen on decomposition
+          (weakening plant-soil feedbacks) and slower root vs. leaf litter
+          decomposition (strengthening feedbacks); these opposing mechanisms
+          complicate prediction of net nitrogen effects on nutrient cycling.
+
+indicators:
+  - name: Litter mass loss rate (k-decay constant)
+    description: >
+      The exponential decay constant k quantifies the proportional annual rate
+      of litter mass loss from litter bag or isotope-tracer incubations. A
+      two-pool model distinguishes labile (fast) and recalcitrant (slow) fractions.
+      Temperature-standardized k values are comparable across soil types and
+      climatic gradients, making k the standard quantitative indicator of
+      decomposition rate.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Exponential decay constant k (yr-1) from litter bag or 13C-tracer incubation experiments"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:27633488
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "A two-pool exponential decay model expressing undecomposed carbon simply as a function of thermal time accurately described kinetics of decomposition. (R2  = 0.94; RMSE = 0.0508)."
+        explanation: >
+          Validates the two-pool exponential decay model for litter decomposition
+          kinetics from 13C-labelled field incubations across 10 sites; the high
+          R2 (0.94) confirms thermal-time-based k as a robust, temperature-
+          standardizable indicator of decomposition rate across contrasting soils.
+
+  - name: Soil organic carbon concentration
+    description: >
+      Soil organic carbon (SOC) is the cumulative legacy of litter inputs and
+      decomposition losses. Changes in SOC track shifts in decomposition rates
+      and litter-to-SOM stabilization efficiency, particularly under nitrogen
+      enrichment and climate warming. SOC is the largest terrestrial carbon
+      pool and a critical indicator of long-term ecosystem carbon balance.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Soil organic carbon in g C kg-1 dry soil or % SOC (0-30 cm depth)"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:33583093
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "N-induced changes in the litter decomposition process may influence the formation and cycling of soil C, the largest terrestrial C pool."
+        explanation: >
+          Identifies soil C as the integrative reservoir controlled by N-driven
+          decomposition dynamics; SOC concentration tracks the net balance
+          between litter inputs and decomposition losses under anthropogenic
+          nitrogen enrichment, making it the primary long-term decomposition
+          indicator.
+
+  - name: Litter C:N ratio
+    description: >
+      The carbon-to-nitrogen ratio of plant litter is the primary substrate
+      quality index predicting decomposition rates. Low-C:N litter decomposes
+      rapidly, cycling nutrients faster, while high-C:N litter (woody, N-poor)
+      decomposes slowly, building soil organic matter. Litter C:N mediates
+      plant species effects on decomposition and nutrient cycling feedbacks.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "C:N molar or mass ratio of fresh leaf or root litter (dimensionless)"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:25900044
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "predictive understanding of plant species effects on nutrient cycling will require developing new frameworks that are broadened beyond litter decomposition to consider the full litter-soil organic matter (SOM) continuum"
+        explanation: >
+          Review establishes that litter chemistry—including C:N ratio—drives
+          plant species effects on decomposition and nutrient cycling through
+          the full litter-SOM continuum; litter C:N is the key chemical
+          indicator linking plant community composition to decomposition dynamics.
+
+drivers:
+  - name: Temperature
+    description: >
+      Temperature is the dominant control on litter decomposition kinetics
+      across climatic gradients, overriding differences in soil type. Climate
+      warming is projected to accelerate decomposition of both labile and
+      recalcitrant litter fractions, reducing soil carbon residence times
+      and potentially weakening the terrestrial carbon sink.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:27633488
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Widespread global changes, including rising atmospheric CO2 concentrations, climate warming and loss of biodiversity, are predicted for this century; all of these will affect terrestrial ecosystem processes like plant litter decomposition."
+        explanation: >
+          Identifies climate warming as the primary projected global-change
+          driver affecting plant litter decomposition; the 10-site Canadian
+          transect confirms temperature as the dominant control overriding
+          soil properties, establishing it as the key abiotic driver of
+          decomposition across geographic gradients.
+
+  - name: Litter substrate quality
+    description: >
+      The chemical composition of plant litter—C:N ratio, lignin content, and
+      tissue type (leaf vs. root)—determines decomposer accessibility and
+      breakdown rate. High-quality, low-C:N litter decomposes rapidly while
+      recalcitrant high-lignin or root litter decomposes more slowly, creating
+      plant species-driven gradients in soil nutrient cycling.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:25900044
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "slower decomposition of roots compared to leaf litter"
+        explanation: >
+          Demonstrates tissue type as a key substrate quality trait governing
+          decomposition rate; root litter decomposes more slowly than leaf
+          litter, representing a positive soil fertility feedback that reinforces
+          organic matter accumulation under low-nutrient plant communities.
+
+  - name: Nitrogen deposition
+    description: >
+      Anthropogenic atmospheric nitrogen deposition alters decomposer enzyme
+      production and community composition in a stage-dependent manner:
+      accelerating early-stage labile fraction breakdown while suppressing
+      late-stage recalcitrant fraction decomposition. Chronic N deposition
+      shifts the balance between CO2 mineralization and soil carbon stabilization.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:33583093
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "N fertilisation consistently accelerates early-stage but slows late-stage decomposition when the model structure allows for flexibility in decomposition rates through time."
+        explanation: >
+          Global meta-analysis confirms nitrogen enrichment as the principal
+          anthropogenic driver modifying litter decomposition dynamics; its
+          opposing stage-dependent effects alter how carbon is partitioned
+          between early mineralization and late stabilization into soil organic matter.
+
+interventions:
+  - name: Reduction of nitrogen deposition through emission controls
+    description: >
+      Policies reducing atmospheric NOx and NHx emissions (clean air legislation,
+      agricultural emission controls) lower ambient nitrogen deposition to
+      ecosystems, stabilizing decomposition dynamics and protecting the late-stage
+      stabilization of carbon into recalcitrant soil organic matter pools.
+    intervention_type: MITIGATION
+    evidence:
+      - reference: PMID:33583093
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "N-induced changes in the litter decomposition process may influence the formation and cycling of soil C, the largest terrestrial C pool."
+        explanation: >
+          N-induced shifts in decomposition dynamics threaten global soil C
+          stocks—the largest terrestrial carbon pool; reducing nitrogen
+          deposition would stabilize decomposition stage dynamics and protect
+          recalcitrant carbon stabilization pathways in terrestrial soils.
+
+  - name: Restoration of native plant communities to improve litter quality
+    description: >
+      Restoring diverse native plant communities creates heterogeneous litter
+      inputs spanning a range of C:N ratios and tissue types, supporting
+      functionally diverse decomposer communities and promoting the full
+      litter-to-SOM continuum. Species with high-quality litter enhance
+      nutrient cycling while species with recalcitrant litter build soil
+      organic matter.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:25900044
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "predictive understanding of plant species effects on nutrient cycling will require developing new frameworks that are broadened beyond litter decomposition to consider the full litter-soil organic matter (SOM) continuum"
+        explanation: >
+          Establishes that plant species identity shapes nutrient cycling through
+          litter quality effects on the full decomposition-SOM continuum; native
+          plant restoration improves litter quality heterogeneity, supporting
+          diverse decomposer communities and building soil organic matter across
+          the complete decomposition pathway.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000245
+      label: temperate mixed forest biome
+    description: >
+      Temperate mixed forests generate large annual leaf litter pulses that drive
+      decomposer community dynamics; seasonal temperature variation and mixed
+      litter quality from conifers and deciduous species create heterogeneous
+      decomposition environments
+
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Broadleaf temperate forests produce moderate-C:N leaf litter that supports
+      rapid decomposition and high nutrient cycling rates; Agaricomycetes fungi
+      are the dominant decomposers, sensitive to both nitrogen deposition
+      and climate warming impacts on litter breakdown
+
+creation_date: "2026-08-17T00:00:00Z"

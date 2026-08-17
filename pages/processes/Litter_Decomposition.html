@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Litter Decomposition — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Litter Decomposition
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000186
+    </a>
+    &nbsp;litter decomposition
+  </div>
+  
+  <h1>Litter Decomposition</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Litter decomposition is the biological breakdown of dead plant material—leaves, roots, woody debris, and other organic residues—into simpler compounds by saprotrophic fungi, bacteria, and invertebrates. It is the primary mechanism returning carbon and nutrients from plant biomass back to the soil and atmosphere, coupling the carbon, nitrogen, and phosphorus cycles. Decomposition rates are governed by temperature (the dominant abiotic control), litter substrate quality (C:N ratio, lignin content, tissue type), and the composition of the decomposer community. Anthropogenic nitrogen deposition modifies decomposition dynamics in a stage-dependent manner, accelerating early labile breakdown while suppressing late-stage recalcitrant fraction decay.
+</div>
+  
+  <div class="synonyms">Also known as: plant litter decomposition, leaf litter decomposition, lignocellulose decomposition, saprotrophic decomposition</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Fungal Enzymatic Breakdown of Lignocellulose</div>
+      <div class="card-desc">Saprotrophic Basidiomycota fungi are the primary agents of plant litter and woody debris decomposition in terrestrial ecosystems. They secrete oxidative (laccases, manganese peroxidases) and hydrolytic (cellulases, xylanases) enzymes that break down the recalcitrant lignocellulosic matrix of plant cell walls into simple sugars and monomers, releasing carbon and nutrients into the soil. Decay strategy—white rot, brown rot, or litter-decomposing—determines the specific enzyme complement and substrate preference of each fungal species.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0030245" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>cellulose catabolic process</span>
+          <span class="term-id">GO:0030245</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31906600/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31906600&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Filamentous saprotrophic fungi of Basidiomycota play an important role in the cycling of carbon and other elements due to their capacity to convert the complex biopolymeric carbohydrate components of the compact plant cell wall lignocelluloses into sugars and monomeric compounds&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes Basidiomycota saprotrophic fungi as the primary agents of lignocellulose conversion; enzymatic breakdown of plant cell wall polysaccharides (including cellulose) to simple sugars is the central biological mechanism of litter decomposition.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>saprotrophy</span>
+          <span class="term-id">ECOCORE:00000059</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31906600/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31906600&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;both litter-decomposers and wood-decaying Agaricomycetes fungi play an important role in recycling of carbon and other nutrients especially in the forest ecosystems&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Confirms saprotrophic Agaricomycetes as the dominant recyclers of carbon and nutrients in forest ecosystems; their saprotrophic lifestyle drives enzymatic breakdown of plant litter lignocellulose, making saprotrophy the defining ecological process of litter decomposition.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=5204" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Basidiomycota</em></span>
+          <span class="term-id">NCBITaxon:5204</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">DECOMPOSER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">White rot Basidiomycota (e.g., Phlebia radiata) degrade wood lignin via laccase and manganese peroxidase while depolymerizing cellulose and hemicellulose; litter-decomposing Agaricomycetes (e.g., Coprinopsis cinerea) preferentially break down hemicellulose fractions of plant residues on the forest floor
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Saprotrophic Basidiomycota fungi</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Enzymatic breakdown of plant cell wall lignocellulose to sugars and monomers</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Fungal laccase and manganese peroxidase enzymes</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Oxidative lignin degradation and cellulose depolymerization</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31906600/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31906600&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;plant cell wall decomposition ability of taxonomically and ecologically divergent fungi is in line with their enzymatic decay strategy, which is fundamental in understanding their physiology and potential for biotechnological applications.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Demonstrates that enzymatic decay strategy is the mechanistic basis for fungal lignocellulose decomposition capacity across taxonomically divergent Basidiomycota; enzyme profiles explain the eco-physiological differentiation of white rot, brown rot, and litter-decomposing fungi.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Temperature Control of Decomposition Kinetics</div>
+      <div class="card-desc">Temperature is the dominant abiotic control on litter decomposition rates across climatic and soil gradients. Across a 3500-km geographic transect, decomposition kinetics become uniform once temperature effects are removed, demonstrating that soil properties exert no independent effect. Climate warming is projected to accelerate both labile and recalcitrant litter fractions decomposition, reducing soil carbon residence times and constraining future terrestrial carbon storage.
+</div>
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>decomposition</span>
+          <span class="term-id">ECOCORE:00000058</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27633488/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27633488&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;the kinetics of litter decomposition were similar once the effect of temperature had been removed, indicating no measurable effect of soil properties&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;10-site Canadian transect study demonstrates temperature is the dominant, overriding control on litter decomposition kinetics; once temperature is accounted for, soil properties exert no measurable additional effect across 3500 km of climatic and edaphic variation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Bacteria</em></span>
+          <span class="term-id">NCBITaxon:2</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">DECOMPOSER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Soil bacteria co-decompose plant litter with fungi; microbial community decomposition rates respond strongly to temperature-driven changes in metabolic activity, with warming accelerating turnover of labile carbon fractions across diverse soil types
+</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4751" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Fungi</em></span>
+          <span class="term-id">NCBITaxon:4751</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">DECOMPOSER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Saprotrophic fungi are major litter decomposers whose enzyme activities are temperature-sensitive; warming accelerates fungal lignocellulose breakdown rates, reducing soil carbon residence times in forest and agricultural soils
+</div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Abiotic Conditions</div>
+        
+        <div class="abiotic-row">
+          
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000209" target="_blank" rel="noopener">
+            <span class="badge badge-envo" style="margin-right:0.3rem;">ENVO</span>
+          </a>
+          <strong>temperature</strong>
+          
+          
+           — <span style="font-size:0.83rem;color:#555;">Temperature drives decomposition kinetics through effects on microbial metabolic rates; climate warming projected to reduce time to decompose 50% of labile fractions by 1-4 months and 90% of total litter by 1-2 years across cooler to warmer sites
+</span>
+        </div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Temperature increase</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Accelerated litter decomposition kinetics across soil types</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Climate warming</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Future soil carbon storage through accelerated decomposition of labile and recalcitrant fractions</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27633488/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27633488&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;time required to decompose 50% of the litter (i.e. the labile fractions) would be reduced by 1-4 months, whereas time required to decompose 90% of the litter (including recalcitrant fractions) would be reduced by 1 year in cooler sites to as much as 2 years in warmer sites&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantifies projected climate warming effects on decomposition of both labile and recalcitrant litter fractions across a 3500-km Canadian transect; acceleration of recalcitrant fraction decomposition by 1-2 years has direct consequences for long-term soil carbon storage.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Nitrogen Effects on Decomposition Stage Dynamics</div>
+      <div class="card-desc">Anthropogenic nitrogen fertilization alters litter decomposition dynamics in opposing ways depending on decomposition stage. Nitrogen addition consistently accelerates early-stage breakdown of labile litter fractions while suppressing late-stage decomposition of recalcitrant fractions. This stage-dependent pattern affects the pathway of carbon from fresh litter to stable soil organic matter, modifying the terrestrial carbon sink. Plant litter chemistry (C:N ratio, lignin) further mediates how nitrogen availability feeds back to decomposition rates through plant-soil interactions.
+</div>
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>decomposition</span>
+          <span class="term-id">ECOCORE:00000058</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33583093/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33583093&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;N fertilisation consistently accelerates early-stage but slows late-stage decomposition when the model structure allows for flexibility in decomposition rates through time.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Global meta-analysis confirms nitrogen fertilization produces opposing stage-dependent effects on litter decomposition kinetics; this pattern holds across globally distributed experiments and requires flexible decomposition models to detect.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Nitrogen fertilization</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Accelerated early-stage litter decomposition</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Nitrogen fertilization</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Late-stage decomposition of recalcitrant litter fractions</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Plant litter C:N ratio</span>
+          <span class="predicate">MODULATES</span>
+          <span class="object">Decomposition rate and plant-soil nutrient feedbacks</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (2 items)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33583093/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33583093&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Plant litter decomposition is a central process in the carbon (C) cycle and sensitive to ongoing anthropogenic nitrogen (N) fertilisation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes plant litter decomposition as both a central carbon cycle process and a globally sensitive responder to anthropogenic nitrogen enrichment; this dual framing motivates the inclusion of nitrogen deposition as a key mechanistic driver of decomposition dynamics.
+&lt;/div&gt;
+  
+&lt;/div&gt;&lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25900044/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:25900044&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;mechanisms emerging since my previous review might weaken these positive feedbacks, such as negative effects of nitrogen on decomposition, while others might strengthen them, such as slower decomposition of roots compared to leaf litter&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Review evidence confirms negative effects of nitrogen on decomposition (weakening plant-soil feedbacks) and slower root vs. leaf litter decomposition (strengthening feedbacks); these opposing mechanisms complicate prediction of net nitrogen effects on nutrient cycling.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Litter mass loss rate (k-decay constant)</div>
+      <div class="card-desc">The exponential decay constant k quantifies the proportional annual rate of litter mass loss from litter bag or isotope-tracer incubations. A two-pool model distinguishes labile (fast) and recalcitrant (slow) fractions. Temperature-standardized k values are comparable across soil types and climatic gradients, making k the standard quantitative indicator of decomposition rate.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Exponential decay constant k (yr-1) from litter bag or 13C-tracer incubation experiments</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27633488/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27633488&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;A two-pool exponential decay model expressing undecomposed carbon simply as a function of thermal time accurately described kinetics of decomposition. (R2  = 0.94; RMSE = 0.0508).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Validates the two-pool exponential decay model for litter decomposition kinetics from 13C-labelled field incubations across 10 sites; the high R2 (0.94) confirms thermal-time-based k as a robust, temperature- standardizable indicator of decomposition rate across contrasting soils.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Soil organic carbon concentration</div>
+      <div class="card-desc">Soil organic carbon (SOC) is the cumulative legacy of litter inputs and decomposition losses. Changes in SOC track shifts in decomposition rates and litter-to-SOM stabilization efficiency, particularly under nitrogen enrichment and climate warming. SOC is the largest terrestrial carbon pool and a critical indicator of long-term ecosystem carbon balance.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Soil organic carbon in g C kg-1 dry soil or % SOC (0-30 cm depth)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33583093/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33583093&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;N-induced changes in the litter decomposition process may influence the formation and cycling of soil C, the largest terrestrial C pool.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Identifies soil C as the integrative reservoir controlled by N-driven decomposition dynamics; SOC concentration tracks the net balance between litter inputs and decomposition losses under anthropogenic nitrogen enrichment, making it the primary long-term decomposition indicator.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Litter C:N ratio</div>
+      <div class="card-desc">The carbon-to-nitrogen ratio of plant litter is the primary substrate quality index predicting decomposition rates. Low-C:N litter decomposes rapidly, cycling nutrients faster, while high-C:N litter (woody, N-poor) decomposes slowly, building soil organic matter. Litter C:N mediates plant species effects on decomposition and nutrient cycling feedbacks.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>C:N molar or mass ratio of fresh leaf or root litter (dimensionless)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25900044/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:25900044&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;predictive understanding of plant species effects on nutrient cycling will require developing new frameworks that are broadened beyond litter decomposition to consider the full litter-soil organic matter (SOM) continuum&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Review establishes that litter chemistry—including C:N ratio—drives plant species effects on decomposition and nutrient cycling through the full litter-SOM continuum; litter C:N is the key chemical indicator linking plant community composition to decomposition dynamics.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Temperature</span>
+        
+        <span class="driver-badge driver-CLIMATE">CLIMATE</span>
+        
+      </div>
+      <div class="card-desc">Temperature is the dominant control on litter decomposition kinetics across climatic gradients, overriding differences in soil type. Climate warming is projected to accelerate decomposition of both labile and recalcitrant litter fractions, reducing soil carbon residence times and potentially weakening the terrestrial carbon sink.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27633488/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27633488&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Widespread global changes, including rising atmospheric CO2 concentrations, climate warming and loss of biodiversity, are predicted for this century; all of these will affect terrestrial ecosystem processes like plant litter decomposition.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Identifies climate warming as the primary projected global-change driver affecting plant litter decomposition; the 10-site Canadian transect confirms temperature as the dominant control overriding soil properties, establishing it as the key abiotic driver of decomposition across geographic gradients.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Litter substrate quality</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">The chemical composition of plant litter—C:N ratio, lignin content, and tissue type (leaf vs. root)—determines decomposer accessibility and breakdown rate. High-quality, low-C:N litter decomposes rapidly while recalcitrant high-lignin or root litter decomposes more slowly, creating plant species-driven gradients in soil nutrient cycling.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25900044/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:25900044&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;slower decomposition of roots compared to leaf litter&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Demonstrates tissue type as a key substrate quality trait governing decomposition rate; root litter decomposes more slowly than leaf litter, representing a positive soil fertility feedback that reinforces organic matter accumulation under low-nutrient plant communities.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Nitrogen deposition</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Anthropogenic atmospheric nitrogen deposition alters decomposer enzyme production and community composition in a stage-dependent manner: accelerating early-stage labile fraction breakdown while suppressing late-stage recalcitrant fraction decomposition. Chronic N deposition shifts the balance between CO2 mineralization and soil carbon stabilization.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33583093/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33583093&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;N fertilisation consistently accelerates early-stage but slows late-stage decomposition when the model structure allows for flexibility in decomposition rates through time.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Global meta-analysis confirms nitrogen enrichment as the principal anthropogenic driver modifying litter decomposition dynamics; its opposing stage-dependent effects alter how carbon is partitioned between early mineralization and late stabilization into soil organic matter.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Reduction of nitrogen deposition through emission controls</span>
+        
+        <span class="intervention-badge intervention-MITIGATION">MITIGATION</span>
+        
+      </div>
+      <div class="card-desc">Policies reducing atmospheric NOx and NHx emissions (clean air legislation, agricultural emission controls) lower ambient nitrogen deposition to ecosystems, stabilizing decomposition dynamics and protecting the late-stage stabilization of carbon into recalcitrant soil organic matter pools.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33583093/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33583093&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;N-induced changes in the litter decomposition process may influence the formation and cycling of soil C, the largest terrestrial C pool.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;N-induced shifts in decomposition dynamics threaten global soil C stocks—the largest terrestrial carbon pool; reducing nitrogen deposition would stabilize decomposition stage dynamics and protect recalcitrant carbon stabilization pathways in terrestrial soils.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Restoration of native plant communities to improve litter quality</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Restoring diverse native plant communities creates heterogeneous litter inputs spanning a range of C:N ratios and tissue types, supporting functionally diverse decomposer communities and promoting the full litter-to-SOM continuum. Species with high-quality litter enhance nutrient cycling while species with recalcitrant litter build soil organic matter.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/25900044/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:25900044&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;predictive understanding of plant species effects on nutrient cycling will require developing new frameworks that are broadened beyond litter decomposition to consider the full litter-soil organic matter (SOM) continuum&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes that plant species identity shapes nutrient cycling through litter quality effects on the full decomposition-SOM continuum; native plant restoration improves litter quality heterogeneity, supporting diverse decomposer communities and building soil organic matter across the complete decomposition pathway.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000245" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate mixed forest biome</strong>
+        <span class="term-id">ENVO:01000245</span>
+         — <span style="font-size:0.88rem;color:#555;">Temperate mixed forests generate large annual leaf litter pulses that drive decomposer community dynamics; seasonal temperature variation and mixed litter quality from conifers and deciduous species create heterogeneous decomposition environments
+</span>
+      </div>
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000446" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate broadleaf mixed forest biome</strong>
+        <span class="term-id">ENVO:00000446</span>
+         — <span style="font-size:0.88rem;color:#555;">Broadleaf temperate forests produce moderate-C:N leaf litter that supports rapid decomposition and high nutrient cycling rates; Agaricomycetes fungi are the dominant decomposers, sensitive to both nitrogen deposition and climate warming impacts on litter breakdown
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-08-17
+  
+</footer>
+
+</body>
+</html>
