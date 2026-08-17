@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marine Primary Production — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Marine Primary Production
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000184
+    </a>
+    &nbsp;marine primary production
+  </div>
+  
+  <h1>Marine Primary Production</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Marine primary production is the fixation of CO2 into organic biomass by phytoplankton in the sunlit surface waters of the ocean. Contributing roughly half of the biosphere&#39;s total net primary production (~50 Pg C yr-1), oceanic phytoplankton photosynthesis drives the marine food web, fuels the biological carbon pump, and links living and inorganic carbon stocks. Production is primarily limited by light availability and nutrient supply (nitrogen, phosphate, iron), which are in turn regulated by ocean circulation, mixed-layer dynamics, upwelling, and temperature-driven stratification. Climate change is altering these physical controls, with consequences for marine productivity and food web structure.
+</div>
+  
+  <div class="synonyms">Also known as: marine NPP, ocean primary production, oceanic primary productivity, phytoplankton primary production</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Phytoplankton Photosynthesis</div>
+      <div class="card-desc">Oceanic phytoplankton—including diatoms, cyanobacteria, dinoflagellates, and coccolithophores—fix more than 100 million tons of CO2 daily into organic material in the euphotic zone. This photosynthetic production fuels marine food webs through sinking particles and grazing, and drives the ocean biological carbon pump.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Contributing roughly half of the biosphere&amp;#39;s net primary production (NPP), photosynthesis by oceanic phytoplankton is a vital link in the cycling of carbon between living and inorganic stocks.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Directly establishes phytoplankton photosynthesis as responsible for ~50% of global NPP and identifies it as the mechanistic link between inorganic CO2 and living organic carbon stocks in the ocean.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>autotrophy</span>
+          <span class="term-id">ECOCORE:00000009</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Each day, more than a hundred million tons of carbon in the form of CO2 are fixed into organic material by these ubiquitous, microscopic plants of the upper ocean, and each day a similar amount of organic carbon is transferred into marine ecosystems by sinking and grazing.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantifies the daily scale of phytoplankton autotrophic production and demonstrates the dual fate of fixed carbon via sinking (biological pump) and grazing (food web), establishing autotrophy as the foundation of marine ecosystem carbon and energy flow.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2836" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Bacillariophyta</em></span>
+          <span class="term-id">NCBITaxon:2836</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">PRIMARY_PRODUCER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Diatoms are the dominant phytoplankton in nutrient-rich, temperate, and polar oceans; they are the most important group for silica cycling and contribute disproportionately to carbon export
+</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1177" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Cyanobacteria</em></span>
+          <span class="term-id">NCBITaxon:1177</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">PRIMARY_PRODUCER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Prochlorococcus and Synechococcus are numerically dominant phytoplankton in oligotrophic tropical and subtropical gyres, contributing substantially to marine NPP in nutrient-depleted surface waters
+</div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Abiotic Conditions</div>
+        
+        <div class="abiotic-row">
+          
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000209" target="_blank" rel="noopener">
+            <span class="badge badge-envo" style="margin-right:0.3rem;">ENVO</span>
+          </a>
+          <strong>temperature</strong>
+          
+          
+           — <span style="font-size:0.83rem;color:#555;">Upper-ocean warming increases stratification, reducing nutrient supply from deep water and suppressing phytoplankton growth in stratified, low-latitude oceans
+</span>
+        </div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Phytoplankton</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Fixation of dissolved CO2 into particulate organic carbon in the euphotic zone</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Solar radiation</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Phytoplankton photosynthesis in the upper ocean</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/9657713/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:9657713&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Integrating conceptually similar models of the growth of marine and terrestrial primary producers yielded an estimated global net primary production (NPP) of 104.9 petagrams of carbon per year, with roughly equal contributions from land and oceans.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes ocean phytoplankton photosynthesis as contributing ~52 Pg C yr-1 to global NPP—roughly equal to the terrestrial contribution— confirming the global significance of marine photoautotrophy in the biospheric carbon cycle.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Nutrient Limitation of Ocean NPP</div>
+      <div class="card-desc">Phytoplankton growth in most ocean surface waters is limited by the availability of nitrogen, phosphate, or iron, which are supplied by upwelling, mixing, atmospheric deposition, and biological recycling. Nutrient supply is regulated by physical ocean dynamics, making marine NPP tightly coupled to ocean circulation and stratification.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Directly identifies nutrients (N, P, Fe) alongside light as the co-limiting factors defining phytoplankton biomass and NPP distribution globally; nutrient availability is thus the proximate control on where photosynthetic production can occur in the ocean.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>autotrophy</span>
+          <span class="term-id">ECOCORE:00000009</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;These growth-limiting factors are in turn regulated by physical processes of ocean circulation, mixed-layer dynamics, upwelling, atmospheric dust deposition, and the solar cycle.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes the physical-biological coupling: autotrophic phytoplankton growth depends on nutrients whose supply is determined entirely by ocean circulation processes; autotrophic production is thus an emergent property of ocean physics interacting with phytoplankton biology.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Chemical Entities</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17632" target="_blank" rel="noopener">
+            <span class="badge badge-chebi">CHEBI</span>
+          </a>
+          <span>nitrate</span>
+          <span class="term-id">CHEBI:17632</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Nitrate (as inorganic nitrogen) is one of the three primary nutrients limiting phytoplankton growth and marine NPP; its availability defines the spatial distribution of productive vs. oligotrophic ocean regions.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2836" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Bacillariophyta</em></span>
+          <span class="term-id">NCBITaxon:2836</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">PRIMARY_PRODUCER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Diatoms dominate nutrient-rich, high-productivity regions such as coastal upwelling zones and polar seas; their frustules require dissolved silica in addition to N and P, making silica availability an additional constraint in some systems
+</div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Abiotic Conditions</div>
+        
+        <div class="abiotic-row">
+          
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000209" target="_blank" rel="noopener">
+            <span class="badge badge-envo" style="margin-right:0.3rem;">ENVO</span>
+          </a>
+          <strong>temperature</strong>
+          
+          
+           — <span style="font-size:0.83rem;color:#555;">Temperature stratification controls the depth of the mixed layer and thus the flux of deep, nutrient-rich water to the euphotic zone; warming-driven stratification intensification is the primary mechanism by which climate change suppresses marine NPP
+</span>
+        </div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Ocean upwelling and mixing</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Nutrient supply to the euphotic zone enabling phytoplankton growth</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Nutrient depletion in surface waters</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Phytoplankton photosynthesis and NPP</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Increased ocean stratification from warming</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Reduced nutrient supply and declining marine NPP</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;These growth-limiting factors are in turn regulated by physical processes of ocean circulation, mixed-layer dynamics, upwelling, atmospheric dust deposition, and the solar cycle.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes the multi-level control hierarchy of marine NPP: nutrients limit phytoplankton growth, while physics controls nutrient supply; this mechanism explains the productivity maxima at upwelling zones and the low productivity of stratified subtropical gyres.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Climate-Driven Decline in Stratified Ocean Productivity</div>
+      <div class="card-desc">Climate warming is intensifying upper-ocean thermal stratification in low-latitude oceans, reducing the flux of deep, nutrient-rich water to the euphotic zone. This has produced a measurable decline in marine NPP in stratified tropical and subtropical regions, with implications for marine food webs and the ocean carbon sink.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The observed reductions in ocean productivity during the recent post-1999 warming period provide insight on how future climate change can alter marine food webs.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Directly links observed post-1999 ocean productivity reductions to climate warming, demonstrating that climate-driven stratification is already suppressing phytoplankton photosynthesis and marine NPP in low-latitude oceans.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>autotrophy</span>
+          <span class="term-id">ECOCORE:00000009</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;These trends are driven by changes occurring in the expansive stratified low-latitude oceans and are tightly coupled to coincident climate variability.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Climate variability is tightly coupled to changes in autotrophic production in the most extensive ocean biome (stratified low-latitude oceans); autotrophy in these oligotrophic regions is highly sensitive to stratification-driven nutrient limitation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1177" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Cyanobacteria</em></span>
+          <span class="term-id">NCBITaxon:1177</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">PRIMARY_PRODUCER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Prochlorococcus and Synechococcus cyanobacteria dominate in stratified, nutrient-poor tropical and subtropical gyres; while adapted to low nutrients, they are sensitive to further stratification and light limitation
+</div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Abiotic Conditions</div>
+        
+        <div class="abiotic-row">
+          
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000209" target="_blank" rel="noopener">
+            <span class="badge badge-envo" style="margin-right:0.3rem;">ENVO</span>
+          </a>
+          <strong>temperature</strong>
+          
+          
+           — <span style="font-size:0.83rem;color:#555;">Warming-driven stratification is the proximate mechanism reducing NPP; upper-ocean temperature increases thermocline strength, preventing nutrient entrainment from below
+</span>
+        </div>
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Climate warming</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Intensified thermal stratification in low-latitude oceans</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Intensified stratification</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Reduced nutrient supply to euphotic zone and declining NPP</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;This link between the physical environment and ocean biology functions through changes in upper-ocean temperature and stratification, which influence the availability of nutrients for phytoplankton growth.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Establishes the mechanistic chain linking climate to marine NPP: temperature → stratification → nutrient availability → phytoplankton growth; this mechanism predicts continued NPP decline in stratified ocean regions under projected warming.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Satellite ocean color (chlorophyll-a)</div>
+      <div class="card-desc">Ocean color sensors (MODIS, SeaWiFS, PACE) measure sea-surface chlorophyll-a concentration as a proxy for phytoplankton biomass, enabling global marine NPP estimation at daily to decadal time scales.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">UBIQUITOUS</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Chlorophyll-a in mg m-3 (ocean color remote sensing)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Satellite measurements of ocean colour provide a means of quantifying ocean productivity on a global scale and linking its variability to environmental factors.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Confirms satellite ocean color as the primary tool for global marine NPP monitoring; chlorophyll-a retrievals are the empirical basis for NPP algorithms linking phytoplankton biomass to carbon fixation rates.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Satellite-derived marine NPP</div>
+      <div class="card-desc">Vertically generalized production models (VGPM) and similar algorithms translate satellite chlorophyll-a, sea-surface temperature, and irradiance into spatially resolved marine NPP estimates at global scale.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">UBIQUITOUS</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>NPP in mg C m-2 day-1 (satellite-derived VGPM or equivalent)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/9657713/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:9657713&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The spatial and temporal distributions of ocean NPP are consistent with primary limitation by light, nutrients, and temperature.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Validates the use of satellite-derived physical parameters (light, sea surface temperature as nutrient proxy) for global NPP estimation; spatial and temporal distributions from satellite NPP algorithms are consistent with physical-ecological controls on marine production.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Global ocean NPP trend</div>
+      <div class="card-desc">Decade-scale trends in global marine NPP derived from satellite time series track the sensitivity of ocean primary production to climate variability and long-term warming.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">UNCOMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Change in global ocean NPP in Tg C yr-1 (satellite time series)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The period is dominated by an initial increase in NPP of 1,930 teragrams of carbon a year (Tg C yr(-1)), followed by a prolonged decrease averaging 190 Tg C yr(-1).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Documents a measurable decade-scale NPP trend signal in the satellite record, with a prolonged ~190 Tg C yr-1 annual decline following an initial increase; the magnitude and sign of this trend is the primary metric for assessing the response of marine primary production to climate change.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Nutrient supply from upwelling and mixing</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">Deep-water upwelling and turbulent mixing supply the nitrate, phosphate, and iron required for phytoplankton growth; upwelling intensity is the primary control on NPP in coastal productive zones such as the California, Peru, and Benguela currents.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;These growth-limiting factors are in turn regulated by physical processes of ocean circulation, mixed-layer dynamics, upwelling, atmospheric dust deposition, and the solar cycle.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Identifies upwelling and mixed-layer dynamics as the primary physical regulators of nutrient supply to phytoplankton; upwelling intensity is the direct driver of NPP in the most productive coastal marine ecosystems globally.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Ocean warming and stratification</span>
+        
+        <span class="driver-badge driver-CLIMATE">CLIMATE</span>
+        
+      </div>
+      <div class="card-desc">Anthropogenic warming intensifies upper-ocean thermal stratification, deepening the thermocline and reducing nutrient entrainment into the euphotic zone, driving NPP decline in tropical and subtropical oceans.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The observed reductions in ocean productivity during the recent post-1999 warming period provide insight on how future climate change can alter marine food webs.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Post-1999 ocean warming is directly linked to observed NPP decline, confirming warming-driven stratification as the dominant anthropogenic driver suppressing marine primary production in the largest ocean biome.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Light availability</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">Photosynthetically active radiation at the sea surface, attenuated by water depth and turbidity, sets the lower boundary of the euphotic zone and limits phytoplankton production; seasonal light cycles drive polar ocean bloom dynamics.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Light is co-equal with nutrients as a defining control on phytoplankton biomass and NPP distribution; light limitation drives the depth structure of marine productivity and the seasonal dynamics of high-latitude ocean blooms.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Reduction of coastal nutrient pollution</span>
+        
+        <span class="intervention-badge intervention-MANAGEMENT">MANAGEMENT</span>
+        
+      </div>
+      <div class="card-desc">Reducing nitrogen and phosphorus inputs from agricultural runoff and wastewater prevents coastal eutrophication and hypoxia, maintaining balanced phytoplankton community composition and preventing harmful algal blooms that degrade marine food webs.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The distribution of phytoplankton biomass and NPP is defined by the availability of light and nutrients (nitrogen, phosphate, iron).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Nutrient availability defines phytoplankton biomass and NPP distribution; reducing anthropogenic nutrient inputs to coastal zones directly addresses the primary control on eutrophication-driven shifts in phytoplankton community structure and coastal marine NPP quality.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Marine protected areas in productive zones</span>
+        
+        <span class="intervention-badge intervention-PROTECTION">PROTECTION</span>
+        
+      </div>
+      <div class="card-desc">Establishing marine protected areas in high-productivity upwelling zones and coastal ecosystems reduces fishing pressure on upper trophic levels, maintaining food web structure that supports efficient transfer of phytoplankton production to higher trophic levels.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17151666/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17151666&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The observed reductions in ocean productivity during the recent post-1999 warming period provide insight on how future climate change can alter marine food webs.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Documented NPP declines directly threaten marine food webs; protecting high-productivity zones preserves the phytoplankton production base on which fisheries and upper trophic levels depend, particularly as climate-driven NPP reductions reduce the available primary production.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-08-17
+  
+</footer>
+
+</body>
+</html>
