@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Sequestration — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Carbon Sequestration
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000203
+    </a>
+    &nbsp;carbon sequestration
+  </div>
+  
+  <h1>Carbon Sequestration</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Carbon sequestration is the long-term removal and storage of carbon dioxide from the atmosphere into terrestrial, freshwater, and coastal ocean ecosystems. Forests are the dominant terrestrial carbon sink, sequestering 2.4 ± 0.4 petagrams of carbon per year globally through photosynthesis and biomass accumulation. The forest carbon sink comprises both old-growth intact forest (sequestering ~0.85 Pg C yr-1) and regrowing disturbed stands (~1.30 Pg C yr-1). Peatlands, despite covering only ~3% of land area, store approximately one-third of global soil carbon in accumulated Sphagnum litter and other organic material under waterlogged, anaerobic conditions. Vegetated coastal ecosystems (mangroves, salt marshes, seagrasses — collectively &#34;blue carbon&#34;) sequester carbon at high rates per unit area in sediment organic matter. Carbon sequestration rates are controlled by primary productivity, decomposition rates, and disturbance regimes; land-use change, deforestation, and peatland drainage are the primary human activities that convert carbon sinks to sources.
+</div>
+  
+  <div class="synonyms">Also known as: terrestrial carbon sink, forest carbon sink, blue carbon, peatland carbon accumulation, soil carbon storage</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Forest Biomass Carbon Accumulation</div>
+      <div class="card-desc">Forests sequester carbon primarily through photosynthetic fixation of CO2 into woody biomass—tree stems, branches, and roots. Net ecosystem production (NEP = gross primary production minus ecosystem respiration) determines the rate of carbon accumulation in living biomass and soil. Intact old-growth forests sequester carbon in increasing biomass stocks, while regrowing forests following harvest or disturbance sequester carbon rapidly during early succession as biomass returns to pre-disturbance levels. Forest demography (age structure, species composition) is a primary determinant of the magnitude and longevity of the forest carbon sink.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21764754/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21764754&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;we estimate a total forest sink of 2.4 ± 0.4 petagrams of carbon per year (Pg C year(-1)) globally for 1990 to 2007.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pan et al.&amp;#39;s global forest inventory synthesis quantifies photosynthesis- driven carbon accumulation as a 2.4 Pg C yr-1 sink spanning all forest biomes; this landmark estimate establishes the magnitude of forest biomass carbon sequestration as the dominant terrestrial mechanism offsetting anthropogenic CO2 emissions globally.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>carbon sequestration</span>
+          <span class="term-id">ECOCORE:00000203</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21764754/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21764754&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The terrestrial carbon sink has been large in recent decades, but its size and location remain uncertain.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Forest inventory data across 50 countries establishes the large-scale reality of terrestrial carbon sequestration through forest biomass accumulation; the persistent sink despite ongoing tropical deforestation demonstrates the combined sequestration capacity of intact forests and recovering second-growth.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3193" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Embryophyta</em></span>
+          <span class="term-id">NCBITaxon:3193</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">PRIMARY_PRODUCER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Land plants (trees, shrubs, grasses, mosses) are the primary agents of terrestrial carbon sequestration; woody trees dominate forest carbon stocks through biomass accumulation, while Sphagnum mosses accumulate peat carbon under waterlogged conditions in boreal and subarctic peatlands
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Photosynthesis in forest trees</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Net removal of CO2 from atmosphere into woody biomass carbon stocks</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Forest age and biomass accumulation</span>
+          <span class="predicate">MODULATES</span>
+          <span class="object">Rate and longevity of forest carbon sink</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30782807/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30782807&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;we find a carbon sink of 0.85 (0.66-0.96) Pg year-1 located in intact old-growth forest, primarily in the moist tropics and boreal Siberia, and 1.30 (1.03-1.96) Pg year-1 located in stands regrowing after past disturbance.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Partitioning of the global forest carbon sink between old-growth and regrowing stands reveals that both forest types contribute substantially to carbon sequestration, with regrowing disturbed forests contributing slightly more to current annual uptake; this age-structure dependence establishes forest demography as a mechanistic driver of carbon sink magnitude.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Peatland Carbon Accumulation Under Anaerobic Decomposition Limitation</div>
+      <div class="card-desc">Peatlands sequester carbon through a fundamental imbalance between plant primary production (primarily by Sphagnum mosses and sedges) and decomposition: waterlogged anaerobic conditions suppress microbial decomposition of organic matter, allowing carbon to accumulate as peat over centuries to millennia. Peat deposits typically extend several meters deep and store 10–20 times more carbon per unit area than forests. Drainage of peatlands for agriculture or forestry exposes peat to oxygen, triggering rapid oxidation and releasing centuries of stored carbon. Rewetted peatlands can recover carbon sink status within years, returning to net annual CO2 uptake comparable to intact peatlands.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30225998/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30225998&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The restored peatland was an annual sink for CO2 (-90 ± 18 g C m-2  year-1 ), a source of CH4 (4.4 ± 0.2 g C m-2  year-1 ), and a source of DOC (6.9 ± 2.2 g C m-2  year-1 ), resulting in mean net ecosystem uptake of 78 ± 17 g C m-2  year-1 .&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Multi-year eddy covariance measurements at a restored peatland quantify the net carbon balance where photosynthetic CO2 uptake exceeds CH4 and DOC emissions; the net ecosystem carbon uptake of 78 g C m-2 yr-1 demonstrates that restored peatlands recover carbon sequestration through re-establishment of photosynthetically active Sphagnum and sedge communities.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>carbon sequestration</span>
+          <span class="term-id">ECOCORE:00000203</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30225998/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30225998&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Integrating structures to increase water retention, alongside re-establishing key species, have been effective at re-establishing the net C sink rate to that of an intact peatland.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Restoration of carbon sequestration function in a degraded peatland through rewetting and species reintroduction demonstrates that peatland carbon sequestration is a recoverable ecosystem service; water table management is the primary restoration lever enabling the anaerobic conditions that suppress decomposition and enable net carbon accumulation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Waterlogged anaerobic conditions in peatland</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Microbial decomposition of peat organic matter</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Net primary production minus suppressed decomposition</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Long-term carbon accumulation as peat</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30225998/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30225998&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Small but significant differences in winter respiration driven by temperature were mainly responsible for differences in cumulative NEE between years.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Winter respiration variability drives interannual variation in net ecosystem carbon balance; this sensitivity confirms that decomposition (respiration) suppression under anaerobic peat conditions is the primary mechanism enabling peatland carbon sequestration — temperature- driven respiration variation modulates but does not override the dominant anaerobic decomposition limitation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Coastal Blue Carbon Sequestration in Vegetated Ecosystems</div>
+      <div class="card-desc">Mangroves, salt marshes, and seagrass beds sequester carbon at rates per unit area among the highest of any ecosystem, primarily through burial of organic matter in anoxic coastal sediments. Sediment carbon stocks in these ecosystems can reach 280 Mg C ha-1 (mangroves) and 250 Mg C ha-1 (tidal marshes) in the top meter — comparable to or exceeding tropical forests despite their small global extent (~49 million ha). Conversion and degradation of these coastal ecosystems releases 0.15–1.02 Pg CO2 per year globally — up to 19% above current deforestation emissions. Protection and restoration of blue carbon ecosystems is therefore a significant but currently underaccounted climate mitigation opportunity.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0015979" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>photosynthesis</span>
+          <span class="term-id">GO:0015979</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22962585/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:22962585&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Recent attention has focused on the high rates of annual carbon sequestration in vegetated coastal ecosystems--marshes, mangroves, and seagrasses--that may be lost with habitat destruction (&amp;#39;conversion&amp;#39;).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pendleton et al. highlight the high per-unit-area carbon sequestration rates of vegetated coastal ecosystems driven by photosynthetic productivity and anaerobic sediment carbon burial; the threatened loss of these rates through habitat conversion establishes blue carbon sequestration as a priority target for coastal ecosystem protection.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>carbon sequestration</span>
+          <span class="term-id">ECOCORE:00000203</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22962585/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:22962585&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Residing mostly in sediments, this &amp;#39;blue carbon&amp;#39; can be released to the atmosphere when these ecosystems are converted or degraded.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The sediment-resident nature of blue carbon stocks establishes coastal ecosystem conservation as carbon sequestration protection; the release pathway (anaerobic sediment destabilization upon conversion) is the inverse of the sequestration mechanism, confirming that waterlogged anaerobic conditions enabling carbon burial are the functional core of blue carbon sequestration.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Coastal vegetation primary production and sediment anoxia</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Burial and long-term storage of organic carbon in coastal sediments</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Coastal ecosystem conversion or degradation</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Blue carbon sequestration and releases stored sediment carbon to atmosphere</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22962585/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:22962585&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;we estimate that 0.15-1.02 Pg (billion tons) of carbon dioxide are being released annually, several times higher than previous estimates that account only for lost sequestration.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Global estimate of blue carbon emissions from coastal ecosystem conversion quantifies the sequestration service at risk; estimated annual releases of 0.15–1.02 Pg CO2 — exceeding lost sequestration potential — establish coastal carbon stock protection as a major climate mitigation intervention complementary to forest carbon conservation.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Net ecosystem carbon balance (NEE, NBP)</div>
+      <div class="card-desc">Net ecosystem exchange (NEE) measured by eddy covariance towers quantifies the net carbon flux between terrestrial ecosystems and the atmosphere on hourly to decadal timescales. Negative NEE (carbon uptake by ecosystem) indicates active carbon sequestration. Net biome production (NBP) integrates NEE with lateral carbon exports and disturbance emissions to quantify landscape-scale net carbon balance. These flux measurements are the primary direct indicators of ecosystem carbon sequestration rates.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">UBIQUITOUS</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>NEE (g C m-2 yr-1) by eddy covariance; NBP (Pg C yr-1) by forest inventory integration; negative values indicate net carbon uptake</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30225998/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30225998&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The restored peatland was an annual sink for CO2 (-90 ± 18 g C m-2  year-1 ), a source of CH4 (4.4 ± 0.2 g C m-2  year-1 ), and a source of DOC (6.9 ± 2.2 g C m-2  year-1 ), resulting in mean net ecosystem uptake of 78 ± 17 g C m-2  year-1 .&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Multi-year eddy covariance measurements provide the empirical baseline for peatland carbon sequestration rates and the carbon balance accounting framework (NEE - CH4 - DOC = net C balance); this multi-component approach is the standard method for quantifying net carbon sequestration in wetland and peatland ecosystems where CH4 and DOC fluxes modify the CO2-based NEE.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Forest biomass carbon density and stock change</div>
+      <div class="card-desc">Forest carbon density (Mg C ha-1) and annual stock changes (Mg C ha-1 yr-1) derived from repeated forest inventory measurements quantify forest biomass carbon sequestration. Global forest inventory networks estimate regional and global forest carbon sinks from tree diameter growth and mortality data. Aboveground biomass carbon is the largest and most directly measurable forest carbon pool; soil organic carbon, litter, and coarse woody debris are additional carbon pools measured in comprehensive inventories.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Forest biomass carbon density (Mg C ha-1) from tree inventory; annual stock change (Mg C ha-1 yr-1) from repeated inventories or allometric models</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21764754/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21764754&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Using forest inventory data and long-term ecosystem carbon studies, we estimate a total forest sink of 2.4 ± 0.4 petagrams of carbon per year (Pg C year(-1)) globally for 1990 to 2007.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pan et al.&amp;#39;s forest inventory-based global synthesis establishes biomass stock change from forest inventories as the primary method for quantifying global-scale forest carbon sequestration; the 50-country dataset spanning 17 years demonstrates that repeat forest inventory data can robustly estimate net carbon sink magnitude at global scale.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Forest age structure (old-growth vs. regrowth fraction)</div>
+      <div class="card-desc">The proportion of forest area in old-growth vs. regrowing stands predicts the partitioning of carbon sequestration between stable long-term carbon stocks (old-growth) and large but transient biomass accumulation (regrowth). Satellite-derived and inventory-based forest age maps enable global tracking of the regrowth carbon sink contribution and its expected dynamics as regrowing forests age.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Forest stand age distribution (years) from satellite time series or forest inventory records; % area in regrowth vs. old-growth by biome</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30782807/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30782807&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;it is not possible to understand the current global terrestrial carbon sink without accounting for the sizeable sink due to forest demography.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pugh et al.&amp;#39;s model-inventory integration establishes forest age structure (demography) as an essential component of carbon sink accounting; failure to partition old-growth from regrowth contributions obscures the sink mechanism and makes accurate prediction of future sink dynamics impossible, making forest age distribution a necessary indicator for carbon sequestration monitoring.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Deforestation and land-use change</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Deforestation converts forest carbon sinks to sources, releasing stored biomass and soil carbon to the atmosphere. Gross tropical deforestation emits approximately 2.9 ± 0.5 Pg C yr-1, partially offset by tropical forest regrowth (1.6 Pg C yr-1). The net effect of tropical land-use change is a carbon source of 1.3 ± 0.7 Pg C yr-1. Halting deforestation in primary tropical forests is the single most impactful land-based climate mitigation measure.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21764754/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21764754&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;We also estimate a source of 1.3 ± 0.7 Pg C year(-1) from tropical land-use change, consisting of a gross tropical deforestation emission of 2.9 ± 0.5 Pg C year(-1) partially compensated by a carbon sink in tropical forest regrowth of 1.6 ± 0.5 Pg C year(-1).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantified deforestation emissions (2.9 Pg C yr-1) partially offset by regrowth sink (1.6 Pg C yr-1) establishes tropical deforestation as the primary anthropogenic driver converting forest carbon sinks to sources; the net tropical land-use source of 1.3 Pg C yr-1 must be reduced through deforestation halt and restoration to achieve net global carbon sequestration goals.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Peatland drainage and degradation</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Drainage of peatlands for agriculture, forestry, and peat extraction exposes accumulated organic carbon to aerobic decomposition, converting peat carbon sinks to large CO2 sources. Degraded tropical peatlands (particularly in Southeast Asia) emit hundreds of millions of tonnes of CO2 per year. Rewetting and restoration of drained peatlands is a cost-effective climate mitigation strategy that rapidly restores carbon sink function.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30225998/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30225998&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Peatlands after drainage and extraction are large sources of carbon (C) to the atmosphere.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Direct evidence that peatland drainage converts net carbon sinks to net carbon sources confirms peatland drainage as a major anthropogenic driver of carbon sequestration loss; the restoration of carbon sink function following rewetting demonstrates that drainage is the proximal cause of peat carbon source behavior, making water table management the primary lever for peatland carbon sequestration restoration.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Climate warming and elevated CO2</span>
+        
+        <span class="driver-badge driver-CLIMATE">CLIMATE</span>
+        
+      </div>
+      <div class="card-desc">Rising atmospheric CO2 concentrations stimulate photosynthesis and forest growth via CO2 fertilization, contributing to carbon sequestration enhancement in some regions. Conversely, climate warming accelerates ecosystem respiration and disturbance regimes (drought, fire, pest outbreaks), potentially reducing carbon sink capacity. The balance between CO2 fertilization enhancement and warming-driven respiration and disturbance increases will determine the future trajectory of terrestrial carbon sinks under climate change.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30782807/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30782807&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;COMPUTATIONAL&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Although the existence of a large carbon sink in terrestrial ecosystems is well-established, the drivers of this sink remain uncertain.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Uncertainty in terrestrial carbon sink drivers — including the relative contributions of CO2 fertilization, climate, and forest demography — highlights the complexity of predicting future sequestration under climate change; understanding the interplay between climate drivers and forest age structure is essential for projecting whether terrestrial carbon sinks will strengthen or weaken in coming decades.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Forest protection and reforestation</span>
+        
+        <span class="intervention-badge intervention-MITIGATION">MITIGATION</span>
+        
+      </div>
+      <div class="card-desc">Halting deforestation in intact primary forests protects existing biomass carbon stocks and allows forests to continue sequestering carbon as they grow. Reforestation and afforestation of degraded lands allows new carbon sinks to develop through forest regrowth. Policies including REDD+ (Reduced Emissions from Deforestation and Degradation) provide economic incentives for forest protection in tropical countries.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/21764754/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:21764754&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Together, the fluxes comprise a net global forest sink of 1.1 ± 0.8 Pg C year(-1), with tropical estimates having the largest uncertainties.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The large net global forest carbon sink establishes forests as the primary natural carbon sequestration system that deforestation halt and reforestation can protect and expand; the tropical uncertainty highlights that improving tropical forest monitoring and protection is the highest-leverage action for securing the global forest carbon sink.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Peatland rewetting and restoration</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Rewetting drained peatlands by blocking drainage ditches and restoring water table levels re-establishes anaerobic conditions that suppress decomposition and restore carbon sequestration. Restored peatlands can return to net CO2 sink status within years of rewetting, with annual uptake rates comparable to intact reference peatlands. Peatland rewetting is recognized as one of the most cost-effective climate change mitigation measures per tonne of CO2 equivalent.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30225998/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30225998&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Integrating structures to increase water retention, alongside re-establishing key species, have been effective at re-establishing the net C sink rate to that of an intact peatland.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Multi-year measurements demonstrate that peatland rewetting with water retention structures and Sphagnum reintroduction can fully restore carbon sink rates to those of intact reference peatlands; this evidence directly supports peatland rewetting as a proven, effective carbon sequestration restoration intervention.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Coastal blue carbon ecosystem protection</span>
+        
+        <span class="intervention-badge intervention-PROTECTION">PROTECTION</span>
+        
+      </div>
+      <div class="card-desc">Protecting mangroves, salt marshes, and seagrass beds from conversion conserves both ongoing carbon sequestration rates and large standing sediment carbon stocks. Inclusion of blue carbon in national emissions accounting and carbon markets (through REDD+ analogues for coastal ecosystems) creates economic incentives for coastal habitat conservation. Restoration of degraded mangroves and seagrasses additionally expands blue carbon sequestration capacity.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/22962585/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:22962585&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;META_ANALYSIS&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;policies encouraging the sustainable management of coastal ecosystems could significantly reduce carbon emissions from the land-use sector, in addition to sustaining the well-recognized ecosystem services of coastal habitats.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pendleton et al. conclude that coastal ecosystem management policies can significantly reduce land-use carbon emissions by protecting blue carbon stocks; this establishes blue carbon conservation as both a climate mitigation intervention and an ecosystem services co-benefit opportunity, providing multi-objective justification for coastal habitat protection programs.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000446" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate broadleaf mixed forest biome</strong>
+        <span class="term-id">ENVO:00000446</span>
+         — <span style="font-size:0.88rem;color:#555;">Temperate forests are significant carbon sinks where deciduous and mixed forest biomass accumulation, soil organic matter, and coarse woody debris represent major carbon pools maintained by ongoing photosynthetic uptake exceeding ecosystem respiration in mature and regrowing stands
+</span>
+      </div>
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000043" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>wetland</strong>
+        <span class="term-id">ENVO:00000043</span>
+         — <span style="font-size:0.88rem;color:#555;">Peatland wetlands are the most carbon-dense terrestrial ecosystems; Sphagnum-dominated bogs and sedge-dominated fens accumulate peat carbon under anaerobic waterlogged conditions, storing disproportionate global carbon stocks relative to their area in boreal, subarctic, and tropical regions
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-09-02
+  
+</footer>
+
+</body>
+</html>

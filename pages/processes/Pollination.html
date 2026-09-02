@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pollination — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Pollination
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000200
+    </a>
+    &nbsp;pollination
+  </div>
+  
+  <h1>Pollination</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Pollination is the transfer of pollen from the anther of a flower to a compatible stigma, enabling fertilization and seed production in flowering plants. The vast majority of wild plant species and approximately 75% of leading global crop species depend on animal pollinators for reproduction. Pollinators—principally bees (wild native species and managed Apis mellifera), but also butterflies, moths, flies, beetles, birds, and bats—are attracted to flowers by nectar and pollen rewards, inadvertently transferring pollen during foraging. This mutualistic interaction drives plant gene flow, maintains plant population connectivity, and supports ecosystem structure and function through seed and fruit production. Documented declines in wild and managed pollinator populations—driven by habitat loss, agrochemical exposure, pathogens, invasive species, and climate change—threaten both wild plant diversity and global food security.
+</div>
+  
+  <div class="synonyms">Also known as: animal pollination, biotic pollination, entomophily, zoophily, bee pollination</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Pollen Transport by Foraging Insects</div>
+      <div class="card-desc">Bees and other insect pollinators visit flowers to collect nectar and pollen as food rewards. During floral contact, pollen grains adhere to the pollinator body and are carried to subsequent flowers of the same or compatible species, effecting cross-pollination. Pollinator behavior—including floral constancy (visiting one species per foraging bout), visit frequency, and body size relative to flower morphology—determines pollen transfer efficiency. Native bee communities typically include functionally complementary species with different body sizes, tongue lengths, and foraging behaviors that collectively pollinate a broader range of plant species than any single pollinator species.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009856" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>pollination</span>
+          <span class="term-id">GO:0009856</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/19482881/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:19482881&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Some of the most exciting advances in pollination biology have resulted from interdisciplinary research combining ecological and evolutionary perspectives.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Mitchell et al. establish pollination biology as a field requiring integration of ecological and evolutionary perspectives; the mechanistic links between pollinator behavior (floral visits, pollen transport) and plant mating systems are central to understanding pollen transfer efficiency across diverse plant-pollinator systems.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>mutualism</span>
+          <span class="term-id">ECOCORE:00000193</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20188434/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:20188434&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Pollinators are a key component of global biodiversity, providing vital ecosystem services to crops and wild plants.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pollination is a mutualism: pollinators gain caloric rewards from flowers while providing the pollen transfer service essential for plant reproduction; the provision of ecosystem services to both wild plants and crops from this mutualistic interaction establishes pollination as a keystone biotic process in terrestrial ecosystems.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7460" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Apis mellifera</em></span>
+          <span class="term-id">NCBITaxon:7460</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">OTHER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">The western honey bee is the dominant managed pollinator of global agricultural crops; honey bee colonies are deployed to supplement wild pollination in agricultural landscapes, but Colony Collapse Disorder and disease have caused widespread losses of managed honey bee colonies, increasing reliance on wild bee species
+</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=27641" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Bombus</em></span>
+          <span class="term-id">NCBITaxon:27641</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">OTHER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Bumblebees are the most important wild bee pollinators in temperate ecosystems; their large body size, long tongues, and buzz pollination behavior enable access to flowers unavailable to honey bees, and their populations buffer agricultural pollination when honey bee colonies decline
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Bee foraging visits to flowers</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Pollen deposition on stigma and plant fertilization</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Floral reward provision (nectar, pollen)</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Pollinator foraging and repeat floral visitation</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17877737/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17877737&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;native bees alone provide sufficient pollination at &amp;gt; 90% of the farms studied.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Field measurement of watermelon pollination at 23 New Jersey/Pennsylvania farms demonstrates that native wild bee species alone can provide sufficient pollen transfer for crop production at most sites; this quantifies native bee pollination effectiveness and establishes that functional pollen transport is routinely achieved by wild bee communities without managed honey bees.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Pollinator Diversity Provides Functional Insurance for Pollination Services</div>
+      <div class="card-desc">Native bee communities comprising functionally diverse species provide biological insurance for pollination: when one pollinator species declines, others can compensate through behavioral plasticity and niche overlap. Total pollen deposition on crop flowers is strongly correlated with native bee visitation frequency and community diversity, but not with honey bee visitation alone. The functional complementarity of native bee assemblages— combining species with different body sizes, tongue lengths, and phenologies— ensures robust pollination of plants with diverse floral architectures across spatially and temporally variable landscapes.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009856" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>pollination</span>
+          <span class="term-id">GO:0009856</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17877737/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17877737&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;empirical total pollen deposition at flowers was strongly, significantly correlated with native bee visitation but not with honey bee visitation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Direct measurement of pollen deposition at 23 watermelon farms shows that crop pollination effectiveness is driven by native wild bee visitation rather than managed honey bees; this establishes native bee functional diversity as the ecological mechanism underpinning reliable pollen transfer and crop fertilization.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>pollination</span>
+          <span class="term-id">ECOCORE:00000200</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17877737/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17877737&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;native bees will buffer potential declines in agricultural production because of honey bee losses.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Native bee communities provide biological insurance for agricultural pollination against honey bee Colony Collapse Disorder; this insurance mechanism — where native bee diversity compensates for loss of a single dominant pollinator — exemplifies how pollinator community diversity underpins resilient ecosystem pollination services.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Native bee community functional diversity</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Biological insurance against pollination failure following honey bee decline</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Wild bee species complementarity</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Robust pollen transfer to diverse floral morphologies across landscapes</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/18926704/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:18926704&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;agriculture has become more pollinator dependent because of a disproportionate increase in the area cultivated with pollinator-dependent crops.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;45-year FAO data analysis shows that the global agricultural system has become progressively more dependent on pollinator services; increasing cultivation of pollinator-dependent crops with stagnant or declining pollinator supply demonstrates that maintaining diverse native pollinator communities is increasingly critical for global food production.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Fruit and seed set rate</div>
+      <div class="card-desc">The proportion of flowers that develop into fruits or seeds (fruit set, seed set) is the most direct indicator of pollination success at the plant level. Pollen-limited species show dramatically reduced fruit/seed set when pollinators are excluded; comparing open-pollinated and hand-pollinated treatments quantifies the degree of pollinator dependence and pollination adequacy in a community.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Fruit set (% flowers producing fruit) and seed number per fruit under open vs. excluded pollinator treatments</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17877737/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17877737&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;native bees alone provide sufficient pollination at &amp;gt; 90% of the farms studied.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Simulation model partitioning pollen contributions from native bees and honey bees across 23 farms demonstrates that fruit set sufficiency can be predicted from native bee visitation data; fruit/seed set is thereby validated as the key indicator linking bee community composition to plant reproductive success.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Pollinator visitation rate and species richness</div>
+      <div class="card-desc">The number of flower visits per unit time (visitation rate) and the species richness of flower visitors directly quantify pollination service delivery. Standardized transect surveys or time-lapse observation at focal plant patches track pollinator community composition, functional diversity, and visitation frequency — all of which predict effective pollen transfer and plant reproductive success.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0001332" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">rate of change</span>
+        <span class="term-id">PATO:0001332</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Flower visits per plant per hour across timed observation periods; pollinator species richness per site (pan trap or net survey)</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20188434/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:20188434&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;There is clear evidence of recent declines in both wild and domesticated pollinators, and parallel declines in the plants that rely upon them.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Parallel declines in pollinators and the plants that depend on them confirm that pollinator visitation rate and species richness are meaningful indicators of ecosystem pollination services; declines in these indicators directly predict degradation of plant reproduction and community composition in pollinator-dependent ecosystems.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Managed honeybee colony numbers and wild bee abundance</div>
+      <div class="card-desc">Monitoring managed honey bee colony numbers (per region) and wild bee abundance (from transect surveys) tracks the pollinator supply available to agricultural and wild plant communities. Long-term trends in both measures indicate whether pollination services are sustaining, declining, or recovering, particularly as colony losses from disease and pests increase managed bee mortality.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Managed honey bee colonies per km2 agricultural land (FAO data); wild bee abundance per standard pan-trap survey</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/18926704/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:18926704&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;If the trend toward favoring cultivation of pollinator-dependent crops continues, the need for the service provided by declining pollinators will greatly increase in the near future.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;FAO crop data analysis demonstrates a growing gap between demand for pollination services (increasing pollinator-dependent crop area) and pollinator supply (declining bee populations); monitoring pollinator abundance against crop pollinator demand provides the key indicator of pollination service vulnerability and food security risk.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Habitat loss and landscape fragmentation</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Conversion of wildflower-rich habitats (hedgerows, meadows, grasslands, woodland margins) to agricultural monocultures removes nesting sites and floral resources for wild bees and other pollinators. Landscape fragmentation isolates pollinator populations and reduces connectivity between remaining habitat patches, limiting recolonization after local extinction. Habitat loss is the dominant driver of wild pollinator declines in agricultural landscapes.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20188434/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:20188434&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Pollinator declines can result in loss of pollination services which have important negative ecological and economic impacts that could significantly affect the maintenance of wild plant diversity, wider ecosystem stability, crop production, food security and human welfare.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Potts et al. review establishes habitat loss as a primary driver of pollinator declines whose ecosystem-level consequences cascade from wild plant diversity to crop production and food security; landscape-scale habitat management is therefore the primary lever for reversing pollinator declines and maintaining pollination services.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Agrochemicals — insecticides and fungicides</span>
+        
+        <span class="driver-badge driver-ANTHROPOGENIC">ANTHROPOGENIC</span>
+        
+      </div>
+      <div class="card-desc">Systemic neonicotinoid insecticides applied to crops accumulate in pollen and nectar, exposing bees to sublethal doses that impair navigation, learning, foraging efficiency, and reproduction. Fungicides applied during bloom can reduce pollen nutritional quality and interact synergistically with insecticides to increase pollinator mortality. Agrochemical exposure is a major driver of wild and managed bee colony declines in agricultural landscapes.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20188434/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:20188434&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;we describe the nature and extent of reported declines, and review the potential drivers of pollinator loss, including habitat loss and fragmentation, agrochemicals, pathogens, alien species, climate change and the interactions between them.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Potts et al. identify agrochemicals as a key interacting driver of pollinator loss alongside habitat loss; the multi-driver framework recognizes that agrochemical stress compounds effects of habitat degradation, pathogen load, and climate change on pollinator populations, requiring integrated landscape-scale management to address.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Pathogens and parasites (Varroa destructor, Nosema)</span>
+        
+        <span class="driver-badge driver-BIOTIC">BIOTIC</span>
+        
+      </div>
+      <div class="card-desc">Parasitic mites (Varroa destructor) and microsporidian pathogens (Nosema ceranae) are major drivers of managed honey bee colony collapse and stress wild native bee populations. Varroa mites parasitize honey bee pupae and adults, vectoring multiple viruses that individually and synergistically weaken colony immune function. Pathogen-driven colony losses reduce managed pollinator supply and increase reliance on native wild bee communities.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20188434/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:20188434&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;There is clear evidence of recent declines in both wild and domesticated pollinators, and parallel declines in the plants that rely upon them.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Documented parallel declines in both wild and domesticated pollinators confirm that pathogen and parasite pressure affects pollinators across management regimes; the parallel decline in pollinator-dependent plants validates that pathogen-driven pollinator losses translate to measurable ecosystem-level consequences for plant reproduction and community structure.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Agri-environment schemes to restore wildflower habitat</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Policy-supported agri-environment schemes that establish wildflower strips, field margins, hedgerows, and flower-rich meadows in agricultural landscapes restore floral resources and nesting habitat for native bees. Targeted sowing of native wildflower mixes with diverse bloom phenology ensures continuous resource provision across the growing season, supporting functionally diverse pollinator communities capable of providing crop pollination insurance.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/20188434/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:20188434&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;habitat loss and fragmentation, agrochemicals, pathogens, alien species, climate change and the interactions between them&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;By identifying habitat loss as the primary driver of pollinator declines, Potts et al. establish habitat restoration through agri-environment schemes as the most direct intervention target; restoring wildflower habitat addresses the root cause of pollinator decline by re-establishing floral resources and nesting opportunities in agricultural landscapes.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Integrated pest management to reduce pollinator exposure to pesticides</span>
+        
+        <span class="intervention-badge intervention-MITIGATION">MITIGATION</span>
+        
+      </div>
+      <div class="card-desc">Restricting neonicotinoid seed treatments and foliar insecticide applications during crop bloom reduces pollinator exposure to systemic pesticides. Integrated pest management (IPM) approaches that substitute biological controls, crop rotation, and selective chemistry for broad-spectrum insecticides protect pollinator communities while maintaining crop pest control. Regulatory restrictions on neonicotinoid use in the EU have reduced honey bee colony losses in countries with strong enforcement.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/17877737/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:17877737&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;We predict that in our region native bees will buffer potential declines in agricultural production because of honey bee losses.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Native bee communities provide insurance against honey bee losses; reducing pesticide pressure on native bees through IPM approaches maintains the wild pollinator communities that provide this insurance, ensuring agricultural pollination services remain robust even if managed honey bee colony numbers remain depressed by disease pressure.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000446" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate broadleaf mixed forest biome</strong>
+        <span class="term-id">ENVO:00000446</span>
+         — <span style="font-size:0.88rem;color:#555;">Temperate forests provide nesting habitat (hollow stems, bare ground, dead wood) and diverse understory floral resources for wild bees and other pollinators; forest edges and woodland margins are particularly important pollinator corridors in fragmented agricultural landscapes
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-09-02
+  
+</footer>
+
+</body>
+</html>

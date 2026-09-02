@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Cycling — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Iron Cycling
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000199
+    </a>
+    &nbsp;iron cycling
+  </div>
+  
+  <h1>Iron Cycling</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Iron cycling is the biogeochemical transformation of iron between its ferric (Fe(III)) and ferrous (Fe(II)) oxidation states, mediated by microorganisms in soils, sediments, and aquatic environments. Iron is the fourth most abundant element in the Earth&#39;s crust, and its redox cycling drives carbon and nutrient transformations in anaerobic environments where Fe(III) serves as a terminal electron acceptor for microbial respiration. Dissimilatory iron-reducing bacteria such as Geobacter and Shewanella couple the oxidation of organic matter to the reduction of Fe(III) oxides, releasing ferrous iron and driving phosphorus mobilization, trace metal transformations, and methane suppression. Iron-oxidizing bacteria re-oxidize Fe(II) under both oxic and anoxic (nitrate-dependent) conditions, completing the iron redox cycle. Biogeochemical iron cycling is coupled to the carbon, nitrogen, phosphorus, and sulfur cycles and exerts strong controls on greenhouse gas emissions and contaminant fate in soils and sediments.
+</div>
+  
+  <div class="synonyms">Also known as: iron biogeochemical cycle, Fe redox cycling, dissimilatory iron reduction, microbial iron cycling</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Dissimilatory Fe(III) Reduction by Anaerobic Microorganisms</div>
+      <div class="card-desc">Under anaerobic conditions in waterlogged soils and sediments, dissimilatory iron-reducing bacteria use Fe(III) minerals (iron oxides, hydroxides) as terminal electron acceptors for respiration, oxidizing organic compounds (acetate, hydrogen, aromatic compounds) while producing Fe(II). This process is the dominant pathway of organic matter mineralization in Fe(III)-rich anaerobic environments and was potentially the first globally significant mechanism of organic matter oxidation on Earth. Key organisms include Geobacter sulfurreducens and other Deltaproteobacteria. Fe(III) reduction controls phosphorus release from sediments, drives trace metal mobilization, and generates magnetite minerals with diagnostic geochemical signatures.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0055114" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>oxidation-reduction process</span>
+          <span class="term-id">GO:0055114</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/1886521/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:1886521&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The oxidation of organic matter coupled to the reduction of Fe(III) or Mn(IV) is one of the most important biogeochemical reactions in aquatic sediments, soils, and groundwater.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Lovley&amp;#39;s foundational review establishes dissimilatory Fe(III) reduction as a major oxidation-reduction process driving organic matter decomposition in anaerobic environments; this redox reaction is the mechanistic core of iron cycling in soils and sediments globally.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>iron cycling</span>
+          <span class="term-id">ECOCORE:00000199</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/1886521/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:1886521&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;microorganisms which can effectively couple the oxidation of organic compounds to the reduction of Fe(III) or Mn(IV) have recently been discovered.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Discovery of enzymatic Fe(III)-reducing microorganisms established that iron cycling is biologically catalyzed rather than purely abiotic; this shifted understanding of iron cycling from a geochemical curiosity to a microbiologically driven biogeochemical process of global significance.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28231" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Geobacter</em></span>
+          <span class="term-id">NCBITaxon:28231</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">DECOMPOSER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Geobacter species are the dominant dissimilatory iron-reducing bacteria in freshwater sediments and soils; Geobacter sulfurreducens can completely oxidize acetate to CO2 while reducing Fe(III) to Fe(II), and some Geobacter strains are also capable of nitrate-dependent Fe(II) oxidation, allowing participation in both reductive and oxidative branches of iron cycling
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Anaerobic microbial Fe(III) reduction</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Oxidation of organic matter coupled to Fe(III) to Fe(II) conversion in sediments</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Fe(III) reduction by iron-reducing bacteria</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Release of phosphorus and trace metals from sediment Fe(III) oxide minerals</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/8785432/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:8785432&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Considerable progress has been made towards enhancing our understanding of the phylogeny, ecology and biogeochemical role of dissimilatory iron-reducing bacteria.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Review of the environmental roles of iron-reducing bacteria documents their biogeochemical importance in natural systems; remediation of soils and sediments contaminated with metals and organics confirms that dissimilatory iron reduction drives transformations far beyond simple Fe cycling.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Anaerobic Iron Redox Cycling — Coupled Fe(III) Reduction and Fe(II) Oxidation</div>
+      <div class="card-desc">In freshwater wetland sediments, iron undergoes complete anaerobic redox cycling: Fe(III) oxides are reduced to Fe(II) by iron-reducing bacteria (e.g., Geobacter) consuming acetate, and the resulting Fe(II) is then re-oxidized to Fe(III) by nitrate-reducing iron-oxidizing bacteria (e.g., Dechloromonas) when nitrate becomes available. This coupled cycling regenerates Fe(III) minerals in situ, sustaining iron reduction activity and creating a dynamic iron redox shuttle that links carbon, nitrogen, and iron cycles within anoxic microsites.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0055114" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>oxidation-reduction process</span>
+          <span class="term-id">GO:0055114</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16343326/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16343326&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;the wetland sediments contained organisms such as Geobacter sp. which are capable of both dissimilatory Fe(III) reduction and oxidation of Fe(II) with reduction of NO(3)(-) to NH(4)(+).&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Enrichment culture from freshwater wetland sediment demonstrates that the same organisms (Geobacter) mediate both branches of the iron redox cycle; the coupled Fe(III) reduction/Fe(II) oxidation constitutes a complete anaerobic iron redox shuttle linking iron, nitrogen, and carbon cycles in wetland sediments.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>biogeochemical cycling</span>
+          <span class="term-id">ECOCORE:00000192</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33526911/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33526911&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Biogeochemical cycling of iron is crucial to many environmental processes, such as ocean productivity, carbon storage, greenhouse gas emissions and the fate of nutrients, toxic metals and metalloids.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Iron cycling is a central biogeochemical process coupling iron transformations to carbon, nitrogen, and phosphorus dynamics; its linkage to greenhouse gas emissions and contaminant fate confirms iron cycling as a core component of global biogeochemical cycling.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Bacteria</em></span>
+          <span class="term-id">NCBITaxon:2</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">OTHER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Iron-cycling bacteria span phylogenetically diverse lineages: dissimilatory iron reducers (Geobacteraceae, Desulfuromonadales) and nitrate-dependent Fe(II) oxidizers (Dechloromonas, Thiobacillus) together constitute the microbial community driving anaerobic iron redox cycling in soils and sediments
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Fe(III) reduction by Geobacter</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Accumulation of Fe(II) in anaerobic porewater</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Fe(II) oxidation by nitrate-reducing bacteria</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Regeneration of Fe(III) minerals and completion of anaerobic iron redox cycle</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16343326/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16343326&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Experimental demonstration of nitrate-dependent Fe(II) oxidation by enrichment cultures from freshwater sediment confirms the existence of a complete anaerobic iron redox cycle; this finding establishes that iron cycling can proceed without oxygen as terminal electron acceptor.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Iron Cycling Linkages to Carbon, Nutrient, and Contaminant Transformations</div>
+      <div class="card-desc">Iron redox reactions are coupled to multiple biogeochemical cycles: Fe(III) reduction promotes organic carbon mineralization in anaerobic soils, Fe(II) oxidation supports chemolithotrophic carbon fixation, and iron cycling controls phosphorus mobility through sorption and co-precipitation with Fe(III) oxides. Iron oxides also sorb and immobilize toxic metals and metalloids (arsenic, chromium), and their reductive dissolution releases these contaminants into groundwater. Novel processes recently documented include methane oxidation and ammonium oxidation coupled to Fe(III) reduction, expanding the scope of iron-driven biogeochemical transformations.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0055114" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>oxidation-reduction process</span>
+          <span class="term-id">GO:0055114</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16980937/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16980937&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Fe(II) can function as an electron source for iron-oxidizing microorganisms under both oxic and anoxic conditions and Fe(III) can function as a terminal electron acceptor under anoxic conditions for iron-reducing microorganisms.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Weber et al. establish the dual role of iron in microbial redox: both as electron donor (Fe(II) for iron-oxidizers) and electron acceptor (Fe(III) for iron-reducers); this bidirectional redox chemistry is the mechanistic basis for iron coupling to carbon, nitrogen, and other elemental cycles in anaerobic environments.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>iron cycling</span>
+          <span class="term-id">ECOCORE:00000199</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33526911/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33526911&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Recent studies have provided insights into novel processes in the biogeochemical iron cycle such as microbial ammonium oxidation and methane oxidation coupled to Fe(III) reduction.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Discovery of novel iron cycling linkages (ammonium oxidation, methane oxidation coupled to Fe(III) reduction) demonstrates the expanding scope of iron cycling as a master regulator of greenhouse gas and nitrogen dynamics; these novel processes confirm iron cycling as more comprehensively coupled to other biogeochemical cycles than previously recognized.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Fe(III) reduction in waterlogged soils</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Phosphorus release from Fe(III) oxide minerals into porewater</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Iron redox cycling</span>
+          <span class="predicate">MODULATES</span>
+          <span class="object">Methane and nitrous oxide emissions from wetland and paddy soils</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16980937/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16980937&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Given that iron is the fourth most abundant element in the Earth&amp;#39;s crust, iron redox reactions have the potential to support substantial microbial populations in soil and sedimentary environments.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;The abundance of iron in Earth&amp;#39;s crust establishes the global-scale relevance of iron redox reactions as microbial energy sources; the large populations of iron-cycling microorganisms supported by iron abundance drive iron cycling effects on carbon, nutrient, and contaminant transformations across diverse soil and sediment environments.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Soil or sediment Fe(II)/Fe(III) ratio</div>
+      <div class="card-desc">The ratio of ferrous (Fe(II)) to ferric (Fe(III)) iron in soil or sediment porewater directly reflects iron cycling intensity and redox conditions. High Fe(II)/Fe(III) ratios indicate active dissimilatory iron reduction under anaerobic conditions; seasonal and spatial variation in this ratio traces iron redox cycling dynamics in wetland soils and freshwater sediments.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Porewater Fe(II) and Fe(III) concentrations (μM) by ferrozine colorimetry on anaerobic samples</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16343326/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16343326&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Fe(III) oxide (high surface area goethite) reduction took place after NO(3)(-) was depleted and continued until all the acetate was utilized.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Temporal sequence of Fe(III) reduction following nitrate depletion demonstrates that Fe(II) accumulation tracks iron cycling activity in direct proportion to electron donor (acetate) availability; Fe(II)/Fe(III) ratio is the primary chemical indicator of iron reduction activity in enrichment cultures and natural sediments.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Microbial iron-reducer community abundance</div>
+      <div class="card-desc">Most-probable-number (MPN) enumeration or quantitative PCR targeting dissimilatory iron-reducing bacteria quantifies the microbial capacity for Fe(III) reduction in soils and sediments. High abundances of iron-reducing bacteria correlate with active iron cycling zones and indicate that iron is a significant terminal electron acceptor in the anaerobic microbial community.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">UNCOMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>MPN enumeration of Fe(III)-reducing bacteria (cells mL-1) in sediment slurries with acetate and Fe(III) oxides</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16343326/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16343326&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Most probable number enumerations revealed the presence of significant populations of Fe(III)-reducing (approximately 10(8) cells ml(-1)) and Fe(II)-oxidizing, nitrate-reducing organisms (approximately 10(5) cells ml(-1)) in the freshwater sediment used to inoculate the enrichment cultures.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;MPN enumeration reveals populations of both Fe(III)-reducing and Fe(II)-oxidizing organisms in freshwater wetland sediment; the differential abundances (10^8 vs 10^5 cells/mL) reflect the dominance of reductive over oxidative iron cycling activity and validate MPN as a quantitative indicator of iron cycling microbial community structure.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Porewater iron concentration and speciation</div>
+      <div class="card-desc">Dissolved iron concentrations in soil porewater or sediment extracts, partitioned into Fe(II) (ferrous) and total Fe fractions, indicate iron cycling rates and bioavailability. Elevated porewater Fe(II) under reducing conditions reflects active dissimilatory iron reduction; seasonal fluctuations track redox dynamics driven by flooding and drying cycles.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">SEASONAL</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Porewater dissolved Fe(II) and total Fe (mg L-1) by ICP-OES or ferrozine assay on anaerobic soil extracts</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33526911/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33526911&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;oxidation and reduction of iron occur cyclically or simultaneously in many environments&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Simultaneous iron oxidation and reduction in many environments generates spatially complex iron speciation profiles; porewater iron concentration and speciation integrated across soil profiles captures this complexity and serves as the primary field indicator of active iron redox cycling.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Soil or sediment anaerobiosis and redox potential</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">The onset of anaerobic conditions (waterlogging, flooding, oxygen depletion) is the primary environmental trigger for dissimilatory iron reduction. Redox potential (Eh) drops to approximately +100 to -100 mV when iron reduction becomes the dominant terminal electron-accepting process. Seasonally fluctuating water tables drive alternating Fe(III) reduction and Fe(II) oxidation cycles in wetland soils.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/1886521/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:1886521&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The oxidation of organic matter coupled to the reduction of Fe(III) or Mn(IV) is one of the most important biogeochemical reactions in aquatic sediments, soils, and groundwater.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Lovley&amp;#39;s review establishes that Fe(III) reduction is most important in saturated, anaerobic environments (sediments, soils, groundwater); anaerobiosis is therefore the necessary abiotic condition enabling iron cycling — when oxygen is absent, Fe(III) becomes the thermodynamically preferred electron acceptor after nitrate and manganese.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Organic carbon availability</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">Labile organic carbon (acetate, hydrogen, fatty acids) is the primary electron donor for dissimilatory iron reduction; without adequate carbon substrate, iron-reducing bacteria cannot sustain Fe(III) reduction. Organic matter quality and quantity in sediments controls iron cycling rates, coupling iron cycling tightly to organic matter decomposition and primary productivity inputs.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16343326/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16343326&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;LABORATORY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Fe(III) oxide (high surface area goethite) reduction took place after NO(3)(-) was depleted and continued until all the acetate was utilized.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Fe(III) reduction directly depends on acetate availability as electron donor; cessation of iron reduction when acetate is consumed demonstrates that organic carbon supply is a stoichiometric rate-limiting driver of iron cycling, linking iron biogeochemistry to carbon inputs in sediments.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Fe(III) oxide mineral availability and crystallinity</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">The quantity and crystallinity of Fe(III) oxide minerals in soils and sediments determines the electron-accepting capacity available for dissimilatory iron reduction. Poorly crystalline (amorphous) ferrihydrite is more bioavailable than crystalline goethite and hematite. Weathering of parent rock, atmospheric deposition, and biological mineralization determine Fe(III) oxide stocks in different ecosystems.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/16980937/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:16980937&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;iron is the fourth most abundant element in the Earth&amp;#39;s crust, iron redox reactions have the potential to support substantial microbial populations in soil and sedimentary environments.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Iron abundance in Earth&amp;#39;s crust establishes the global-scale substrate availability for iron cycling; variation in Fe(III) oxide mineralogy and abundance across soils and sediments drives spatial variation in iron cycling intensity and the microbial populations it can sustain.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Wetland restoration to restore iron-driven biogeochemistry</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Rewetting of drained wetlands and peatlands restores anaerobic conditions that enable dissimilatory iron reduction, reactivating iron cycling and its downstream effects on carbon preservation, phosphorus retention, and methane suppression. Iron cycling restoration is a key mechanism by which rewetted wetlands recover their carbon sequestration and nutrient retention functions.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/33526911/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:33526911&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Biogeochemical cycling of iron is crucial to many environmental processes, such as ocean productivity, carbon storage, greenhouse gas emissions and the fate of nutrients, toxic metals and metalloids.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Iron cycling&amp;#39;s control of carbon storage and greenhouse gas emissions establishes it as a target mechanism for wetland restoration; restoring anaerobic conditions that activate iron cycling can recover carbon sequestration and nutrient retention functions lost when wetlands are drained.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Bioremediation using iron-reducing bacteria for contaminant immobilization</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Dissimilatory iron-reducing bacteria (particularly Geobacter species) can be stimulated in situ by organic carbon amendment to accelerate Fe(III) reduction, promoting reductive precipitation and immobilization of uranium, chromium, arsenic, and other redox-sensitive contaminants. Biostimulation of iron cycling has been developed as a site remediation strategy for metal-contaminated groundwater and sediments.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/8785432/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:8785432&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;the number of biotechnological applications of iron-reducing bacteria, including remediation of soils and sediments contaminated with metals, radionuclides and organics, is rapidly expanding.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Iron-reducing bacteria applications in bioremediation are rapidly expanding; stimulating iron cycling through organic carbon amendment provides a biological intervention for immobilizing metals and radionuclides in contaminated environments by exploiting the reductive chemistry of the iron cycle.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000043" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>wetland</strong>
+        <span class="term-id">ENVO:00000043</span>
+         — <span style="font-size:0.88rem;color:#555;">Wetland soils are the primary sites of active iron cycling; seasonal waterlogging creates the anaerobic conditions required for dissimilatory iron reduction, and fluctuating water tables drive alternating Fe(III) reduction and Fe(II) oxidation cycling that controls nutrient and carbon dynamics
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-09-02
+  
+</footer>
+
+</body>
+</html>

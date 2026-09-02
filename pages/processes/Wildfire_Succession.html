@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildfire Succession — EcoMech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f7f9f7;
+    }
+
+    a { color: #2d6a4f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: #1b4332;
+      color: #fff;
+      padding: 0.5rem 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .site-header a { color: #95d5b2; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+    }
+    .page-hero .process-term {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .page-hero .scale-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .page-hero .description { max-width: 820px; opacity: 0.92; }
+    .page-hero .synonyms {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── Section cards ── */
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b4332;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ece4;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: #444; margin-bottom: 0.75rem; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+    .badge-envo  { background: #d8f3dc; color: #1b4332; }
+    .badge-go    { background: #dbeafe; color: #1e40af; }
+    .badge-taxon { background: #fef3c7; color: #92400e; }
+    .badge-pato  { background: #ede9fe; color: #5b21b6; }
+    .badge-ecto  { background: #fee2e2; color: #991b1b; }
+    .badge-chebi { background: #f0fdf4; color: #166534; }
+    .badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .support-badge {
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .support-SUPPORT { background: #bbf7d0; color: #14532d; }
+    .support-REFUTE  { background: #fecaca; color: #7f1d1d; }
+    .support-PARTIAL { background: #fef9c3; color: #713f12; }
+    .support-NO_EVIDENCE { background: #f3f4f6; color: #4b5563; }
+
+    .driver-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .driver-ABIOTIC      { background: #e0f2fe; color: #0c4a6e; }
+    .driver-BIOTIC       { background: #fef3c7; color: #92400e; }
+    .driver-ANTHROPOGENIC { background: #fee2e2; color: #991b1b; }
+    .driver-CLIMATE      { background: #ede9fe; color: #5b21b6; }
+    .driver-GEOCHEMICAL  { background: #d8f3dc; color: #1b4332; }
+
+    .intervention-badge {
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .intervention-RESTORATION { background: #d8f3dc; color: #1b4332; }
+    .intervention-MANAGEMENT  { background: #dbeafe; color: #1e40af; }
+    .intervention-PROTECTION  { background: #fef3c7; color: #92400e; }
+    .intervention-MITIGATION  { background: #ede9fe; color: #5b21b6; }
+    .intervention-REMOVAL     { background: #fecaca; color: #7f1d1d; }
+    .intervention-MONITORING  { background: #f3f4f6; color: #374151; }
+
+    /* ── Term rows ── */
+    .term-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .term-id {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* ── Causal edges ── */
+    .causal-edge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0fdf4;
+      border-left: 3px solid #52b788;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .causal-edge .subject { font-weight: 600; }
+    .causal-edge .predicate {
+      color: #2d6a4f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.4rem;
+      background: #d8f3dc;
+      border-radius: 4px;
+    }
+    .causal-edge .object { font-style: italic; }
+
+    /* ── Evidence ── */
+    details.evidence-block {
+      margin-top: 0.6rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    details.evidence-block summary {
+      cursor: pointer;
+      padding: 0.4rem 0.75rem;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      list-style: none;
+      user-select: none;
+    }
+    details.evidence-block summary::before {
+      content: "▶ ";
+      font-size: 0.65rem;
+      color: #9ca3af;
+    }
+    details.evidence-block[open] summary::before { content: "▼ "; }
+    .evidence-body {
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .evidence-item { margin-bottom: 0.75rem; }
+    .evidence-item:last-child { margin-bottom: 0; }
+    .evidence-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .evidence-ref a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #2d6a4f;
+    }
+    .evidence-source {
+      font-size: 0.7rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    blockquote.snippet {
+      border-left: 3px solid #52b788;
+      padding: 0.4rem 0.75rem;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+      color: #374151;
+      font-style: italic;
+      background: #f0fdf4;
+      border-radius: 0 4px 4px 0;
+    }
+    .explanation {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Habitat list ── */
+    .habitat-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .habitat-item:last-child { border-bottom: none; }
+
+    /* ── Sub-sections inside mechanism cards ── */
+    .subsection { margin-top: 1rem; }
+    .subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Abiotic conditions ── */
+    .abiotic-row {
+      padding: 0.35rem 0.75rem;
+      background: #eff6ff;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+    .abiotic-value {
+      font-family: monospace;
+      font-size: 0.78rem;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.05rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">EcoMech</a> &rsaquo;
+  <a href="../index.html">Processes</a> &rsaquo;
+  Wildfire Succession
+</header>
+
+<div class="page-hero">
+  
+  <div class="process-term">
+    <a href="#" style="color:#95d5b2;"
+       target="_blank" rel="noopener">
+      ECOCORE:00000194
+    </a>
+    &nbsp;wildfire succession
+  </div>
+  
+  <h1>Wildfire Succession</h1>
+  
+  <div class="scale-badge">ECOSYSTEM scale</div>
+  
+  <div class="description">Wildfire succession is the directional sequence of community change that follows wildfire disturbance, driven by differential survival, resprouting, and recruitment of plant species with diverse post-fire life-history strategies. Fire removes aboveground biomass, mineralizes nutrients, reduces competition, and creates heterogeneous microsites that together determine post-fire successional trajectories. Overall species richness peaks immediately after fire as disturbance-adapted species colonize burn patches, then declines as canopy closure re-establishes and eliminates early-successional light-demanding species. Successional pathways are determined by fire severity, burn history, post-fire climate, seed source proximity (refugia), and the resprouting versus seeding strategies of resident plant species. Under warming and drying climates, increased fire frequency and post-fire drought stress are altering successional trajectories, converting historically forested landscapes to shrub- or grass-dominated alternative stable states that no longer support tree regeneration.
+</div>
+  
+  <div class="synonyms">Also known as: post-fire succession, post-fire vegetation recovery, pyric succession, fire-driven succession, fire succession</div>
+  
+</div>
+
+<main class="main">
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Mechanisms</h2>
+    
+    <div class="card">
+      <div class="card-title">Post-Fire Seed Recruitment and Regeneration Niche</div>
+      <div class="card-desc">Wildfire creates a distinctive regeneration niche: exposed mineral soil, reduced litter cover, eliminated canopy competition for light, and elevated nutrient availability through ash deposition. Species with fire-adapted germination strategies (heat-stimulated seed release in serotinous cones, smoke-stimulated germination) colonize the burn scar immediately. Tree seedling recruitment is critically sensitive to post-fire weather conditions: the occurrence of even a single extreme drought year immediately after fire substantially suppresses seedling establishment, and severe post-fire drought can cause near-complete recruitment failure that triggers type conversion to non-forest vegetation communities.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009628" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>response to abiotic stimulus</span>
+          <span class="term-id">GO:0009628</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30516290/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30516290&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The occurrence of a single strong drought year following fire was more important than a series of moderately dry years in explaining tree recruitment declines.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Young et al.&amp;#39;s 14-wildfire survey across northern California demonstrates that post-fire seedling recruitment responds critically to post-fire abiotic conditions, particularly extreme drought; the outsized effect of a single drought year relative to cumulative moderate drought establishes post-fire weather as the primary abiotic stimulus controlling recruitment success and successional trajectory.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>ecological succession</span>
+          <span class="term-id">ECOCORE:00000191</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31298472/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31298472&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Overall species richness is greatest immediately after fire and declines monotonically over time, with postfire successional pathways dictated by animal habitat preferences and varying lifespans among resident plants.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;He et al. document the successional pattern of declining species richness after initial post-fire peak, driven by life-history variation among resident plant species; this pattern establishes wildfire succession as a predictable ecological succession sequence where species composition is driven by fire-related life-history strategies (postfire persistence, recruitment, immigration) rather than competitive exclusion alone.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Taxa Involved</div>
+        
+        <div class="term-row">
+          <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3337" target="_blank" rel="noopener">
+            <span class="badge badge-taxon">NCBITaxon</span>
+          </a>
+          <span><em>Pinus</em></span>
+          <span class="term-id">NCBITaxon:3337</span>
+          <span class="badge badge-scale" style="font-size:0.68rem;">PRIMARY_PRODUCER</span>
+        </div>
+        <div style="font-size:0.83rem;color:#555;margin-left:0.5rem;margin-bottom:0.25rem;">Pines are dominant post-fire successional trees in many temperate conifer forests; serotinous species (Pinus banksiana, P. contorta) release seeds from cones only after fire heat, ensuring abundant seed rain immediately following wildfire — a classic fire-adapted regeneration strategy
+</div>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Wildfire opening of forest canopy and seed bed exposure</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Post-fire seed rain and seedling establishment of early-successional species</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Post-fire drought year</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Tree seedling recruitment and forest successional trajectory</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30516290/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30516290&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;shifts in dominance between functional groups may become more likely in a future with more frequent and intense drought.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Survey of regenerating vegetation after 14 wildfires demonstrates that post-fire drought shifts dominance from trees to shrubs and graminoids; this functional group shift is a mechanistic driver of wildfire succession trajectory — drought following fire determines whether forest or non-forest vegetation establishes and dominates the post-fire landscape.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Repeated Fire and Altered Forest Recovery</div>
+      <div class="card-desc">When wildfires recur within short intervals before forest recovery is complete, they fundamentally alter the trajectory of post-fire succession. Repeatedly burned forests accumulate fewer fuels, have sparser tree seedling densities, and can shift toward alternative structural states with reduced canopy closure and basal area. The order of burn severity (low-then-high vs. high-then-low severity) significantly modifies forest recovery, with forests experiencing low severity fire after high severity showing 60% lower canopy closure and 92% fewer tree seedlings. Short fire return intervals may prevent forest recovery entirely, creating persistent non-forest vegetation states.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009628" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>response to abiotic stimulus</span>
+          <span class="term-id">GO:0009628</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27755710/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27755710&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Repeatedly burned forests had 15% less woody surface fuels and 31% lower tree seedling densities compared with forests that only experienced one recent wildfire.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Stevens-Rumann &amp;amp; Morgan&amp;#39;s field measurements across reburned mixed-conifer forests quantify the cumulative effect of repeated fire abiotic disturbance on forest recovery; reduced seedling densities in reburned areas reflect impaired regeneration responses to repeated fire events, demonstrating that succession trajectory is strongly determined by fire return interval.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>wildfire succession</span>
+          <span class="term-id">ECOCORE:00000194</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27755710/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27755710&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;repeatedly burned areas are recovering differently than sites burned once, which may lead to alternative ecosystem structure.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Divergent recovery trajectories in reburned vs. once-burned forests demonstrate that repeated wildfire succession can produce alternative ecosystem structures; this mechanism — fire return interval governing successional endpoint — establishes wildfire succession as a path-dependent process where fire history determines whether forest or alternative non-forest states develop.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">Short fire return interval before forest structural recovery</span>
+          <span class="predicate">INHIBITS</span>
+          <span class="object">Tree seedling establishment and forest successional progression</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Repeated high-severity fire</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Persistent reduction in canopy closure and fuel accumulation</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27755710/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27755710&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;When low burn severity followed high, forests had 60% lower canopy closure and total basal area with 92% fewer tree seedlings than when high burn severity followed low.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantifies the strong interaction between fire severity sequence and forest recovery: low-severity fire following high-severity fire dramatically suppresses regeneration compared to the reverse order; burn severity sequence is a mechanistic determinant of forest structural recovery under repeated fire regimes.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Climate-Driven Post-Fire Type Conversion</div>
+      <div class="card-desc">Under warming and drying climate conditions, post-fire forests are increasingly failing to recover their pre-fire forest composition, converting instead to shrub, grassland, or non-forest states. Forest recovery is concentrated at cooler, more mesic sites in proximity to forested refugia that provide seed sources; warmer and drier sites distant from refugia shift toward scrub or grassland community types. Climate models project further decreases in post-fire forest recovery with increasing temperatures, with management opportunities to partially offset conversion through reduced burn severity and maintenance of forested refugia.
+</div>
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Biological Processes</div>
+        
+        <div class="term-row">
+          <a href="https://www.ebi.ac.uk/ols4/ontologies/go/terms?iri=http://purl.obolibrary.org/obo/GO_0009628" target="_blank" rel="noopener">
+            <span class="badge badge-go">GO</span>
+          </a>
+          <span>response to abiotic stimulus</span>
+          <span class="term-id">GO:0009628</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36054332/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:36054332&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Forest recovery was generally associated with cooler, mesic sites in proximity to forested refugia; shifts toward scrub and grassland types were most common in warmer, dryer locations distant from forested refugia.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;361-plot survey across 8 southwestern US burns demonstrates that post-fire forest recovery depends on abiotic climate and topographic conditions; the shift from forest to non-forest vegetation types at warmer, drier sites establishes climate as the primary abiotic determinant of wildfire succession endpoint under contemporary warming conditions.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Ecological Processes</div>
+        
+        <div class="term-row">
+          <a href="#" target="_blank" rel="noopener">
+            <span class="badge badge-envo">ENVO</span>
+          </a>
+          <span>wildfire succession</span>
+          <span class="term-id">ECOCORE:00000194</span>
+        </div>
+        
+        <details class="evidence-block">
+          <summary>1 evidence item</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36054332/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:36054332&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Under future climate scenarios, models project decreases in postfire forest recovery and increases in nonforest vegetation.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Future climate projections from 361-plot vegetation survey establish that wildfire succession under warming climates will increasingly produce non-forest endpoints; climate change is altering wildfire succession trajectories at landscape scales, reducing the probability that burned forests recover their pre-fire forest state.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+        
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <div class="subsection">
+        <div class="subsection-title">Causal Relationships</div>
+        
+        <div class="causal-edge">
+          <span class="subject">High post-fire temperatures and moisture deficit</span>
+          <span class="predicate">CAUSES</span>
+          <span class="object">Recruitment failure of tree seedlings and shift toward shrub/grassland dominance</span>
+        </div>
+        
+        
+        <div class="causal-edge">
+          <span class="subject">Proximity to forested refugia providing seed sources</span>
+          <span class="predicate">ENABLES</span>
+          <span class="object">Forest recovery succession trajectory after wildfire</span>
+        </div>
+        
+        
+      </div>
+      
+
+      
+      
+      <div class="subsection">
+        <details class="evidence-block">
+          <summary>Mechanism evidence (1 item)</summary>
+          <div class="evidence-body">
+            &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31298472/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31298472&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;fire-management practices rarely take into account the ecological and evolutionary roles of fire in maintaining biodiversity.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;He et al. identify a critical gap between fire management practice and ecological knowledge; current management rarely considers the role of fire in shaping successional biodiversity, including the pyrodiversity mechanisms that generate spatial heterogeneity and maintain species coexistence in fire-prone ecosystems.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+          </div>
+        </details>
+      </div>
+      
+
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Ecological Indicators</h2>
+    
+    <div class="card">
+      <div class="card-title">Post-fire tree seedling density</div>
+      <div class="card-desc">Tree seedling density (seedlings per hectare) in burned areas one to five years after wildfire is the primary indicator of forest successional trajectory. High seedling densities indicate successful forest regeneration; low or zero densities indicate recruitment failure and potential type conversion to non-forest vegetation. Seedling density is mapped using plot surveys across burn mosaics stratified by fire severity and post-fire climate conditions.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>Tree seedling density (seedlings ha-1) in burned plots 1-5 yr post-fire, stratified by burn severity class</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27755710/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:27755710&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Repeatedly burned forests had 15% less woody surface fuels and 31% lower tree seedling densities compared with forests that only experienced one recent wildfire.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;31% lower tree seedling densities in reburned forests compared to once-burned forests validates seedling density as a sensitive indicator of fire history effects on succession; the magnitude of density reduction after repeated fire establishes seedling density as a quantitative indicator of wildfire succession trajectory modification by fire return interval.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div class="card-title">Post-fire vegetation community type</div>
+      <div class="card-desc">Classification of post-fire vegetation into functional community types (regenerating forest, shrub-dominated, grass-dominated, or mixed ruderal) from plot surveys and remote sensing imagery tracks wildfire successional trajectory at landscape scale. The proportional cover of tree vs. shrub vs. herb functional groups in burned areas indicates whether forest succession or non-forest type conversion is occurring.
+</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;align-items:center;">
+        
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/pato/terms?iri=http://purl.obolibrary.org/obo/PATO_0000070" target="_blank" rel="noopener">
+          <span class="badge badge-pato">PATO</span>
+        </a>
+        <span style="font-size:0.88rem;">concentration</span>
+        <span class="term-id">PATO:0000070</span>
+        
+        <span class="badge badge-scale">COMMON</span>
+        <span class="badge" style="background:#fdf2f8;color:#701a75;">CHRONIC</span>
+      </div>
+      
+      <div style="font-size:0.83rem;color:#374151;margin-bottom:0.5rem;">
+        <strong>Measurement:</strong> <code>% cover by functional group (trees, shrubs, grasses, forbs) from vegetation surveys in burned plots; community type classification using ordination</code>
+      </div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36054332/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:36054332&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;I describe seven postfire community types, including regenerating forests of ponderosa pine, aspen, and mixed conifers, shrub-dominated communities of Gambel oak and mixed species, and herb-dominated communities of native bunchgrasses and mixtures of ruderal, native, and nonnative species.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Classification of 361 post-fire plots into 7 community types covering the forest-to-grassland successional spectrum provides the empirical framework for vegetation community type as a wildfire succession indicator; the diversity of post-fire community types across the same fire events demonstrates that local climate and refugia proximity determine successional endpoint independently of burn history.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Drivers &amp; Stressors</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Fire severity and extent</span>
+        
+        <span class="driver-badge driver-ABIOTIC">ABIOTIC</span>
+        
+      </div>
+      <div class="card-desc">Fire severity (degree of vegetation and soil organic matter consumption) determines the magnitude of post-fire successional reset: high-severity fire that kills most above-ground vegetation and eliminates seed banks creates more extreme successional trajectories than low-severity surface fire that leaves understory vegetation intact. The spatial mosaic of fire severity across a landscape generates diverse successional trajectories that together support high post-fire biodiversity.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31298472/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31298472&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;the vegetation, topography and local weather conditions during a fire generate a landscape with spatial and temporal variation in fire-related patches (pyrodiversity), and these produce the biotic and environmental heterogeneity that drives biodiversity across local and regional scales.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Pyrodiversity generated by variation in fire severity, vegetation, and weather conditions drives post-fire biodiversity through environmental heterogeneity; fire severity is the primary driver of patch-scale successional trajectory and is the major source of spatial heterogeneity in the successional mosaic across burned landscapes.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Post-fire climate and drought</span>
+        
+        <span class="driver-badge driver-CLIMATE">CLIMATE</span>
+        
+      </div>
+      <div class="card-desc">Post-fire weather conditions, especially drought in the first growing season after fire, are dominant determinants of tree seedling recruitment success and long-term successional trajectory. A single extreme drought year after fire is more damaging to tree recruitment than multiple moderate drought years. Under projected climate warming, post-fire drought frequency and severity are increasing, expanding the landscape fraction vulnerable to post-fire type conversion.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/30516290/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:30516290&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;The occurrence of a single strong drought year following fire was more important than a series of moderately dry years in explaining tree recruitment declines.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Quantification of post-fire drought effects across 14 wildfires establishes single-event extreme drought as a threshold driver of recruitment failure; this nonlinear climate sensitivity means that even infrequent future extreme drought events can fundamentally alter wildfire succession trajectories across fire-prone landscapes.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Seed source proximity and fire refugia</span>
+        
+        <span class="driver-badge driver-BIOTIC">BIOTIC</span>
+        
+      </div>
+      <div class="card-desc">Post-fire tree regeneration depends on seed rain from surviving trees at the fire perimeter or within unburned refugia inside the burn area. Large severe burns with few interior refugia have lower seedling densities and slower forest succession because seeds must disperse from distant edges. Under high-severity fire regimes with large contiguous burn patches, seed source limitation becomes a primary constraint on post-fire forest recovery and successional progression.
+</div>
+      
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36054332/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:36054332&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;Forest recovery was generally associated with cooler, mesic sites in proximity to forested refugia&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Proximity to forested refugia is a primary determinant of forest recovery success in southwestern burns; refugia within the burn perimeter provide seed sources that enable forest succession to proceed in adjacent areas while distant warm/dry areas lacking seed sources default to shrub or grassland successional endpoints.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Interventions</h2>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Prescribed fire to restore natural fire regimes</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Prescribed burning to restore fire return intervals appropriate to fire-adapted ecosystems (e.g., 2-10 yr intervals in ponderosa pine parklands) maintains low fuel loads, creates the pyrodiversity that sustains post-fire biodiversity, and reduces the probability of high-severity wildfire that triggers type conversion. Prescribed fire reduces the long-term risk of catastrophic post-fire type conversion by maintaining forest structure that supports rapid recovery after the inevitable next wildfire.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/31298472/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:31298472&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;REVIEW&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;A paradigm shift aimed at restoring biodiversity-maintaining fire regimes across broad landscapes is required among the fire research and management communities.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;He et al. call for restoration of natural fire regimes as the primary conservation intervention for fire-adapted ecosystems; prescribed fire management that reintroduces fire at ecologically appropriate intervals and severities directly addresses the loss of pyrodiversity that drives post-fire biodiversity and maintains landscape heterogeneity.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <span class="card-title" style="margin-bottom:0;">Post-fire tree planting in areas of recruitment failure</span>
+        
+        <span class="intervention-badge intervention-RESTORATION">RESTORATION</span>
+        
+      </div>
+      <div class="card-desc">Where post-fire drought or large burn patch size causes near-complete tree recruitment failure, active reforestation through container seedling planting can supplement natural regeneration and guide succession toward forest rather than shrub or grassland endpoints. Climate-matched seed sourcing and targeting of mesic microsites reduces seedling mortality; reforestation is most effective as a complement to natural regeneration rather than a replacement.
+</div>
+      
+      
+      <details class="evidence-block">
+        <summary>1 evidence item</summary>
+        <div class="evidence-body">
+          &lt;div class=&#34;evidence-item&#34;&gt;
+  &lt;div class=&#34;evidence-meta&#34;&gt;
+    &lt;span class=&#34;evidence-ref&#34;&gt;
+      &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/36054332/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID:36054332&lt;/a&gt;
+    &lt;/span&gt;
+    
+    &lt;span class=&#34;support-badge support-SUPPORT&#34;&gt;SUPPORT&lt;/span&gt;
+    
+    
+    &lt;span class=&#34;evidence-source&#34;&gt;FIELD_STUDY&lt;/span&gt;
+    
+  &lt;/div&gt;
+  
+  &lt;blockquote class=&#34;snippet&#34;&gt;&amp;ldquo;forest to nonforest conversion was partially offset under a scenario of reduced burn severity and increased retention of forested refugia, highlighting important management opportunities.&amp;rdquo;&lt;/blockquote&gt;
+  
+  
+  &lt;div class=&#34;explanation&#34;&gt;Modeling shows that management to retain forested refugia (including planting to establish seed sources) can partially offset climate-driven type conversion; this management pathway — creating refugia that serve as seed sources for surrounding recruitment failure areas — is the primary intervention to guide wildfire succession toward forest endpoints under warming climate conditions.
+&lt;/div&gt;
+  
+&lt;/div&gt;
+        </div>
+      </details>
+      
+    </div>
+    
+  </section>
+  
+
+  
+  
+  <section class="section">
+    <h2 class="section-title">Habitat Context</h2>
+    <div class="card">
+      
+      <div class="habitat-item">
+        <a href="https://www.ebi.ac.uk/ols4/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000446" target="_blank" rel="noopener">
+          <span class="badge badge-envo">ENVO</span>
+        </a>
+        <strong>temperate broadleaf mixed forest biome</strong>
+        <span class="term-id">ENVO:00000446</span>
+         — <span style="font-size:0.88rem;color:#555;">Temperate forests with mixed conifer-broadleaf composition represent classic wildfire succession ecosystems; post-fire community trajectories range from rapid forest recovery (mesic sites with refugia) to persistent shrubland (warm, dry sites with failed tree recruitment)
+</span>
+      </div>
+      
+    </div>
+  </section>
+  
+
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+  
+  &mdash; Entry created 2026-09-02
+  
+</footer>
+
+</body>
+</html>
