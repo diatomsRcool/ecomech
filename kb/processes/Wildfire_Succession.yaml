@@ -1,0 +1,407 @@
+id: ECOCORE:00000194
+name: Wildfire Succession
+process_term:
+  id: ECOCORE:00000194
+  label: wildfire succession
+description: >
+  Wildfire succession is the directional sequence of community change that follows
+  wildfire disturbance, driven by differential survival, resprouting, and
+  recruitment of plant species with diverse post-fire life-history strategies.
+  Fire removes aboveground biomass, mineralizes nutrients, reduces competition,
+  and creates heterogeneous microsites that together determine post-fire
+  successional trajectories. Overall species richness peaks immediately after
+  fire as disturbance-adapted species colonize burn patches, then declines as
+  canopy closure re-establishes and eliminates early-successional light-demanding
+  species. Successional pathways are determined by fire severity, burn history,
+  post-fire climate, seed source proximity (refugia), and the resprouting versus
+  seeding strategies of resident plant species. Under warming and drying climates,
+  increased fire frequency and post-fire drought stress are altering successional
+  trajectories, converting historically forested landscapes to shrub- or
+  grass-dominated alternative stable states that no longer support tree regeneration.
+synonyms:
+  - post-fire succession
+  - post-fire vegetation recovery
+  - pyric succession
+  - fire-driven succession
+  - fire succession
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Post-Fire Seed Recruitment and Regeneration Niche
+    description: >
+      Wildfire creates a distinctive regeneration niche: exposed mineral soil,
+      reduced litter cover, eliminated canopy competition for light, and elevated
+      nutrient availability through ash deposition. Species with fire-adapted
+      germination strategies (heat-stimulated seed release in serotinous cones,
+      smoke-stimulated germination) colonize the burn scar immediately.
+      Tree seedling recruitment is critically sensitive to post-fire weather
+      conditions: the occurrence of even a single extreme drought year immediately
+      after fire substantially suppresses seedling establishment, and severe
+      post-fire drought can cause near-complete recruitment failure that triggers
+      type conversion to non-forest vegetation communities.
+    biological_processes:
+      - term:
+          id: GO:0009628
+          label: response to abiotic stimulus
+        evidence:
+          - reference: PMID:30516290
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "The occurrence of a single strong drought year following fire was more important than a series of moderately dry years in explaining tree recruitment declines."
+            explanation: >
+              Young et al.'s 14-wildfire survey across northern California
+              demonstrates that post-fire seedling recruitment responds critically
+              to post-fire abiotic conditions, particularly extreme drought; the
+              outsized effect of a single drought year relative to cumulative
+              moderate drought establishes post-fire weather as the primary
+              abiotic stimulus controlling recruitment success and successional
+              trajectory.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:31298472
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Overall species richness is greatest immediately after fire and declines monotonically over time, with postfire successional pathways dictated by animal habitat preferences and varying lifespans among resident plants."
+            explanation: >
+              He et al. document the successional pattern of declining species
+              richness after initial post-fire peak, driven by life-history
+              variation among resident plant species; this pattern establishes
+              wildfire succession as a predictable ecological succession sequence
+              where species composition is driven by fire-related life-history
+              strategies (postfire persistence, recruitment, immigration) rather
+              than competitive exclusion alone.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3337
+          label: Pinus
+        role: PRIMARY_PRODUCER
+        description: >
+          Pines are dominant post-fire successional trees in many temperate
+          conifer forests; serotinous species (Pinus banksiana, P. contorta)
+          release seeds from cones only after fire heat, ensuring abundant
+          seed rain immediately following wildfire — a classic fire-adapted
+          regeneration strategy
+    causal_edges:
+      - subject: Wildfire opening of forest canopy and seed bed exposure
+        predicate: CAUSES
+        object: Post-fire seed rain and seedling establishment of early-successional species
+      - subject: Post-fire drought year
+        predicate: INHIBITS
+        object: Tree seedling recruitment and forest successional trajectory
+    evidence:
+      - reference: PMID:30516290
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "shifts in dominance between functional groups may become more likely in a future with more frequent and intense drought."
+        explanation: >
+          Survey of regenerating vegetation after 14 wildfires demonstrates that
+          post-fire drought shifts dominance from trees to shrubs and graminoids;
+          this functional group shift is a mechanistic driver of wildfire
+          succession trajectory — drought following fire determines whether
+          forest or non-forest vegetation establishes and dominates the post-fire landscape.
+
+  - name: Repeated Fire and Altered Forest Recovery
+    description: >
+      When wildfires recur within short intervals before forest recovery is complete,
+      they fundamentally alter the trajectory of post-fire succession. Repeatedly
+      burned forests accumulate fewer fuels, have sparser tree seedling densities,
+      and can shift toward alternative structural states with reduced canopy closure
+      and basal area. The order of burn severity (low-then-high vs. high-then-low
+      severity) significantly modifies forest recovery, with forests experiencing
+      low severity fire after high severity showing 60% lower canopy closure and
+      92% fewer tree seedlings. Short fire return intervals may prevent forest
+      recovery entirely, creating persistent non-forest vegetation states.
+    biological_processes:
+      - term:
+          id: GO:0009628
+          label: response to abiotic stimulus
+        evidence:
+          - reference: PMID:27755710
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Repeatedly burned forests had 15% less woody surface fuels and 31% lower tree seedling densities compared with forests that only experienced one recent wildfire."
+            explanation: >
+              Stevens-Rumann & Morgan's field measurements across reburned
+              mixed-conifer forests quantify the cumulative effect of repeated
+              fire abiotic disturbance on forest recovery; reduced seedling
+              densities in reburned areas reflect impaired regeneration responses
+              to repeated fire events, demonstrating that succession trajectory
+              is strongly determined by fire return interval.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000194
+          label: wildfire succession
+        evidence:
+          - reference: PMID:27755710
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "repeatedly burned areas are recovering differently than sites burned once, which may lead to alternative ecosystem structure."
+            explanation: >
+              Divergent recovery trajectories in reburned vs. once-burned forests
+              demonstrate that repeated wildfire succession can produce alternative
+              ecosystem structures; this mechanism — fire return interval governing
+              successional endpoint — establishes wildfire succession as a
+              path-dependent process where fire history determines whether forest
+              or alternative non-forest states develop.
+    causal_edges:
+      - subject: Short fire return interval before forest structural recovery
+        predicate: INHIBITS
+        object: Tree seedling establishment and forest successional progression
+      - subject: Repeated high-severity fire
+        predicate: CAUSES
+        object: Persistent reduction in canopy closure and fuel accumulation
+    evidence:
+      - reference: PMID:27755710
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "When low burn severity followed high, forests had 60% lower canopy closure and total basal area with 92% fewer tree seedlings than when high burn severity followed low."
+        explanation: >
+          Quantifies the strong interaction between fire severity sequence and
+          forest recovery: low-severity fire following high-severity fire
+          dramatically suppresses regeneration compared to the reverse order;
+          burn severity sequence is a mechanistic determinant of forest structural
+          recovery under repeated fire regimes.
+
+  - name: Climate-Driven Post-Fire Type Conversion
+    description: >
+      Under warming and drying climate conditions, post-fire forests are
+      increasingly failing to recover their pre-fire forest composition,
+      converting instead to shrub, grassland, or non-forest states. Forest
+      recovery is concentrated at cooler, more mesic sites in proximity to
+      forested refugia that provide seed sources; warmer and drier sites distant
+      from refugia shift toward scrub or grassland community types. Climate models
+      project further decreases in post-fire forest recovery with increasing
+      temperatures, with management opportunities to partially offset conversion
+      through reduced burn severity and maintenance of forested refugia.
+    biological_processes:
+      - term:
+          id: GO:0009628
+          label: response to abiotic stimulus
+        evidence:
+          - reference: PMID:36054332
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Forest recovery was generally associated with cooler, mesic sites in proximity to forested refugia; shifts toward scrub and grassland types were most common in warmer, dryer locations distant from forested refugia."
+            explanation: >
+              361-plot survey across 8 southwestern US burns demonstrates that
+              post-fire forest recovery depends on abiotic climate and topographic
+              conditions; the shift from forest to non-forest vegetation types
+              at warmer, drier sites establishes climate as the primary abiotic
+              determinant of wildfire succession endpoint under contemporary
+              warming conditions.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000194
+          label: wildfire succession
+        evidence:
+          - reference: PMID:36054332
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Under future climate scenarios, models project decreases in postfire forest recovery and increases in nonforest vegetation."
+            explanation: >
+              Future climate projections from 361-plot vegetation survey establish
+              that wildfire succession under warming climates will increasingly
+              produce non-forest endpoints; climate change is altering wildfire
+              succession trajectories at landscape scales, reducing the probability
+              that burned forests recover their pre-fire forest state.
+    causal_edges:
+      - subject: High post-fire temperatures and moisture deficit
+        predicate: CAUSES
+        object: Recruitment failure of tree seedlings and shift toward shrub/grassland dominance
+      - subject: Proximity to forested refugia providing seed sources
+        predicate: ENABLES
+        object: Forest recovery succession trajectory after wildfire
+    evidence:
+      - reference: PMID:31298472
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "fire-management practices rarely take into account the ecological and evolutionary roles of fire in maintaining biodiversity."
+        explanation: >
+          He et al. identify a critical gap between fire management practice
+          and ecological knowledge; current management rarely considers the
+          role of fire in shaping successional biodiversity, including the
+          pyrodiversity mechanisms that generate spatial heterogeneity and
+          maintain species coexistence in fire-prone ecosystems.
+
+indicators:
+  - name: Post-fire tree seedling density
+    description: >
+      Tree seedling density (seedlings per hectare) in burned areas one to five
+      years after wildfire is the primary indicator of forest successional
+      trajectory. High seedling densities indicate successful forest regeneration;
+      low or zero densities indicate recruitment failure and potential type
+      conversion to non-forest vegetation. Seedling density is mapped using
+      plot surveys across burn mosaics stratified by fire severity and post-fire
+      climate conditions.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Tree seedling density (seedlings ha-1) in burned plots 1-5 yr post-fire, stratified by burn severity class"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:27755710
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Repeatedly burned forests had 15% less woody surface fuels and 31% lower tree seedling densities compared with forests that only experienced one recent wildfire."
+        explanation: >
+          31% lower tree seedling densities in reburned forests compared to
+          once-burned forests validates seedling density as a sensitive indicator
+          of fire history effects on succession; the magnitude of density reduction
+          after repeated fire establishes seedling density as a quantitative
+          indicator of wildfire succession trajectory modification by fire
+          return interval.
+
+  - name: Post-fire vegetation community type
+    description: >
+      Classification of post-fire vegetation into functional community types
+      (regenerating forest, shrub-dominated, grass-dominated, or mixed ruderal)
+      from plot surveys and remote sensing imagery tracks wildfire successional
+      trajectory at landscape scale. The proportional cover of tree vs. shrub
+      vs. herb functional groups in burned areas indicates whether forest
+      succession or non-forest type conversion is occurring.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "% cover by functional group (trees, shrubs, grasses, forbs) from vegetation surveys in burned plots; community type classification using ordination"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:36054332
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "I describe seven postfire community types, including regenerating forests of ponderosa pine, aspen, and mixed conifers, shrub-dominated communities of Gambel oak and mixed species, and herb-dominated communities of native bunchgrasses and mixtures of ruderal, native, and nonnative species."
+        explanation: >
+          Classification of 361 post-fire plots into 7 community types covering
+          the forest-to-grassland successional spectrum provides the empirical
+          framework for vegetation community type as a wildfire succession
+          indicator; the diversity of post-fire community types across the same
+          fire events demonstrates that local climate and refugia proximity
+          determine successional endpoint independently of burn history.
+
+drivers:
+  - name: Fire severity and extent
+    description: >
+      Fire severity (degree of vegetation and soil organic matter consumption)
+      determines the magnitude of post-fire successional reset: high-severity
+      fire that kills most above-ground vegetation and eliminates seed banks
+      creates more extreme successional trajectories than low-severity surface
+      fire that leaves understory vegetation intact. The spatial mosaic of
+      fire severity across a landscape generates diverse successional trajectories
+      that together support high post-fire biodiversity.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:31298472
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the vegetation, topography and local weather conditions during a fire generate a landscape with spatial and temporal variation in fire-related patches (pyrodiversity), and these produce the biotic and environmental heterogeneity that drives biodiversity across local and regional scales."
+        explanation: >
+          Pyrodiversity generated by variation in fire severity, vegetation,
+          and weather conditions drives post-fire biodiversity through
+          environmental heterogeneity; fire severity is the primary driver
+          of patch-scale successional trajectory and is the major source of
+          spatial heterogeneity in the successional mosaic across burned landscapes.
+
+  - name: Post-fire climate and drought
+    description: >
+      Post-fire weather conditions, especially drought in the first growing season
+      after fire, are dominant determinants of tree seedling recruitment success
+      and long-term successional trajectory. A single extreme drought year after
+      fire is more damaging to tree recruitment than multiple moderate drought
+      years. Under projected climate warming, post-fire drought frequency and
+      severity are increasing, expanding the landscape fraction vulnerable to
+      post-fire type conversion.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:30516290
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "The occurrence of a single strong drought year following fire was more important than a series of moderately dry years in explaining tree recruitment declines."
+        explanation: >
+          Quantification of post-fire drought effects across 14 wildfires
+          establishes single-event extreme drought as a threshold driver
+          of recruitment failure; this nonlinear climate sensitivity means
+          that even infrequent future extreme drought events can fundamentally
+          alter wildfire succession trajectories across fire-prone landscapes.
+
+  - name: Seed source proximity and fire refugia
+    description: >
+      Post-fire tree regeneration depends on seed rain from surviving trees at
+      the fire perimeter or within unburned refugia inside the burn area.
+      Large severe burns with few interior refugia have lower seedling densities
+      and slower forest succession because seeds must disperse from distant edges.
+      Under high-severity fire regimes with large contiguous burn patches,
+      seed source limitation becomes a primary constraint on post-fire forest
+      recovery and successional progression.
+    driver_type: BIOTIC
+    evidence:
+      - reference: PMID:36054332
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Forest recovery was generally associated with cooler, mesic sites in proximity to forested refugia"
+        explanation: >
+          Proximity to forested refugia is a primary determinant of forest recovery
+          success in southwestern burns; refugia within the burn perimeter provide
+          seed sources that enable forest succession to proceed in adjacent areas
+          while distant warm/dry areas lacking seed sources default to shrub or
+          grassland successional endpoints.
+
+interventions:
+  - name: Prescribed fire to restore natural fire regimes
+    description: >
+      Prescribed burning to restore fire return intervals appropriate to fire-adapted
+      ecosystems (e.g., 2-10 yr intervals in ponderosa pine parklands) maintains
+      low fuel loads, creates the pyrodiversity that sustains post-fire biodiversity,
+      and reduces the probability of high-severity wildfire that triggers type
+      conversion. Prescribed fire reduces the long-term risk of catastrophic post-fire
+      type conversion by maintaining forest structure that supports rapid recovery
+      after the inevitable next wildfire.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:31298472
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "A paradigm shift aimed at restoring biodiversity-maintaining fire regimes across broad landscapes is required among the fire research and management communities."
+        explanation: >
+          He et al. call for restoration of natural fire regimes as the primary
+          conservation intervention for fire-adapted ecosystems; prescribed fire
+          management that reintroduces fire at ecologically appropriate intervals
+          and severities directly addresses the loss of pyrodiversity that drives
+          post-fire biodiversity and maintains landscape heterogeneity.
+
+  - name: Post-fire tree planting in areas of recruitment failure
+    description: >
+      Where post-fire drought or large burn patch size causes near-complete tree
+      recruitment failure, active reforestation through container seedling planting
+      can supplement natural regeneration and guide succession toward forest rather
+      than shrub or grassland endpoints. Climate-matched seed sourcing and targeting
+      of mesic microsites reduces seedling mortality; reforestation is most effective
+      as a complement to natural regeneration rather than a replacement.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:36054332
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "forest to nonforest conversion was partially offset under a scenario of reduced burn severity and increased retention of forested refugia, highlighting important management opportunities."
+        explanation: >
+          Modeling shows that management to retain forested refugia (including
+          planting to establish seed sources) can partially offset climate-driven
+          type conversion; this management pathway — creating refugia that serve
+          as seed sources for surrounding recruitment failure areas — is the
+          primary intervention to guide wildfire succession toward forest endpoints
+          under warming climate conditions.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Temperate forests with mixed conifer-broadleaf composition represent
+      classic wildfire succession ecosystems; post-fire community trajectories
+      range from rapid forest recovery (mesic sites with refugia) to
+      persistent shrubland (warm, dry sites with failed tree recruitment)
+
+creation_date: "2026-09-02T00:00:00Z"

@@ -1,0 +1,371 @@
+id: ECOCORE:00000200
+name: Pollination
+process_term:
+  id: ECOCORE:00000200
+  label: pollination
+description: >
+  Pollination is the transfer of pollen from the anther of a flower to a
+  compatible stigma, enabling fertilization and seed production in flowering
+  plants. The vast majority of wild plant species and approximately 75% of
+  leading global crop species depend on animal pollinators for reproduction.
+  Pollinators—principally bees (wild native species and managed Apis mellifera),
+  but also butterflies, moths, flies, beetles, birds, and bats—are attracted
+  to flowers by nectar and pollen rewards, inadvertently transferring pollen
+  during foraging. This mutualistic interaction drives plant gene flow, maintains
+  plant population connectivity, and supports ecosystem structure and function
+  through seed and fruit production. Documented declines in wild and managed
+  pollinator populations—driven by habitat loss, agrochemical exposure, pathogens,
+  invasive species, and climate change—threaten both wild plant diversity and
+  global food security.
+synonyms:
+  - animal pollination
+  - biotic pollination
+  - entomophily
+  - zoophily
+  - bee pollination
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Pollen Transport by Foraging Insects
+    description: >
+      Bees and other insect pollinators visit flowers to collect nectar and pollen
+      as food rewards. During floral contact, pollen grains adhere to the pollinator
+      body and are carried to subsequent flowers of the same or compatible species,
+      effecting cross-pollination. Pollinator behavior—including floral constancy
+      (visiting one species per foraging bout), visit frequency, and body size
+      relative to flower morphology—determines pollen transfer efficiency.
+      Native bee communities typically include functionally complementary species
+      with different body sizes, tongue lengths, and foraging behaviors that
+      collectively pollinate a broader range of plant species than any single
+      pollinator species.
+    biological_processes:
+      - term:
+          id: GO:0009856
+          label: pollination
+        evidence:
+          - reference: PMID:19482881
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Some of the most exciting advances in pollination biology have resulted from interdisciplinary research combining ecological and evolutionary perspectives."
+            explanation: >
+              Mitchell et al. establish pollination biology as a field requiring
+              integration of ecological and evolutionary perspectives; the
+              mechanistic links between pollinator behavior (floral visits,
+              pollen transport) and plant mating systems are central to
+              understanding pollen transfer efficiency across diverse plant-pollinator
+              systems.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000193
+          label: mutualism
+        evidence:
+          - reference: PMID:20188434
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Pollinators are a key component of global biodiversity, providing vital ecosystem services to crops and wild plants."
+            explanation: >
+              Pollination is a mutualism: pollinators gain caloric rewards from
+              flowers while providing the pollen transfer service essential for
+              plant reproduction; the provision of ecosystem services to both
+              wild plants and crops from this mutualistic interaction establishes
+              pollination as a keystone biotic process in terrestrial ecosystems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:7460
+          label: Apis mellifera
+        role: OTHER
+        description: >
+          The western honey bee is the dominant managed pollinator of global
+          agricultural crops; honey bee colonies are deployed to supplement
+          wild pollination in agricultural landscapes, but Colony Collapse
+          Disorder and disease have caused widespread losses of managed honey
+          bee colonies, increasing reliance on wild bee species
+      - taxon:
+          id: NCBITaxon:27641
+          label: Bombus
+        role: OTHER
+        description: >
+          Bumblebees are the most important wild bee pollinators in temperate
+          ecosystems; their large body size, long tongues, and buzz pollination
+          behavior enable access to flowers unavailable to honey bees, and their
+          populations buffer agricultural pollination when honey bee colonies decline
+    causal_edges:
+      - subject: Bee foraging visits to flowers
+        predicate: CAUSES
+        object: Pollen deposition on stigma and plant fertilization
+      - subject: Floral reward provision (nectar, pollen)
+        predicate: ENABLES
+        object: Pollinator foraging and repeat floral visitation
+    evidence:
+      - reference: PMID:17877737
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "native bees alone provide sufficient pollination at > 90% of the farms studied."
+        explanation: >
+          Field measurement of watermelon pollination at 23 New Jersey/Pennsylvania
+          farms demonstrates that native wild bee species alone can provide
+          sufficient pollen transfer for crop production at most sites;
+          this quantifies native bee pollination effectiveness and establishes
+          that functional pollen transport is routinely achieved by wild bee
+          communities without managed honey bees.
+
+  - name: Pollinator Diversity Provides Functional Insurance for Pollination Services
+    description: >
+      Native bee communities comprising functionally diverse species provide
+      biological insurance for pollination: when one pollinator species declines,
+      others can compensate through behavioral plasticity and niche overlap. Total
+      pollen deposition on crop flowers is strongly correlated with native bee
+      visitation frequency and community diversity, but not with honey bee
+      visitation alone. The functional complementarity of native bee assemblages—
+      combining species with different body sizes, tongue lengths, and phenologies—
+      ensures robust pollination of plants with diverse floral architectures across
+      spatially and temporally variable landscapes.
+    biological_processes:
+      - term:
+          id: GO:0009856
+          label: pollination
+        evidence:
+          - reference: PMID:17877737
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "empirical total pollen deposition at flowers was strongly, significantly correlated with native bee visitation but not with honey bee visitation."
+            explanation: >
+              Direct measurement of pollen deposition at 23 watermelon farms
+              shows that crop pollination effectiveness is driven by native
+              wild bee visitation rather than managed honey bees; this establishes
+              native bee functional diversity as the ecological mechanism
+              underpinning reliable pollen transfer and crop fertilization.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000200
+          label: pollination
+        evidence:
+          - reference: PMID:17877737
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "native bees will buffer potential declines in agricultural production because of honey bee losses."
+            explanation: >
+              Native bee communities provide biological insurance for agricultural
+              pollination against honey bee Colony Collapse Disorder; this
+              insurance mechanism — where native bee diversity compensates for
+              loss of a single dominant pollinator — exemplifies how pollinator
+              community diversity underpins resilient ecosystem pollination services.
+    causal_edges:
+      - subject: Native bee community functional diversity
+        predicate: CAUSES
+        object: Biological insurance against pollination failure following honey bee decline
+      - subject: Wild bee species complementarity
+        predicate: ENABLES
+        object: Robust pollen transfer to diverse floral morphologies across landscapes
+    evidence:
+      - reference: PMID:18926704
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "agriculture has become more pollinator dependent because of a disproportionate increase in the area cultivated with pollinator-dependent crops."
+        explanation: >
+          45-year FAO data analysis shows that the global agricultural system
+          has become progressively more dependent on pollinator services;
+          increasing cultivation of pollinator-dependent crops with stagnant
+          or declining pollinator supply demonstrates that maintaining diverse
+          native pollinator communities is increasingly critical for global
+          food production.
+
+indicators:
+  - name: Fruit and seed set rate
+    description: >
+      The proportion of flowers that develop into fruits or seeds (fruit set, seed
+      set) is the most direct indicator of pollination success at the plant level.
+      Pollen-limited species show dramatically reduced fruit/seed set when
+      pollinators are excluded; comparing open-pollinated and hand-pollinated
+      treatments quantifies the degree of pollinator dependence and pollination
+      adequacy in a community.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Fruit set (% flowers producing fruit) and seed number per fruit under open vs. excluded pollinator treatments"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:17877737
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "native bees alone provide sufficient pollination at > 90% of the farms studied."
+        explanation: >
+          Simulation model partitioning pollen contributions from native bees
+          and honey bees across 23 farms demonstrates that fruit set sufficiency
+          can be predicted from native bee visitation data; fruit/seed set
+          is thereby validated as the key indicator linking bee community
+          composition to plant reproductive success.
+
+  - name: Pollinator visitation rate and species richness
+    description: >
+      The number of flower visits per unit time (visitation rate) and the
+      species richness of flower visitors directly quantify pollination service
+      delivery. Standardized transect surveys or time-lapse observation at focal
+      plant patches track pollinator community composition, functional diversity,
+      and visitation frequency — all of which predict effective pollen transfer
+      and plant reproductive success.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "Flower visits per plant per hour across timed observation periods; pollinator species richness per site (pan trap or net survey)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:20188434
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "There is clear evidence of recent declines in both wild and domesticated pollinators, and parallel declines in the plants that rely upon them."
+        explanation: >
+          Parallel declines in pollinators and the plants that depend on them
+          confirm that pollinator visitation rate and species richness are
+          meaningful indicators of ecosystem pollination services; declines
+          in these indicators directly predict degradation of plant reproduction
+          and community composition in pollinator-dependent ecosystems.
+
+  - name: Managed honeybee colony numbers and wild bee abundance
+    description: >
+      Monitoring managed honey bee colony numbers (per region) and wild bee
+      abundance (from transect surveys) tracks the pollinator supply available
+      to agricultural and wild plant communities. Long-term trends in both
+      measures indicate whether pollination services are sustaining, declining,
+      or recovering, particularly as colony losses from disease and pests
+      increase managed bee mortality.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Managed honey bee colonies per km2 agricultural land (FAO data); wild bee abundance per standard pan-trap survey"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:18926704
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "If the trend toward favoring cultivation of pollinator-dependent crops continues, the need for the service provided by declining pollinators will greatly increase in the near future."
+        explanation: >
+          FAO crop data analysis demonstrates a growing gap between demand
+          for pollination services (increasing pollinator-dependent crop area)
+          and pollinator supply (declining bee populations); monitoring pollinator
+          abundance against crop pollinator demand provides the key indicator
+          of pollination service vulnerability and food security risk.
+
+drivers:
+  - name: Habitat loss and landscape fragmentation
+    description: >
+      Conversion of wildflower-rich habitats (hedgerows, meadows, grasslands,
+      woodland margins) to agricultural monocultures removes nesting sites and
+      floral resources for wild bees and other pollinators. Landscape
+      fragmentation isolates pollinator populations and reduces connectivity
+      between remaining habitat patches, limiting recolonization after local
+      extinction. Habitat loss is the dominant driver of wild pollinator declines
+      in agricultural landscapes.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:20188434
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Pollinator declines can result in loss of pollination services which have important negative ecological and economic impacts that could significantly affect the maintenance of wild plant diversity, wider ecosystem stability, crop production, food security and human welfare."
+        explanation: >
+          Potts et al. review establishes habitat loss as a primary driver
+          of pollinator declines whose ecosystem-level consequences cascade
+          from wild plant diversity to crop production and food security;
+          landscape-scale habitat management is therefore the primary lever
+          for reversing pollinator declines and maintaining pollination services.
+
+  - name: Agrochemicals — insecticides and fungicides
+    description: >
+      Systemic neonicotinoid insecticides applied to crops accumulate in pollen
+      and nectar, exposing bees to sublethal doses that impair navigation, learning,
+      foraging efficiency, and reproduction. Fungicides applied during bloom can
+      reduce pollen nutritional quality and interact synergistically with insecticides
+      to increase pollinator mortality. Agrochemical exposure is a major driver of
+      wild and managed bee colony declines in agricultural landscapes.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:20188434
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "we describe the nature and extent of reported declines, and review the potential drivers of pollinator loss, including habitat loss and fragmentation, agrochemicals, pathogens, alien species, climate change and the interactions between them."
+        explanation: >
+          Potts et al. identify agrochemicals as a key interacting driver of
+          pollinator loss alongside habitat loss; the multi-driver framework
+          recognizes that agrochemical stress compounds effects of habitat
+          degradation, pathogen load, and climate change on pollinator populations,
+          requiring integrated landscape-scale management to address.
+
+  - name: Pathogens and parasites (Varroa destructor, Nosema)
+    description: >
+      Parasitic mites (Varroa destructor) and microsporidian pathogens (Nosema
+      ceranae) are major drivers of managed honey bee colony collapse and stress
+      wild native bee populations. Varroa mites parasitize honey bee pupae
+      and adults, vectoring multiple viruses that individually and synergistically
+      weaken colony immune function. Pathogen-driven colony losses reduce managed
+      pollinator supply and increase reliance on native wild bee communities.
+    driver_type: BIOTIC
+    evidence:
+      - reference: PMID:20188434
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "There is clear evidence of recent declines in both wild and domesticated pollinators, and parallel declines in the plants that rely upon them."
+        explanation: >
+          Documented parallel declines in both wild and domesticated pollinators
+          confirm that pathogen and parasite pressure affects pollinators across
+          management regimes; the parallel decline in pollinator-dependent plants
+          validates that pathogen-driven pollinator losses translate to measurable
+          ecosystem-level consequences for plant reproduction and community structure.
+
+interventions:
+  - name: Agri-environment schemes to restore wildflower habitat
+    description: >
+      Policy-supported agri-environment schemes that establish wildflower strips,
+      field margins, hedgerows, and flower-rich meadows in agricultural landscapes
+      restore floral resources and nesting habitat for native bees. Targeted sowing
+      of native wildflower mixes with diverse bloom phenology ensures continuous
+      resource provision across the growing season, supporting functionally diverse
+      pollinator communities capable of providing crop pollination insurance.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:20188434
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "habitat loss and fragmentation, agrochemicals, pathogens, alien species, climate change and the interactions between them"
+        explanation: >
+          By identifying habitat loss as the primary driver of pollinator declines,
+          Potts et al. establish habitat restoration through agri-environment schemes
+          as the most direct intervention target; restoring wildflower habitat
+          addresses the root cause of pollinator decline by re-establishing
+          floral resources and nesting opportunities in agricultural landscapes.
+
+  - name: Integrated pest management to reduce pollinator exposure to pesticides
+    description: >
+      Restricting neonicotinoid seed treatments and foliar insecticide applications
+      during crop bloom reduces pollinator exposure to systemic pesticides.
+      Integrated pest management (IPM) approaches that substitute biological
+      controls, crop rotation, and selective chemistry for broad-spectrum
+      insecticides protect pollinator communities while maintaining crop pest control.
+      Regulatory restrictions on neonicotinoid use in the EU have reduced honey
+      bee colony losses in countries with strong enforcement.
+    intervention_type: MITIGATION
+    evidence:
+      - reference: PMID:17877737
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "We predict that in our region native bees will buffer potential declines in agricultural production because of honey bee losses."
+        explanation: >
+          Native bee communities provide insurance against honey bee losses;
+          reducing pesticide pressure on native bees through IPM approaches
+          maintains the wild pollinator communities that provide this insurance,
+          ensuring agricultural pollination services remain robust even if
+          managed honey bee colony numbers remain depressed by disease pressure.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Temperate forests provide nesting habitat (hollow stems, bare ground,
+      dead wood) and diverse understory floral resources for wild bees and
+      other pollinators; forest edges and woodland margins are particularly
+      important pollinator corridors in fragmented agricultural landscapes
+
+creation_date: "2026-09-02T00:00:00Z"

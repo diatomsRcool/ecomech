@@ -1,0 +1,473 @@
+id: ECOCORE:00000203
+name: Carbon Sequestration
+process_term:
+  id: ECOCORE:00000203
+  label: carbon sequestration
+description: >
+  Carbon sequestration is the long-term removal and storage of carbon dioxide
+  from the atmosphere into terrestrial, freshwater, and coastal ocean ecosystems.
+  Forests are the dominant terrestrial carbon sink, sequestering 2.4 ± 0.4
+  petagrams of carbon per year globally through photosynthesis and biomass
+  accumulation. The forest carbon sink comprises both old-growth intact forest
+  (sequestering ~0.85 Pg C yr-1) and regrowing disturbed stands (~1.30 Pg C yr-1).
+  Peatlands, despite covering only ~3% of land area, store approximately one-third
+  of global soil carbon in accumulated Sphagnum litter and other organic material
+  under waterlogged, anaerobic conditions. Vegetated coastal ecosystems
+  (mangroves, salt marshes, seagrasses — collectively "blue carbon") sequester
+  carbon at high rates per unit area in sediment organic matter. Carbon
+  sequestration rates are controlled by primary productivity, decomposition
+  rates, and disturbance regimes; land-use change, deforestation, and peatland
+  drainage are the primary human activities that convert carbon sinks to sources.
+synonyms:
+  - terrestrial carbon sink
+  - forest carbon sink
+  - blue carbon
+  - peatland carbon accumulation
+  - soil carbon storage
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Forest Biomass Carbon Accumulation
+    description: >
+      Forests sequester carbon primarily through photosynthetic fixation of CO2
+      into woody biomass—tree stems, branches, and roots. Net ecosystem production
+      (NEP = gross primary production minus ecosystem respiration) determines
+      the rate of carbon accumulation in living biomass and soil. Intact old-growth
+      forests sequester carbon in increasing biomass stocks, while regrowing
+      forests following harvest or disturbance sequester carbon rapidly during
+      early succession as biomass returns to pre-disturbance levels. Forest
+      demography (age structure, species composition) is a primary determinant
+      of the magnitude and longevity of the forest carbon sink.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:21764754
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "we estimate a total forest sink of 2.4 ± 0.4 petagrams of carbon per year (Pg C year(-1)) globally for 1990 to 2007."
+            explanation: >
+              Pan et al.'s global forest inventory synthesis quantifies photosynthesis-
+              driven carbon accumulation as a 2.4 Pg C yr-1 sink spanning all
+              forest biomes; this landmark estimate establishes the magnitude
+              of forest biomass carbon sequestration as the dominant terrestrial
+              mechanism offsetting anthropogenic CO2 emissions globally.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000203
+          label: carbon sequestration
+        evidence:
+          - reference: PMID:21764754
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "The terrestrial carbon sink has been large in recent decades, but its size and location remain uncertain."
+            explanation: >
+              Forest inventory data across 50 countries establishes the
+              large-scale reality of terrestrial carbon sequestration through
+              forest biomass accumulation; the persistent sink despite
+              ongoing tropical deforestation demonstrates the combined
+              sequestration capacity of intact forests and recovering second-growth.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3193
+          label: Embryophyta
+        role: PRIMARY_PRODUCER
+        ecological_function:
+          id: ECOCORE:00000009
+          label: autotrophy
+        description: >
+          Land plants (trees, shrubs, grasses, mosses) are the primary agents
+          of terrestrial carbon sequestration; woody trees dominate forest
+          carbon stocks through biomass accumulation, while Sphagnum mosses
+          accumulate peat carbon under waterlogged conditions in boreal and
+          subarctic peatlands
+    causal_edges:
+      - subject: Photosynthesis in forest trees
+        predicate: CAUSES
+        object: Net removal of CO2 from atmosphere into woody biomass carbon stocks
+      - subject: Forest age and biomass accumulation
+        predicate: MODULATES
+        object: Rate and longevity of forest carbon sink
+    evidence:
+      - reference: PMID:30782807
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "we find a carbon sink of 0.85 (0.66-0.96) Pg year-1 located in intact old-growth forest, primarily in the moist tropics and boreal Siberia, and 1.30 (1.03-1.96) Pg year-1 located in stands regrowing after past disturbance."
+        explanation: >
+          Partitioning of the global forest carbon sink between old-growth and
+          regrowing stands reveals that both forest types contribute substantially
+          to carbon sequestration, with regrowing disturbed forests contributing
+          slightly more to current annual uptake; this age-structure dependence
+          establishes forest demography as a mechanistic driver of carbon sink
+          magnitude.
+
+  - name: Peatland Carbon Accumulation Under Anaerobic Decomposition Limitation
+    description: >
+      Peatlands sequester carbon through a fundamental imbalance between plant
+      primary production (primarily by Sphagnum mosses and sedges) and decomposition:
+      waterlogged anaerobic conditions suppress microbial decomposition of organic
+      matter, allowing carbon to accumulate as peat over centuries to millennia.
+      Peat deposits typically extend several meters deep and store 10–20 times
+      more carbon per unit area than forests. Drainage of peatlands for agriculture
+      or forestry exposes peat to oxygen, triggering rapid oxidation and releasing
+      centuries of stored carbon. Rewetted peatlands can recover carbon sink
+      status within years, returning to net annual CO2 uptake comparable to
+      intact peatlands.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:30225998
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "The restored peatland was an annual sink for CO2 (-90 ± 18 g C m-2  year-1 ), a source of CH4 (4.4 ± 0.2 g C m-2  year-1 ), and a source of DOC (6.9 ± 2.2 g C m-2  year-1 ), resulting in mean net ecosystem uptake of 78 ± 17 g C m-2  year-1 ."
+            explanation: >
+              Multi-year eddy covariance measurements at a restored peatland
+              quantify the net carbon balance where photosynthetic CO2 uptake
+              exceeds CH4 and DOC emissions; the net ecosystem carbon uptake
+              of 78 g C m-2 yr-1 demonstrates that restored peatlands recover
+              carbon sequestration through re-establishment of photosynthetically
+              active Sphagnum and sedge communities.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000203
+          label: carbon sequestration
+        evidence:
+          - reference: PMID:30225998
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Integrating structures to increase water retention, alongside re-establishing key species, have been effective at re-establishing the net C sink rate to that of an intact peatland."
+            explanation: >
+              Restoration of carbon sequestration function in a degraded peatland
+              through rewetting and species reintroduction demonstrates that
+              peatland carbon sequestration is a recoverable ecosystem service;
+              water table management is the primary restoration lever enabling
+              the anaerobic conditions that suppress decomposition and
+              enable net carbon accumulation.
+    causal_edges:
+      - subject: Waterlogged anaerobic conditions in peatland
+        predicate: INHIBITS
+        object: Microbial decomposition of peat organic matter
+      - subject: Net primary production minus suppressed decomposition
+        predicate: CAUSES
+        object: Long-term carbon accumulation as peat
+    evidence:
+      - reference: PMID:30225998
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Small but significant differences in winter respiration driven by temperature were mainly responsible for differences in cumulative NEE between years."
+        explanation: >
+          Winter respiration variability drives interannual variation in net
+          ecosystem carbon balance; this sensitivity confirms that decomposition
+          (respiration) suppression under anaerobic peat conditions is the
+          primary mechanism enabling peatland carbon sequestration — temperature-
+          driven respiration variation modulates but does not override the
+          dominant anaerobic decomposition limitation.
+
+  - name: Coastal Blue Carbon Sequestration in Vegetated Ecosystems
+    description: >
+      Mangroves, salt marshes, and seagrass beds sequester carbon at rates
+      per unit area among the highest of any ecosystem, primarily through
+      burial of organic matter in anoxic coastal sediments. Sediment carbon
+      stocks in these ecosystems can reach 280 Mg C ha-1 (mangroves) and
+      250 Mg C ha-1 (tidal marshes) in the top meter — comparable to or
+      exceeding tropical forests despite their small global extent (~49 million ha).
+      Conversion and degradation of these coastal ecosystems releases 0.15–1.02
+      Pg CO2 per year globally — up to 19% above current deforestation emissions.
+      Protection and restoration of blue carbon ecosystems is therefore a
+      significant but currently underaccounted climate mitigation opportunity.
+    biological_processes:
+      - term:
+          id: GO:0015979
+          label: photosynthesis
+        evidence:
+          - reference: PMID:22962585
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Recent attention has focused on the high rates of annual carbon sequestration in vegetated coastal ecosystems--marshes, mangroves, and seagrasses--that may be lost with habitat destruction ('conversion')."
+            explanation: >
+              Pendleton et al. highlight the high per-unit-area carbon
+              sequestration rates of vegetated coastal ecosystems driven
+              by photosynthetic productivity and anaerobic sediment carbon
+              burial; the threatened loss of these rates through habitat
+              conversion establishes blue carbon sequestration as a priority
+              target for coastal ecosystem protection.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000203
+          label: carbon sequestration
+        evidence:
+          - reference: PMID:22962585
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Residing mostly in sediments, this 'blue carbon' can be released to the atmosphere when these ecosystems are converted or degraded."
+            explanation: >
+              The sediment-resident nature of blue carbon stocks establishes
+              coastal ecosystem conservation as carbon sequestration protection;
+              the release pathway (anaerobic sediment destabilization upon
+              conversion) is the inverse of the sequestration mechanism,
+              confirming that waterlogged anaerobic conditions enabling
+              carbon burial are the functional core of blue carbon sequestration.
+    causal_edges:
+      - subject: Coastal vegetation primary production and sediment anoxia
+        predicate: CAUSES
+        object: Burial and long-term storage of organic carbon in coastal sediments
+      - subject: Coastal ecosystem conversion or degradation
+        predicate: INHIBITS
+        object: Blue carbon sequestration and releases stored sediment carbon to atmosphere
+    evidence:
+      - reference: PMID:22962585
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "we estimate that 0.15-1.02 Pg (billion tons) of carbon dioxide are being released annually, several times higher than previous estimates that account only for lost sequestration."
+        explanation: >
+          Global estimate of blue carbon emissions from coastal ecosystem
+          conversion quantifies the sequestration service at risk; estimated
+          annual releases of 0.15–1.02 Pg CO2 — exceeding lost sequestration
+          potential — establish coastal carbon stock protection as a major
+          climate mitigation intervention complementary to forest carbon
+          conservation.
+
+indicators:
+  - name: Net ecosystem carbon balance (NEE, NBP)
+    description: >
+      Net ecosystem exchange (NEE) measured by eddy covariance towers quantifies
+      the net carbon flux between terrestrial ecosystems and the atmosphere on
+      hourly to decadal timescales. Negative NEE (carbon uptake by ecosystem)
+      indicates active carbon sequestration. Net biome production (NBP) integrates
+      NEE with lateral carbon exports and disturbance emissions to quantify
+      landscape-scale net carbon balance. These flux measurements are the primary
+      direct indicators of ecosystem carbon sequestration rates.
+    indicator_term:
+      id: PATO:0001332
+      label: rate of change
+    measurement: "NEE (g C m-2 yr-1) by eddy covariance; NBP (Pg C yr-1) by forest inventory integration; negative values indicate net carbon uptake"
+    frequency: UBIQUITOUS
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:30225998
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "The restored peatland was an annual sink for CO2 (-90 ± 18 g C m-2  year-1 ), a source of CH4 (4.4 ± 0.2 g C m-2  year-1 ), and a source of DOC (6.9 ± 2.2 g C m-2  year-1 ), resulting in mean net ecosystem uptake of 78 ± 17 g C m-2  year-1 ."
+        explanation: >
+          Multi-year eddy covariance measurements provide the empirical
+          baseline for peatland carbon sequestration rates and the carbon
+          balance accounting framework (NEE - CH4 - DOC = net C balance);
+          this multi-component approach is the standard method for quantifying
+          net carbon sequestration in wetland and peatland ecosystems where
+          CH4 and DOC fluxes modify the CO2-based NEE.
+
+  - name: Forest biomass carbon density and stock change
+    description: >
+      Forest carbon density (Mg C ha-1) and annual stock changes (Mg C ha-1 yr-1)
+      derived from repeated forest inventory measurements quantify forest biomass
+      carbon sequestration. Global forest inventory networks estimate regional
+      and global forest carbon sinks from tree diameter growth and mortality data.
+      Aboveground biomass carbon is the largest and most directly measurable forest
+      carbon pool; soil organic carbon, litter, and coarse woody debris are
+      additional carbon pools measured in comprehensive inventories.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Forest biomass carbon density (Mg C ha-1) from tree inventory; annual stock change (Mg C ha-1 yr-1) from repeated inventories or allometric models"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Using forest inventory data and long-term ecosystem carbon studies, we estimate a total forest sink of 2.4 ± 0.4 petagrams of carbon per year (Pg C year(-1)) globally for 1990 to 2007."
+        explanation: >
+          Pan et al.'s forest inventory-based global synthesis establishes
+          biomass stock change from forest inventories as the primary method
+          for quantifying global-scale forest carbon sequestration; the 50-country
+          dataset spanning 17 years demonstrates that repeat forest inventory
+          data can robustly estimate net carbon sink magnitude at global scale.
+
+  - name: Forest age structure (old-growth vs. regrowth fraction)
+    description: >
+      The proportion of forest area in old-growth vs. regrowing stands
+      predicts the partitioning of carbon sequestration between stable
+      long-term carbon stocks (old-growth) and large but transient biomass
+      accumulation (regrowth). Satellite-derived and inventory-based forest
+      age maps enable global tracking of the regrowth carbon sink contribution
+      and its expected dynamics as regrowing forests age.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Forest stand age distribution (years) from satellite time series or forest inventory records; % area in regrowth vs. old-growth by biome"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:30782807
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "it is not possible to understand the current global terrestrial carbon sink without accounting for the sizeable sink due to forest demography."
+        explanation: >
+          Pugh et al.'s model-inventory integration establishes forest age
+          structure (demography) as an essential component of carbon sink
+          accounting; failure to partition old-growth from regrowth contributions
+          obscures the sink mechanism and makes accurate prediction of future
+          sink dynamics impossible, making forest age distribution a necessary
+          indicator for carbon sequestration monitoring.
+
+drivers:
+  - name: Deforestation and land-use change
+    description: >
+      Deforestation converts forest carbon sinks to sources, releasing stored
+      biomass and soil carbon to the atmosphere. Gross tropical deforestation
+      emits approximately 2.9 ± 0.5 Pg C yr-1, partially offset by tropical
+      forest regrowth (1.6 Pg C yr-1). The net effect of tropical land-use
+      change is a carbon source of 1.3 ± 0.7 Pg C yr-1. Halting deforestation
+      in primary tropical forests is the single most impactful land-based
+      climate mitigation measure.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "We also estimate a source of 1.3 ± 0.7 Pg C year(-1) from tropical land-use change, consisting of a gross tropical deforestation emission of 2.9 ± 0.5 Pg C year(-1) partially compensated by a carbon sink in tropical forest regrowth of 1.6 ± 0.5 Pg C year(-1)."
+        explanation: >
+          Quantified deforestation emissions (2.9 Pg C yr-1) partially offset
+          by regrowth sink (1.6 Pg C yr-1) establishes tropical deforestation
+          as the primary anthropogenic driver converting forest carbon sinks to
+          sources; the net tropical land-use source of 1.3 Pg C yr-1 must be
+          reduced through deforestation halt and restoration to achieve net
+          global carbon sequestration goals.
+
+  - name: Peatland drainage and degradation
+    description: >
+      Drainage of peatlands for agriculture, forestry, and peat extraction
+      exposes accumulated organic carbon to aerobic decomposition, converting
+      peat carbon sinks to large CO2 sources. Degraded tropical peatlands
+      (particularly in Southeast Asia) emit hundreds of millions of tonnes of
+      CO2 per year. Rewetting and restoration of drained peatlands is a
+      cost-effective climate mitigation strategy that rapidly restores
+      carbon sink function.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:30225998
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Peatlands after drainage and extraction are large sources of carbon (C) to the atmosphere."
+        explanation: >
+          Direct evidence that peatland drainage converts net carbon sinks
+          to net carbon sources confirms peatland drainage as a major
+          anthropogenic driver of carbon sequestration loss; the restoration
+          of carbon sink function following rewetting demonstrates that
+          drainage is the proximal cause of peat carbon source behavior,
+          making water table management the primary lever for peatland
+          carbon sequestration restoration.
+
+  - name: Climate warming and elevated CO2
+    description: >
+      Rising atmospheric CO2 concentrations stimulate photosynthesis and forest
+      growth via CO2 fertilization, contributing to carbon sequestration enhancement
+      in some regions. Conversely, climate warming accelerates ecosystem respiration
+      and disturbance regimes (drought, fire, pest outbreaks), potentially reducing
+      carbon sink capacity. The balance between CO2 fertilization enhancement
+      and warming-driven respiration and disturbance increases will determine the
+      future trajectory of terrestrial carbon sinks under climate change.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:30782807
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Although the existence of a large carbon sink in terrestrial ecosystems is well-established, the drivers of this sink remain uncertain."
+        explanation: >
+          Uncertainty in terrestrial carbon sink drivers — including the
+          relative contributions of CO2 fertilization, climate, and forest
+          demography — highlights the complexity of predicting future sequestration
+          under climate change; understanding the interplay between climate
+          drivers and forest age structure is essential for projecting whether
+          terrestrial carbon sinks will strengthen or weaken in coming decades.
+
+interventions:
+  - name: Forest protection and reforestation
+    description: >
+      Halting deforestation in intact primary forests protects existing biomass
+      carbon stocks and allows forests to continue sequestering carbon as they
+      grow. Reforestation and afforestation of degraded lands allows new carbon
+      sinks to develop through forest regrowth. Policies including REDD+ (Reduced
+      Emissions from Deforestation and Degradation) provide economic incentives
+      for forest protection in tropical countries.
+    intervention_type: MITIGATION
+    evidence:
+      - reference: PMID:21764754
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Together, the fluxes comprise a net global forest sink of 1.1 ± 0.8 Pg C year(-1), with tropical estimates having the largest uncertainties."
+        explanation: >
+          The large net global forest carbon sink establishes forests as the
+          primary natural carbon sequestration system that deforestation halt
+          and reforestation can protect and expand; the tropical uncertainty
+          highlights that improving tropical forest monitoring and protection
+          is the highest-leverage action for securing the global forest carbon sink.
+
+  - name: Peatland rewetting and restoration
+    description: >
+      Rewetting drained peatlands by blocking drainage ditches and restoring
+      water table levels re-establishes anaerobic conditions that suppress
+      decomposition and restore carbon sequestration. Restored peatlands can
+      return to net CO2 sink status within years of rewetting, with annual
+      uptake rates comparable to intact reference peatlands. Peatland rewetting
+      is recognized as one of the most cost-effective climate change mitigation
+      measures per tonne of CO2 equivalent.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:30225998
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Integrating structures to increase water retention, alongside re-establishing key species, have been effective at re-establishing the net C sink rate to that of an intact peatland."
+        explanation: >
+          Multi-year measurements demonstrate that peatland rewetting with
+          water retention structures and Sphagnum reintroduction can fully
+          restore carbon sink rates to those of intact reference peatlands;
+          this evidence directly supports peatland rewetting as a proven,
+          effective carbon sequestration restoration intervention.
+
+  - name: Coastal blue carbon ecosystem protection
+    description: >
+      Protecting mangroves, salt marshes, and seagrass beds from conversion
+      conserves both ongoing carbon sequestration rates and large standing
+      sediment carbon stocks. Inclusion of blue carbon in national emissions
+      accounting and carbon markets (through REDD+ analogues for coastal
+      ecosystems) creates economic incentives for coastal habitat conservation.
+      Restoration of degraded mangroves and seagrasses additionally expands
+      blue carbon sequestration capacity.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:22962585
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "policies encouraging the sustainable management of coastal ecosystems could significantly reduce carbon emissions from the land-use sector, in addition to sustaining the well-recognized ecosystem services of coastal habitats."
+        explanation: >
+          Pendleton et al. conclude that coastal ecosystem management policies
+          can significantly reduce land-use carbon emissions by protecting
+          blue carbon stocks; this establishes blue carbon conservation as
+          both a climate mitigation intervention and an ecosystem services
+          co-benefit opportunity, providing multi-objective justification
+          for coastal habitat protection programs.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Temperate forests are significant carbon sinks where deciduous and mixed
+      forest biomass accumulation, soil organic matter, and coarse woody debris
+      represent major carbon pools maintained by ongoing photosynthetic uptake
+      exceeding ecosystem respiration in mature and regrowing stands
+
+  - habitat_term:
+      id: ENVO:00000043
+      label: wetland
+    description: >
+      Peatland wetlands are the most carbon-dense terrestrial ecosystems;
+      Sphagnum-dominated bogs and sedge-dominated fens accumulate peat carbon
+      under anaerobic waterlogged conditions, storing disproportionate global
+      carbon stocks relative to their area in boreal, subarctic, and tropical regions
+
+creation_date: "2026-09-02T00:00:00Z"

@@ -1,0 +1,421 @@
+id: ECOCORE:00000199
+name: Iron Cycling
+process_term:
+  id: ECOCORE:00000199
+  label: iron cycling
+description: >
+  Iron cycling is the biogeochemical transformation of iron between its ferric
+  (Fe(III)) and ferrous (Fe(II)) oxidation states, mediated by microorganisms in
+  soils, sediments, and aquatic environments. Iron is the fourth most abundant
+  element in the Earth's crust, and its redox cycling drives carbon and nutrient
+  transformations in anaerobic environments where Fe(III) serves as a terminal
+  electron acceptor for microbial respiration. Dissimilatory iron-reducing bacteria
+  such as Geobacter and Shewanella couple the oxidation of organic matter to
+  the reduction of Fe(III) oxides, releasing ferrous iron and driving phosphorus
+  mobilization, trace metal transformations, and methane suppression. Iron-oxidizing
+  bacteria re-oxidize Fe(II) under both oxic and anoxic (nitrate-dependent) conditions,
+  completing the iron redox cycle. Biogeochemical iron cycling is coupled to the
+  carbon, nitrogen, phosphorus, and sulfur cycles and exerts strong controls on
+  greenhouse gas emissions and contaminant fate in soils and sediments.
+synonyms:
+  - iron biogeochemical cycle
+  - Fe redox cycling
+  - dissimilatory iron reduction
+  - microbial iron cycling
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Dissimilatory Fe(III) Reduction by Anaerobic Microorganisms
+    description: >
+      Under anaerobic conditions in waterlogged soils and sediments, dissimilatory
+      iron-reducing bacteria use Fe(III) minerals (iron oxides, hydroxides) as
+      terminal electron acceptors for respiration, oxidizing organic compounds
+      (acetate, hydrogen, aromatic compounds) while producing Fe(II). This process
+      is the dominant pathway of organic matter mineralization in Fe(III)-rich
+      anaerobic environments and was potentially the first globally significant
+      mechanism of organic matter oxidation on Earth. Key organisms include
+      Geobacter sulfurreducens and other Deltaproteobacteria. Fe(III) reduction
+      controls phosphorus release from sediments, drives trace metal mobilization,
+      and generates magnetite minerals with diagnostic geochemical signatures.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:1886521
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "The oxidation of organic matter coupled to the reduction of Fe(III) or Mn(IV) is one of the most important biogeochemical reactions in aquatic sediments, soils, and groundwater."
+            explanation: >
+              Lovley's foundational review establishes dissimilatory Fe(III) reduction
+              as a major oxidation-reduction process driving organic matter
+              decomposition in anaerobic environments; this redox reaction is the
+              mechanistic core of iron cycling in soils and sediments globally.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000199
+          label: iron cycling
+        evidence:
+          - reference: PMID:1886521
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "microorganisms which can effectively couple the oxidation of organic compounds to the reduction of Fe(III) or Mn(IV) have recently been discovered."
+            explanation: >
+              Discovery of enzymatic Fe(III)-reducing microorganisms established
+              that iron cycling is biologically catalyzed rather than purely
+              abiotic; this shifted understanding of iron cycling from a geochemical
+              curiosity to a microbiologically driven biogeochemical process of
+              global significance.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:28231
+          label: Geobacter
+        role: DECOMPOSER
+        description: >
+          Geobacter species are the dominant dissimilatory iron-reducing bacteria
+          in freshwater sediments and soils; Geobacter sulfurreducens can completely
+          oxidize acetate to CO2 while reducing Fe(III) to Fe(II), and some
+          Geobacter strains are also capable of nitrate-dependent Fe(II) oxidation,
+          allowing participation in both reductive and oxidative branches of iron cycling
+    causal_edges:
+      - subject: Anaerobic microbial Fe(III) reduction
+        predicate: CAUSES
+        object: Oxidation of organic matter coupled to Fe(III) to Fe(II) conversion in sediments
+      - subject: Fe(III) reduction by iron-reducing bacteria
+        predicate: ENABLES
+        object: Release of phosphorus and trace metals from sediment Fe(III) oxide minerals
+    evidence:
+      - reference: PMID:8785432
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Considerable progress has been made towards enhancing our understanding of the phylogeny, ecology and biogeochemical role of dissimilatory iron-reducing bacteria."
+        explanation: >
+          Review of the environmental roles of iron-reducing bacteria documents
+          their biogeochemical importance in natural systems; remediation of
+          soils and sediments contaminated with metals and organics confirms
+          that dissimilatory iron reduction drives transformations far beyond
+          simple Fe cycling.
+
+  - name: Anaerobic Iron Redox Cycling — Coupled Fe(III) Reduction and Fe(II) Oxidation
+    description: >
+      In freshwater wetland sediments, iron undergoes complete anaerobic redox
+      cycling: Fe(III) oxides are reduced to Fe(II) by iron-reducing bacteria
+      (e.g., Geobacter) consuming acetate, and the resulting Fe(II) is then
+      re-oxidized to Fe(III) by nitrate-reducing iron-oxidizing bacteria
+      (e.g., Dechloromonas) when nitrate becomes available. This coupled cycling
+      regenerates Fe(III) minerals in situ, sustaining iron reduction activity
+      and creating a dynamic iron redox shuttle that links carbon, nitrogen, and
+      iron cycles within anoxic microsites.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:16343326
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "the wetland sediments contained organisms such as Geobacter sp. which are capable of both dissimilatory Fe(III) reduction and oxidation of Fe(II) with reduction of NO(3)(-) to NH(4)(+)."
+            explanation: >
+              Enrichment culture from freshwater wetland sediment demonstrates that
+              the same organisms (Geobacter) mediate both branches of the iron redox
+              cycle; the coupled Fe(III) reduction/Fe(II) oxidation constitutes
+              a complete anaerobic iron redox shuttle linking iron, nitrogen,
+              and carbon cycles in wetland sediments.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000192
+          label: biogeochemical cycling
+        evidence:
+          - reference: PMID:33526911
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Biogeochemical cycling of iron is crucial to many environmental processes, such as ocean productivity, carbon storage, greenhouse gas emissions and the fate of nutrients, toxic metals and metalloids."
+            explanation: >
+              Iron cycling is a central biogeochemical process coupling iron
+              transformations to carbon, nitrogen, and phosphorus dynamics;
+              its linkage to greenhouse gas emissions and contaminant fate
+              confirms iron cycling as a core component of global biogeochemical cycling.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: OTHER
+        description: >
+          Iron-cycling bacteria span phylogenetically diverse lineages: dissimilatory
+          iron reducers (Geobacteraceae, Desulfuromonadales) and nitrate-dependent
+          Fe(II) oxidizers (Dechloromonas, Thiobacillus) together constitute the
+          microbial community driving anaerobic iron redox cycling in soils and sediments
+    causal_edges:
+      - subject: Fe(III) reduction by Geobacter
+        predicate: CAUSES
+        object: Accumulation of Fe(II) in anaerobic porewater
+      - subject: Fe(II) oxidation by nitrate-reducing bacteria
+        predicate: CAUSES
+        object: Regeneration of Fe(III) minerals and completion of anaerobic iron redox cycle
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+        explanation: >
+          Experimental demonstration of nitrate-dependent Fe(II) oxidation by
+          enrichment cultures from freshwater sediment confirms the existence of
+          a complete anaerobic iron redox cycle; this finding establishes that
+          iron cycling can proceed without oxygen as terminal electron acceptor.
+
+  - name: Iron Cycling Linkages to Carbon, Nutrient, and Contaminant Transformations
+    description: >
+      Iron redox reactions are coupled to multiple biogeochemical cycles: Fe(III)
+      reduction promotes organic carbon mineralization in anaerobic soils, Fe(II)
+      oxidation supports chemolithotrophic carbon fixation, and iron cycling
+      controls phosphorus mobility through sorption and co-precipitation with
+      Fe(III) oxides. Iron oxides also sorb and immobilize toxic metals and
+      metalloids (arsenic, chromium), and their reductive dissolution releases
+      these contaminants into groundwater. Novel processes recently documented
+      include methane oxidation and ammonium oxidation coupled to Fe(III) reduction,
+      expanding the scope of iron-driven biogeochemical transformations.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:16980937
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Fe(II) can function as an electron source for iron-oxidizing microorganisms under both oxic and anoxic conditions and Fe(III) can function as a terminal electron acceptor under anoxic conditions for iron-reducing microorganisms."
+            explanation: >
+              Weber et al. establish the dual role of iron in microbial redox:
+              both as electron donor (Fe(II) for iron-oxidizers) and electron
+              acceptor (Fe(III) for iron-reducers); this bidirectional redox
+              chemistry is the mechanistic basis for iron coupling to carbon,
+              nitrogen, and other elemental cycles in anaerobic environments.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000199
+          label: iron cycling
+        evidence:
+          - reference: PMID:33526911
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Recent studies have provided insights into novel processes in the biogeochemical iron cycle such as microbial ammonium oxidation and methane oxidation coupled to Fe(III) reduction."
+            explanation: >
+              Discovery of novel iron cycling linkages (ammonium oxidation,
+              methane oxidation coupled to Fe(III) reduction) demonstrates the
+              expanding scope of iron cycling as a master regulator of greenhouse
+              gas and nitrogen dynamics; these novel processes confirm iron
+              cycling as more comprehensively coupled to other biogeochemical
+              cycles than previously recognized.
+    causal_edges:
+      - subject: Fe(III) reduction in waterlogged soils
+        predicate: CAUSES
+        object: Phosphorus release from Fe(III) oxide minerals into porewater
+      - subject: Iron redox cycling
+        predicate: MODULATES
+        object: Methane and nitrous oxide emissions from wetland and paddy soils
+    evidence:
+      - reference: PMID:16980937
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Given that iron is the fourth most abundant element in the Earth's crust, iron redox reactions have the potential to support substantial microbial populations in soil and sedimentary environments."
+        explanation: >
+          The abundance of iron in Earth's crust establishes the global-scale
+          relevance of iron redox reactions as microbial energy sources; the
+          large populations of iron-cycling microorganisms supported by iron
+          abundance drive iron cycling effects on carbon, nutrient, and
+          contaminant transformations across diverse soil and sediment environments.
+
+indicators:
+  - name: Soil or sediment Fe(II)/Fe(III) ratio
+    description: >
+      The ratio of ferrous (Fe(II)) to ferric (Fe(III)) iron in soil or sediment
+      porewater directly reflects iron cycling intensity and redox conditions.
+      High Fe(II)/Fe(III) ratios indicate active dissimilatory iron reduction
+      under anaerobic conditions; seasonal and spatial variation in this ratio
+      traces iron redox cycling dynamics in wetland soils and freshwater sediments.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Porewater Fe(II) and Fe(III) concentrations (μM) by ferrozine colorimetry on anaerobic samples"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Fe(III) oxide (high surface area goethite) reduction took place after NO(3)(-) was depleted and continued until all the acetate was utilized."
+        explanation: >
+          Temporal sequence of Fe(III) reduction following nitrate depletion
+          demonstrates that Fe(II) accumulation tracks iron cycling activity
+          in direct proportion to electron donor (acetate) availability;
+          Fe(II)/Fe(III) ratio is the primary chemical indicator of iron
+          reduction activity in enrichment cultures and natural sediments.
+
+  - name: Microbial iron-reducer community abundance
+    description: >
+      Most-probable-number (MPN) enumeration or quantitative PCR targeting
+      dissimilatory iron-reducing bacteria quantifies the microbial capacity
+      for Fe(III) reduction in soils and sediments. High abundances of
+      iron-reducing bacteria correlate with active iron cycling zones and
+      indicate that iron is a significant terminal electron acceptor in the
+      anaerobic microbial community.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "MPN enumeration of Fe(III)-reducing bacteria (cells mL-1) in sediment slurries with acetate and Fe(III) oxides"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Most probable number enumerations revealed the presence of significant populations of Fe(III)-reducing (approximately 10(8) cells ml(-1)) and Fe(II)-oxidizing, nitrate-reducing organisms (approximately 10(5) cells ml(-1)) in the freshwater sediment used to inoculate the enrichment cultures."
+        explanation: >
+          MPN enumeration reveals populations of both Fe(III)-reducing and
+          Fe(II)-oxidizing organisms in freshwater wetland sediment; the
+          differential abundances (10^8 vs 10^5 cells/mL) reflect the
+          dominance of reductive over oxidative iron cycling activity and
+          validate MPN as a quantitative indicator of iron cycling microbial
+          community structure.
+
+  - name: Porewater iron concentration and speciation
+    description: >
+      Dissolved iron concentrations in soil porewater or sediment extracts,
+      partitioned into Fe(II) (ferrous) and total Fe fractions, indicate
+      iron cycling rates and bioavailability. Elevated porewater Fe(II)
+      under reducing conditions reflects active dissimilatory iron reduction;
+      seasonal fluctuations track redox dynamics driven by flooding and drying cycles.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Porewater dissolved Fe(II) and total Fe (mg L-1) by ICP-OES or ferrozine assay on anaerobic soil extracts"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:33526911
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "oxidation and reduction of iron occur cyclically or simultaneously in many environments"
+        explanation: >
+          Simultaneous iron oxidation and reduction in many environments
+          generates spatially complex iron speciation profiles; porewater
+          iron concentration and speciation integrated across soil profiles
+          captures this complexity and serves as the primary field indicator
+          of active iron redox cycling.
+
+drivers:
+  - name: Soil or sediment anaerobiosis and redox potential
+    description: >
+      The onset of anaerobic conditions (waterlogging, flooding, oxygen depletion)
+      is the primary environmental trigger for dissimilatory iron reduction.
+      Redox potential (Eh) drops to approximately +100 to -100 mV when iron
+      reduction becomes the dominant terminal electron-accepting process.
+      Seasonally fluctuating water tables drive alternating Fe(III) reduction
+      and Fe(II) oxidation cycles in wetland soils.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:1886521
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The oxidation of organic matter coupled to the reduction of Fe(III) or Mn(IV) is one of the most important biogeochemical reactions in aquatic sediments, soils, and groundwater."
+        explanation: >
+          Lovley's review establishes that Fe(III) reduction is most important
+          in saturated, anaerobic environments (sediments, soils, groundwater);
+          anaerobiosis is therefore the necessary abiotic condition enabling
+          iron cycling — when oxygen is absent, Fe(III) becomes the thermodynamically
+          preferred electron acceptor after nitrate and manganese.
+
+  - name: Organic carbon availability
+    description: >
+      Labile organic carbon (acetate, hydrogen, fatty acids) is the primary
+      electron donor for dissimilatory iron reduction; without adequate carbon
+      substrate, iron-reducing bacteria cannot sustain Fe(III) reduction.
+      Organic matter quality and quantity in sediments controls iron cycling
+      rates, coupling iron cycling tightly to organic matter decomposition
+      and primary productivity inputs.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Fe(III) oxide (high surface area goethite) reduction took place after NO(3)(-) was depleted and continued until all the acetate was utilized."
+        explanation: >
+          Fe(III) reduction directly depends on acetate availability as electron
+          donor; cessation of iron reduction when acetate is consumed demonstrates
+          that organic carbon supply is a stoichiometric rate-limiting driver
+          of iron cycling, linking iron biogeochemistry to carbon inputs in sediments.
+
+  - name: Fe(III) oxide mineral availability and crystallinity
+    description: >
+      The quantity and crystallinity of Fe(III) oxide minerals in soils and
+      sediments determines the electron-accepting capacity available for
+      dissimilatory iron reduction. Poorly crystalline (amorphous) ferrihydrite
+      is more bioavailable than crystalline goethite and hematite. Weathering
+      of parent rock, atmospheric deposition, and biological mineralization
+      determine Fe(III) oxide stocks in different ecosystems.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:16980937
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "iron is the fourth most abundant element in the Earth's crust, iron redox reactions have the potential to support substantial microbial populations in soil and sedimentary environments."
+        explanation: >
+          Iron abundance in Earth's crust establishes the global-scale substrate
+          availability for iron cycling; variation in Fe(III) oxide mineralogy
+          and abundance across soils and sediments drives spatial variation in
+          iron cycling intensity and the microbial populations it can sustain.
+
+interventions:
+  - name: Wetland restoration to restore iron-driven biogeochemistry
+    description: >
+      Rewetting of drained wetlands and peatlands restores anaerobic conditions
+      that enable dissimilatory iron reduction, reactivating iron cycling and
+      its downstream effects on carbon preservation, phosphorus retention, and
+      methane suppression. Iron cycling restoration is a key mechanism by which
+      rewetted wetlands recover their carbon sequestration and nutrient retention
+      functions.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:33526911
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Biogeochemical cycling of iron is crucial to many environmental processes, such as ocean productivity, carbon storage, greenhouse gas emissions and the fate of nutrients, toxic metals and metalloids."
+        explanation: >
+          Iron cycling's control of carbon storage and greenhouse gas emissions
+          establishes it as a target mechanism for wetland restoration; restoring
+          anaerobic conditions that activate iron cycling can recover carbon
+          sequestration and nutrient retention functions lost when wetlands
+          are drained.
+
+  - name: Bioremediation using iron-reducing bacteria for contaminant immobilization
+    description: >
+      Dissimilatory iron-reducing bacteria (particularly Geobacter species) can
+      be stimulated in situ by organic carbon amendment to accelerate Fe(III)
+      reduction, promoting reductive precipitation and immobilization of
+      uranium, chromium, arsenic, and other redox-sensitive contaminants.
+      Biostimulation of iron cycling has been developed as a site remediation
+      strategy for metal-contaminated groundwater and sediments.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:8785432
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the number of biotechnological applications of iron-reducing bacteria, including remediation of soils and sediments contaminated with metals, radionuclides and organics, is rapidly expanding."
+        explanation: >
+          Iron-reducing bacteria applications in bioremediation are rapidly
+          expanding; stimulating iron cycling through organic carbon amendment
+          provides a biological intervention for immobilizing metals and
+          radionuclides in contaminated environments by exploiting the
+          reductive chemistry of the iron cycle.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000043
+      label: wetland
+    description: >
+      Wetland soils are the primary sites of active iron cycling; seasonal
+      waterlogging creates the anaerobic conditions required for dissimilatory
+      iron reduction, and fluctuating water tables drive alternating Fe(III)
+      reduction and Fe(II) oxidation cycling that controls nutrient and
+      carbon dynamics
+
+creation_date: "2026-09-02T00:00:00Z"

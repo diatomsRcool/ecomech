@@ -56,11 +56,14 @@ before KB entries can be curated. The EcoMech schema now accepts both `ENVO:` an
    is published; the sqlite adapter will pick up new terms automatically.
 
 **Scaling strategy:** Draft all needed terms in one template pass rather than
-issue-by-issue. The remaining gaps (~10 processes) need new ECOCORE terms covering
-DOM mineralization, trophic cascades, disturbance/succession, biogeochemical coupling,
-and ecosystem services. Terms added in the 2026-08 ECOCORE release (ECOCORE:00000183–00000190)
-now cover all primary production and symbiosis targets. Prioritize terms that cover
-multiple EcoMech entries.
+issue-by-issue. The remaining gaps (2 processes) still need new ECOCORE terms:
+DOM mineralization and trophic cascades. Terms added in the 2026-08 ECOCORE release
+(ECOCORE:00000183–00000190) cover primary production and symbiosis targets. A subsequent
+release (ECOCORE:00000191–00000203) added ecological succession, biogeochemical cycling,
+mutualism, wildfire succession, gap dynamics, flood pulse, redox dynamics, methane cycling,
+iron cycling, pollination, seed dispersal, water filtration, and carbon sequestration —
+resolving all disturbance/succession, biogeochemical coupling, and ecosystem services gaps.
+Prioritize terms that cover multiple EcoMech entries.
 
 > **Note:** Query the live OWL rather than the sqlite mirror for the most current terms:
 > ```bash
@@ -91,16 +94,16 @@ biogeochemical cycles and ecosystem function categories:
 | Symbioses | Mycorrhizal association | ✅ ECOCORE:00000188 |
 | Symbioses | Root nodule symbiosis | ✅ ECOCORE:00000189 |
 | Symbioses | Coral-zooxanthellae symbiosis | ✅ ECOCORE:00000190 |
-| Disturbance/succession | Wildfire succession | ❌ need ECOCORE term |
-| Disturbance/succession | Gap dynamics | ❌ need ECOCORE term |
-| Disturbance/succession | Flood pulse | ❌ need ECOCORE term |
-| Biogeochemical coupling | Redox dynamics | ❌ need ECOCORE term |
-| Biogeochemical coupling | Methane cycling | ❌ need ECOCORE term |
-| Biogeochemical coupling | Iron cycling | ❌ need ECOCORE term |
-| Ecosystem services | Pollination | ❌ need ECOCORE term |
-| Ecosystem services | Seed dispersal | ❌ need ECOCORE term |
-| Ecosystem services | Water filtration | ❌ need ECOCORE term |
-| Ecosystem services | Carbon sequestration | ❌ need ECOCORE term |
+| Disturbance/succession | Wildfire succession | ✅ ECOCORE:00000194 |
+| Disturbance/succession | Gap dynamics | ✅ ECOCORE:00000195 |
+| Disturbance/succession | Flood pulse | ✅ ECOCORE:00000196 |
+| Biogeochemical coupling | Redox dynamics | ✅ ECOCORE:00000197 |
+| Biogeochemical coupling | Methane cycling | ✅ ECOCORE:00000198 |
+| Biogeochemical coupling | Iron cycling | ✅ ECOCORE:00000199 |
+| Ecosystem services | Pollination | ✅ ECOCORE:00000200 |
+| Ecosystem services | Seed dispersal | ✅ ECOCORE:00000201 |
+| Ecosystem services | Water filtration | ✅ ECOCORE:00000202 |
+| Ecosystem services | Carbon sequestration | ✅ ECOCORE:00000203 |
 
 For each process:
 - Confirm or add ontology term (ENVO preferred; ECOCORE if ENVO gap)

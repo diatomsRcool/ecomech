@@ -1,0 +1,328 @@
+id: ECOCORE:00000196
+name: Flood Pulse
+process_term:
+  id: ECOCORE:00000196
+  label: flood pulse
+description: >
+  The flood pulse is the predictable, seasonal alternation between high-water
+  flooding and low-water terrestrial phases in river-floodplain systems,
+  which drives the productivity, biodiversity, and nutrient exchange of
+  large tropical and subtropical rivers. During flood stage, rising waters
+  inundate the floodplain, enabling fish and other aquatic organisms to
+  access terrestrial food resources, spawning habitat, and refugia from
+  river predators; the subsequent receding phase concentrates nutrients
+  and organisms, driving high secondary productivity. The flood pulse concept
+  explains why large river floodplain systems support disproportionately
+  high fish biomass, productivity, and diversity relative to their channel
+  volume alone. Riparian plant communities respond to flood pulse timing and
+  duration through physiological adaptations (aerenchyma formation, shoot
+  elongation) and community-level shifts in species composition, with
+  longer and deeper flooding episodes progressively eliminating
+  flood-intolerant species and favoring flood-adapted wetland vegetation.
+synonyms:
+  - flood pulse concept
+  - river-floodplain pulse
+  - floodplain inundation dynamics
+  - seasonal flood regime
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Flood Pulse Control of Floodplain Fishery Productivity
+    description: >
+      Seasonally fluctuating water levels control the productivity of large
+      river fisheries by determining the extent of floodplain habitat accessible
+      to fish during high water, which drives fish biomass accumulation and
+      subsequent yield during low water. High-water phases allow fish to exploit
+      floodplain primary production and spawning habitat, while low-water phases
+      concentrate fish biomass in channels, increasing catchability. High and
+      low water phases in any given year affect fishery yields two and three
+      years later through lagged effects on fish biomass, demonstrating the
+      multi-year temporal footprint of annual flood pulse variation on
+      fish population dynamics and sustainable fishery yields.
+    biological_processes:
+      - term:
+          id: GO:0009415
+          label: response to water
+        evidence:
+          - reference: PMID:26715994
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Seasonally fluctuating water levels, known as 'flood pulses', control the productivity of large river fisheries"
+            explanation: >
+              Castello et al.'s 12-year regression analysis of 42 Amazon fish
+              species directly establishes the flood pulse as the primary driver
+              of fishery productivity, explaining the majority of interannual
+              yield variation through hydrological indices; lagged effects of
+              high and low water on yields 2-3 years later demonstrate that
+              fish biomass accumulates through multi-year responses to the
+              flood pulse, not just contemporaneous hydrological conditions.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:7898
+          label: Actinopterygii
+        role: CONSUMER
+        description: >
+          Ray-finned fishes are the principal consumers responding to flood
+          pulse dynamics in tropical river-floodplain systems; fish biomass
+          accumulation during high water and concentration during low water
+          drives the trophic productivity patterns that characterize
+          flood-pulse-controlled fisheries.
+    causal_edges:
+      - subject: High-water flood pulse expanding floodplain habitat
+        predicate: CAUSES
+        object: Increased fish biomass accumulation through floodplain resource access
+      - subject: Low-water receding phase concentrating fish in channels
+        predicate: ENABLES
+        object: Elevated fish catchability and fishery yield
+    evidence:
+      - reference: PMID:26715994
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Seasonally fluctuating water levels, known as 'flood pulses', control the productivity of large river fisheries"
+        explanation: >
+          12-year Amazon fishery record across 42 species demonstrates that
+          flood pulse indices explain most interannual yield variability
+          (R²=0.8); fishing effort amplified flood pulse effects by changing
+          in proportion to fish biomass, revealing a tight coupling between
+          hydrological pulse dynamics and fishery productivity at the
+          river-floodplain system scale.
+
+  - name: Riverscape Configuration and Habitat Dynamics Under Flood Pulse
+    description: >
+      River ecosystems function as dynamic riverscapes whose spatial extent,
+      channel composition, and habitat configuration change predictably in
+      response to flood pulse discharge variation. In braided glacial rivers,
+      flood stage drives logarithmic expansion of turbid glacial-fed channels
+      while constraining clear groundwater-fed channels beyond a discharge
+      threshold; approximately 30% of the riverscape is renewed at monthly
+      intervals. This habitat mosaic dynamism directly controls local
+      zoobenthic density and algal standing crop through dilution-concentration
+      effects and spatial arrangement of hospitable vs. inhospitable habitats,
+      establishing riverscape configuration as a mechanistic link between
+      flood pulse hydrology and aquatic biodiversity.
+    biological_processes:
+      - term:
+          id: GO:0009415
+          label: response to water
+        evidence:
+          - reference: PMID:16602300
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "River ecosystems are increasingly viewed as dynamic riverscapes; their extent, composition, and configuration vary in response to the pulsing of discharge."
+            explanation: >
+              Malard et al.'s monthly monitoring of riverscape composition across
+              two annual cycles in an Alpine braided river directly quantifies
+              how flood pulse discharge drives habitat mosaic dynamics; the 30%
+              monthly renewal rate of the riverscape and logarithmic expansion of
+              turbid channels with discharge establish flood pulse as the primary
+              physical mechanism organizing aquatic habitat configuration and
+              its biological consequences.
+    causal_edges:
+      - subject: Flood pulse discharge increase
+        predicate: CAUSES
+        object: Logarithmic expansion of turbid floodwater habitats and contraction of clear groundwater channels
+      - subject: Riverscape habitat configuration during flood pulse
+        predicate: MODULATES
+        object: Zoobenthic density and epilithic algal standing crop
+    evidence:
+      - reference: PMID:16602300
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "River ecosystems are increasingly viewed as dynamic riverscapes; their extent, composition, and configuration vary in response to the pulsing of discharge."
+        explanation: >
+          Direct measurement of monthly riverscape composition in Alpine glacial
+          river confirms that flood pulse hydrology drives predictable habitat mosaic
+          dynamics; benthic invertebrate density decreased with increasing aquatic
+          habitat size due to dilution-concentration effects, demonstrating that
+          biological productivity is mechanistically coupled to the spatial dynamics
+          of habitat configuration driven by the flood pulse.
+
+  - name: Riparian Plant Community Response to Flood Duration and Depth
+    description: >
+      Riparian plant communities respond to flood pulse characteristics through
+      a hierarchy of physiological and demographic processes. Seedling survival
+      is most sensitive to the combined effect of flooding duration and depth,
+      with longer or deeper flooding episodes causing near-complete seedling
+      mortality in flood-intolerant species. Adult plants survive through
+      aerenchyma-mediated oxygen transport to roots, shoot elongation above
+      water ('escape strategy'), or metabolic quiescence. Flood-induced species
+      shifts alter riparian community composition in predictable directions: sites
+      with increased flooding frequency and depth transition toward flood-specialist
+      plant communities, reducing species richness in nutrient-rich catchments but
+      sometimes increasing richness in semi-arid systems where flooding introduces
+      water pulses into otherwise dry systems.
+    biological_processes:
+      - term:
+          id: GO:0009415
+          label: response to water
+        evidence:
+          - reference: PMID:25752818
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "longer duration of flooding, greater depth of flooding and, particularly, their combination reduce seedling survival of most riparian species."
+            explanation: >
+              Garssen et al.'s meta-analysis of 53 experimental flooding studies
+              establishes the combined duration × depth interaction as the primary
+              abiotic filter on riparian plant community assembly; the gradient from
+              zero to complete seedling survival under fully submerged conditions
+              reflects the spectrum of plant physiological responses to the flood
+              pulse water stimulus, from quiescence to elongation escape strategies.
+    causal_edges:
+      - subject: Increased flooding duration and depth during flood pulse
+        predicate: INHIBITS
+        object: Riparian seedling survival and establishment of flood-intolerant species
+      - subject: Flood-induced plant physiological response (aerenchyma, shoot elongation)
+        predicate: ENABLES
+        object: Adult riparian plant survival during flood pulse inundation
+    evidence:
+      - reference: PMID:25752818
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "longer duration of flooding, greater depth of flooding and, particularly, their combination reduce seedling survival of most riparian species."
+        explanation: >
+          Meta-analysis of 53 global flooding experiments demonstrates that
+          riparian seedling survival decreases nonlinearly with flooding duration
+          and depth; the decisive roles of shoot elongation ability and root porosity
+          plasticity for adult survival establish the mechanistic basis by which flood
+          pulse characteristics filter riparian community composition and species richness.
+
+indicators:
+  - name: Annual flood pulse amplitude and duration
+    description: >
+      The difference between annual maximum and minimum water levels (flood
+      pulse amplitude, m) and the duration of floodplain inundation (days yr-1)
+      are the primary hydrological indicators of flood pulse dynamics intensity.
+      Larger amplitude and longer duration indicate stronger flood pulse control
+      on floodplain productivity and biodiversity. These metrics are measured
+      from continuous water level gauges at river stations.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Flood pulse amplitude (m) from annual maximum minus minimum gauge height; inundation duration (days yr-1) from water level threshold exceedance"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:26715994
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Seasonally fluctuating water levels, known as 'flood pulses', control the productivity of large river fisheries"
+        explanation: >
+          Amazon fishery study demonstrates that hydrological indices of high and
+          low water explain 80% of interannual yield variability; the primacy of
+          flood pulse amplitude indices over fishing effort alone in explaining
+          yield variation validates hydrological flood pulse metrics as the
+          leading indicators of floodplain ecosystem productivity.
+
+  - name: Riparian species richness gradient with flooding intensity
+    description: >
+      Species richness of riparian plant communities measured across a gradient
+      of flooding duration and depth serves as a biological indicator of flood
+      pulse ecological effects. Decreasing species richness with increasing
+      flooding duration in nutrient-rich catchments indicates active flood
+      pulse filtering of plant communities; richness–flooding relationships
+      measured from plot surveys are compared against predicted direction of
+      change based on catchment nutrient status and climate.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Riparian plant species richness (species per plot) along flooding duration gradient, stratified by catchment nutrient status"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:25752818
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "longer duration of flooding, greater depth of flooding and, particularly, their combination reduce seedling survival of most riparian species."
+        explanation: >
+          Meta-analysis establishes the mechanistic basis for using riparian species
+          richness as a flood pulse indicator: seedling survival declines with
+          flooding duration and depth, driving community composition shifts detectable
+          as richness changes; the contrasting responses in nutrient-rich vs. semi-arid
+          catchments indicate that richness trends are sensitive flood pulse indicators
+          only when interpreted in catchment context.
+
+drivers:
+  - name: River discharge seasonality and variability
+    description: >
+      The seasonal amplitude and timing of river discharge variation is the primary
+      abiotic driver of flood pulse dynamics, determining the extent and duration
+      of floodplain inundation that controls floodplain productivity and riparian
+      community composition. Climate change, dam construction, and water diversion
+      alter discharge seasonality, dampening or disrupting flood pulse dynamics
+      with cascading consequences for floodplain fisheries, biodiversity, and
+      nutrient cycling.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:16602300
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "River ecosystems are increasingly viewed as dynamic riverscapes; their extent, composition, and configuration vary in response to the pulsing of discharge."
+        explanation: >
+          Direct documentation of how discharge variation drives monthly
+          riverscape composition changes establishes river discharge seasonality
+          as the primary physical driver of flood pulse dynamics; the stable
+          renewal patterns across years of different discharge magnitude
+          (30% monthly renewal rate) demonstrate that discharge variability
+          is the dominant control on riverscape habitat availability and
+          biodiversity consequences.
+
+  - name: Floodplain connectivity and lateral extent
+    description: >
+      The lateral connectivity between the river channel and its floodplain —
+      determined by topographic relief, levee construction, and channelization —
+      controls whether the flood pulse delivers water, nutrients, and organisms
+      to floodplain habitats. Disconnected floodplains with artificial levees
+      receive attenuated flood pulses that reduce fishery productivity, nutrient
+      exchange, and floodplain ecosystem function even when river discharge
+      seasonality is maintained.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:26715994
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Seasonally fluctuating water levels, known as 'flood pulses', control the productivity of large river fisheries"
+        explanation: >
+          The flood pulse control on Amazon fisheries documented by Castello et al.
+          operates through floodplain connectivity that allows fish to access
+          floodplain habitats during high water; because fishing effort tracked
+          fish biomass availability (amplifying flood pulse effects), any reduction
+          in floodplain connectivity that diminishes fish access to floodplain
+          resources would directly impair the flood pulse productivity mechanism.
+
+interventions:
+  - name: Floodplain reconnection and levee management
+    description: >
+      Restoring lateral hydrological connectivity between river channels and
+      their floodplains — through levee notching, setback levees, or removal
+      of bank armor — reinstates natural flood pulse dynamics and associated
+      ecological functions including fish recruitment, riparian vegetation
+      diversity, and nutrient transformation. Reconnection effectiveness depends
+      on restoring both the inundation extent and the duration of flooding
+      that supports target species and processes.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:25752818
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "longer duration of flooding, greater depth of flooding and, particularly, their combination reduce seedling survival of most riparian species."
+        explanation: >
+          Understanding the mechanistic relationships between flooding duration,
+          depth, and seedling survival established by the meta-analysis provides
+          the quantitative basis for setting target flood pulse parameters in
+          floodplain reconnection projects; knowing that duration × depth
+          interactions determine survival outcomes allows restoration practitioners
+          to design hydrological targets that restore appropriate plant community
+          composition.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000043
+      label: wetland
+    description: >
+      Flood pulse dynamics are most pronounced in large tropical and subtropical
+      river-floodplain systems including Amazon, Congo, and Mekong river systems,
+      as well as temperate floodplain wetlands; the flood pulse concept is also
+      applicable to regulated rivers where managed flood releases restore
+      ecological functions.
+
+creation_date: "2026-09-02T00:00:00Z"

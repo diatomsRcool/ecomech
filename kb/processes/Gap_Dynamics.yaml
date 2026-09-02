@@ -1,0 +1,296 @@
+id: ECOCORE:00000195
+name: Gap Dynamics
+process_term:
+  id: ECOCORE:00000195
+  label: gap dynamics
+description: >
+  Gap dynamics describes the formation, light environment, and successional
+  trajectory of canopy gaps created by death or uprooting of individual
+  canopy trees in forest ecosystems. Treefall gaps expose mineral soil
+  and understory vegetation to direct solar radiation, generating
+  high-light regeneration niches that favor recruitment of light-demanding
+  pioneer species unable to establish under closed canopy. The diversity and
+  biomass dynamics of forest stands are substantially determined by the
+  frequency, size, and distribution of gaps across the landscape. Gap size
+  controls the duration and intensity of the elevated light environment:
+  large gaps support rapid growth of sun-demanding species and lianas, while
+  small gaps are quickly recolonized by shade-tolerant species. Liana
+  competition in gaps is a key biotic filter that suppresses shade-tolerant
+  tree recruitment and reduces tree richness, revealing that gap-phase
+  regeneration is shaped by both the abiotic light environment and
+  competitive interactions among plant growth forms.
+synonyms:
+  - treefall gap dynamics
+  - gap-phase regeneration
+  - canopy gap dynamics
+  - gap disturbance
+ecological_scale: COMMUNITY
+
+mechanisms:
+  - name: Gap Light Environment and Pioneer Recruitment
+    description: >
+      Treefall creates patches of elevated solar irradiance at the forest
+      floor — the gap light environment — that act as a regeneration niche
+      for light-demanding pioneer and early-successional tree species unable
+      to recruit under closed canopy shade. Seedfall composition into gaps
+      differs qualitatively from that in closed-canopy areas: wind-dispersed
+      and autochorous species are enriched in gap seedfall, while zoochorous
+      species dominate among established saplings. The resulting sapling
+      cohorts in gaps are compositionally distinct and less diverse than
+      cohorts under intact canopy, but contain many gap-specialist species
+      that contribute to overall stand-level tree diversity. Gap size,
+      definition criteria, and spatial scale of measurement strongly affect
+      inferred gap disturbance parameters and their inferred roles in
+      above-ground biomass and species coexistence.
+    biological_processes:
+      - term:
+          id: GO:0009416
+          label: response to light stimulus
+        evidence:
+          - reference: PMID:28833033
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Cohorts of saplings recruiting into gaps are less diverse than those recruiting under a closed canopy (Fisher's alpha = 40 vs. 100) and compositionally distinct, containing many light-demanding species that rarely, if ever, recruit under shaded conditions."
+            explanation: >
+              Terborgh et al.'s concurrent seedfall and sapling census in an
+              Amazonian floodplain forest demonstrates that the gap light
+              environment selectively promotes recruitment of light-demanding
+              species: sapling cohorts in gaps are compositionally distinct from
+              those under canopy, with lower diversity but enrichment in species
+              dependent on elevated light for germination — establishing the gap
+              light stimulus as the primary biological filter on pioneer
+              recruitment in gap dynamics.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:24452032
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Treefall gaps play an important role in tropical forest dynamics and in determining above-ground biomass (AGB)."
+            explanation: >
+              Lobo & Dalling's LiDAR-based analysis of 1500 ha Panama forest
+              quantifies how gap disturbance parameters (size distribution, spatial
+              arrangement) influence above-ground biomass and successional processes;
+              the role of gaps in determining AGB establishes gap dynamics as
+              a primary driver of forest successional trajectories and stand-level
+              carbon storage.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3193
+          label: embryophytes
+        role: PRIMARY_PRODUCER
+        description: >
+          Vascular land plants are the principal actors in gap dynamics:
+          canopy trees die to create gaps, and pioneer plus shade-tolerant
+          tree species recruit differentially into gaps based on their
+          light requirements, driving forest successional trajectories.
+    causal_edges:
+      - subject: Canopy tree death and gap formation
+        predicate: CAUSES
+        object: Elevated irradiance at forest floor and pioneer seedling recruitment
+      - subject: Gap size and spatial arrangement
+        predicate: MODULATES
+        object: Duration of high-light regeneration niche and successional trajectory
+    evidence:
+      - reference: PMID:24452032
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Treefall gaps play an important role in tropical forest dynamics and in determining above-ground biomass (AGB)."
+        explanation: >
+          LiDAR survey across 1500 ha in Panama establishes that gap disturbance
+          parameters measurably determine above-ground biomass; scale and sampling
+          resolution substantially affect inferred gap characteristics, underscoring
+          the mechanistic importance of accurate gap measurement for understanding
+          how gap dynamics regulate forest carbon and diversity.
+
+  - name: Liana Competition Suppresses Tree Recruitment in Gaps
+    description: >
+      Lianas exploit the high-light environment of treefall gaps more rapidly
+      than tree seedlings and suppress tree growth, recruitment, and richness
+      through biotic interference. Experimental liana removal from gaps demonstrates
+      that liana competition, rather than dispersal limitation alone, constrains
+      shade-tolerant tree recruitment in gaps. Lianas are disproportionately
+      harmful to shade-tolerant species while leaving light-demanding pioneers
+      relatively unaffected, revealing a mechanistic link between liana abundance
+      and the failure of gaps to maintain shade-tolerant tree diversity as predicted
+      by classical gap-phase regeneration theory.
+    biological_processes:
+      - term:
+          id: GO:0009416
+          label: response to light stimulus
+        evidence:
+          - reference: PMID:20482581
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Removing lianas increased tree growth, recruitment and richness by 55, 46 and 65%, respectively."
+            explanation: >
+              Eight-year liana removal experiment across 17 gaps in central Panama
+              quantifies the magnitude of liana competitive suppression: 55% increase
+              in tree growth, 46% in recruitment, and 65% in species richness after
+              liana removal. The response magnitude demonstrates that liana competition
+              is a major biotic filter in gap-phase regeneration, acting through
+              interference with tree responses to the gap light stimulus.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:3193
+          label: embryophytes
+        role: PRIMARY_PRODUCER
+        description: >
+          Lianas (woody climbing plants) and shade-tolerant trees compete
+          for the gap light environment; lianas suppress tree recruitment
+          through rapid exploitation of elevated light, demonstrating
+          plant–plant competition as a key process in gap dynamics.
+    causal_edges:
+      - subject: Liana colonization of treefall gaps
+        predicate: INHIBITS
+        object: Shade-tolerant tree seedling recruitment and gap-phase tree diversity
+      - subject: Liana removal from gaps
+        predicate: ENABLES
+        object: Tree growth, recruitment, and species richness recovery in gaps
+    evidence:
+      - reference: PMID:20482581
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Removing lianas increased tree growth, recruitment and richness by 55, 46 and 65%, respectively."
+        explanation: >
+          Controlled liana removal experiment demonstrates that biotic interference
+          between lianas and trees, not just abiotic light availability, determines
+          the diversity outcome of gap-phase regeneration; because lianas are
+          abundant across many tropical systems, this mechanism broadly constrains
+          how gap dynamics translate into tree diversity maintenance.
+
+indicators:
+  - name: Canopy gap fraction
+    description: >
+      The proportion of forest area occupied by canopy gaps, measured from
+      hemispherical photography, LiDAR canopy height models, or satellite
+      imagery. Gap fraction integrates gap disturbance frequency and size
+      distribution, and is the primary landscape-scale indicator of gap
+      dynamics intensity. High gap fraction indicates active gap-phase
+      regeneration and associated pioneer recruitment.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Gap fraction (% of stand area with canopy height below threshold) from LiDAR or hemispherical photography"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:24452032
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Treefall gaps play an important role in tropical forest dynamics and in determining above-ground biomass (AGB)."
+        explanation: >
+          Lobo & Dalling demonstrate that gap fraction measured at landscape scale
+          with LiDAR differs significantly from plot-scale estimates, and that
+          canopy height thresholds used to define gaps strongly influence gap-size
+          distributions that determine AGB; this validates gap fraction as the
+          primary quantitative indicator of gap dynamics, while highlighting that
+          measurement scale matters for accurate assessment.
+
+  - name: Light-demanding sapling density in gaps
+    description: >
+      Density of light-demanding pioneer tree saplings (seedlings to 1 cm dbh)
+      within gap areas compared to closed-canopy areas. High density of pioneer
+      species in gaps and their absence under closed canopy confirms active
+      gap-phase regeneration. Species composition of gap sapling cohorts,
+      quantified by Fisher's alpha or species richness, indicates whether gaps
+      are supporting their expected diversity function.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Pioneer sapling density (stems ha-1) and Fisher's alpha in gaps vs. closed canopy from vegetation surveys"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:28833033
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Cohorts of saplings recruiting into gaps are less diverse than those recruiting under a closed canopy (Fisher's alpha = 40 vs. 100) and compositionally distinct, containing many light-demanding species that rarely, if ever, recruit under shaded conditions."
+        explanation: >
+          Quantitative comparison of Fisher's alpha between gap (40) and closed-canopy
+          (100) sapling cohorts in Amazonian forest validates sapling compositional
+          diversity as an indicator of gap-phase dynamics; the consistent compositional
+          distinctness of gap sapling cohorts provides a diagnostic signal for
+          functional gap dynamics even when total richness in gaps is lower.
+
+drivers:
+  - name: Canopy tree mortality rate
+    description: >
+      The rate at which canopy trees die through windthrow, senescence, pathogen
+      attack, or drought stress determines the frequency and spatial density of
+      gap formation. Higher mortality rates generate more frequent gaps and
+      sustain a higher steady-state gap fraction across the forest landscape.
+      Disturbance regimes (hurricanes, ice storms, bark beetle outbreaks) create
+      episodic pulses of gap formation that temporarily increase gap fraction above
+      background levels.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:24452032
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Treefall gaps play an important role in tropical forest dynamics and in determining above-ground biomass (AGB)."
+        explanation: >
+          The demonstrated role of treefall gaps in determining AGB implies that
+          the rate of treefall gap formation — determined by canopy tree mortality
+          rate — is a primary driver of forest carbon storage and stand structural
+          dynamics; variation in tree mortality rate across forest types drives
+          corresponding variation in gap dynamics intensity.
+
+  - name: Liana abundance
+    description: >
+      Liana cover and stem density in forest understories determines the magnitude
+      of biotic suppression of tree recruitment in treefall gaps. High liana
+      abundance amplifies the liana interference mechanism, converting gaps from
+      tree diversity hotspots to liana-dominated patches with suppressed tree
+      regeneration. Liana abundance is increasing in many tropical forests, potentially
+      altering the classic gap-phase regeneration dynamic.
+    driver_type: BIOTIC
+    evidence:
+      - reference: PMID:20482581
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Removing lianas increased tree growth, recruitment and richness by 55, 46 and 65%, respectively."
+        explanation: >
+          The magnitude of liana suppression demonstrated by removal experiments
+          (55-65% increases in tree metrics) establishes liana abundance as a
+          dominant biotic driver of gap-phase tree regeneration; because liana
+          abundance varies among forests and is increasing in many tropical systems,
+          it is a key driver of how gap dynamics translates into tree diversity outcomes.
+
+interventions:
+  - name: Liana cutting in restoration gaps
+    description: >
+      Manual cutting of lianas in treefall gaps or deliberately created gaps
+      releases tree seedlings and saplings from competitive suppression and
+      accelerates gap-phase tree regeneration toward desired species composition.
+      Liana cutting is most effective when combined with targeted planting of
+      desired tree species in gaps; repeat cutting may be required because lianas
+      resprout rapidly after cutting.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:20482581
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Removing lianas increased tree growth, recruitment and richness by 55, 46 and 65%, respectively."
+        explanation: >
+          Eight-year experimental liana removal demonstrates that liana cutting
+          directly translates into measurable gains in tree growth, recruitment,
+          and richness in gaps; the magnitude and consistency of gains across 8
+          control and removal gap pairs validates liana cutting as an evidence-based
+          intervention to restore gap-phase tree regeneration in forests where liana
+          abundance suppresses natural dynamics.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Gap dynamics is a universal process in closed-canopy forests including
+      tropical, temperate, and boreal systems; the relative importance of gap
+      size, pioneer vs. shade-tolerant species, and liana competition varies
+      with latitude and forest type, but treefall gap formation and light-mediated
+      regeneration niches structure forest regeneration dynamics across biomes.
+
+creation_date: "2026-09-02T00:00:00Z"

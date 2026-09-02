@@ -1,0 +1,358 @@
+id: ECOCORE:00000197
+name: Redox Dynamics
+process_term:
+  id: ECOCORE:00000197
+  label: redox dynamics
+description: >
+  Redox dynamics in wetland and aquatic sediment ecosystems describes the
+  sequential reduction and oxidation of terminal electron acceptors —
+  oxygen (O2), nitrate (NO3-), iron Fe(III), sulfate (SO42-), and carbon
+  dioxide (CO2) — driven by microbial communities responding to fluctuating
+  water table and oxygen availability. As soils become waterlogged and anaerobic,
+  microbial communities shift through a thermodynamically predictable sequence
+  of electron acceptor utilization, generating the biogeochemical transformations
+  that govern nitrogen loss, phosphorus mobilization, methane production, iron
+  cycling, and plant nutrient availability. Water table fluctuations create
+  spatial and temporal heterogeneity in redox conditions that enables coexistence
+  of diverse microbial functional guilds (aerobic heterotrophs, nitrifiers,
+  denitrifiers, iron reducers, sulfate reducers, methanogens) within close
+  proximity in the soil profile. Radial oxygen loss from wetland plant roots
+  locally converts anaerobic bulk soil to oxic rhizosphere conditions, creating
+  steep micro-scale redox gradients that couple oxidation and reduction of the
+  same elements at millimeter scales, profoundly influencing plant nutrient
+  acquisition, phytotoxin detoxification, and vegetation composition.
+synonyms:
+  - wetland redox dynamics
+  - soil redox potential dynamics
+  - anaerobic-aerobic cycling
+  - sediment redox chemistry
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Microbial Redox Sequence and N-S-Fe Biogeochemistry
+    description: >
+      In waterlogged soils, microbial communities sequentially deplete electron
+      acceptors in thermodynamic order: O2, then NO3-, Mn(IV), Fe(III), SO42-,
+      and finally CO2 (methanogenesis). This redox cascade drives cascading
+      biogeochemical transformations: nitrification-denitrification coupling
+      at oxic-anoxic interfaces removes reactive nitrogen as N2 gas; Fe(III)
+      reduction mobilizes phosphorus bound to Fe hydroxides; sulfate reduction
+      generates phytotoxic sulfide; and methanogenesis produces CH4. Rapid
+      changes in water table that shift oxygen availability initiate strong
+      transitions between these microbial functional states, altering nutrient
+      availability and phytotoxin concentrations that directly determine wetland
+      plant growth and vegetation composition.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:22539932
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "rapid changes in the availability of oxygen and alternative terminal electron acceptors will result in strong changes in the prevalent microbial redox reactions, with significant effects on plant growth."
+            explanation: >
+              Lamers et al.'s synthesis of N, S, and Fe biogeochemistry in wetlands
+              establishes that water table-driven changes in oxygen and electron
+              acceptor availability cause strong transitions in the dominant microbial
+              redox reactions; the direct link between these transitions and plant
+              growth effects demonstrates that redox dynamics is a mechanistic bridge
+              between microbial community activity and vegetation composition and
+              productivity.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: >
+          Diverse bacterial functional guilds — denitrifiers, iron reducers,
+          sulfate reducers, and nitrifiers — mediate the sequential reduction
+          and oxidation of electron acceptors that define wetland redox dynamics;
+          their thermodynamically ordered activity generates the biogeochemical
+          transformations that determine nutrient availability and phytotoxin
+          concentrations for wetland plant communities.
+    causal_edges:
+      - subject: Water table rise and O2 depletion
+        predicate: CAUSES
+        object: Sequential microbial reduction of NO3-, Fe(III), SO42-, CO2 in thermodynamic order
+      - subject: Microbial Fe(III) reduction under anaerobic conditions
+        predicate: CAUSES
+        object: Phosphorus mobilization from Fe-bound soil pools
+    evidence:
+      - reference: PMID:22539932
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "rapid changes in the availability of oxygen and alternative terminal electron acceptors will result in strong changes in the prevalent microbial redox reactions, with significant effects on plant growth."
+        explanation: >
+          Review synthesizes experimental and field evidence demonstrating that
+          water table fluctuations — which rapidly change O2 and electron acceptor
+          availability — are the primary driver of microbial redox community
+          transitions in wetlands; the demonstrated effects on plant growth through
+          N, S, and Fe transformations establish redox dynamics as a mechanistic
+          control on wetland ecosystem productivity and biodiversity.
+
+  - name: Anaerobic Fe Redox Cycling in Freshwater Sediments
+    description: >
+      In freshwater wetland sediments, microbial communities can sustain an
+      anaerobic iron redox cycle by coupling Fe(III) reduction to the oxidation
+      of organic carbon, and subsequently oxidizing the resulting Fe(II) using
+      nitrate as electron acceptor. This anaerobic Fe redox cycle is catalyzed
+      by microorganisms such as Geobacter that are capable of both dissimilatory
+      Fe(III) reduction and nitrate-dependent Fe(II) oxidation, enabling continuous
+      Fe cycling without oxygen. The cycle maintains Fe in biologically available
+      forms, links nitrogen and iron biogeochemistry, and generates local
+      thermodynamic conditions that suppress competing anaerobic processes
+      including methanogenesis.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:16343326
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+            explanation: >
+              Weber et al.'s enrichment culture experiment demonstrates that
+              freshwater sediment communities contain both Fe(III)-reducing
+              (~10^8 cells/ml) and Fe(II)-oxidizing nitrate-reducing organisms
+              (~10^5 cells/ml); the same Geobacter-related organisms catalyze
+              both reduction and oxidation phases, establishing the mechanistic
+              basis for an anaerobic Fe redox cycle that operates independently
+              of oxygen in wetland sediments.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:28232
+          label: Geobacter
+        role: DECOMPOSER
+        description: >
+          Geobacter and related Fe-cycling bacteria catalyze both dissimilatory
+          Fe(III) reduction and nitrate-dependent Fe(II) oxidation, enabling
+          a continuous anaerobic Fe redox cycle; their dual metabolic capability
+          makes them key agents of coupled Fe-N biogeochemistry in wetland
+          and freshwater sediments.
+    causal_edges:
+      - subject: Fe(III) availability and organic carbon supply
+        predicate: ENABLES
+        object: Microbial dissimilatory Fe(III) reduction producing Fe(II)
+      - subject: Nitrate addition to anaerobic Fe(II)-containing sediment
+        predicate: CAUSES
+        object: Immediate Fe(II) oxidation coupled to nitrate reduction
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+        explanation: >
+          Laboratory enrichment demonstrates that addition of nitrate after Fe(III)
+          reduction results in immediate Fe(II) oxidation, with no Fe(II) oxidation
+          in pasteurized controls; the coupling of Fe reduction and Fe(II) oxidation
+          by related Geobacter-Dechloromonas community members establishes that
+          anaerobic Fe cycling is a biologically mediated redox process linking
+          Fe and N biogeochemistry in freshwater sediments.
+
+  - name: Redox-Dependent Partitioning of Denitrification Between Fungi and Bacteria
+    description: >
+      Denitrification — the microbial conversion of nitrate to gaseous N2 and
+      N2O — is carried out by both bacteria and fungi in wetland sediments, but
+      their relative contributions shift predictably along the redox gradient.
+      Under moderately reducing to weakly oxidizing conditions (Eh > +250 mV),
+      fungi dominate denitrification; under strongly reducing conditions
+      (Eh < -100 mV), bacteria dominate. This redox partitioning is ecologically
+      significant because fungal denitrification produces a higher N2O:N2 ratio
+      than bacterial denitrification, meaning that the redox environment
+      determines not only denitrification rate but also the greenhouse gas
+      potency of nitrogen losses from wetland sediments.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:20122708
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "fungal denitrification was dominant under moderately reducing to weakly oxidizing conditions (Eh>+250 mV), whereas bacterial denitrification was dominant under strongly reducing condition (Eh<-100 mV)."
+            explanation: >
+              Seo & DeLaune's microcosm experiment across 6 redox levels
+              directly establishes redox potential as the primary determinant
+              of which microbial guild dominates denitrification; the quantitative
+              redox thresholds (Eh +250 mV for fungal dominance, Eh -100 mV for
+              bacterial dominance) define specific redox conditions under which
+              each guild is functionally dominant, linking bulk sediment redox
+              dynamics to the greenhouse gas consequences of nitrogen cycling.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        description: >
+          Fungi are unexpectedly dominant denitrifiers under moderately reducing
+          and weakly oxidizing sediment conditions, contributing 34-35% of total
+          denitrification at Eh +250 to +400 mV; because fungal denitrification
+          produces more N2O than bacterial denitrification, fungal community
+          activity under these redox conditions increases the global warming
+          potential of wetland nitrogen losses.
+    causal_edges:
+      - subject: Aerobic to moderately reducing redox conditions (Eh > +250 mV)
+        predicate: ENABLES
+        object: Fungal-dominated denitrification with elevated N2O production
+      - subject: Strongly reducing redox conditions (Eh < -100 mV)
+        predicate: CAUSES
+        object: Bacterial-dominated denitrification with lower N2O:N2 ratio
+    evidence:
+      - reference: PMID:20122708
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "fungal denitrification was dominant under moderately reducing to weakly oxidizing conditions (Eh>+250 mV), whereas bacterial denitrification was dominant under strongly reducing condition (Eh<-100 mV)."
+        explanation: >
+          Microcosm incubations with selective inhibitors across 6 Eh levels
+          quantify the redox-dependent switch between fungal and bacterial
+          denitrification dominance; because fungal denitrification is
+          ecologically significant under aerobic and moderately reducing
+          conditions, redox dynamics in seasonally fluctuating wetlands
+          determines whether N losses are primarily as inert N2 (bacterial)
+          or greenhouse gas N2O (fungal), with direct consequences for climate
+          feedbacks from wetland nitrogen cycling.
+
+indicators:
+  - name: Sediment redox potential (Eh)
+    description: >
+      Redox potential (Eh, millivolts) measured with platinum electrodes in
+      soil or sediment profiles provides the primary physicochemical indicator
+      of wetland redox dynamics. Eh values above +300 mV indicate aerobic
+      conditions; values between +100 and -100 mV indicate transitional redox;
+      values below -200 mV indicate strongly reducing conditions dominated by
+      sulfate reduction and methanogenesis. Time series of Eh at multiple
+      depths tracks the seasonal progression of redox conditions with water
+      table fluctuation.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Redox potential (Eh, mV) from platinum electrodes at multiple depths (5, 15, 30 cm) in sediment profiles, paired with water table depth"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:20122708
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "fungal denitrification was dominant under moderately reducing to weakly oxidizing conditions (Eh>+250 mV), whereas bacterial denitrification was dominant under strongly reducing condition (Eh<-100 mV)."
+        explanation: >
+          Quantitative redox thresholds for denitrifier community dominance
+          (-200, -100, 0, +100, +250, +400 mV) validate Eh as a sensitive
+          indicator of microbial functional community state; the clear transitions
+          in denitrifier dominance across these Eh thresholds demonstrate that
+          Eh measurement directly diagnoses which microbial redox functional guilds
+          are active and the associated greenhouse gas and nutrient cycling outcomes.
+
+  - name: Dissolved Fe(II) and nitrate concentrations in pore water
+    description: >
+      Pore water concentrations of dissolved ferrous iron [Fe(II)] and nitrate
+      (NO3-) in wetland sediment profiles serve as biogeochemical indicators of
+      Fe and N redox cycling activity. Elevated Fe(II) indicates active Fe(III)
+      reduction; depletion of NO3- with elevated Fe(II) indicates coupling of
+      Fe reduction to N cycling; temporal dynamics of these concentrations trace
+      the redox sequence as water table rises and falls.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Pore water Fe(II) (μmol L-1) and NO3- (μmol L-1) from Rhizon samplers or sediment squeezing at 5 cm depth intervals"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+        explanation: >
+          Weber et al. demonstrate that NO3- depletion triggers Fe(III) reduction
+          (rising Fe(II)), and that subsequent NO3- addition immediately reverses
+          Fe(II) to Fe(III); this tight coupling between NO3- and Fe(II) pore water
+          concentrations validates their co-measurement as indicators of the
+          anaerobic Fe redox cycle intensity in freshwater sediments.
+
+drivers:
+  - name: Water table depth and fluctuation frequency
+    description: >
+      Water table depth and its seasonal or event-driven fluctuation frequency
+      is the primary driver of redox dynamics in wetland and riparian ecosystems.
+      Rising water table eliminates O2 from the soil profile and initiates
+      the anaerobic redox sequence; falling water table reintroduces O2 and
+      reverses the sequence. Rapid or frequent fluctuations generate high
+      spatial and temporal redox heterogeneity that supports diverse
+      microbial functional communities and complex biogeochemical cycling.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:22539932
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "rapid changes in the availability of oxygen and alternative terminal electron acceptors will result in strong changes in the prevalent microbial redox reactions, with significant effects on plant growth."
+        explanation: >
+          Lamers et al. identify water level fluctuations — through their
+          control of O2 and electron acceptor availability — as the primary
+          physical driver of microbial redox transitions in wetlands;
+          the demonstrated effects on plant growth through N, S, and Fe
+          transformations establish water table dynamics as the dominant
+          abiotic driver linking hydrology to biogeochemistry and
+          vegetation composition.
+
+  - name: Organic carbon substrate supply
+    description: >
+      The availability of labile organic carbon as electron donor determines
+      the rates of anaerobic microbial respiration processes and the extent
+      to which successive electron acceptors are consumed. High organic carbon
+      input (from litter, root exudates, or allochthonous dissolved organic
+      carbon) accelerates oxygen depletion and drives the redox sequence deeper
+      into strongly reducing conditions; low carbon availability maintains
+      soils in intermediate oxidation states with limited methanogenesis.
+    driver_type: BIOTIC
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+        explanation: >
+          Weber et al.'s enrichment culture used acetate as organic electron donor;
+          Fe(III) reduction commenced after NO3- was depleted and continued until
+          acetate was consumed — directly demonstrating that organic carbon substrate
+          supply governs both the rate and the extent of anaerobic redox processes,
+          establishing carbon availability as a key biotic driver of redox dynamics
+          in freshwater sediments.
+
+interventions:
+  - name: Water table management for redox-mediated nutrient control
+    description: >
+      Managed manipulation of water table depth in constructed or restored wetlands
+      controls sediment redox conditions to optimize desired biogeochemical
+      functions: sustained high water tables promote denitrification and phosphorus
+      immobilization through Fe(III) reduction, while periodic drawdown pulses
+      reoxidize sediments to mineralize organic nitrogen and reset the microbial
+      community. Pulsed water table management is used to balance nitrogen
+      removal, phosphorus retention, and methane emission from treatment wetlands.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:22539932
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "rapid changes in the availability of oxygen and alternative terminal electron acceptors will result in strong changes in the prevalent microbial redox reactions, with significant effects on plant growth."
+        explanation: >
+          The established mechanistic link between water table position,
+          O2 availability, and microbial redox transitions provides the
+          scientific basis for water table management as an intervention
+          to control redox-mediated biogeochemical functions; managing
+          water level fluctuation frequency and amplitude directly controls
+          which microbial redox functional guilds are active and therefore
+          which nutrient cycling outcomes are achieved.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000043
+      label: wetland
+    description: >
+      Redox dynamics is most pronounced and ecologically consequential in wetlands
+      (bogs, fens, swamps, marshes, riparian zones) where waterlogging creates
+      anaerobic conditions and plant radial oxygen loss generates micro-scale
+      redox gradients; freshwater and brackish sediments in lakes, rivers, and
+      estuaries also exhibit strong redox dynamics linked to organic matter
+      decomposition.
+
+creation_date: "2026-09-02T00:00:00Z"

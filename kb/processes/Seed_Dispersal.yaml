@@ -1,0 +1,406 @@
+id: ECOCORE:00000201
+name: Seed Dispersal
+process_term:
+  id: ECOCORE:00000201
+  label: seed dispersal
+description: >
+  Seed dispersal is the movement of seeds away from the parent plant to new
+  locations, a critical process governing plant population dynamics, community
+  assembly, gene flow, and species range shifts. Seeds are dispersed by animals
+  (zoochory), wind (anemochory), water (hydrochory), and other vectors. Animal
+  seed dispersal—carried out by frugivorous vertebrates that ingest fleshy fruits
+  and deposit seeds in their excreta—is the dominant dispersal mode for the
+  majority of woody plant species in tropical and subtropical forests, and is
+  increasingly recognized as the primary mechanism of long-distance dispersal.
+  The spatial pattern of seed deposition (the seed shadow) determines plant
+  recruitment opportunities, influences plant genetic structure, and drives
+  community dynamics. Anthropogenic defaunation, habitat loss, and fragmentation
+  are eroding seed dispersal mutualisms, with cascading consequences for forest
+  regeneration and species persistence under climate change.
+synonyms:
+  - zoochory
+  - frugivory-mediated dispersal
+  - anemochory
+  - endozoochory
+  - seed rain
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Frugivore-Mediated Endozoochorous Seed Dispersal
+    description: >
+      Frugivorous vertebrates (birds, mammals, reptiles) ingest fleshy fruits
+      and disperse seeds in their feces at locations distant from the parent plant.
+      Seed dispersal effectiveness depends on the gut retention time of seeds
+      (determining dispersal distance), the number of seeds deposited per defecation
+      event, and the quality of microhabitats where seeds are deposited relative to
+      safe sites for germination. Effective seed dispersers are distinguished from
+      pulp peckers (which consume pulp without ingesting seeds) and seed predators
+      (which destroy seeds by mastication). Large-bodied frugivores disperse the
+      largest-seeded fruits and achieve the greatest dispersal distances, making
+      them disproportionately important for forest regeneration and gene flow.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:29603211
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Frugivorous animals can act as seed dispersers, by swallowing entire fruits and dispersing their seeds, or as pulp peckers or seed predators, by pecking fruits to consume pieces of pulp or seeds."
+            explanation: >
+              Simmons et al. distinguish the functional outcomes of frugivore
+              feeding behavior: only frugivores that swallow entire fruits function
+              as effective seed dispersers, while pulp peckers and seed predators
+              have opposing consequences for plant reproduction; feeding behavior
+              mode is therefore the mechanistic determinant of whether animal-fruit
+              interactions promote or inhibit seed dispersal.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000201
+          label: seed dispersal
+        evidence:
+          - reference: PMID:9951414
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Highly frugivorous species, for which fruit dominates the diet for at least part of the year, occur in at least two families of reptiles, 12 families of mammals and 17 families of birds."
+            explanation: >
+              The taxonomic breadth of frugivory across vertebrate classes —
+              reptiles, mammals, and birds — in the Oriental Region documents
+              the pervasive role of vertebrate frugivores as seed dispersal
+              agents; the concentration of seed dispersal function in highly
+              frugivorous species that are most vulnerable to hunting and habitat
+              loss explains why anthropogenic defaunation threatens this ecological process.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:8782
+          label: Aves
+        role: OTHER
+        description: >
+          Birds are the dominant seed dispersers in many tropical and subtropical
+          ecosystems; highly frugivorous families (cotingas, toucans, hornbills,
+          fruit pigeons) are among the most effective long-distance seed dispersers
+          for large-seeded trees, and their functional diversity ensures dispersal
+          of plants across a wide range of fruit sizes and morphologies
+      - taxon:
+          id: NCBITaxon:40674
+          label: Mammalia
+        role: OTHER
+        description: >
+          Mammals, particularly primates, large rodents, and bats, are critical
+          seed dispersers for the largest-fruited tree species; elephants and
+          tapirs are among the only remaining megafaunal dispersers for plants
+          that co-evolved with now-extinct Pleistocene megafauna, making
+          their conservation essential for long-term forest regeneration
+    causal_edges:
+      - subject: Frugivore ingestion of fleshy fruits
+        predicate: CAUSES
+        object: Transport and deposition of seeds at locations distant from parent plant
+      - subject: Gut passage time and distance traveled during retention
+        predicate: MODULATES
+        object: Seed dispersal distance and spatial pattern of seed deposition
+    evidence:
+      - reference: PMID:29603211
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "These processes have opposing consequences for plant reproductive success."
+        explanation: >
+          The distinction between seed dispersal (mutualistic) and seed predation
+          (antagonistic) frugivore interactions demonstrates that the identity of
+          visiting frugivores — not just visit frequency — determines plant
+          reproductive outcome; effective dispersal depends on interactions
+          that result in viable seed deposition, not merely fruit consumption.
+
+  - name: Long-Distance Seed Dispersal Events
+    description: >
+      Long-distance dispersal (LDD) events — where seeds are transported many
+      kilometers from the parent plant — are rare relative to typical seed
+      shadows but disproportionately important for plant population connectivity,
+      range expansion, and colonization of new habitats. LDD is driven by large
+      and migratory animals, extreme meteorological events (storms, tornadoes),
+      ocean currents, and human transport. LDD allows plant populations to track
+      shifting climate envelopes and colonize habitat patches beyond typical
+      dispersal distances, playing a key role in range expansions under climate change.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:18823680
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "LDD is generally more common in open terrestrial landscapes, and is typically driven by large and migratory animals, extreme meteorological phenomena, ocean currents and human transportation, each transporting a variety of seed morphologies."
+            explanation: >
+              Nathan et al.'s synthesis identifies the principal LDD vectors —
+              large/migratory animals, storms, ocean currents, human transport —
+              and their capacity to transport diverse seed morphologies; the
+              dominant role of animal feeding behavior (frugivory, caching) in
+              LDD makes frugivore diversity and abundance a primary driver of
+              plant metapopulation connectivity at landscape and continental scales.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000201
+          label: seed dispersal
+        evidence:
+          - reference: PMID:10856948
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Growing interest in spatial ecology is promoting new approaches to the study of seed dispersal, one of the key processes determining the spatial structure of plant populations."
+            explanation: >
+              Nathan & Muller-Landau establish seed dispersal as a key process
+              determining plant population spatial structure; the seed shadow —
+              the spatial distribution of seeds around parent plants — directly
+              links dispersal mechanisms to plant recruitment patterns, gene
+              flow, and community dynamics at landscape scales.
+    causal_edges:
+      - subject: Migratory frugivore movement between habitat patches
+        predicate: CAUSES
+        object: Long-distance seed deposition enabling plant metapopulation connectivity
+      - subject: Long-distance seed dispersal
+        predicate: ENABLES
+        object: Plant colonization of new habitat patches and range shifts under climate change
+    evidence:
+      - reference: PMID:18823680
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "LDD is often associated with unusual behavior of the standard vector inferred from plant dispersal morphology, or mediated by nonstandard vectors."
+        explanation: >
+          The common association of LDD with unusual vector behavior or nonstandard
+          dispersers (e.g., seed attachment to migratory birds rather than
+          wind) demonstrates that LDD cannot be predicted from fruit morphology
+          alone; understanding LDD mechanisms requires knowledge of the full
+          assemblage of dispersal vectors and their movement ecology.
+
+  - name: Seed Shadow Shape Determines Plant Recruitment and Spatial Structure
+    description: >
+      The spatial distribution of seeds around parent plants (the seed shadow)
+      varies among plant species, populations, and individuals as a function of
+      disperser identity, disperser home range size, seed retention time, and
+      habitat structure. Short-distance clumped seed shadows create intense
+      competition among recruits near parent plants; long-tailed seed shadows
+      with rare long-distance events connect plant populations across landscapes.
+      The shape of the seed shadow is the primary link between dispersal
+      mechanism and plant community dynamics, gene flow, and succession.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:9951414
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Larger, bigger-seeded fruits are consumed by progressively fewer dispersers, and the largest depend on a few species of mammals and birds which are highly vulnerable to hunting, fragmentation and habitat loss."
+            explanation: >
+              Dependency of large-seeded plant species on few, vulnerable
+              dispersers generates dispersal bottlenecks: loss of large
+              frugivorous mammals and birds (through hunting and fragmentation)
+              disproportionately narrows the seed shadow for the largest-seeded
+              trees, concentrating seeds near parents and reducing long-distance
+              recruitment that sustains forest genetic diversity.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000201
+          label: seed dispersal
+        evidence:
+          - reference: PMID:10856948
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "Seed-dispersion patterns vary among plant species, populations and individuals, at different distances from parents, different microsites and different times."
+            explanation: >
+              The documented multi-scale variation in seed dispersion patterns
+              across species, individuals, and microsites establishes the seed
+              shadow as a dynamic, context-dependent descriptor of dispersal
+              outcome; understanding these patterns is essential for predicting
+              plant recruitment success, population genetics, and community
+              assembly from dispersal mechanisms.
+    causal_edges:
+      - subject: Frugivore behavior and home range
+        predicate: MODULATES
+        object: Seed shadow shape and distance distribution
+      - subject: Seed shadow tail extent
+        predicate: ENABLES
+        object: Recruitment in microhabitats away from parent plant competition
+    evidence:
+      - reference: PMID:10856948
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Recent field studies have made progress in elucidating the mechanisms behind these patterns and the implications of these patterns for recruitment success."
+        explanation: >
+          Progress in mechanistic understanding of seed dispersion patterns
+          and their consequences for recruitment links dispersal mechanism
+          to plant population dynamics; field studies quantifying seed shadows
+          across diverse plant-disperser systems validate the mechanistic
+          framework connecting frugivore behavior to plant spatial structure.
+
+indicators:
+  - name: Seed trap density and distance from parent plant
+    description: >
+      Standardized seed traps (plastic trays, funnels) deployed under parent
+      plant canopies and at increasing distances measure the spatial density
+      distribution of seeds (the empirical seed shadow). Trap catch data fitted
+      to dispersal kernel models estimate the mean and maximum dispersal distances
+      and quantify the shape of the seed shadow (exponential decay vs. fat-tailed).
+      This is the primary field method for quantifying seed dispersal distance
+      and plant recruitment potential.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Seeds per seed trap per day; seed trap catches fitted to exponential or 2Dt dispersal kernels (seeds m-2 day-1 vs. distance m)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:10856948
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Seed-dispersion patterns vary among plant species, populations and individuals, at different distances from parents, different microsites and different times."
+        explanation: >
+          The multi-scale variation in seed dispersion patterns underscores
+          the need for spatially explicit seed trap sampling that captures
+          variation across species, microsites, and distances; standardized
+          seed trap arrays provide the empirical data foundation for dispersal
+          kernel fitting and comparison across plant-disperser systems.
+
+  - name: Frugivore diversity and abundance
+    description: >
+      Species richness, abundance, and functional diversity of frugivorous
+      vertebrates (birds, mammals) in a plant community predict the diversity
+      of seed shadows and the frequency of long-distance dispersal events.
+      Monitoring frugivore communities provides a leading indicator of seed
+      dispersal service provision, particularly in defaunated landscapes where
+      disperser loss precedes measurable changes in plant recruitment.
+    indicator_term:
+      id: PATO:0000070
+      label: concentration
+    measurement: "Frugivore species richness and abundance (point counts, camera trapping); functional diversity indices including body mass range and gut retention time variation"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:9951414
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the largest depend on a few species of mammals and birds which are highly vulnerable to hunting, fragmentation and habitat loss."
+        explanation: >
+          The vulnerability of the largest, functionally critical frugivores
+          to anthropogenic pressures makes frugivore diversity monitoring a
+          priority indicator: declines in large-bodied birds and mammals are
+          the earliest signal of seed dispersal service degradation before
+          effects on plant recruitment become measurable.
+
+drivers:
+  - name: Frugivore community composition and body size
+    description: >
+      The identity, body size, gut morphology, and behavioral ecology of
+      frugivorous vertebrates determines the diversity of seed shadows produced
+      in a plant community. Large-bodied frugivores achieve greater dispersal
+      distances and disperse the largest-seeded plants. Frugivore community
+      composition is shaped by habitat quality, hunting pressure, and ecosystem
+      history, making it both a biological driver and an indicator of seed
+      dispersal function.
+    driver_type: BIOTIC
+    evidence:
+      - reference: PMID:9951414
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Small fruits and large, soft fruits with many small seeds are consumed by a wide range of potential seed dispersal agents, including species which thrive in small forest fragments and degraded landscapes."
+        explanation: >
+          Corlett's review demonstrates that fruit size and morphology determines
+          which frugivore species act as dispersers; the concentration of
+          large-seeded fruit dispersal in large, vulnerable mammals and birds
+          establishes frugivore body size as the primary biotic driver of
+          seed dispersal distance and plant gene flow across landscapes.
+
+  - name: Wind speed and turbulence for anemochorous species
+    description: >
+      For wind-dispersed plant species (with plumed, winged, or pappose seeds),
+      wind speed, turbulence, and atmospheric boundary layer structure determine
+      dispersal distance. Open-canopy habitats and elevated terrain enhance
+      wind-mediated LDD; extreme weather events (storms, tornadoes) generate
+      the rare, very long-distance events that drive metapopulation connectivity.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:18823680
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "LDD is generally more common in open terrestrial landscapes, and is typically driven by large and migratory animals, extreme meteorological phenomena, ocean currents and human transportation"
+        explanation: >
+          Open landscapes and extreme meteorological events are identified as
+          conditions promoting LDD; for anemochorous species, the interaction
+          of landscape openness and wind energy determines the frequency of
+          long-distance events that allow range expansion and metapopulation
+          gene flow across fragmented habitats.
+
+  - name: Defaunation and hunting of large frugivores
+    description: >
+      Hunting and habitat loss disproportionately eliminate the largest-bodied
+      frugivores (tapirs, large primates, hornbills, toucans), which are the
+      primary or sole dispersers of the largest-seeded plant species. Defaunation
+      of tropical forests creates dispersal deficits — reduced seed dispersal
+      distances and missing seed shadows for large-seeded trees — threatening
+      long-term forest regeneration and carbon stocks.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:9951414
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the largest depend on a few species of mammals and birds which are highly vulnerable to hunting, fragmentation and habitat loss."
+        explanation: >
+          Dependency of the largest-seeded plants on a few large-bodied,
+          vulnerable frugivores establishes defaunation as the primary anthropogenic
+          driver threatening seed dispersal function; the extinction or local
+          elimination of these keystone dispersers creates irreplaceable dispersal
+          deficits for forest tree species with no alternative dispersers.
+
+interventions:
+  - name: Large frugivore conservation and hunting moratoriums
+    description: >
+      Protecting large frugivorous mammals (primates, tapirs, large ungulates)
+      and birds (hornbills, toucans, large pigeons) through hunting moratoriums,
+      protected area management, and anti-poaching enforcement preserves the
+      keystone dispersers of large-seeded tree species. Frugivore protection
+      maintains functional seed shadows and long-distance dispersal capacity
+      essential for forest regeneration and tree species persistence under
+      climate-driven range shifts.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:9951414
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Larger, bigger-seeded fruits are consumed by progressively fewer dispersers, and the largest depend on a few species of mammals and birds which are highly vulnerable to hunting, fragmentation and habitat loss."
+        explanation: >
+          The narrow disperser base for large-seeded plants — concentrated in
+          a few vulnerable mammal and bird species — justifies prioritizing
+          large frugivore protection as the intervention with greatest leverage
+          for preventing irreversible seed dispersal degradation in tropical forests.
+
+  - name: Habitat corridor establishment to reconnect fragmented frugivore populations
+    description: >
+      Establishing riparian corridors, forest patches, and biodiversity-friendly
+      matrix habitats between forest fragments enables frugivorous birds and
+      mammals to move between patches, restoring seed dispersal connectivity.
+      Functional landscape corridors allow frugivores to transport seeds across
+      agricultural matrices, regenerating plant communities in isolated patches
+      and facilitating climate-driven range shifts of plant species.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:18823680
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "LDD is often associated with unusual behavior of the standard vector inferred from plant dispersal morphology, or mediated by nonstandard vectors."
+        explanation: >
+          The association of LDD with nonstandard vectors and unusual disperser
+          behavior highlights that landscape connectivity enabling wide-ranging
+          frugivore movement is the primary determinant of functional LDD; habitat
+          corridors that allow frugivore dispersal across fragmented landscapes
+          restore the rare, long-distance seed deposition events critical for
+          plant metapopulation connectivity and climate-driven range expansion.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000446
+      label: temperate broadleaf mixed forest biome
+    description: >
+      Temperate broadleaf forests support diverse frugivore communities of birds
+      and small mammals that disperse fleshy-fruited shrubs and trees; seed
+      dispersal is particularly critical for forest regeneration in the
+      understory and after gap disturbance
+
+creation_date: "2026-09-02T00:00:00Z"
