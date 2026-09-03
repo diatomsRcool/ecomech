@@ -383,6 +383,20 @@ interventions:
           interactions determine survival outcomes allows restoration practitioners
           to design hydrological targets that restore appropriate plant community
           composition.
+      - reference: PMID:12804262
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The components of a river's natural flood regime (magnitude, frequency, duration and timing of peak flows) interact to maintain great habitat heterogeneity and to promote high species diversity and ecosystem productivity."
+        explanation: >
+          Poff's review of flood regime ecology establishes the four components
+          of natural flood regimes (magnitude, frequency, duration, timing) as
+          the collective drivers of floodplain habitat heterogeneity and
+          biodiversity; floodplain reconnection interventions are most effective
+          when they restore all four components of the natural flood pulse rather
+          than just increasing inundation extent, and the paper's observation that
+          larger floods in leveed valleys naturally re-establish severed floodplain
+          connections provides the ecological rationale for non-structural
+          flood management that works with rather than against flood dynamics.
 
 habitat_context:
   - habitat_term:
