@@ -161,6 +161,71 @@ mechanisms:
           anoxic soils directly challenges the foundational assumption incorporated
           in Earth system models, with major ramifications for global CH4 estimates.
 
+  - name: Anaerobic Oxidation of Methane in Wetland Soils
+    description: >
+      Anaerobic oxidation of methane (AOM) is a cryptic biogeochemical process
+      in which CH4 is consumed in strictly anoxic soil zones, coupled to the
+      reduction of terminal electron acceptors including sulfate, nitrate, and
+      Fe/Mn oxides. AOM is carried out by anaerobic methanotrophic archaea
+      (ANME), sometimes in syntrophy with sulfate-reducing bacteria, and
+      potentially also by methanogens operating in reverse. AOM rates in
+      terrestrial wetland soils span a wide range (1.4–704 nmol CH4 g-1 dry
+      soil d-1), with electron acceptor availability as the primary control on
+      which AOM pathway dominates. The widespread distribution of anaerobic
+      methanotrophs across wetland types establishes AOM as a globally
+      significant but poorly constrained sink within the wetland CH4 cycle —
+      the "cryptic methane cycle" — that reduces net CH4 emissions below what
+      would be predicted from methanogenesis rates alone.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:37543312
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "the availability of electron acceptors is critical in driving different AOM in wetland soils"
+            explanation: >
+              Zhao & Lu's synthesis of AOM in terrestrial wetlands establishes
+              electron acceptor availability as the master control on which
+              anaerobic methanotrophy pathway operates; the diversity of electron
+              acceptors (sulfate, nitrate, Fe/Mn oxides) that can couple to AOM
+              means that the redox environment of the soil profile determines
+              both the rate and identity of the oxidation-reduction process
+              responsible for CH4 consumption in anoxic wetland zones.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2157
+          label: Archaea
+        role: DECOMPOSER
+        description: >
+          Anaerobic methanotrophic archaea (ANME groups) and potentially
+          reverse-acting methanogens carry out AOM in anoxic wetland soils,
+          consuming CH4 as an electron donor coupled to diverse electron
+          acceptors; their widespread distribution across wetland types
+          establishes them as globally significant agents of the cryptic
+          wetland CH4 cycle.
+    causal_edges:
+      - subject: Electron acceptor availability in anoxic soil zones
+        predicate: ENABLES
+        object: Anaerobic oxidation of CH4 by methanotrophic archaea
+      - subject: AOM consumption of CH4 in anoxic soil layers
+        predicate: INHIBITS
+        object: Net CH4 flux to the atmosphere from the soil profile
+    evidence:
+      - reference: PMID:37543312
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the availability of electron acceptors is critical in driving different AOM in wetland soils"
+        explanation: >
+          Review of AOM rates across terrestrial wetlands (1.4–704 nmol CH4
+          g-1 dry soil d-1) establishes the wide variability in this cryptic
+          CH4 sink and identifies electron acceptor availability as its primary
+          driver; the prevalence of anaerobic methanotrophs across wetland
+          ecosystems confirms that AOM is a globally distributed process that
+          offsets methanogenesis in anoxic soil zones, with implications for
+          net CH4 flux predictions from wetland biogeochemical models.
+
   - name: Water Table and Temperature as Dominant Controls on Wetland CH4 Flux
     description: >
       Net CH4 flux from wetlands is primarily governed by the interaction between
