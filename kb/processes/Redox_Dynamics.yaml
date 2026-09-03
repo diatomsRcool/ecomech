@@ -120,6 +120,19 @@ mechanisms:
               both reduction and oxidation phases, establishing the mechanistic
               basis for an anaerobic Fe redox cycle that operates independently
               of oxygen in wetland sediments.
+          - reference: PMID:36342198
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "the buildup of Fe(II) in systems with long residence times limits the thermodynamic viability of dissimilatory Fe(III) reduction and thereby limits the mineralization of organic carbon."
+            explanation: >
+              Aeppli et al.'s incubation of floodplain soils across a native
+              redox gradient demonstrates that solid-phase Fe(III) redox
+              reactivity — not crystallinity — controls anaerobic respiration
+              rates; Fe(II) accumulation in long-residence-time soils reduces
+              TEA reactivity and suppresses Fe(III) reduction, showing that
+              the oxidation state of solid-phase electron acceptors is a key
+              thermodynamic constraint on the anaerobic Fe redox cycle and
+              coupled organic carbon mineralization.
     taxa_involved:
       - taxon:
           id: NCBITaxon:28232
@@ -138,6 +151,9 @@ mechanisms:
       - subject: Nitrate addition to anaerobic Fe(II)-containing sediment
         predicate: CAUSES
         object: Immediate Fe(II) oxidation coupled to nitrate reduction
+      - subject: Fe(II) accumulation in long-residence-time floodplain soils
+        predicate: INHIBITS
+        object: Dissimilatory Fe(III) reduction rates and anaerobic organic carbon mineralization
     evidence:
       - reference: PMID:16343326
         supports: SUPPORT
@@ -150,6 +166,18 @@ mechanisms:
           by related Geobacter-Dechloromonas community members establishes that
           anaerobic Fe cycling is a biologically mediated redox process linking
           Fe and N biogeochemistry in freshwater sediments.
+      - reference: PMID:36342198
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "the buildup of Fe(II) in systems with long residence times limits the thermodynamic viability of dissimilatory Fe(III) reduction and thereby limits the mineralization of organic carbon."
+        explanation: >
+          Field incubation across a native redox gradient in Slate River
+          floodplain soils shows that CO2 production rates track solid-phase
+          TEA redox reactivity, and that Fe(II) accumulation — not Fe(III)
+          crystallinity — is the primary constraint on anaerobic respiration;
+          this thermodynamic self-limitation of the Fe redox cycle in
+          chronically reduced soils has direct implications for organic carbon
+          turnover rates and greenhouse gas production in floodplain wetlands.
 
   - name: Redox-Dependent Partitioning of Denitrification Between Fungi and Bacteria
     description: >
