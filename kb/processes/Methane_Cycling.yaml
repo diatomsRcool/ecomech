@@ -5,9 +5,9 @@ process_term:
   label: methane cycling
 description: >
   Methane cycling in wetland and aquatic ecosystems encompasses the production
-  of methane (CH4) by methanogenic archaea under strictly anaerobic conditions
-  (methanogenesis), its consumption by methanotrophic bacteria at oxic-anoxic
-  interfaces (methanotrophy), and its emission to the atmosphere through
+  of methane (CH4) by methanogenic archaea (methanogenesis), its consumption by
+  methanotrophic bacteria at oxic-anoxic interfaces (methanotrophy), and its
+  emission to the atmosphere through
   diffusion, ebullition, and vascular plant transport. Wetlands are the single
   largest natural source of atmospheric CH4, contributing approximately 164
   Tg CH4 yr-1 — about one third of total global emissions. Net wetland CH4 flux
@@ -95,6 +95,71 @@ mechanisms:
           (0.65 eV) establishes that global warming will disproportionately
           increase CH4 emissions, altering the CH4:CO2 ratio in greenhouse
           gas emissions from wetlands.
+
+  - name: Methanogenesis in Oxygenated Soils
+    description: >
+      The long-held paradigm that methanogenesis is restricted to anoxic habitats
+      has been overturned by evidence that substantial CH4 production occurs in
+      well-oxygenated surface soils of freshwater wetlands. In a freshwater
+      wetland, oxygenated soils produced up to ten times more CH4 than anoxic
+      soils, and up to 80% of total methane fluxes were attributed to
+      methanogenesis in the oxygenated zone. Metagenomic and metatranscriptomic
+      analysis identified a novel acetoclastic methanogen, Candidatus
+      Methanothrix paradoxum, as the dominant organism responsible for oxic-zone
+      methanogenesis. This organism is prevalent across methane-emitting
+      ecosystems globally, suggesting that aerobic methanogenesis is a widespread
+      phenomenon currently unaccounted for in biogeochemical models that restrict
+      CH4 production to anoxic layers. Incorporation of oxic-zone methanogenesis
+      is expected to substantially revise global wetland CH4 emission estimates
+      upward.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:29146959
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "up to 80% of methane fluxes could be attributed to methanogenesis in oxygenated soils"
+            explanation: >
+              Angle et al. demonstrate with geochemical and metagenomic evidence
+              that the majority of CH4 flux from a freshwater wetland originates
+              from oxygenated surface soils rather than anoxic depths; the
+              identification of Candidatus Methanothrix paradoxum as the key
+              organism — and its global prevalence — establishes oxic-zone
+              methanogenesis as a fundamentally important oxidation-reduction
+              process that revises the conceptual model of where in the soil
+              profile CH4 production occurs.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2157
+          label: Archaea
+        role: DECOMPOSER
+        description: >
+          Candidatus Methanothrix paradoxum, a novel acetoclastic methanogenic
+          archaeon, drives methanogenesis in oxygenated wetland surface soils;
+          its prevalence across methane-emitting ecosystems indicates that
+          oxygen-tolerant methanogens are globally significant contributors to
+          wetland CH4 budgets.
+    causal_edges:
+      - subject: Acetoclastic methanogenesis by oxygen-tolerant archaea in surface soils
+        predicate: CAUSES
+        object: CH4 production in oxygenated soil layers contributing up to 80% of total wetland flux
+      - subject: Oxygenated surface soil conditions
+        predicate: ENABLES
+        object: Activity of Candidatus Methanothrix paradoxum and aerobic-zone methanogenesis
+    evidence:
+      - reference: PMID:29146959
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "up to 80% of methane fluxes could be attributed to methanogenesis in oxygenated soils"
+        explanation: >
+          Field measurements paired with metagenomics and metatranscriptomics
+          establish that oxygenated surface soils are the dominant source of CH4
+          flux, not anoxic depth layers as assumed by current biogeochemical models;
+          the finding that oxygenated soils produced up to ten times more CH4 than
+          anoxic soils directly challenges the foundational assumption incorporated
+          in Earth system models, with major ramifications for global CH4 estimates.
 
   - name: Water Table and Temperature as Dominant Controls on Wetland CH4 Flux
     description: >
