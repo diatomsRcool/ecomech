@@ -321,6 +321,20 @@ drivers:
           (30% monthly renewal rate) demonstrate that discharge variability
           is the dominant control on riverscape habitat availability and
           biodiversity consequences.
+      - reference: PMID:24340094
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "perturbations in the organisation of lower trophic levels are cascaded through the food web, resulting in shifts in food availability for consumer species."
+        explanation: >
+          Royan et al.'s national-scale analysis of river flow variability and
+          bird community distributions across 71 UK river locations demonstrates
+          that hydrological disturbance propagates through food webs to affect
+          higher trophic levels; bird species showed complex but biologically
+          interpretable associations with flow indices, confirming that river
+          discharge variability is a driver not just of physical habitat but
+          of trophic structure and food availability for riparian consumer
+          communities — extending the flood pulse driver effect from primary
+          production to upper food web levels.
 
   - name: Floodplain connectivity and lateral extent
     description: >
