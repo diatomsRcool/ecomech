@@ -1,0 +1,162 @@
+id: ecomech:module004
+name: Microbial Loop
+description: >
+  The microbial loop is the conserved pathway by which dissolved and particulate
+  organic carbon and nutrients cycle through microbial food webs — bacteria,
+  archaea, and their protist and viral consumers — rather than being lost from
+  ecosystems via sedimentation or leaching. In aquatic systems, phytoplankton
+  release 10–40% of fixed carbon as dissolved organic carbon (DOC); heterotrophic
+  bacteria assimilate this DOC and are in turn grazed by flagellate and ciliate
+  protists, regenerating inorganic nutrients (NH4+, PO43-) that subsidize further
+  phytoplankton growth. Viral lysis of bacteria and phytoplankton short-circuits
+  this grazer-mediated loop, releasing cell contents as DOC and particulate
+  organic matter (the viral shunt). In terrestrial systems, an analogous microbial
+  food web loop — bacteria consuming soil organic carbon, protists consuming
+  bacteria, and nematodes consuming protists — drives the bulk of soil inorganic
+  nitrogen and phosphorus regeneration from organic substrates. The microbial
+  loop is therefore a universal mechanism coupling primary production, decomposition,
+  and nutrient regeneration across aquatic and terrestrial ecosystems.
+
+mechanisms:
+  - name: Bacterial Uptake and Mineralization of Dissolved Organic Carbon
+    description: >
+      Heterotrophic bacteria and archaea in aquatic and terrestrial systems
+      assimilate dissolved and colloidal organic carbon (DOC, SOC) as their
+      primary carbon and energy source, converting it to microbial biomass and
+      CO2. In terrestrial soils, heterotrophic microbial respiration accounts for
+      the largest fraction of soil CO2 efflux, representing the predominant
+      pathway of organic carbon return to the atmosphere. Microbial uptake of
+      DOC is gated by the quality and stoichiometry of substrates: labile,
+      nitrogen-rich DOC is rapidly assimilated while recalcitrant, nitrogen-poor
+      substrates support slower microbial growth. Microbial carbon use efficiency
+      (fraction of DOC assimilated into biomass vs. respired as CO2) determines
+      how much organic carbon is retained in microbial biomass for transfer to
+      higher trophic levels in the microbial loop.
+    biological_processes:
+      - term:
+          id: GO:0045333
+          label: cellular respiration
+        evidence:
+          - reference: PMID:20336143
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "Soil respiration, R(S), the flux of microbially and plant-respired carbon dioxide (CO(2)) from the soil surface to the atmosphere, is the second-largest terrestrial carbon flux."
+            explanation: >
+              Establishes heterotrophic microbial respiration of soil organic carbon
+              as the dominant component of soil CO2 efflux and the second-largest
+              terrestrial carbon flux globally; microbial cellular respiration of
+              dissolved and particulate organic substrates is the terrestrial analog
+              of bacterial DOC uptake in the aquatic microbial loop.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:20336143
+            supports: SUPPORT
+            evidence_source: LONG_TERM_MONITORING
+            snippet: "Soil respiration, R(S), the flux of microbially and plant-respired carbon dioxide (CO(2)) from the soil surface to the atmosphere, is the second-largest terrestrial carbon flux."
+            explanation: >
+              Decomposition — the saprotrophic breakdown of organic carbon by
+              heterotrophic microorganisms — drives the bulk of soil CO2 efflux;
+              this microbial-mediated decomposition of organic substrates is the
+              first step of the terrestrial microbial loop, generating microbial
+              biomass from DOC that is subsequently grazed by protozoa and nematodes.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: >
+          Heterotrophic bacteria are the primary DOC and SOC consumers in the
+          microbial loop; their biomass constitutes the primary microbial link
+          between dissolved organic substrates and higher trophic levels in the
+          microbial food web.
+      - taxon:
+          id: NCBITaxon:2157
+          label: Archaea
+        role: DECOMPOSER
+        description: >
+          Archaea including methanogens and ammonia-oxidizing archaea contribute
+          to microbial organic carbon processing and nutrient cycling in the
+          microbial loop, particularly in anoxic sediments and soils.
+    causal_edges:
+      - subject: Primary producer release of dissolved organic carbon to environment
+        predicate: CAUSES
+        object: Bacterial uptake and conversion of DOC to microbial biomass and CO2
+      - subject: Substrate quality and C:N ratio of DOC
+        predicate: MODULATES
+        object: Microbial carbon use efficiency and rate of biomass production vs. respiration
+    evidence:
+      - reference: PMID:20336143
+        supports: SUPPORT
+        evidence_source: LONG_TERM_MONITORING
+        snippet: "The available data are, however, consistent with an acceleration of the terrestrial carbon cycle in response to global climate change."
+        explanation: >
+          Long-term monitoring reveals temperature-driven acceleration of the
+          terrestrial carbon cycle, implicating enhanced microbial DOC mineralization
+          as the mechanism; this temperature sensitivity of microbial organic carbon
+          processing is a key regulatory property of the terrestrial microbial loop.
+
+  - name: Grazer-Mediated Nutrient Regeneration
+    description: >
+      In the microbial loop, bacterivorous protists (flagellates, ciliates),
+      nematodes, and other microfaunal grazers consume bacterial and archaeal
+      biomass, regenerating inorganic nitrogen and phosphorus through excretion
+      at rates that exceed what bacterial biomass turnover alone would release.
+      Grazing releases nutrients immobilized in microbial biomass back to
+      plant-available inorganic forms, closing the nutrient loop and sustaining
+      continued primary production. In soil systems, detritivore excretion creates
+      nutrient hotspots around feeding sites and burrows, concentrating inorganic
+      N and P regenerated from organic substrates in microsites accessible to
+      plant roots. This grazer-mediated regeneration is a universal mechanism
+      linking microbial biomass to plant-available nutrients across aquatic and
+      terrestrial ecosystems, and is particularly important in nutrient-limited
+      systems where inorganic nutrient supply from weathering and atmospheric
+      deposition is insufficient to meet primary producer demand.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000057
+          label: detritivory
+        evidence:
+          - reference: PMID:31662076
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "We also found substantial enrichment of inorganic nitrogen and phosphorous near isopod burrows."
+            explanation: >
+              Demonstrates that macro-detritivore (isopod) feeding and excretion
+              creates localized enrichment of inorganic N and P near burrows,
+              confirming grazer-mediated nutrient regeneration as a mechanistic
+              outcome of consumer feeding in the terrestrial detritivore analog of
+              the microbial loop; nutrient hotspot formation around grazer activity
+              zones is a conserved feature of microbial loop nutrient regeneration.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6656
+          label: Arthropoda
+        role: CONSUMER
+        description: >
+          Arthropod detritivores (isopods, oribatid mites, collembola) graze on
+          microbial biomass and organic substrates, excreting inorganic N and P
+          that return immobilized nutrients to plant-available pools — the
+          terrestrial analog of flagellate grazing in the aquatic microbial loop.
+    causal_edges:
+      - subject: Protist or micro-invertebrate grazing on bacterial biomass
+        predicate: CAUSES
+        object: Excretion of inorganic N and P in excess of grazer stoichiometric demand
+      - subject: Inorganic nutrient regeneration by microbial grazers
+        predicate: ENABLES
+        object: Continued phytoplankton or plant uptake and primary production
+    evidence:
+      - reference: PMID:31662076
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "burrowing macro-detritivores are important regulators of litter cycling in this arid ecosystem, providing a plausible general mechanism that explains the unexpectedly high rates of plant litter cycling in deserts."
+        explanation: >
+          Identifies detritivore-mediated nutrient cycling as the mechanism
+          explaining unexpectedly high decomposition rates in nutrient-limited
+          arid ecosystems; the finding that grazers (detritivores) rather than
+          microbes alone drive nutrient cycling rates supports grazer-mediated
+          regeneration as the closing step of the microbial loop.
+
+creation_date: "2026-09-03T00:00:00Z"

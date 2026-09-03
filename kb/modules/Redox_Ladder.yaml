@@ -1,0 +1,206 @@
+id: ecomech:module003
+name: Redox Ladder
+description: >
+  The redox ladder is the conserved thermodynamic sequence by which microbial
+  communities in oxygen-depleted environments reduce alternative terminal electron
+  acceptors (TEAs) in order of decreasing Gibbs free energy yield: O2 > NO3- >
+  Mn(IV) > Fe(III) > SO42- > CO2. As available oxygen is consumed, microbial
+  communities shift sequentially through this redox sequence, generating
+  cascading biogeochemical transformations: denitrification removes reactive
+  nitrogen, iron reduction mobilizes phosphorus and trace metals, sulfate reduction
+  produces phytotoxic sulfide, and methanogenesis produces methane. The redox
+  ladder operates wherever organic matter oxidation outpaces oxygen resupply —
+  waterlogged soils, marine and freshwater sediments, anoxic hypolimnia, and
+  subsurface aquifers — making it a universal template for understanding
+  coupled N, Fe, S, and C biogeochemistry in reducing environments.
+
+mechanisms:
+  - name: Thermodynamic Electron Acceptor Sequence
+    description: >
+      In anoxic environments, microbial communities consume electron acceptors in
+      thermodynamic order: O2 first (Gibbs yield ~500 kJ/mol glucose), then NO3-,
+      Mn(IV), Fe(III), SO42-, and finally CO2 (methanogenesis, ~40 kJ/mol glucose).
+      Each rung of the redox ladder is thermodynamically inhibited by the presence
+      of more oxidizing electron acceptors above it: methanogenesis is suppressed
+      by Fe(III) and SO42- availability; Fe(III) reduction is suppressed by NO3-;
+      and denitrification is suppressed by O2. Water table fluctuations that alter
+      O2 supply are the primary environmental driver of transitions between
+      thermodynamic states, creating temporal dynamics in the dominant biogeochemical
+      processes operative in wetland and sediment systems.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:22539932
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "rapid changes in the availability of oxygen and alternative terminal electron acceptors will result in strong changes in the prevalent microbial redox reactions, with significant effects on plant growth."
+            explanation: >
+              Establishes that changes in O2 and alternative TEA availability drive
+              strong transitions in the dominant microbial redox reactions, with
+              direct consequences for plant growth via N, S, and Fe transformations;
+              this mechanistic link between TEA thermodynamic availability and microbial
+              redox community state is the defining feature of the redox ladder.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DECOMPOSER
+        description: >
+          Diverse bacterial functional guilds — denitrifiers, Fe(III) reducers,
+          sulfate reducers, and methanogens — occupy successive rungs of the redox
+          ladder; their thermodynamically ordered activity generates the cascading
+          biogeochemical transformations that determine nutrient availability and
+          phytotoxin concentrations in reducing environments.
+    causal_edges:
+      - subject: Oxygen depletion by aerobic respiration in waterlogged soil
+        predicate: CAUSES
+        object: Sequential microbial reduction of NO3-, Mn(IV), Fe(III), SO42-, CO2 in thermodynamic order
+      - subject: Presence of higher-energy electron acceptor (e.g., NO3-)
+        predicate: INHIBITS
+        object: Utilization of lower-energy electron acceptors (Fe(III), SO42-, CO2) at same redox zone
+    evidence:
+      - reference: PMID:22539932
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "rapid changes in the availability of oxygen and alternative terminal electron acceptors will result in strong changes in the prevalent microbial redox reactions, with significant effects on plant growth."
+        explanation: >
+          Water table-driven TEA availability changes cause strong transitions in
+          microbial redox reactions in wetlands; direct effects on plant growth via
+          nitrogen, sulfur, and iron transformations establish the redox ladder as
+          a mechanistic bridge between hydrology and ecosystem biogeochemistry.
+
+  - name: Anaerobic Iron Redox Cycling
+    description: >
+      In Fe-rich anaerobic sediments and soils, microbial communities sustain a
+      continuous iron redox cycle by coupling dissimilatory Fe(III) reduction
+      (using organic carbon as electron donor) to anaerobic Fe(II) oxidation
+      (using NO3- or other oxidants as electron acceptor). This anaerobic Fe redox
+      cycle operates without oxygen, links iron and nitrogen biogeochemistry, and
+      suppresses competing TEA utilization — particularly methanogenesis — by
+      maintaining thermodynamically favorable conditions for Fe(III) reduction.
+      Fe(II) accumulation in systems with long residence times eventually limits
+      the thermodynamic viability of further Fe(III) reduction, creating a
+      self-regulating thermodynamic constraint on anaerobic carbon mineralization.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:16343326
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+            explanation: >
+              Enrichment culture experiment demonstrates both Fe(III)-reducing and
+              Fe(II)-oxidizing capacity in freshwater sediment communities; the
+              coupling of reduction and oxidation phases by related Geobacter-lineage
+              organisms establishes the mechanistic basis for an anaerobic Fe redox
+              cycle that is a key non-methanogenic rung of the redox ladder in
+              wetland and sediment systems.
+          - reference: PMID:36342198
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "the buildup of Fe(II) in systems with long residence times limits the thermodynamic viability of dissimilatory Fe(III) reduction and thereby limits the mineralization of organic carbon."
+            explanation: >
+              Field incubation across a floodplain redox gradient demonstrates that
+              Fe(II) accumulation creates a thermodynamic self-limitation of Fe(III)
+              reduction rates; this self-regulating feedback of the iron redox cycle
+              constrains organic carbon mineralization in chronically reduced soils.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:28232
+          label: Geobacter
+        role: DECOMPOSER
+        description: >
+          Geobacter and related delta-Proteobacteria catalyze both dissimilatory
+          Fe(III) reduction and nitrate-dependent Fe(II) oxidation, enabling
+          a continuous anaerobic Fe redox cycle linking Fe and N biogeochemistry
+          in wetland and freshwater sediments.
+    causal_edges:
+      - subject: Fe(III) availability and organic carbon supply under anaerobic conditions
+        predicate: ENABLES
+        object: Microbial dissimilatory Fe(III) reduction producing Fe(II) and mobilizing P
+      - subject: Nitrate addition to Fe(II)-containing anaerobic sediment
+        predicate: CAUSES
+        object: Anaerobic Fe(II) oxidation coupled to nitrate reduction
+      - subject: Fe(II) accumulation in long-residence-time soils
+        predicate: INHIBITS
+        object: Continued dissimilatory Fe(III) reduction and anaerobic organic carbon mineralization
+    evidence:
+      - reference: PMID:16343326
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our findings suggest that microbially catalysed nitrate-dependent Fe(II) oxidation has the potential to contribute to a dynamic anaerobic Fe redox cycle in freshwater sediments."
+        explanation: >
+          Laboratory demonstration of coupled Fe reduction and nitrate-dependent
+          Fe(II) oxidation by sediment microbial communities establishes anaerobic Fe
+          cycling as a biologically mediated redox process at the Fe/N intersection of
+          the redox ladder.
+
+  - name: Redox-Partitioned Denitrification
+    description: >
+      Denitrification (NO3- → N2O → N2) is mediated by both bacteria and fungi
+      in wetland sediments, but their relative contributions partition predictably
+      along the redox gradient. Fungal denitrification dominates under moderately
+      reducing to weakly oxidizing conditions (Eh > +250 mV), while bacterial
+      denitrification dominates under strongly reducing conditions (Eh < -100 mV).
+      This redox partitioning has a critical greenhouse gas consequence: fungal
+      denitrification produces a higher N2O:N2 ratio than bacterial denitrification,
+      meaning that the position on the redox ladder determines whether nitrogen
+      losses from wetland sediments are primarily as inert N2 or as the potent
+      greenhouse gas N2O. The partitioning between fungal and bacterial dominance
+      thus links redox ladder dynamics to climate feedbacks.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:20122708
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "fungal denitrification was dominant under moderately reducing to weakly oxidizing conditions (Eh>+250 mV), whereas bacterial denitrification was dominant under strongly reducing condition (Eh<-100 mV)."
+            explanation: >
+              Microcosm incubations with selective inhibitors across 6 Eh levels
+              establish quantitative redox thresholds for the shift between fungal
+              and bacterial denitrification dominance; redox potential position on
+              the ladder determines both the rate and greenhouse gas potency of
+              nitrogen loss from wetland sediments.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        description: >
+          Fungi are dominant denitrifiers under moderately reducing and weakly
+          oxidizing sediment conditions (Eh +250 to +400 mV); their high N2O:N2
+          production ratio makes fungal activity at this redox rung a determinant
+          of wetland greenhouse gas emissions.
+      - taxon:
+          id: NCBITaxon:2
+          label: Bacteria
+        role: DENITRIFIER
+        description: >
+          Bacterial denitrifiers dominate under strongly reducing conditions
+          (Eh < -100 mV) and produce lower N2O:N2 ratios than fungal denitrifiers,
+          generating more complete N2 loss from sediment.
+    causal_edges:
+      - subject: Moderately reducing redox conditions (Eh +250 to +400 mV)
+        predicate: ENABLES
+        object: Fungal-dominated denitrification with elevated N2O:N2 ratio
+      - subject: Strongly reducing redox conditions (Eh < -100 mV)
+        predicate: CAUSES
+        object: Bacterial-dominated denitrification with reduced N2O:N2 ratio
+    evidence:
+      - reference: PMID:20122708
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "fungal denitrification was dominant under moderately reducing to weakly oxidizing conditions (Eh>+250 mV), whereas bacterial denitrification was dominant under strongly reducing condition (Eh<-100 mV)."
+        explanation: >
+          Quantifies redox-dependent partitioning of denitrification between
+          fungal and bacterial guilds; the Eh thresholds link position on the
+          redox ladder to the greenhouse gas potency of nitrogen losses from
+          wetland nitrogen cycling.
+
+creation_date: "2026-09-03T00:00:00Z"

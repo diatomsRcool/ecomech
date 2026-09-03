@@ -1,0 +1,153 @@
+id: ecomech:module005
+name: Stoichiometric Homeostasis
+description: >
+  Stoichiometric homeostasis is the conserved biological mechanism by which
+  organisms maintain their internal elemental ratios (C:N:P) within a narrower
+  range than the elemental ratios of their food resources. When food elemental
+  ratios deviate from consumer demand, homeostasis is maintained through
+  compensatory adjustments: consumers feeding on nutrient-poor food must
+  increase ingestion rates or excrete excess carbon; consumers feeding on
+  nutrient-rich food excrete nutrients in excess of demand, regenerating
+  inorganic forms for ecosystem use. Across ecosystems, stoichiometric homeostasis
+  translates variation in food web elemental composition into nutrient excretion
+  fluxes, waste stoichiometry, and nutrient limitation dynamics that link
+  individual-level physiology to ecosystem-scale biogeochemical cycling.
+  The growth rate hypothesis — that fast-growing organisms have high
+  phosphorus demand for ribosomal RNA synthesis — extends stoichiometric
+  homeostasis principles to explain why N:P ratios of consumers decrease
+  with growth rate and why P-limitation is particularly common in rapidly
+  growing populations. Ecosystem N:P stoichiometry determines whether
+  primary production is limited by nitrogen, phosphorus, or both, governing
+  the biogeochemical state of the system.
+
+mechanisms:
+  - name: Consumer Elemental Homeostasis and Nutrient Excretion
+    description: >
+      Consumers maintain relatively fixed internal C:N:P ratios regardless of
+      the elemental composition of their food, excreting nutrients in excess of
+      their stoichiometric demand and retaining limiting nutrients within biomass.
+      When consumers ingest food with lower N or P content than they require
+      (high C:N or C:P food), they must consume more biomass to acquire sufficient
+      N or P, excreting excess C as CO2 or in feces. When consumers ingest food
+      with higher N or P than they require, they excrete inorganic N and P, directly
+      regenerating these nutrients for ecosystem use. In detritivore-dominated
+      systems, this stoichiometric excretion creates nutrient hotspots around
+      feeding sites that sustain microbial and plant nutrient acquisition in
+      otherwise nutrient-poor environments. Consumer homeostasis thus converts
+      food quality variation into ecosystem nutrient flux variation, coupling
+      individual physiology to ecosystem nutrient cycling.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000057
+          label: detritivory
+        evidence:
+          - reference: PMID:31662076
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "We also found substantial enrichment of inorganic nitrogen and phosphorous near isopod burrows."
+            explanation: >
+              Demonstrates stoichiometric excretion in action: isopod detritivores
+              consuming high-C:N litter excrete inorganic N and P near burrows,
+              creating nutrient hotspots that accelerate plant and microbial N and P
+              acquisition; the spatial concentration of excreted inorganic nutrients
+              is a direct consequence of consumer elemental homeostasis operating
+              on nutrient-imbalanced litter substrates.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6656
+          label: Arthropoda
+        role: CONSUMER
+        description: >
+          Arthropod consumers (detritivores, herbivores, predators) maintain
+          homeostatic elemental ratios through differential assimilation and
+          excretion; their stoichiometric excretion of N and P generates
+          nutrient regeneration fluxes that scale with consumer body mass
+          and population density.
+    causal_edges:
+      - subject: Consumer ingestion of food with elemental ratio exceeding consumer demand
+        predicate: CAUSES
+        object: Excretion of excess inorganic N and P regenerating nutrients for ecosystem use
+      - subject: Consumer ingestion of food with elemental ratio below consumer demand
+        predicate: CAUSES
+        object: Increased feeding rate and retention of limiting nutrient in consumer biomass
+    evidence:
+      - reference: PMID:31662076
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "burrowing macro-detritivores are important regulators of litter cycling in this arid ecosystem, providing a plausible general mechanism that explains the unexpectedly high rates of plant litter cycling in deserts."
+        explanation: >
+          Identifies detritivore-mediated nutrient cycling as a general mechanism
+          driving unexpectedly high nutrient cycling rates in nutrient-limited
+          arid ecosystems; stoichiometric excretion by detritivores consuming
+          high-C:N litter is the physiological mechanism underlying this
+          ecosystem-scale nutrient cycling function.
+
+  - name: Ecosystem N:P Stoichiometry and Nutrient Limitation Switching
+    description: >
+      At ecosystem scales, the ratio of nitrogen to phosphorus in nutrient supply
+      (from atmospheric deposition, weathering, and biological fixation) determines
+      whether primary production is limited by nitrogen, phosphorus, or co-limited
+      by both. Supply ratios below the Redfield-equivalent consumer demand ratio
+      (~16:1 N:P by atoms) indicate P limitation; ratios above indicate N limitation.
+      This stoichiometric control of ecosystem nutrient limitation is conserved
+      across terrestrial, freshwater, and marine systems, and switches between
+      N and P limitation as human alteration of global N and P cycles shifts
+      supply ratios. Because P limitation and N limitation require fundamentally
+      different ecosystem management strategies, stoichiometric homeostasis at
+      ecosystem scale — the tendency to maintain N:P supply ratios in balance
+      with consumer demand — is a key regulatory mechanism governing ecosystem
+      productivity and nutrient cycling dynamics.
+    biological_processes:
+      - term:
+          id: GO:0006796
+          label: phosphate-containing compound metabolic process
+        evidence:
+          - reference: PMID:17922835
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Via a large-scale meta-analysis of experimental enrichments, we show that P limitation is equally strong across these major habitats and that N and P limitation are equivalent within both terrestrial and freshwater systems."
+            explanation: >
+              Large-scale meta-analysis demonstrates that P limitation operates at
+              equal magnitude to N limitation across major habitat types, establishing
+              ecosystem N:P stoichiometry as a universal determinant of nutrient
+              limitation; the equivalence of N and P limitation across habitats
+              reflects stoichiometric homeostasis at ecosystem scale — supply ratios
+              near threshold values create colimitation.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:17922835
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Via a large-scale meta-analysis of experimental enrichments, we show that P limitation is equally strong across these major habitats and that N and P limitation are equivalent within both terrestrial and freshwater systems."
+            explanation: >
+              Pervasive P limitation across ecosystems reflects the stoichiometric
+              rate-limiting nature of organic P decomposition and mineralization;
+              when supply of inorganic P from decomposition and weathering is
+              insufficient to meet demand, P-limiting stoichiometric conditions
+              emerge at ecosystem scale.
+    causal_edges:
+      - subject: Ecosystem N:P supply ratio below biological demand ratio
+        predicate: CAUSES
+        object: Phosphorus limitation of primary production and microbial growth
+      - subject: Ecosystem N:P supply ratio above biological demand ratio
+        predicate: CAUSES
+        object: Nitrogen limitation of primary production and microbial growth
+      - subject: Anthropogenic N deposition increasing ecosystem N:P supply ratio
+        predicate: MODULATES
+        object: Transition from N limitation to P limitation in affected ecosystems
+    evidence:
+      - reference: PMID:17922835
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "Via a large-scale meta-analysis of experimental enrichments, we show that P limitation is equally strong across these major habitats and that N and P limitation are equivalent within both terrestrial and freshwater systems."
+        explanation: >
+          Meta-analytic evidence that N and P limitation are equivalent across
+          habitat types establishes ecosystem stoichiometry as a universal driver
+          of nutrient limitation; the broad cross-ecosystem pattern supports
+          stoichiometric homeostasis as a fundamental regulator of ecosystem
+          nutrient status and primary productivity.
+
+creation_date: "2026-09-03T00:00:00Z"

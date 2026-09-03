@@ -1,0 +1,173 @@
+id: ecomech:module006
+name: Regime Shift Dynamics
+description: >
+  Regime shift dynamics describes the conserved mechanism by which ecosystems
+  undergo abrupt, discontinuous transitions between alternative stable states when
+  environmental drivers cross critical thresholds. These transitions are governed
+  by positive feedback loops that amplify initial perturbations, hysteresis in
+  the relationship between driver level and system state, and ecological memory
+  effects in which the legacy of prior disturbance shapes the trajectory of
+  subsequent community change. Regime shifts are found across ecosystem types:
+  coral reef to algal mat, clear to turbid lake, savanna to shrubland, forest
+  to grassland, and closed-canopy to open-gap forest. The threshold character
+  of regime shifts means that incremental management responses are ineffective
+  once a transition is underway; restoration of the prior state requires driver
+  reversal beyond the level at which the shift occurred, due to hysteresis.
+  Disturbance regimes (fire, flood, gap formation) interact with productivity,
+  competitive interactions, and recruitment limitation to set the ecological
+  conditions for threshold transitions, making regime shift dynamics integral
+  to understanding succession, landscape ecology, and community resilience.
+
+mechanisms:
+  - name: Intermediate Disturbance and Diversity-Stability Threshold
+    description: >
+      The intermediate disturbance hypothesis (IDH) predicts that species richness
+      is maximized at intermediate disturbance frequency or intensity, because
+      low disturbance allows competitive exclusion to reduce diversity while high
+      disturbance eliminates all but the most disturbance-tolerant species.
+      This diversity optimum represents a threshold phenomenon: below the IDH
+      optimum, competitive exclusion reduces species richness monotonically as
+      competitive equilibrium is approached; above the IDH optimum, disturbance
+      selectivity for disturbance-tolerant species reduces richness by excluding
+      stress-sensitive species. At intermediate disturbance, the coexistence of
+      disturbance-tolerant and competitive species maximizes diversity, and
+      community composition is in a dynamic, non-equilibrium state that resists
+      regime shift in either direction. Field validation of IDH in tropical forests
+      demonstrates that disturbance intensity measured by the proportion of
+      light-demanding stems is the quantitative predictor of community diversity,
+      linking physical gap formation to the ecological threshold of species coexistence.
+    biological_processes:
+      - term:
+          id: GO:0009416
+          label: response to light stimulus
+        evidence:
+          - reference: PMID:11721052
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Species richness, standardized to eliminate density effects, peaked at intermediate disturbance levels, particularly when disturbance intensity was estimated through the percentage of stems of strongly light-dependent species."
+            explanation: >
+              First clear field validation of the IDH in species-rich tropical forest;
+              10-year post-disturbance survey of 17,000 trees across a silvicultural
+              gradient demonstrates the hump-shaped diversity-disturbance relationship
+              predicted by IDH, with the peak at intermediate disturbance intensity
+              measured by light-demanding stem proportion — establishing disturbance
+              intensity as the threshold parameter governing community diversity regime.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:11721052
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Species richness, standardized to eliminate density effects, peaked at intermediate disturbance levels, particularly when disturbance intensity was estimated through the percentage of stems of strongly light-dependent species."
+            explanation: >
+              IDH validation establishes that gap disturbance intensity governs
+              successional diversity trajectory: at intermediate disturbance the
+              mixture of gap and closed-canopy microsites supports coexistence of
+              pioneer and late-successional species, maximizing diversity as a
+              dynamic non-equilibrium state of the succession regime.
+    causal_edges:
+      - subject: Intermediate disturbance intensity
+        predicate: ENABLES
+        object: Coexistence of disturbance-tolerant pioneers and competitive shade-tolerant species
+      - subject: Low disturbance intensity below IDH optimum
+        predicate: CAUSES
+        object: Competitive exclusion of disturbance-tolerant species reducing diversity
+      - subject: High disturbance intensity above IDH optimum
+        predicate: INHIBITS
+        object: Establishment of stress-sensitive late-successional species reducing diversity
+    evidence:
+      - reference: PMID:11721052
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Species richness, standardized to eliminate density effects, peaked at intermediate disturbance levels, particularly when disturbance intensity was estimated through the percentage of stems of strongly light-dependent species."
+        explanation: >
+          Field experiment across silvicultural disturbance gradient demonstrates
+          the diversity threshold at intermediate disturbance intensity; the IDH
+          optimum defines the ecological condition under which regime shift dynamics
+          is minimized — high disturbance and competitive exclusion on either side
+          of the optimum constitute alternative successional regimes.
+
+  - name: Post-Disturbance Nutrient Pulse and Community Trajectory Reset
+    description: >
+      Major disturbances (fire, flood, windthrow) release large pulses of
+      inorganic nutrients from combustion or lysis of standing organic matter,
+      temporarily overwhelming stoichiometric limitation and allowing rapid
+      recruitment of opportunistic species. This pulse simultaneously resets
+      community successional trajectory by eliminating incumbent competitive
+      dominants and creating open recruitment niches. Post-disturbance community
+      composition is set by the interactions among the nutrient pulse magnitude,
+      seed source proximity and dispersal, and the environmental conditions
+      (drought, temperature) that filter recruits. The nutrient pulse is
+      transient: as post-disturbance vegetation biomass expands, it sequesters
+      nutrients released by disturbance, rapidly reducing available inorganic
+      pool concentrations and restoring nutrient limitation. Ecosystems that
+      experienced repeated disturbance before the pulse is fully exploited
+      develop alternative structural trajectories with lower biomass and
+      altered species composition relative to single-disturbance recovery.
+    biological_processes:
+      - term:
+          id: GO:0009416
+          label: response to light stimulus
+        evidence:
+          - reference: PMID:26552271
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Residual nutrients in ash allowed both burn sites to recover and exceed the unburned site in both aboveground biomass and production five years after the fire."
+            explanation: >
+              Five-year post-fire monitoring demonstrates that the ash nutrient
+              pulse enables post-disturbance vegetation recovery that exceeds
+              pre-disturbance biomass within 5 years; the nutrient pulse magnitude
+              determines the trajectory and rate of post-fire community succession,
+              establishing the pulse-reset mechanism as the ecological basis of
+              post-fire regime establishment.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:36579900
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "The burned bacterial and fungal communities experienced rapid succession, with 5-6 compositional turnover periods."
+            explanation: >
+              Rapid post-fire microbial community succession (5-6 turnover periods)
+              demonstrates that the nutrient pulse and physical disturbance of fire
+              resets microbial community trajectory through rapid ecological succession;
+              the high rate of compositional turnover relative to unburned controls
+              confirms that post-disturbance regime shift operates through succession
+              at all trophic levels, not just vegetation.
+    causal_edges:
+      - subject: Disturbance (fire, flood) releasing inorganic nutrients from biomass
+        predicate: CAUSES
+        object: Transient nutrient pulse enabling rapid opportunistic species recruitment
+      - subject: Post-disturbance nutrient pulse availability
+        predicate: ENABLES
+        object: Community biomass recovery exceeding pre-disturbance levels in nutrient-limited ecosystems
+      - subject: Repeated disturbance before nutrient pulse is exploited
+        predicate: INHIBITS
+        object: Full community trajectory recovery toward pre-disturbance state
+    evidence:
+      - reference: PMID:26552271
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Residual nutrients in ash allowed both burn sites to recover and exceed the unburned site in both aboveground biomass and production five years after the fire."
+        explanation: >
+          Post-fire tundra monitoring demonstrates that the disturbance nutrient
+          pulse from fire ash enables a community trajectory that exceeds unburned
+          baseline biomass within 5 years; the pulse-driven trajectory reset is
+          the mechanism by which fire disturbance creates alternative successional
+          regimes relative to unburned ecosystems.
+      - reference: PMID:36579900
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "The burned bacterial and fungal communities experienced rapid succession, with 5-6 compositional turnover periods."
+        explanation: >
+          Rapid post-fire microbial succession across multiple compositional turnover
+          periods confirms that disturbance-driven community reset operates through
+          ecological succession at microbial scales simultaneously with plant
+          community succession, establishing the nutrient pulse and trajectory reset
+          as a cross-trophic-level regime shift mechanism.
+
+creation_date: "2026-09-03T00:00:00Z"

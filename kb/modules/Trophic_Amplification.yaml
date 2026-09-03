@@ -1,0 +1,139 @@
+id: ecomech:module002
+name: Trophic Amplification
+description: >
+  Trophic amplification describes the conserved mechanism by which feeding
+  interactions between trophic levels propagate effects through food webs,
+  generating indirect consequences for ecosystem structure, biogeochemical
+  cycling, and abiotic conditions that are disproportionately large relative
+  to the direct feeding impact. Trophic cascades — the indirect effects of
+  predator suppression of prey that release lower trophic levels from top-down
+  control — are the most well-documented form of trophic amplification. Consumer
+  feeding also mediates nutrient cycling through excretion of nutrients in
+  excess of stoichiometric demand, transforming trophic interactions into
+  biogeochemical fluxes. These cascading effects operate from marine ecosystems
+  to terrestrial landscapes, linking consumer community composition and abundance
+  to ecosystem processes as diverse as carbon sequestration, fire regimes,
+  hydrology, and disease dynamics.
+
+mechanisms:
+  - name: Top-Down Trophic Cascade
+    description: >
+      Apex predators suppress prey populations and alter prey behavior, releasing
+      vegetation and lower trophic levels from herbivore pressure and generating
+      indirect effects that cascade through the full food web. Loss of apex
+      predators (trophic downgrading) reverses these cascades, releasing prey
+      from top-down control and causing herbivore populations to expand,
+      overgraze vegetation, and suppress primary producer biomass, species
+      richness, and ecosystem services. Trophic cascades in both terrestrial
+      and aquatic systems produce unexpected effects on processes far removed
+      from predation, including carbon sequestration, fire dynamics, streamflow,
+      invertebrate communities, and disease transmission. Predator reintroduction
+      (rewilding) can restore top-down trophic control and reverse trophic cascade
+      collapse.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:24408439
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Significant cascading trophic interactions, mediated by their prey or sympatric mesopredators, arise when some of these carnivores are extirpated from or repatriated to ecosystems."
+            explanation: >
+              Ripple et al.'s global synthesis demonstrates that large carnivore
+              extirpation and repatriation both produce significant trophic cascades
+              mediated by altered prey and mesopredator populations; the empirical
+              breadth of the synthesis across terrestrial, marine, and freshwater
+              ecosystems establishes top-down trophic cascade via apex predator
+              feeding behavior as a conserved cross-ecosystem mechanism.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:7777
+          label: Chondrichthyes
+        role: PREDATOR
+        description: >
+          Apex predators (sharks, large carnivores, wolves) are exemplars of
+          trophic amplification; their feeding behavior suppresses prey populations
+          through lethal and non-lethal (behavioral) effects, generating trophic
+          cascades that propagate to primary producers and abiotic conditions.
+    causal_edges:
+      - subject: Apex predator feeding on prey populations
+        predicate: CAUSES
+        object: Prey population reduction and altered prey foraging behavior
+      - subject: Prey population suppression by apex predator
+        predicate: ENABLES
+        object: Release of vegetation and lower trophic levels from herbivore pressure
+      - subject: Apex predator extirpation from ecosystem
+        predicate: CAUSES
+        object: Prey population release and trophic cascade collapse
+    evidence:
+      - reference: PMID:24408439
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Unexpected effects of trophic cascades on various taxa and processes include changes to bird, mammal, invertebrate, and herpetofauna abundance or richness; subsidies to scavengers; altered disease dynamics; carbon sequestration; modified stream morphology; and crop damage."
+        explanation: >
+          Catalogues the diverse unexpected ecosystem-level consequences of large
+          carnivore trophic cascades, demonstrating that top-down feeding behavior
+          propagates through food webs to alter processes as remote as carbon
+          sequestration, stream morphology, and disease dynamics — the hallmark of
+          trophic amplification.
+
+  - name: Consumer-Driven Biogeochemical and Landscape Transformation
+    description: >
+      Large consumers (herbivores, omnivores) transform ecosystems through
+      physical engineering (soil disturbance, vegetation trampling, seed dispersal)
+      and nutrient cycling (concentrated excretion, carcass subsidies) in addition
+      to direct feeding effects. These consumer-mediated transformations link
+      trophic dynamics to biogeochemical cycles, vegetation structure, hydrology,
+      and fire regimes across landscapes. Loss of large wild herbivores removes
+      these ecosystem engineering services, generating cascading effects on
+      species composition, nutrient cycling, and abiotic conditions that
+      persist long after the megafaunal decline. Consumer body size scales
+      with the spatial extent of trophic amplification: large herbivores transform
+      entire landscapes while small consumers produce localized effects.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:21635684
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "Large mammalian herbivores manifest a strong top-down control on ecosystems that can transform entire landscapes"
+            explanation: >
+              Meta-analysis of 108 herbivore exclusion studies across 52 vegetation
+              types establishes that large mammalian herbivore feeding behavior
+              operates at landscape scale, transforming vegetation structure and
+              carbon stocks — demonstrating trophic amplification of direct feeding
+              impacts into ecosystem-scale biogeochemical consequences.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:7711
+          label: Chordata
+        role: CONSUMER
+        description: >
+          Large-bodied vertebrate consumers (ungulates, elephants, bison, hippos)
+          are the primary agents of consumer-driven landscape transformation; their
+          body mass and aggregated feeding behavior generates ecosystem engineering
+          effects that propagate to nutrient cycling, fire regimes, hydrology, and
+          vegetation composition.
+    causal_edges:
+      - subject: Large herbivore feeding, trampling, and soil disturbance
+        predicate: CAUSES
+        object: Altered vegetation structure, carbon stocks, and soil nutrient cycling
+      - subject: Large herbivore loss from ecosystem
+        predicate: CAUSES
+        object: Cascading effects on carnivores, scavengers, fire regimes, and nutrient cycling
+    evidence:
+      - reference: PMID:26601172
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Loss of large herbivores can have cascading effects on other species including large carnivores, scavengers, mesoherbivores, small mammals, and ecological processes involving vegetation, hydrology, nutrient cycling, and fire regimes."
+        explanation: >
+          Establishes the breadth of trophic amplification from large herbivore
+          loss: cascading effects span across trophic levels (carnivores, scavengers,
+          mesoherbivores) and abiotic processes (hydrology, nutrient cycling, fire),
+          demonstrating that consumer-mediated ecosystem transformation amplifies
+          far beyond the direct feeding impact of herbivore populations.
+
+creation_date: "2026-09-03T00:00:00Z"

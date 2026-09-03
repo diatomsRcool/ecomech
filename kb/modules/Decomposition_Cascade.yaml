@@ -1,0 +1,221 @@
+id: ecomech:module001
+name: Decomposition Cascade
+description: >
+  The decomposition cascade is the conserved sequence of organic matter breakdown
+  from complex biopolymers (lignocellulose, chitin, proteins) through enzymatic
+  depolymerization and physical fragmentation to nutrient mineralization. It is
+  the primary pathway by which carbon, nitrogen, and phosphorus are recycled from
+  dead organic matter back to bioavailable inorganic forms. The cascade operates
+  in all ecosystems with significant organic matter input — terrestrial soils,
+  aquatic sediments, and litter layers — and is mediated by the trophic hierarchy
+  of saprotrophic fungi, bacteria, and detritivorous invertebrates acting in concert.
+  Substrate stoichiometry (C:N ratio) governs whether decomposer demand for
+  nitrogen results in net immobilization or net mineralization, determining
+  nutrient availability to primary producers.
+
+mechanisms:
+  - name: Enzymatic Polymer Hydrolysis
+    description: >
+      Saprotrophic fungi and bacteria produce extracellular hydrolytic enzymes
+      (cellulases, xylanases, ligninases, proteases) that depolymerize complex
+      biopolymers of plant cell walls and dead organic matter into soluble
+      monomers and oligomers. This enzymatic step is rate-limiting for the
+      overall decomposition cascade, because recalcitrant polymers cannot be
+      assimilated directly by microorganisms. White rot Basidiomycota deploy
+      oxidative enzymes (laccases, manganese peroxidases) targeting lignin,
+      while litter-decomposing Agaricomycetes preferentially hydrolyze
+      hemicellulose and cellulose fractions. The composition of the decomposer
+      community determines enzyme complement and substrate specificity, linking
+      community ecology to decomposition kinetics.
+    biological_processes:
+      - term:
+          id: GO:0030245
+          label: cellulose catabolic process
+        evidence:
+          - reference: PMID:31906600
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "Filamentous saprotrophic fungi of Basidiomycota play an important role in the cycling of carbon and other elements due to their capacity to convert the complex biopolymeric carbohydrate components of the compact plant cell wall lignocelluloses into sugars and monomeric compounds"
+            explanation: >
+              Establishes Basidiomycota saprotrophic fungi as the primary agents of
+              lignocellulose conversion via extracellular enzymatic hydrolysis; the
+              conversion of recalcitrant plant cell wall polymers to soluble sugars
+              and monomers is the canonical first step of the decomposition cascade.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000059
+          label: saprotrophy
+        evidence:
+          - reference: PMID:31906600
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "both litter-decomposers and wood-decaying Agaricomycetes fungi play an important role in recycling of carbon and other nutrients especially in the forest ecosystems"
+            explanation: >
+              Saprotrophic Agaricomycetes are the dominant recyclers of carbon and
+              nutrients in forest ecosystems; enzymatic breakdown of lignocellulose is
+              the defining mechanism of saprotrophy and the initiating step of the
+              decomposition cascade.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:5204
+          label: Basidiomycota
+        role: DECOMPOSER
+        description: >
+          White rot and litter-decomposing Basidiomycota produce extracellular
+          oxidative and hydrolytic enzymes that collectively degrade all major
+          components of plant cell walls, including lignin, cellulose, and
+          hemicellulose.
+    causal_edges:
+      - subject: Extracellular enzyme production by saprotrophic fungi and bacteria
+        predicate: CAUSES
+        object: Depolymerization of lignocellulosic polymers to soluble monomers and oligomers
+      - subject: Decomposer community composition
+        predicate: MODULATES
+        object: Enzyme complement and rate of polymer hydrolysis
+    evidence:
+      - reference: PMID:31906600
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "plant cell wall decomposition ability of taxonomically and ecologically divergent fungi is in line with their enzymatic decay strategy, which is fundamental in understanding their physiology and potential for biotechnological applications."
+        explanation: >
+          Enzymatic decay strategy is the mechanistic basis for fungal lignocellulose
+          decomposition capacity across taxonomically divergent Basidiomycota; enzyme
+          profiles determine substrate specificity and decomposition kinetics.
+
+  - name: Physical Fragmentation by Detritivores
+    description: >
+      Macro-detritivores (earthworms, isopods, millipedes, oribatid mites) ingest
+      and mechanically fragment plant litter into fine particles, dramatically
+      increasing the surface area available for microbial colonization and enzymatic
+      attack. Earthworm bioturbation incorporates litter into the mineral soil
+      matrix, creating organo-mineral associations that stabilize carbon while
+      redistributing nutrients. Detritivore feeding accelerates overall decomposition
+      beyond what microbial activity achieves alone and constitutes the physical
+      arm of the decomposition cascade that operates in parallel with enzymatic
+      hydrolysis. The coupling of physical fragmentation to enzymatic depolymerization
+      creates a positive feedback: fragmentation increases microbial surface area,
+      enhancing enzyme delivery and monomer release.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:32724548
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "litter mass loss increased with an increasing density of epigeic earthworms, with most pronounced effects in litterbags with a smaller mesh size, indicating indirect effects."
+            explanation: >
+              Field experiment with mesh-size-partitioned litterbags demonstrates
+              that epigeic earthworm density directly drives litter mass loss; the
+              mesh-size effect confirms physical feeding fragmentation as the
+              mechanism, establishing detritivore feeding behavior as a physical
+              arm of the decomposition cascade.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000057
+          label: detritivory
+        evidence:
+          - reference: PMID:31662076
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Macro-detritivores controlled the clearing of plant litter in our field site."
+            explanation: >
+              Field experiment demonstrates macro-detritivore control of plant litter
+              clearing; detritivory — the trophic process of consuming dead organic
+              matter — is confirmed as the dominant litter-removal mechanism,
+              establishing detritivore activity as a primary physical driver of the
+              decomposition cascade.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6340
+          label: Annelida
+        role: DETRITIVORE
+        description: >
+          Epigeic and anecic earthworms fragment surface litter and bury it into
+          mineral soil via bioturbation, coupling physical fragmentation to
+          organo-mineral stabilization of carbon.
+      - taxon:
+          id: NCBITaxon:6656
+          label: Arthropoda
+        role: DETRITIVORE
+        description: >
+          Isopods, millipedes, and oribatid mites provide arthropod-mediated
+          physical fragmentation across habitat types; isopods dominate in arid
+          systems where earthworm activity is moisture-limited.
+    causal_edges:
+      - subject: Macro-detritivore feeding and ingestion of litter
+        predicate: CAUSES
+        object: Fragmentation of litter to fine particles increasing microbial surface area
+      - subject: Earthworm bioturbation
+        predicate: CAUSES
+        object: Incorporation of organic matter into mineral soil creating organo-mineral associations
+    evidence:
+      - reference: PMID:32724548
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "tree FD has a weak positive effect on soil surface litter decomposition by increasing the density of epigeic earthworms and that litter nitrogen-related traits play a central role in tree composition effects on soil fauna and decomposition."
+        explanation: >
+          Structural equation modeling identifies epigeic earthworm density as the
+          mediating variable between litter quality and decomposition rate; physical
+          fragmentation by earthworms is the proximate mechanism linking plant
+          diversity and litter chemistry to decomposition kinetics.
+
+  - name: Substrate C:N Stoichiometry Regulates Net Nitrogen Mineralization
+    description: >
+      The carbon-to-nitrogen ratio of organic substrates relative to microbial
+      biomass requirements determines whether decomposer demand for nitrogen results
+      in net immobilization (N uptake from soil solution, reducing plant availability)
+      or net mineralization (N release to soil solution, increasing plant availability).
+      When substrate C:N exceeds ~25:1, decomposers are nitrogen-limited and
+      immobilize inorganic N from soil; when substrate C:N falls below ~25:1, N
+      mineralization exceeds immobilization. Anthropogenic nitrogen deposition
+      modifies this stoichiometric regulation in a stage-dependent manner, with
+      N addition accelerating early-stage labile fraction breakdown but suppressing
+      late-stage recalcitrant fraction decay, altering the trajectory and rate of
+      carbon and nitrogen release across the full decomposition cascade.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000058
+          label: decomposition
+        evidence:
+          - reference: PMID:33583093
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "N fertilisation consistently accelerates early-stage but slows late-stage decomposition when the model structure allows for flexibility in decomposition rates through time."
+            explanation: >
+              Global meta-analysis confirms nitrogen availability produces
+              stage-dependent, opposing effects on the decomposition cascade;
+              N addition accelerates labile-phase decomposition while suppressing
+              recalcitrant-phase decay, demonstrating stoichiometric control of
+              decomposition dynamics across globally distributed experiments.
+    causal_edges:
+      - subject: High substrate C:N ratio relative to microbial demand
+        predicate: CAUSES
+        object: Net nitrogen immobilization by decomposer microorganisms
+      - subject: Low substrate C:N ratio relative to microbial demand
+        predicate: CAUSES
+        object: Net nitrogen mineralization to inorganic plant-available forms
+      - subject: Nitrogen addition to high C:N substrates
+        predicate: MODULATES
+        object: Stage-specific decomposition rates and carbon residence time
+    evidence:
+      - reference: PMID:33583093
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "Plant litter decomposition is a central process in the carbon (C) cycle and sensitive to ongoing anthropogenic nitrogen (N) fertilisation."
+        explanation: >
+          Establishes that the decomposition cascade is stoichiometrically sensitive
+          to N availability; anthropogenic N fertilization disrupts the C:N
+          stoichiometric regulation of the cascade with consequences for terrestrial
+          carbon storage and nutrient cycling.
+      - reference: PMID:25900044
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "mechanisms emerging since my previous review might weaken these positive feedbacks, such as negative effects of nitrogen on decomposition, while others might strengthen them, such as slower decomposition of roots compared to leaf litter"
+        explanation: >
+          Review confirms negative nitrogen effects on decomposition (weakening
+          plant-soil feedbacks) and substrate-quality differences in decomposition
+          rates; these opposing stoichiometric mechanisms complicate prediction of
+          net nitrogen effects on nutrient cycling across the decomposition cascade.
+
+creation_date: "2026-09-03T00:00:00Z"
