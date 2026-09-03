@@ -161,6 +161,74 @@ mechanisms:
           abundant across many tropical systems, this mechanism broadly constrains
           how gap dynamics translate into tree diversity maintenance.
 
+  - name: Intermediate Disturbance and Tree Diversity Peak
+    description: >
+      The intermediate disturbance hypothesis (IDH) predicts that species
+      richness is maximized at intermediate levels of disturbance intensity,
+      because low disturbance allows competitive exclusion to reduce diversity
+      while high disturbance eliminates all but the most disturbance-tolerant
+      species. Gap dynamics provides the primary disturbance mechanism through
+      which IDH operates at local scales in tropical forests: treefall gap
+      formation and size create a spectrum of light environments from closed
+      canopy to full sun. Field validation with 17,000 trees across a silvicultural
+      disturbance gradient in Guianan tropical forest confirms that tree species
+      richness peaks at intermediate disturbance intensity, particularly when
+      disturbance is measured by the proportion of strongly light-dependent stems.
+      This establishes gap disturbance intensity — not simply gap presence or
+      absence — as the key driver of tree diversity outcomes in gap dynamics.
+    biological_processes:
+      - term:
+          id: GO:0009416
+          label: response to light stimulus
+        evidence:
+          - reference: PMID:11721052
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Species richness, standardized to eliminate density effects, peaked at intermediate disturbance levels, particularly when disturbance intensity was estimated through the percentage of stems of strongly light-dependent species."
+            explanation: >
+              Molino & Sabatier's 17,000-tree survey across a silvicultural
+              disturbance gradient in French Guiana directly validates the IDH
+              in tropical forest gap dynamics; the peak of species richness at
+              intermediate disturbance intensity, measured by light-demanding
+              stem proportion, demonstrates that the light environment created
+              by gap disturbance is the mechanistic link between gap formation
+              rate and tree community diversity.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:11721052
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Species richness, standardized to eliminate density effects, peaked at intermediate disturbance levels, particularly when disturbance intensity was estimated through the percentage of stems of strongly light-dependent species."
+            explanation: >
+              IDH validation in tropical forest establishes that gap disturbance
+              intensity governs the trajectory of successional diversity: at
+              intermediate disturbance, the mixture of gap and closed-canopy
+              microsites supports both light-demanding pioneer and shade-tolerant
+              late-successional species, maximizing coexistence and diversity
+              at the community scale.
+    causal_edges:
+      - subject: Intermediate canopy gap disturbance intensity
+        predicate: ENABLES
+        object: Coexistence of light-demanding pioneers and shade-tolerant species maximizing tree richness
+      - subject: High gap disturbance intensity eliminating shade-tolerant species
+        predicate: INHIBITS
+        object: Tree species richness by excluding late-successional shade-tolerant taxa
+    evidence:
+      - reference: PMID:11721052
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Species richness, standardized to eliminate density effects, peaked at intermediate disturbance levels, particularly when disturbance intensity was estimated through the percentage of stems of strongly light-dependent species."
+        explanation: >
+          First clear field validation of IDH in species-rich tropical forest
+          using a controlled silvicultural disturbance gradient; the 10-year
+          post-disturbance survey of 17,000 trees demonstrates the hump-shaped
+          diversity-disturbance relationship predicted by IDH and establishes
+          gap disturbance intensity as the quantitative driver of community
+          diversity outcomes in tropical forest gap dynamics.
+
 indicators:
   - name: Canopy gap fraction
     description: >
