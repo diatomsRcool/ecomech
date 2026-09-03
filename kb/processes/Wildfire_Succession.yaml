@@ -226,6 +226,76 @@ mechanisms:
           pyrodiversity mechanisms that generate spatial heterogeneity and
           maintain species coexistence in fire-prone ecosystems.
 
+  - name: Post-Fire Ash Nutrient Pulse and Carbon-Nutrient Interactions in Early Succession
+    description: >
+      Wildfire mineralizes organic nitrogen and phosphorus in vegetation and soil
+      organic matter into inorganic forms concentrated in the ash layer, creating
+      a transient nutrient pulse that shapes the trajectory of post-fire vegetation
+      recovery. In tundra systems, early post-fire regrowth is limited primarily
+      by canopy photosynthetic potential — set by remaining leaf area — rather
+      than by nutrient availability, because inorganic N and P concentrations in
+      post-fire soils are initially high. Recovery is sustained by uptake of
+      residual inorganic N from ash and by redistribution of N and P from soil
+      organic matter to vegetation. Burn severity mediates this dynamic: moderately
+      burned sites recover faster than severely burned sites despite lower residual
+      ash nutrients, because greater remaining biomass provides higher initial
+      photosynthetic capacity. Within five years, both burn severities can exceed
+      unburned-site aboveground biomass and production, driven by the temporary
+      nutrient enrichment from ash deposition.
+    biological_processes:
+      - term:
+          id: GO:0009628
+          label: response to abiotic stimulus
+        evidence:
+          - reference: PMID:26552271
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "early regrowth of postfire tundra vegetation was limited primarily by its canopy photosynthetic potential, rather than nutrient availability, because of the initially low leaf area and relatively high inorganic N and P concentrations in soil."
+            explanation: >
+              Jiang et al.'s process-based model calibrated to the Anaktuvuk
+              River fire demonstrates that post-fire vegetation recovery is
+              constrained by the abiotic legacy of fire on canopy structure
+              (leaf area) rather than nutrient supply; high inorganic N and P
+              in ash-amended soils shifts the limiting abiotic factor from
+              nutrients to light capture capacity, fundamentally reordering
+              the hierarchy of controls on early successional plant growth.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:26552271
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "postfire recovery of tundra vegetation was sustained predominantly by the uptake of residual inorganic N (i.e., in the remaining ash), and the redistribution of N and P from soil organic matter to vegetation."
+            explanation: >
+              Model simulations establish the biogeochemical mechanism driving
+              post-fire ecological succession in tundra: ash-derived inorganic
+              N and organic matter-derived N/P redistribution fuel vegetation
+              recovery, establishing a nutrient-mediated pathway of successional
+              progression that is quantitatively distinct from the light-
+              and seed-limited mechanisms operating in forested systems.
+    causal_edges:
+      - subject: Wildfire combustion of organic matter mineralizing N and P into ash
+        predicate: ENABLES
+        object: Transient inorganic nutrient pulse sustaining early post-fire vegetation regrowth
+      - subject: Remaining post-fire biomass determining canopy photosynthetic potential
+        predicate: MODULATES
+        object: Rate of early successional vegetation recovery regardless of nutrient availability
+    evidence:
+      - reference: PMID:26552271
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Residual nutrients in ash allowed both burn sites to recover and exceed the unburned site in both aboveground biomass and production five years after the fire."
+        explanation: >
+          Five-year post-fire trajectory modeled across burn severity gradient
+          demonstrates that ash nutrient pulse is sufficient to drive biomass
+          recovery beyond unburned reference levels within 5 years; the
+          faster recovery of moderately burned sites despite lower ash nutrient
+          content reveals that photosynthetic capacity (biomass remaining) is
+          the proximate driver of successional rate, while ash nutrients set
+          the ceiling for recovery magnitude.
+
   - name: Post-Fire Soil Microbial Community Succession
     description: >
       Wildfire dramatically restructures soil microbial communities, reducing
