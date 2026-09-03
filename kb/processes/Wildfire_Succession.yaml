@@ -226,6 +226,92 @@ mechanisms:
           pyrodiversity mechanisms that generate spatial heterogeneity and
           maintain species coexistence in fire-prone ecosystems.
 
+  - name: Post-Fire Soil Microbial Community Succession
+    description: >
+      Wildfire dramatically restructures soil microbial communities, reducing
+      bacterial biomass by ~47%, bacterial richness by ~46%, fungal biomass by
+      ~86%, and fungal richness by ~68% immediately after fire. Recovery occurs
+      through rapid secondary succession driven by pyrophilous ('fire-loving')
+      microbes — bacteria and fungi specifically adapted to post-fire conditions
+      through thermotolerance, rapid colonization, and exploitation of
+      fire-derived substrates. Microbial succession is highly dynamic in the
+      first year, with 5–6 distinct compositional turnover periods as early
+      pyrophilous colonizers are replaced by later-successional taxa through
+      competitive interactions. Fungal secondary succession is initiated by the
+      Basidiomycete yeast Geminibasidium, subsequently replaced by filamentous
+      Ascomycetes including Pyronema, Aspergillus, and Penicillium. Because
+      soil microbial communities govern biogeochemical cycling and mediate
+      plant nutrient availability, the trajectory of microbial succession
+      has direct implications for plant community recovery and long-term
+      ecosystem function after wildfire.
+    biological_processes:
+      - term:
+          id: GO:0009628
+          label: response to abiotic stimulus
+        evidence:
+          - reference: PMID:36579900
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "The burned bacterial and fungal communities experienced rapid succession, with 5-6 compositional turnover periods."
+            explanation: >
+              Pulido-Chavez et al.'s high-resolution 9-timepoint sampling across
+              376 days post-fire in chaparral shrubland directly quantifies the
+              speed and structure of microbial successional dynamics; the 5–6
+              compositional turnover periods in a single year demonstrate that
+              soil microbial communities respond to the post-fire abiotic
+              environment through a structured successional sequence analogous
+              to plant succession, driven by tradeoffs in thermotolerance,
+              colonization rate, and competitive ability among pyrophilous taxa.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000191
+          label: ecological succession
+        evidence:
+          - reference: PMID:36579900
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "Fire severely reduced bacterial biomass by 47%, bacterial richness by 46%, fungal biomass by 86%, and fungal richness by 68%."
+            explanation: >
+              Quantitative documentation of fire-induced microbial biomass and
+              richness losses establishes the magnitude of the successional reset
+              in soil microbial communities; the differential impact on fungi
+              (86% biomass loss) versus bacteria (47% loss) sets the starting
+              conditions for subsequent ecological succession, with pyrophilous
+              colonizers initiating recovery from this severely altered community
+              state.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:4751
+          label: Fungi
+        role: DECOMPOSER
+        description: >
+          Pyrophilous fungi — including the early-successional Basidiomycete
+          Geminibasidium and later filamentous Ascomycetes Pyronema, Aspergillus,
+          and Penicillium — drive the initial phases of fungal community recovery
+          after wildfire; their sequential replacement reflects competitive
+          succession mediated by thermotolerance and colonization tradeoffs.
+    causal_edges:
+      - subject: Wildfire heat and ash deposition eliminating bulk soil microbial biomass
+        predicate: CAUSES
+        object: Rapid colonization by pyrophilous bacteria and fungi initiating microbial succession
+      - subject: Competitive tradeoffs between pyrophilous microbial taxa over time
+        predicate: CAUSES
+        object: Sequential compositional turnover through 5-6 distinct microbial community states
+    evidence:
+      - reference: PMID:36579900
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "The burned bacterial and fungal communities experienced rapid succession, with 5-6 compositional turnover periods."
+        explanation: >
+          High-resolution temporal sampling (9 time points, days 17–376 post-fire)
+          in southern California chaparral captures microbial successional dynamics
+          at a resolution that reveals structured turnover periods rather than
+          gradual monotonic recovery; the analogy to plant succession — with
+          pyrophilous early colonizers replaced by later competitors — establishes
+          that soil microbial communities undergo true ecological succession after
+          wildfire with implications for the biogeochemical processes that support
+          plant community recovery.
+
 indicators:
   - name: Post-fire tree seedling density
     description: >
