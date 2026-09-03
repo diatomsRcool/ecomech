@@ -161,6 +161,71 @@ mechanisms:
           anoxic soils directly challenges the foundational assumption incorporated
           in Earth system models, with major ramifications for global CH4 estimates.
 
+  - name: Aerobic Methanotrophy by Methylobacter in Wetland Surface Soils
+    description: >
+      Aerobic methanotrophy — the oxidation of CH4 to CO2 by bacteria using O2
+      as the terminal electron acceptor — is the primary biological filter
+      that consumes CH4 before it reaches the atmosphere from wetland surface
+      soils. In freshwater wetlands, members of the genus Methylobacter
+      (Methylococcales) dominate aerobic methanotrophic activity, accounting
+      for nearly all aerobic CH4 oxidation across spatial and seasonal gradients.
+      Methylobacter genomes also encode denitrification potential, enabling
+      energy generation under reduced-oxygen conditions and extending the active
+      zone of CH4 oxidation into sub-oxic soil layers. The same Methylobacter
+      lineage is found across many high-methane-emitting freshwater and wetland
+      sites globally, establishing it as a critical and widespread mediator of
+      CH4 flux attenuation in saturated soils.
+    biological_processes:
+      - term:
+          id: GO:0055114
+          label: oxidation-reduction process
+        evidence:
+          - reference: PMID:30401770
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "these Old Woman Creek (OWC) Methylobacter members accounted for nearly all the aerobic methanotrophic activity across two seasons."
+            explanation: >
+              Smith et al.'s paired metagenome and metatranscriptome analysis
+              across a Lake Erie freshwater wetland demonstrates that a single
+              Methylobacter lineage dominates aerobic CH4 oxidation across soil
+              depths and seasons; the taxonomic specificity of aerobic
+              methanotrophy — concentrated in one genus despite high overall
+              microbial diversity — establishes Methylobacter as the key
+              oxidation-reduction agent regulating CH4 flux attenuation in
+              wetland oxic surface soils.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:89770
+          label: Methylobacter
+        role: DECOMPOSER
+        description: >
+          Methylobacter (Methylococcales) is the dominant aerobic methanotroph
+          in freshwater wetland oxic surface soils; its metatranscriptomic
+          activity accounts for nearly all aerobic CH4 oxidation and its
+          global distribution across high-methane sites makes it a critical
+          mediator of wetland CH4 flux to the atmosphere.
+    causal_edges:
+      - subject: CH4 diffusing upward through oxic surface soil
+        predicate: ENABLES
+        object: Aerobic oxidation of CH4 by Methylobacter reducing net flux to atmosphere
+      - subject: Lower dissolved oxygen concentrations in sub-oxic zones
+        predicate: ENABLES
+        object: Methylobacter denitrification sustaining methanotrophic activity below the aerobic surface
+    evidence:
+      - reference: PMID:30401770
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "these Old Woman Creek (OWC) Methylobacter members accounted for nearly all the aerobic methanotrophic activity across two seasons."
+        explanation: >
+          Genome-enabled metatranscriptomics across seasonal and spatial
+          gradients demonstrates that Methylobacter dominates aerobic CH4
+          oxidation in freshwater wetland soils; the encoding of denitrification
+          in Methylobacter genomes and its global distribution across
+          high-methane sites establishes aerobic methanotrophy as a taxon-
+          specific, spatially structured oxidation-reduction process that
+          substantially attenuates wetland CH4 emissions before they reach
+          the atmosphere.
+
   - name: Anaerobic Oxidation of Methane in Wetland Soils
     description: >
       Anaerobic oxidation of methane (AOM) is a cryptic biogeochemical process
