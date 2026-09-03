@@ -186,6 +186,62 @@ mechanisms:
           plasticity for adult survival establish the mechanistic basis by which flood
           pulse characteristics filter riparian community composition and species richness.
 
+  - name: Reciprocal Carbon Provisioning Between Flood Pulse Wet and Dry Phases
+    description: >
+      The flood pulse drives a reciprocal exchange of organic carbon between the
+      wet and dry phases of floodplain ecosystems. During the wet phase, flooding
+      delivers moisture to the soil profile and supports the growth of aquatic
+      macrophytes that fix large quantities of organic carbon; this wet-phase
+      carbon persists in soil for years after flood recession, fueling microbial
+      biogeochemical activity and supporting food webs during the dry phase. In
+      semi-arid floodplains, flooding — not rainfall — is the dominant source of
+      soil moisture recharge, and aquatic macrophyte production during the wet
+      phase generates at least an order of magnitude more organic material than
+      rainfall-induced dry-phase responses. Simultaneously, carbon accumulated
+      during the dry phase drives biogeochemical transformations when the next
+      flood arrives, establishing a two-directional carbon subsidy between phases
+      that sustains ecosystem function across the full flood pulse cycle.
+    biological_processes:
+      - term:
+          id: GO:0009415
+          label: response to water
+        evidence:
+          - reference: PMID:23124331
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "the growth of aquatic macrophytes during the wet phase produced at least an order of magnitude more organic material than rainfall-induced pulse-reserve responses during the dry phase"
+            explanation: >
+              Baldwin et al.'s comparison of flooding vs. rainfall effects on
+              soil moisture and carbon in a Murray-Darling semi-arid floodplain
+              demonstrates that the flood pulse wet phase is quantitatively
+              dominant over rainfall in both soil moisture recharge and organic
+              carbon production; the order-of-magnitude difference in macrophyte
+              vs. dry-phase carbon production establishes the flood pulse as the
+              primary driver of floodplain carbon dynamics, with macrophyte
+              responses to flooding generating the organic substrate that
+              sustains dry-phase biogeochemistry.
+    causal_edges:
+      - subject: Flood pulse inundation stimulating aquatic macrophyte growth
+        predicate: CAUSES
+        object: Organic carbon accumulation in floodplain soils persisting through the dry phase
+      - subject: Wet-phase macrophyte carbon subsidizing dry-phase microbial activity
+        predicate: ENABLES
+        object: Sustained biogeochemical function across flood pulse wet-dry cycle
+    evidence:
+      - reference: PMID:23124331
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "the growth of aquatic macrophytes during the wet phase produced at least an order of magnitude more organic material than rainfall-induced pulse-reserve responses during the dry phase"
+        explanation: >
+          Field measurements of soil moisture and carbon in an Australian
+          semi-arid floodplain demonstrate that the flood pulse, not rainfall,
+          governs carbon inputs to the floodplain; wet-phase macrophyte carbon
+          remaining in soil for years after flood recession extends the ecological
+          footprint of the flood pulse far beyond the inundation period, establishing
+          reciprocal carbon provisioning as a mechanism by which the flood pulse
+          sustains floodplain ecosystem function in arid regions vulnerable to
+          altered flood regimes under climate change.
+
 indicators:
   - name: Annual flood pulse amplitude and duration
     description: >
