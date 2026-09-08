@@ -11,10 +11,13 @@ venv/
 # Generated artifacts (do not commit)
 dashboard/*.html
 docs/site/
-export/
+/export/
 src/ecomech/datamodel/ecomech.py
 src/ecomech/datamodel/ecomech_pydantic.py
 src/ecomech/datamodel/__init__.py
+
+# Downloaded ontology files (large; regenerate with: just download-ecocore)
+conf/ecocore.owl
 
 # Caches
 cache/
