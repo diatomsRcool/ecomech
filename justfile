@@ -77,9 +77,14 @@ validate-modules:
 
 # Validate ontology terms in all process files
 validate-terms:
-    uv run linkml-term-validator validate {{processes_dir}}/*.yaml \
-        -s {{schema_path}} \
-        -c conf/oak_config.yaml
+    @for f in {{processes_dir}}/*.yaml; do \
+        result=$(uv run linkml-term-validator validate "$f" -s {{schema_path}} -c conf/oak_config.yaml 2>&1); \
+        if echo "$result" | grep -qE "Validation failed|❌"; then \
+            echo "$result"; \
+            exit 1; \
+        fi; \
+    done; \
+    echo "✅ All term validations passed"
 
 # Validate ontology terms in a single file
 validate-terms-file file:

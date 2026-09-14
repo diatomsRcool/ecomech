@@ -110,7 +110,7 @@ mechanisms:
               constrains organic carbon mineralization in chronically reduced soils.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:28232
+          id: NCBITaxon:28231
           label: Geobacter
         role: DECOMPOSER
         description: >

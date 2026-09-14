@@ -393,8 +393,8 @@ indicators:
       plot surveys across burn mosaics stratified by fire severity and post-fire
       climate conditions.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Tree seedling density (seedlings ha-1) in burned plots 1-5 yr post-fire, stratified by burn severity class"
     frequency: COMMON
     temporality: CHRONIC
@@ -420,8 +420,8 @@ indicators:
       vs. herb functional groups in burned areas indicates whether forest
       succession or non-forest type conversion is occurring.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "% cover by functional group (trees, shrubs, grasses, forbs) from vegetation surveys in burned plots; community type classification using ordination"
     frequency: COMMON
     temporality: CHRONIC

@@ -195,7 +195,7 @@ mechanisms:
               wetland oxic surface soils.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:89770
+          id: NCBITaxon:429
           label: Methylobacter
         role: DECOMPOSER
         description: >
@@ -408,8 +408,8 @@ indicators:
       depth and temperature identifies the dominant environmental controls on
       methane cycling at a given site.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "CH4 flux (mg CH4 m-2 d-1) from static chambers or eddy covariance; partitioned by season and stratified by water table depth class"
     frequency: COMMON
     temporality: CHRONIC
@@ -435,8 +435,8 @@ indicators:
       transport to the atmosphere; the profile shape also indicates whether
       methanotrophic consumption at the oxic-anoxic interface is significant.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Dissolved CH4 (μmol L-1) in pore water at 5, 10, 20, 40 cm depth from Rhizon samplers or push-tube samples"
     frequency: COMMON
     temporality: CHRONIC
@@ -580,7 +580,7 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000043
-      label: wetland
+      label: wetland area
     description: >
       Methane cycling is most intense in permanently or seasonally waterlogged
       wetland ecosystems including bogs, fens, marshes, swamps, rice paddies,

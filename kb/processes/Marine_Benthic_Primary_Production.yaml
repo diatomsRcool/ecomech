@@ -74,8 +74,8 @@ mechanisms:
           upward to the sediment surface during emersion to optimize light exposure,
           then downward during tidal flooding to avoid resuspension
       - taxon:
-          id: NCBITaxon:1177
-          label: Cyanobacteria
+          id: NCBITaxon:1117
+          label: Cyanobacteriota
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
@@ -263,8 +263,8 @@ indicators:
       is the standard proxy for MPB biomass; measured by in situ fluorometry,
       spectroradiometry, or laboratory extraction from sediment cores.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Chlorophyll-a in mg m-2 or μg g-1 dry sediment (surface scrape or core)"
     frequency: COMMON
     temporality: SEASONAL
@@ -285,8 +285,8 @@ indicators:
       oxygen microelectrode profiling, or pulse-amplitude modulated (PAM)
       fluorometry, yielding areal production estimates in g C m-2 per unit time.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "MPB NPP in g C m-2 yr-1 (incubation or oxygen microsensor)"
     frequency: COMMON
     temporality: SEASONAL
@@ -308,8 +308,8 @@ indicators:
       benthic landers or core incubations, it is a proxy for net benthic
       primary production in illuminated sediments.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Net O2 flux in mmol O2 m-2 h-1 (benthic lander or core incubation)"
     frequency: COMMON
     temporality: SEASONAL

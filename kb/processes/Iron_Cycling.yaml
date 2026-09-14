@@ -233,8 +233,8 @@ indicators:
       under anaerobic conditions; seasonal and spatial variation in this ratio
       traces iron redox cycling dynamics in wetland soils and freshwater sediments.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Porewater Fe(II) and Fe(III) concentrations (μM) by ferrozine colorimetry on anaerobic samples"
     frequency: COMMON
     temporality: SEASONAL
@@ -259,8 +259,8 @@ indicators:
       indicate that iron is a significant terminal electron acceptor in the
       anaerobic microbial community.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "MPN enumeration of Fe(III)-reducing bacteria (cells mL-1) in sediment slurries with acetate and Fe(III) oxides"
     frequency: UNCOMMON
     temporality: CHRONIC
@@ -285,8 +285,8 @@ indicators:
       under reducing conditions reflects active dissimilatory iron reduction;
       seasonal fluctuations track redox dynamics driven by flooding and drying cycles.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Porewater dissolved Fe(II) and total Fe (mg L-1) by ICP-OES or ferrozine assay on anaerobic soil extracts"
     frequency: COMMON
     temporality: SEASONAL
@@ -410,7 +410,7 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000043
-      label: wetland
+      label: wetland area
     description: >
       Wetland soils are the primary sites of active iron cycling; seasonal
       waterlogging creates the anaerobic conditions required for dissimilatory

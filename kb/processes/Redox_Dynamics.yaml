@@ -135,7 +135,7 @@ mechanisms:
               coupled organic carbon mineralization.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:28232
+          id: NCBITaxon:28231
           label: Geobacter
         role: DECOMPOSER
         description: >
@@ -254,8 +254,8 @@ indicators:
       depths tracks the seasonal progression of redox conditions with water
       table fluctuation.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Redox potential (Eh, mV) from platinum electrodes at multiple depths (5, 15, 30 cm) in sediment profiles, paired with water table depth"
     frequency: COMMON
     temporality: CHRONIC
@@ -281,8 +281,8 @@ indicators:
       Fe reduction to N cycling; temporal dynamics of these concentrations trace
       the redox sequence as water table rises and falls.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Pore water Fe(II) (μmol L-1) and NO3- (μmol L-1) from Rhizon samplers or sediment squeezing at 5 cm depth intervals"
     frequency: COMMON
     temporality: CHRONIC
@@ -374,7 +374,7 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000043
-      label: wetland
+      label: wetland area
     description: >
       Redox dynamics is most pronounced and ecologically consequential in wetlands
       (bogs, fens, swamps, marshes, riparian zones) where waterlogging creates

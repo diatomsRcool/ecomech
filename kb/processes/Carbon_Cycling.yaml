@@ -66,8 +66,8 @@ mechanisms:
           label: photoautotroph
         description: Land plants account for the majority of terrestrial GPP through C3, C4, and CAM photosynthesis
       - taxon:
-          id: NCBITaxon:1177
-          label: Cyanobacteria
+          id: NCBITaxon:1117
+          label: Cyanobacteriota
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
@@ -327,8 +327,8 @@ mechanisms:
               in the euphotic zone.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:1177
-          label: Cyanobacteria
+          id: NCBITaxon:1117
+          label: Cyanobacteriota
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
@@ -401,8 +401,8 @@ mechanisms:
               the atmosphere.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:1177
-          label: Cyanobacteria
+          id: NCBITaxon:1117
+          label: Cyanobacteriota
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
@@ -447,8 +447,8 @@ indicators:
       carbon source. NEP integrates both photosynthetic and respiratory components
       of ecosystem carbon cycling.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "NEP in g C m(-2) yr(-1) (eddy covariance flux tower, gap-filled)"
     frequency: UBIQUITOUS
     temporality: SEASONAL
@@ -470,8 +470,8 @@ indicators:
       inputs and decomposition and are a key indicator of ecosystem carbon
       sequestration or loss.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "SOC in Mg C ha(-1) (loss-on-ignition or Walkley-Black, 0–30 cm)"
     frequency: COMMON
     temporality: CHRONIC
@@ -493,8 +493,8 @@ indicators:
       cycle fluxes. Seasonal drawdown reflects GPP; the long-term annual increase
       reflects the imbalance between anthropogenic emissions and natural sinks.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "CO2 in ppm (NDIR spectroscopy, continuous monitoring)"
     frequency: UBIQUITOUS
     temporality: CHRONIC
@@ -634,18 +634,18 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: Temperate forests are significant carbon sinks; soil carbon pools often exceed biomass carbon
 
   - habitat_term:
       id: ENVO:00000873
-      label: freshwater lake
+      label: freshwater biome
     description: Lakes are small but important carbon processing nodes, emitting CO2 and CH4 while burying organic carbon in sediments
 
   - habitat_term:
-      id: ENVO:00000015
-      label: cropland ecosystem
+      id: ENVO:01000245
+      label: cropland biome
     description: Agricultural soils have lost significant SOC through tillage; soil carbon restoration is a major management target
 
 creation_date: "2025-07-22T00:00:00Z"

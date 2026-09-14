@@ -240,8 +240,8 @@ indicators:
       litter breakdown. The difference in mass loss between mesh sizes
       quantifies macro-detritivore fragmentation effects on decomposition rate.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Litter mass loss rate difference (% yr-1) between coarse (>2 mm) and fine (<0.05 mm) mesh bags"
     frequency: COMMON
     temporality: SEASONAL
@@ -265,8 +265,8 @@ indicators:
       community composition reflects litter quality, soil moisture, and land-use
       intensity.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Earthworm biomass (g m-2) or macrofauna density (individuals m-2) by pit-fall traps or hand sorting"
     frequency: COMMON
     temporality: SEASONAL
@@ -288,8 +288,8 @@ indicators:
       quantify the nutrient mineralization function of detritivores and the
       magnitude of nutrient hotspot creation.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Inorganic N (mg N kg-1 soil) and P (mg P kg-1 soil) at increasing distances from detritivore burrows"
     frequency: UNCOMMON
     temporality: SEASONAL
@@ -406,8 +406,8 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate mixed forests support the most diverse soil macrofauna communities,
       with earthworms, millipedes, and isopods as dominant litter processors;
@@ -416,7 +416,7 @@ habitat_context:
 
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Broadleaf forest litter supports high earthworm biomass and diversity;
       litter quality variation among broadleaf species creates detritivore

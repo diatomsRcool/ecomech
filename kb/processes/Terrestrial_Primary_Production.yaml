@@ -232,8 +232,8 @@ indicators:
       GPP and ecosystem respiration, providing direct observations of photosynthetic
       carbon uptake at ecosystem scale with sub-daily temporal resolution.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "GPP in g C m-2 day-1 (eddy covariance flux towers, FLUXNET network)"
     frequency: UBIQUITOUS
     temporality: SEASONAL
@@ -254,8 +254,8 @@ indicators:
       photosynthetically active radiation (fPAR) drive global NPP models,
       enabling spatially continuous NPP estimation at landscape to global scales.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "NPP in g C m-2 yr-1 (MODIS MOD17 product or equivalent)"
     frequency: UBIQUITOUS
     temporality: SEASONAL
@@ -276,8 +276,8 @@ indicators:
       vegetation models, tracks the sensitivity of land primary production to
       climate variability including ENSO-driven drought and temperature anomalies.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "NPP anomaly in Pg C yr-1 (global model ensemble)"
     frequency: UNCOMMON
     temporality: CHRONIC
@@ -385,15 +385,15 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate forests contribute substantially to Northern Hemisphere terrestrial
       NPP; seasonally limited by low winter temperatures and periodic drought
 
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Broadleaf temperate forests have high summer NPP peaks; sensitive to
       drought-induced NPP reductions and vulnerable to climate-driven regime shifts

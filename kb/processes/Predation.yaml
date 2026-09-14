@@ -200,8 +200,8 @@ indicators:
       magnitude of top-down predation control on prey populations and serves
       as a leading indicator of trophic cascade intensity.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Prey density (individuals km-2) in areas with vs. without apex predators"
     frequency: COMMON
     temporality: CHRONIC
@@ -223,8 +223,8 @@ indicators:
       population declines quantify trophic downgrading risk and the ecosystem
       services lost when predation is reduced or eliminated.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Carnivore abundance (individuals per 100 km2) and range size (km2)"
     frequency: UNCOMMON
     temporality: CHRONIC
@@ -247,8 +247,8 @@ indicators:
       of predation top-down control and are used to compare cascade strength
       across ecosystems.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Relative change in vegetation biomass or species richness per unit change in carnivore density"
     frequency: UNCOMMON
     temporality: CHRONIC
@@ -364,8 +364,8 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate mixed forests historically supported apex predators (wolves, bears,
       cougars) whose loss has released deer and elk populations from top-down
@@ -373,7 +373,7 @@ habitat_context:
 
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Broadleaf forests are subject to trophic cascades from mesopredator release
       following large carnivore extirpation; fox and raccoon populations expand,

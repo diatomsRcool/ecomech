@@ -70,7 +70,7 @@ mechanisms:
               photosynthate transfer with its host-level energetic consequences.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:6447
+          id: NCBITaxon:6125
           label: Scleractinia
         role: HOST
         ecological_function:
@@ -82,7 +82,7 @@ mechanisms:
           light capture by zooxanthellae while skeletal calcium carbonate
           secretion provides the structural framework of coral reefs
       - taxon:
-          id: NCBITaxon:2950
+          id: NCBITaxon:2864
           label: Dinophyceae
         role: SYMBIONT
         ecological_function:
@@ -156,7 +156,7 @@ mechanisms:
               the global scale.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:6447
+          id: NCBITaxon:6125
           label: Scleractinia
         role: HOST
         ecological_function:
@@ -263,8 +263,8 @@ indicators:
       combined with satellite-derived sea surface temperature anomalies
       provide synoptic assessment of bleaching events.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "% reef area bleached (aerial survey) and % colony bleached (underwater visual census)"
     frequency: UNCOMMON
     temporality: SEASONAL
@@ -288,8 +288,8 @@ indicators:
       density before, during, and after thermal stress events quantifies
       bleaching dynamics and symbiosis recovery.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Zooxanthellae density (cells cm-2) via hemocytometry from coral tissue airbrushed in known volume"
     frequency: COMMON
     temporality: SEASONAL
@@ -312,8 +312,8 @@ indicators:
       DHW is the primary satellite-derived indicator of bleaching risk and
       coral reef thermal stress globally.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Degree heating weeks (°C-weeks) from NOAA Coral Reef Watch satellite SST products"
     frequency: UBIQUITOUS
     temporality: SEASONAL
@@ -434,7 +434,7 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000447
-      label: tropical marine coral reef biome
+      label: marine biome
     description: >
       Tropical coral reefs are the direct habitat of coral-zooxanthellae
       symbiosis; the entire structural and biological diversity of coral reefs

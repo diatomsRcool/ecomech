@@ -252,8 +252,8 @@ indicators:
       This is the primary field method for quantifying seed dispersal distance
       and plant recruitment potential.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Seeds per seed trap per day; seed trap catches fitted to exponential or 2Dt dispersal kernels (seeds m-2 day-1 vs. distance m)"
     frequency: COMMON
     temporality: SEASONAL
@@ -278,8 +278,8 @@ indicators:
       dispersal service provision, particularly in defaunated landscapes where
       disperser loss precedes measurable changes in plant recruitment.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Frugivore species richness and abundance (point counts, camera trapping); functional diversity indices including body mass range and gut retention time variation"
     frequency: COMMON
     temporality: CHRONIC

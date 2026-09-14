@@ -261,8 +261,8 @@ indicators:
       on floodplain productivity and biodiversity. These metrics are measured
       from continuous water level gauges at river stations.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Flood pulse amplitude (m) from annual maximum minus minimum gauge height; inundation duration (days yr-1) from water level threshold exceedance"
     frequency: COMMON
     temporality: CHRONIC
@@ -288,8 +288,8 @@ indicators:
       measured from plot surveys are compared against predicted direction of
       change based on catchment nutrient status and climate.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Riparian plant species richness (species per plot) along flooding duration gradient, stratified by catchment nutrient status"
     frequency: COMMON
     temporality: CHRONIC

@@ -241,8 +241,8 @@ indicators:
       landscape-scale net carbon balance. These flux measurements are the primary
       direct indicators of ecosystem carbon sequestration rates.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "NEE (g C m-2 yr-1) by eddy covariance; NBP (Pg C yr-1) by forest inventory integration; negative values indicate net carbon uptake"
     frequency: UBIQUITOUS
     temporality: CHRONIC
@@ -269,8 +269,8 @@ indicators:
       carbon pool; soil organic carbon, litter, and coarse woody debris are
       additional carbon pools measured in comprehensive inventories.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Forest biomass carbon density (Mg C ha-1) from tree inventory; annual stock change (Mg C ha-1 yr-1) from repeated inventories or allometric models"
     frequency: COMMON
     temporality: CHRONIC
@@ -295,8 +295,8 @@ indicators:
       age maps enable global tracking of the regrowth carbon sink contribution
       and its expected dynamics as regrowing forests age.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Forest stand age distribution (years) from satellite time series or forest inventory records; % area in regrowth vs. old-growth by biome"
     frequency: COMMON
     temporality: CHRONIC
@@ -454,7 +454,7 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Temperate forests are significant carbon sinks where deciduous and mixed
       forest biomass accumulation, soil organic matter, and coarse woody debris
@@ -463,7 +463,7 @@ habitat_context:
 
   - habitat_term:
       id: ENVO:00000043
-      label: wetland
+      label: wetland area
     description: >
       Peatland wetlands are the most carbon-dense terrestrial ecosystems;
       Sphagnum-dominated bogs and sedge-dominated fens accumulate peat carbon

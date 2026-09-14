@@ -313,21 +313,29 @@ slots:
     required: true
     in_subset:
       - required_subset
+    bindings:
+      - binds_value_of: id
 
   habitat_term:
     range: ENVOTerm
     inlined: true
     description: ENVO habitat, biome, or environmental system term
+    bindings:
+      - binds_value_of: id
 
   indicator_term:
     range: PATOTerm
     inlined: true
     description: PATO term for the phenotypic quality or measurement
+    bindings:
+      - binds_value_of: id
 
   driver_term:
     range: ECTOTerm
     inlined: true
     description: ECTO environmental exposure or ENVO environmental condition term
+    bindings:
+      - binds_value_of: id
 
   intervention_term:
     range: InterventionTerm
@@ -338,6 +346,8 @@ slots:
     range: TaxonTerm
     inlined: true
     description: NCBITaxon term for the organism
+    bindings:
+      - binds_value_of: id
 
   role:
     range: TaxonRoleEnum

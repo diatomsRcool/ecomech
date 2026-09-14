@@ -56,7 +56,7 @@ mechanisms:
     taxa_involved:
       - taxon:
           id: NCBITaxon:1386
-          label: Bacillus
+          label: Bacillus <firmicutes>
         role: OTHER
         ecological_function:
           id: ECOCORE:00000132
@@ -311,8 +311,8 @@ indicators:
       with soil solution. A key indicator of P limitation status and fertilization
       history.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Pi in mg/kg dry soil (anion exchange resin extraction)"
     frequency: COMMON
     temporality: SEASONAL
@@ -332,8 +332,8 @@ indicators:
       plant P status and the degree of P limitation; leaf P:N ratios below ~1:14
       indicate P relative to N limitation.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "P in mg/g dry leaf mass (acid digestion / ICP-MS)"
     frequency: COMMON
     temporality: SEASONAL
@@ -353,8 +353,8 @@ indicators:
       soil reflects microbial and root investment in organic P acquisition; activity
       increases under P limitation and is a functional indicator of P cycling rate.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "p-nitrophenol released in μmol g(-1) h(-1) (MUB-phosphate colorimetric assay)"
     frequency: COMMON
     temporality: SEASONAL
@@ -492,18 +492,18 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: P cycling in temperate forests is dominated by tight biological recycling; P limitation increases with soil age
 
   - habitat_term:
-      id: ENVO:00000015
-      label: cropland ecosystem
+      id: ENVO:01000245
+      label: cropland biome
     description: Agricultural soils have altered P cycles due to fertilization inputs and harvest-driven P removal
 
   - habitat_term:
       id: ENVO:00000873
-      label: freshwater lake
+      label: freshwater biome
     description: Lacustrine P cycling is driven by sedimentation and internal loading; P is the primary eutrophication driver
 
 creation_date: "2025-07-22T00:00:00Z"

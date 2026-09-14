@@ -232,8 +232,8 @@ indicators:
       climatic gradients, making k the standard quantitative indicator of
       decomposition rate.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Exponential decay constant k (yr-1) from litter bag or 13C-tracer incubation experiments"
     frequency: COMMON
     temporality: CHRONIC
@@ -256,8 +256,8 @@ indicators:
       enrichment and climate warming. SOC is the largest terrestrial carbon
       pool and a critical indicator of long-term ecosystem carbon balance.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Soil organic carbon in g C kg-1 dry soil or % SOC (0-30 cm depth)"
     frequency: COMMON
     temporality: CHRONIC
@@ -281,8 +281,8 @@ indicators:
       decomposes slowly, building soil organic matter. Litter C:N mediates
       plant species effects on decomposition and nutrient cycling feedbacks.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "C:N molar or mass ratio of fresh leaf or root litter (dimensionless)"
     frequency: COMMON
     temporality: CHRONIC
@@ -398,8 +398,8 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate mixed forests generate large annual leaf litter pulses that drive
       decomposer community dynamics; seasonal temperature variation and mixed
@@ -408,7 +408,7 @@ habitat_context:
 
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Broadleaf temperate forests produce moderate-C:N leaf litter that supports
       rapid decomposition and high nutrient cycling rates; Agaricomycetes fungi

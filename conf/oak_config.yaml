@@ -2,23 +2,37 @@
 # Maps ontology prefixes to OAK adapter strings.
 # Only prefixes listed here are validated; unlisted prefixes are skipped with a warning.
 #
-# SQLite adapters are used for offline/fast validation (recommended).
-# Replace with OLS adapters for live lookup: "ols:ONTOLOGY_ID"
+# NOTE: the key MUST be "ontology_adapters" — linkml-term-validator reads this key
+# specifically. A key named "adapters" is silently ignored, causing all term IDs
+# to pass without validation.
+#
+# Adapter strategy:
+#   sqlite:obo:X   — fastest; uses ~/.data/oaklib/X.db (must already be cached)
+#   pronto:PATH    — loads OWL/OBO file directly; used for ECOCORE (conf/ecocore.owl)
+#   ubergraph:     — remote SPARQL; used when no local cache is available
+#
+# The bbop-sqlite S3 mirror (s3.amazonaws.com/bbop-sqlite/) returns HTTP 403.
+# OAK cache policy is set to no-refresh in:
+#   ~/Library/Application Support/ontology-access-kit/cache.conf
+# To refresh a cached db, delete it from ~/.data/oaklib/ and re-run just install.
+#
+# ECOCORE uses conf/ecocore.owl (gitignored, 17MB) because sqlite.obo:ecocore
+# is stale and ECOCORE is not in ubergraph. Refresh with: just update-ecocore
 
-adapters:
+ontology_adapters:
   # Core ecological ontologies
-  ENVO: "sqlite:obo:envo"           # Environment Ontology — processes, habitats, conditions
-  GO: "sqlite:obo:go"               # Gene Ontology — biological processes
-  NCBITaxon: "sqlite:obo:ncbitaxon" # NCBI Taxonomy — organisms
-  PATO: "sqlite:obo:pato"           # Phenotype and Trait Ontology — qualities, measurements
-  ECTO: "sqlite:obo:ecto"           # Environmental Conditions, Treatments, and Exposures
-  CHEBI: "sqlite:obo:chebi"         # Chemical Entities of Biological Interest
-  UBERON: "sqlite:obo:uberon"       # Uberon multi-species anatomy (for organs in eco context)
-  ECOCORE: "sqlite:obo:ecocore"     # ECOCORE — ecological functional types and trophic processes
+  ENVO: "sqlite:obo:envo"           # cached locally (~74MB)
+  GO: "sqlite:obo:go"               # cached locally (~1.6GB)
+  ECOCORE: "pronto:conf/ecocore.owl" # OWL file — refresh with: just update-ecocore
+  NCBITaxon: "ubergraph:"           # remote SPARQL (sqlite S3 mirror broken)
+  PATO: "ubergraph:"                # remote SPARQL (sqlite S3 mirror broken)
+  ECTO: "ubergraph:"                # remote SPARQL (sqlite S3 mirror broken)
+  CHEBI: "ubergraph:"               # remote SPARQL (sqlite S3 mirror broken)
+  UBERON: "ubergraph:"              # remote SPARQL (sqlite S3 mirror broken)
 
   # Supplementary ontologies
-  OBI: "sqlite:obo:obi"             # Ontology for Biomedical Investigations
-  FOODON: "sqlite:obo:foodon"       # Food Ontology (for agroecosystem processes)
+  OBI: "ubergraph:"                 # remote SPARQL (sqlite S3 mirror broken)
+  FOODON: "ubergraph:"              # remote SPARQL (sqlite S3 mirror broken)
 
   # Skip validation for schema / semantic web prefixes
   linkml: ""

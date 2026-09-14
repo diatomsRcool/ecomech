@@ -82,7 +82,7 @@ mechanisms:
           bee colonies, increasing reliance on wild bee species
       - taxon:
           id: NCBITaxon:28641
-          label: Bombus
+          label: Bombus <genus>
         role: POLLINATOR
         description: >
           Bumblebees are the most important wild bee pollinators in temperate
@@ -101,7 +101,7 @@ mechanisms:
           as keystone pollinators for orchids and Gesneriaceae in tropical forests
       - taxon:
           id: NCBITaxon:7476
-          label: Xylocopa
+          label: Xylocopa <genus>
         role: POLLINATOR
         description: >
           Carpenter bees are effective pollinators in arid, Mediterranean, and
@@ -200,8 +200,8 @@ indicators:
       treatments quantifies the degree of pollinator dependence and pollination
       adequacy in a community.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Fruit set (% flowers producing fruit) and seed number per fruit under open vs. excluded pollinator treatments"
     frequency: COMMON
     temporality: SEASONAL
@@ -226,8 +226,8 @@ indicators:
       and visitation frequency — all of which predict effective pollen transfer
       and plant reproductive success.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Flower visits per plant per hour across timed observation periods; pollinator species richness per site (pan trap or net survey)"
     frequency: COMMON
     temporality: SEASONAL
@@ -252,8 +252,8 @@ indicators:
       or recovering, particularly as colony losses from disease and pests
       increase managed bee mortality.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Managed honey bee colonies per km2 agricultural land (FAO data); wild bee abundance per standard pan-trap survey"
     frequency: COMMON
     temporality: CHRONIC

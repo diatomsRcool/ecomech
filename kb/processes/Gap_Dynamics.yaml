@@ -136,7 +136,7 @@ mechanisms:
     taxa_involved:
       - taxon:
           id: NCBITaxon:3193
-          label: embryophytes
+          label: Embryophyta
         role: PRIMARY_PRODUCER
         description: >
           Lianas (woody climbing plants) and shade-tolerant trees compete
@@ -240,8 +240,8 @@ indicators:
       dynamics intensity. High gap fraction indicates active gap-phase
       regeneration and associated pioneer recruitment.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Gap fraction (% of stand area with canopy height below threshold) from LiDAR or hemispherical photography"
     frequency: COMMON
     temporality: CHRONIC
@@ -267,8 +267,8 @@ indicators:
       quantified by Fisher's alpha or species richness, indicates whether gaps
       are supporting their expected diversity function.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Pioneer sapling density (stems ha-1) and Fisher's alpha in gaps vs. closed canopy from vegetation surveys"
     frequency: COMMON
     temporality: CHRONIC

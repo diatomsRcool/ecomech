@@ -236,8 +236,8 @@ indicators:
       colonization rates reflect greater fungal investment in the symbiosis
       and predict higher nutrient transfer rates to the plant.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "% root length colonized (AM) or % root tips ectomycorrhizal (EM), assessed by microscopy"
     frequency: COMMON
     temporality: SEASONAL
@@ -260,8 +260,8 @@ indicators:
       fungi to plant nutrition. High mycorrhizal P uptake fractions indicate
       active, functional symbiosis.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Mycorrhizal P uptake fraction (%) using 33P radiotracer or isotope dilution"
     frequency: UNCOMMON
     temporality: SEASONAL
@@ -284,8 +284,8 @@ indicators:
       foraging. High hyphal densities indicate active symbiosis and predict
       high nutrient acquisition capacity per unit plant root biomass.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Hyphal length in m g-1 soil (membrane filter microscopy or chitin assay)"
     frequency: UNCOMMON
     temporality: SEASONAL
@@ -406,8 +406,8 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate mixed forests support both AM (broadleaf trees) and EM (conifers)
       associations; the transition zone between AM-dominated deciduous and
@@ -416,7 +416,7 @@ habitat_context:
 
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Broadleaf temperate forests are predominantly AM-associated; high AM
       fungal diversity in broadleaf forest soils supports plant community

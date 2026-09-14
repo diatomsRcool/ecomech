@@ -69,7 +69,7 @@ mechanisms:
               legume hosts and their rhizobial symbionts.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:382
+          id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: SYMBIONT
         ecological_function:
@@ -126,7 +126,7 @@ mechanisms:
               within nodules.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:382
+          id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: NITROGEN_FIXER
         ecological_function:
@@ -185,7 +185,7 @@ mechanisms:
               and maintained over ecological time.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:382
+          id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: SYMBIONT
         ecological_function:
@@ -234,8 +234,8 @@ indicators:
       rates; nodule senescence (pink to brown interior transition) indicates
       declining symbiosis activity.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Nodule count per plant and nodule fresh biomass (mg plant-1)"
     frequency: COMMON
     temporality: SEASONAL
@@ -259,8 +259,8 @@ indicators:
       active nitrogen fixation rate per nodule or per plant and is the standard
       field and laboratory method for quantifying symbiotic nitrogen fixation.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Ethylene production rate (nmol C2H4 g-1 nodule h-1) via gas chromatography"
     frequency: COMMON
     temporality: SEASONAL
@@ -284,8 +284,8 @@ indicators:
       legumes in N-free conditions quantifies the net agronomic benefit of
       nodule symbiosis.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Shoot N content (mg N plant-1) in nitrogen-free conditions with and without rhizobial inoculation"
     frequency: COMMON
     temporality: SEASONAL
@@ -406,8 +406,8 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:01000245
-      label: temperate mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate forests with nitrogen-fixing trees (Alnus, Robinia) support
       ectomycorrhizal and nodule symbiosis simultaneously; nitrogen-fixing
@@ -416,7 +416,7 @@ habitat_context:
 
   - habitat_term:
       id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      label: terrestrial biome
     description: >
       Broadleaf forests dominated by leguminous trees (e.g., Robinia pseudoacacia
       in North America, Acacia in Australia) can fix substantial nitrogen,

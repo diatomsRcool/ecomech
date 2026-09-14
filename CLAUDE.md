@@ -19,14 +19,14 @@ Use OAK to explore available terms:
 ```bash
 just oak-envo-ecosystem-processes        # list descendants of ENVO:02500000
 just oak-search-envo "nitrogen cycling"  # search by keyword
-just oak-envo ENVO:01001813              # look up a specific term
+just oak-envo ENVO:01001330              # look up a specific term
 ```
 
 ## Ontology Mapping Reference
 
 | Slot | Ontology | Prefix | Example |
 |------|----------|--------|---------|
-| process_term | ENVO (ecosystem process branch) | ENVO: | ENVO:01001813 |
+| process_term | ENVO (ecosystem process branch) | ENVO: | ENVO:01001330 |
 | ecological_processes | ENVO | ENVO: | ENVO:01001629 |
 | biological_processes | GO | GO: | GO:0009399 |
 | taxa_involved.taxon | NCBITaxon | NCBITaxon: | NCBITaxon:382 |
@@ -53,10 +53,10 @@ just oak-search-envo "decomposition"    # Search ENVO for terms
 Each entry in `kb/processes/` conforms to the `EcologicalProcess` class:
 
 ```yaml
-id: ENVO:01001813
+id: ENVO:01001330
 name: Nitrogen Cycling
 process_term:
-  id: ENVO:01001813
+  id: ENVO:01001330
   label: nutrient cycling
 description: >
   Nitrogen cycling encompasses the biogeochemical transformations of nitrogen

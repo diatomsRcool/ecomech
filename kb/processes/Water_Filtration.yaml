@@ -224,8 +224,8 @@ indicators:
       efficiency normalized to buffer width provide standardized metrics
       for comparing riparian buffer performance across sites and conditions.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Nitrate-N concentration (mg NO3-N L-1) in groundwater monitoring wells at paired upgradient and downgradient positions across riparian buffer"
     frequency: COMMON
     temporality: CHRONIC
@@ -250,8 +250,8 @@ indicators:
       different wetland designs and inflow loading scenarios for water
       quality management applications.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Mass removal rate: g N m-2 yr-1 and g P m-2 yr-1; concentration reduction: % N and P removal across inlet/outlet monitoring points"
     frequency: COMMON
     temporality: CHRONIC

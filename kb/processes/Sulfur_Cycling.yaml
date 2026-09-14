@@ -153,7 +153,7 @@ mechanisms:
               routes to sulfur-based chemolithotrophy.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:921
+          id: NCBITaxon:919
           label: Thiobacillus
         role: PRIMARY_PRODUCER
         ecological_function:
@@ -374,8 +374,8 @@ indicators:
       and depth of sulfate reduction; steep gradients indicate active sulfate
       reduction and are used to calculate sulfate reduction rates via Fick's law.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "SO4(2-) in mM (porewater extraction, ion chromatography)"
     frequency: COMMON
     temporality: CHRONIC
@@ -397,8 +397,8 @@ indicators:
       High H2S concentrations create toxic conditions for benthic fauna and indicate
       hypoxic/euxinic conditions in bottom waters.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "H2S in μmol m(-2) d(-1) (benthic flux chamber or microelectrode profiling)"
     frequency: COMMON
     temporality: SEASONAL
@@ -421,8 +421,8 @@ indicators:
       completeness of sulfate reduction and has been used to reconstruct the
       history of microbial sulfur cycling in the geological record.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "δ34S in ‰ VCDT (isotope ratio mass spectrometry)"
     frequency: UNCOMMON
     temporality: CHRONIC
@@ -553,17 +553,17 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000873
-      label: freshwater lake
+      label: freshwater biome
     description: Freshwater lake sediments cycle sulfur via sulfate reduction at oxic/anoxic interfaces; sulfate concentrations are typically low
 
   - habitat_term:
       id: ENVO:01000245
-      label: temperate mixed forest biome
+      label: cropland biome
     description: Terrestrial sulfur cycling is driven by SO2 deposition, plant uptake, and microbial mineralization of organic sulfur in soil
 
   - habitat_term:
-      id: ENVO:00000015
-      label: cropland ecosystem
+      id: ENVO:01000245
+      label: cropland biome
     description: Agricultural soils receive sulfur via atmospheric deposition and some fertilizers; sulfur deficiency is increasing with reduced acid deposition
 
 creation_date: "2025-07-22T00:00:00Z"

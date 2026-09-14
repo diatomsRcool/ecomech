@@ -69,8 +69,8 @@ mechanisms:
           polar oceans; they are the most important group for silica cycling
           and contribute disproportionately to carbon export
       - taxon:
-          id: NCBITaxon:1177
-          label: Cyanobacteria
+          id: NCBITaxon:1117
+          label: Cyanobacteriota
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
@@ -232,8 +232,8 @@ mechanisms:
               to stratification-driven nutrient limitation.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:1177
-          label: Cyanobacteria
+          id: NCBITaxon:1117
+          label: Cyanobacteriota
         role: PRIMARY_PRODUCER
         description: >
           Prochlorococcus and Synechococcus cyanobacteria dominate in stratified,
@@ -272,8 +272,8 @@ indicators:
       concentration as a proxy for phytoplankton biomass, enabling global marine
       NPP estimation at daily to decadal time scales.
     indicator_term:
-      id: PATO:0000070
-      label: concentration
+      id: PATO:0000033
+      label: concentration of
     measurement: "Chlorophyll-a in mg m-3 (ocean color remote sensing)"
     frequency: UBIQUITOUS
     temporality: SEASONAL
@@ -293,8 +293,8 @@ indicators:
       translate satellite chlorophyll-a, sea-surface temperature, and irradiance
       into spatially resolved marine NPP estimates at global scale.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "NPP in mg C m-2 day-1 (satellite-derived VGPM or equivalent)"
     frequency: UBIQUITOUS
     temporality: SEASONAL
@@ -315,8 +315,8 @@ indicators:
       series track the sensitivity of ocean primary production to climate
       variability and long-term warming.
     indicator_term:
-      id: PATO:0001332
-      label: rate of change
+      id: PATO:0000161
+      label: rate
     measurement: "Change in global ocean NPP in Tg C yr-1 (satellite time series)"
     frequency: UNCOMMON
     temporality: CHRONIC
