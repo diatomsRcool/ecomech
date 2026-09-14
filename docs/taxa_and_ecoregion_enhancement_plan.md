@@ -233,17 +233,31 @@ green = ≥2 evidence items from that biome, yellow = 1, grey = absent.
 
 Biome classification uses the ENVO term's habitat_context entries.
 
-### 3c. GBIF taxon-by-role lookup
+### 3c. TraitBank taxon-by-role lookup
 
-Extend `src/ecomech/ingest/gbif.py` to support a `taxa-for-role` subcommand:
+Use the TraitBank (EOL) ingester to find genus- and species-level taxa for
+specific ecological roles. TraitBank has 11M+ trait records across 1.7M taxa
+and is the authoritative source for organism-level ecological traits.
 
 ```bash
-just gbif-taxa-for-role "nitrogen fixation" --rank genus
-# Returns: Rhizobium, Sinorhizobium, Mesorhizobium, Bradyrhizobium, …
+# List available role keys
+just traitbank-roles
+
+# Find taxa with a specific ecological role (returns EOL page IDs + canonical names)
+just traitbank-taxa-for-role decomposer --limit 50
+just traitbank-taxa-for-role nitrogen_fixer
+just traitbank-taxa-for-role pollinator
+
+# Get all traits for a specific taxon
+just traitbank-traits "Rhizobium leguminosarum"
 ```
 
-This queries GBIF's species API filtered by trait keywords and returns verified
-NCBITaxon CURIEs via nubKey resolution.
+Requires `EOL_API_TOKEN` environment variable (JWT token from eol.org).
+Role → predicate mappings are curated in `src/ecomech/ingest/traitbank.py`.
+
+**Data source division:**
+- **TraitBank** → ecological traits, trophic guilds, functional roles, symbioses
+- **GBIF** → geographic occurrences only (`just gbif-resolve`, `just gbif-taxa-in-region`)
 
 ### 3d. Updated /curate skill
 

@@ -66,7 +66,36 @@ just oak-ecocore-ancestors <ECOCORE:XXXXXXX>   # show parent hierarchy
 
 The `process_term.label` must be the **exact canonical label** returned by OAK, not a paraphrase.
 
-### Step 2 — Research the Process
+### Step 2 — Find Representative Taxa
+
+Before researching the literature, identify genus- or species-level taxa to populate
+`taxa_involved`. Use **TraitBank** (EOL) — the authoritative source for organism-level
+ecological traits across 1.7M taxa.
+
+```bash
+# See what role keys are available
+just traitbank-roles
+
+# Find taxa with a specific ecological role
+just traitbank-taxa-for-role decomposer
+just traitbank-taxa-for-role nitrogen_fixer
+just traitbank-taxa-for-role pollinator
+
+# Get all traits for a specific taxon you already have in mind
+just traitbank-traits "Rhizobium leguminosarum"
+```
+
+Requires `EOL_API_TOKEN` env var. Then resolve each canonical name to an NCBITaxon CURIE:
+```bash
+just gbif-resolve "Rhizobium leguminosarum"   # returns ncbitaxon_curie
+```
+
+**Requirements:**
+- Include **≥ 3 taxa at genus level or below** per process
+- Avoid phylum-level placeholders (Bacteria, Fungi, Insecta) — use named genera instead
+- Use GBIF for occurrence/distribution data only (`just gbif-taxa-in-region`), not for traits
+
+### Step 3 — Research the Process
 
 Search PubMed for each of these aspects:
 - Core mechanisms (2–4 papers)
@@ -89,7 +118,7 @@ just fetch-reference PMID:XXXXXXXX
 
 **Hallucination prevention**: Never invent PMIDs. Only use PMIDs you can verify exist via `just fetch-reference`.
 
-### Step 3 — Draft the YAML
+### Step 4 — Draft the YAML
 
 Create `kb/processes/<ProcessName>.yaml`. Use the template below, replacing all placeholders.
 
@@ -106,7 +135,7 @@ Each mechanism must have:
 - At least one `biological_processes` entry with GO term
 - At least one `evidence` item with exact verbatim `snippet`
 
-### Step 4 — Validate Ontology Terms
+### Step 5 — Validate Ontology Terms
 
 ```bash
 just validate-terms-file kb/processes/<ProcessName>.yaml
@@ -114,7 +143,7 @@ just validate-terms-file kb/processes/<ProcessName>.yaml
 
 Fix any unresolved CURIE errors before proceeding.
 
-### Step 5 — Validate References
+### Step 6 — Validate References
 
 For each PMID in the file:
 ```bash
@@ -128,7 +157,7 @@ just validate-references kb/processes/<ProcessName>.yaml
 
 Fix any snippet mismatches. Snippets must be **exact substrings** of the cached abstract.
 
-### Step 6 — Full QC
+### Step 7 — Full QC
 
 ```bash
 just qc-fast
@@ -136,7 +165,7 @@ just qc-fast
 
 All checks must pass before committing.
 
-### Step 7 — Commit
+### Step 8 — Commit
 
 ```bash
 git add kb/processes/<ProcessName>.yaml references_cache/

@@ -64,10 +64,46 @@ similarity-csv:
 
 # --- Cross-database Ingestion ---
 
-# Search GBIF for taxon records matching a name
-# Usage: just gbif-search "Rhizobium leguminosarum"
-gbif-search query:
-    uv run python -m ecomech.ingest.gbif search "{{query}}"
+# --- TraitBank (EOL) — ecological traits and functional roles ---
+# Requires: export EOL_API_TOKEN="your_token"
+
+# List available ecological role keys
+traitbank-roles:
+    uv run python -m ecomech.ingest.traitbank roles
+
+# Get all traits for a named taxon
+# Usage: just traitbank-traits "Rhizobium leguminosarum"
+traitbank-traits name:
+    uv run python -m ecomech.ingest.traitbank traits "{{name}}"
+
+# Find taxa exhibiting a named ecological role
+# Usage: just traitbank-taxa-for-role decomposer
+# Usage: just traitbank-taxa-for-role nitrogen_fixer --limit 50
+traitbank-taxa-for-role role limit="30":
+    uv run python -m ecomech.ingest.traitbank taxa-for-role {{role}} --limit {{limit}}
+
+# --- GBIF — geographic occurrence data only ---
+
+# Resolve a scientific name to GBIF key + NCBITaxon CURIE
+# Usage: just gbif-resolve "Rhizobium leguminosarum"
+gbif-resolve name:
+    uv run python -m ecomech.ingest.gbif resolve "{{name}}"
+
+# Get occurrence records for a taxon by GBIF key
+# Usage: just gbif-occurrences 2598429 --country BR
+gbif-occurrences key country="" gadm="":
+    uv run python -m ecomech.ingest.gbif occurrences {{key}} \
+        $([ -n "{{country}}" ] && echo "--country {{country}}") \
+        $([ -n "{{gadm}}" ] && echo "--gadm {{gadm}}")
+
+# Find taxa recorded in a country or GADM region
+# Usage: just gbif-taxa-in-region --country TZ
+# Usage: just gbif-taxa-in-region --gadm "BRA.17_1" --rank GENUS
+gbif-taxa-in-region country="" gadm="" rank="GENUS" limit="20":
+    uv run python -m ecomech.ingest.gbif taxa-in-region \
+        $([ -n "{{country}}" ] && echo "--country {{country}}") \
+        $([ -n "{{gadm}}" ] && echo "--gadm {{gadm}}") \
+        --rank {{rank}} --limit {{limit}}
 
 # Search LTER-EDI for long-term monitoring datasets
 # Usage: just lter-search "nitrogen cycling"
