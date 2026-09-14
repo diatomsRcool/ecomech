@@ -83,12 +83,32 @@ mechanisms:
       - taxon:
           id: NCBITaxon:27641
           label: Bombus
-        role: OTHER
+        role: POLLINATOR
         description: >
           Bumblebees are the most important wild bee pollinators in temperate
           ecosystems; their large body size, long tongues, and buzz pollination
           behavior enable access to flowers unavailable to honey bees, and their
           populations buffer agricultural pollination when honey bee colonies decline
+      - taxon:
+          id: NCBITaxon:213335
+          label: Eulaema
+        role: POLLINATOR
+        description: >
+          Eulaema orchid bees are among the most important pollinators in
+          Neotropical rainforests; male euglossine bees collect aromatic compounds
+          from orchids and other flowers over large foraging ranges (up to 50 km),
+          providing cross-pollination for rare plants at low density and acting
+          as keystone pollinators for orchids and Gesneriaceae in tropical forests
+      - taxon:
+          id: NCBITaxon:6500
+          label: Xylocopa
+        role: POLLINATOR
+        description: >
+          Carpenter bees are effective pollinators in arid, Mediterranean, and
+          tropical ecosystems; their large body size and ability to buzz-pollinate
+          solanaceous flowers makes them important pollinators for crops such as
+          passion fruit and eggplant, and they provide pollination services in
+          habitats too dry or hot for bumblebees
     causal_edges:
       - subject: Bee foraging visits to flowers
         predicate: CAUSES
@@ -360,12 +380,30 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate forests provide nesting habitat (hollow stems, bare ground,
       dead wood) and diverse understory floral resources for wild bees and
       other pollinators; forest edges and woodland margins are particularly
       important pollinator corridors in fragmented agricultural landscapes
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical rainforests support the highest pollinator diversity globally,
+      including orchid bees, stingless bees, hawk moths, and bats; specialist
+      pollination mutualisms (e.g. fig–fig wasp, orchid–euglossine) are
+      concentrated here, and tropical forest fragmentation disproportionately
+      reduces the large-bodied, wide-ranging pollinators critical for rare plant pollination
+  - habitat_term:
+      id: ENVO:01000218
+      label: xeric shrubland biome
+    description: >
+      Arid and semi-arid shrublands host specialized pollinator communities
+      including Xylocopa carpenter bees, hawk moths, and noctuid moths; many
+      desert-adapted plants rely on night-flying hawkmoths or bats, and the
+      high proportion of specialist pollination systems in arid habitats makes
+      them particularly vulnerable to pollinator loss from drought and land-use change
 
 creation_date: "2026-09-02T00:00:00Z"

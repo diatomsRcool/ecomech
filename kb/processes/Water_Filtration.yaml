@@ -382,11 +382,28 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000043
-      label: wetland
+      label: wetland area
     description: >
       Natural and constructed wetlands are the primary engineered habitats for
       water filtration; wetland anaerobiosis, high organic matter content,
       and diverse plant communities create the biogeochemical conditions
       for nitrogen and phosphorus removal from agricultural and municipal wastewater
+  - habitat_term:
+      id: ENVO:00000873
+      label: freshwater biome
+    description: >
+      Riparian buffer strips along streams and rivers are the frontline filter
+      intercepting agricultural nitrogen and phosphorus before it reaches
+      freshwater ecosystems; the effectiveness of in-stream and riparian
+      filtration processes directly determines nutrient loading to lakes and rivers
+  - habitat_term:
+      id: ENVO:00000045
+      label: estuary
+    description: >
+      Estuaries and coastal wetlands receive concentrated nutrient loads from
+      agricultural watersheds and are critical zones of nitrogen transformation;
+      tidal wetlands and oyster reefs provide analogous biofiltration services
+      to freshwater wetlands, removing nutrients and suspended particles
+      before they reach coastal marine ecosystems
 
 creation_date: "2026-09-02T00:00:00Z"

@@ -351,15 +351,15 @@ mechanisms:
               state.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:5341
+          label: Pholiota
         role: DECOMPOSER
         description: >
-          Pyrophilous fungi — including the early-successional Basidiomycete
-          Geminibasidium and later filamentous Ascomycetes Pyronema, Aspergillus,
-          and Penicillium — drive the initial phases of fungal community recovery
-          after wildfire; their sequential replacement reflects competitive
-          succession mediated by thermotolerance and colonization tradeoffs.
+          Pholiota is a pyrophilous Basidiomycete genus among the early fungal
+          colonizers of burned forest soil; along with Pyronema and Penicillium,
+          it initiates the post-fire fungal succession sequence, exploiting
+          the ash-enriched, competitor-free substrate before later successional
+          fungi re-establish complex community structure
     causal_edges:
       - subject: Wildfire heat and ash deposition eliminating bulk soil microbial biomass
         predicate: CAUSES
@@ -552,12 +552,28 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
-      Temperate forests with mixed conifer-broadleaf composition represent
-      classic wildfire succession ecosystems; post-fire community trajectories
-      range from rapid forest recovery (mesic sites with refugia) to
-      persistent shrubland (warm, dry sites with failed tree recruitment)
+      Temperate broadleaf forests represent classic wildfire succession ecosystems;
+      post-fire community trajectories range from rapid forest recovery (mesic
+      sites with refugia) to persistent shrubland (warm, dry sites with failed
+      tree recruitment)
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal/taiga forests have co-evolved with high-severity stand-replacing
+      crown fire; post-fire succession proceeds through distinct shrub and
+      seedling phases before canopy closure, with fire return intervals of
+      50–200 years structuring the age-class mosaic at landscape scale
+  - habitat_term:
+      id: ENVO:01000188
+      label: tropical savanna biome
+    description: >
+      Tropical savannas are maintained by frequent low-intensity surface fire;
+      post-fire succession is dominated by rapid grass regrowth and resprouting
+      of fire-adapted trees, with fire frequency determining the tree cover
+      and grass biomass equilibrium across the savanna-forest transition zone
 
 creation_date: "2026-09-02T00:00:00Z"

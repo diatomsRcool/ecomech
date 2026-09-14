@@ -422,4 +422,12 @@ interventions:
           on which fisheries and upper trophic levels depend, particularly as
           climate-driven NPP reductions reduce the available primary production.
 
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+  - habitat_term:
+      id: ENVO:01000048
+      label: ocean biome
+
 creation_date: "2026-08-17T00:00:00Z"

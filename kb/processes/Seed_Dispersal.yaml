@@ -72,25 +72,35 @@ mechanisms:
               loss explains why anthropogenic defaunation threatens this ecological process.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:8782
-          label: Aves
-        role: OTHER
+          id: NCBITaxon:9302
+          label: Turdus
+        role: SEED_DISPERSER
         description: >
-          Birds are the dominant seed dispersers in many tropical and subtropical
-          ecosystems; highly frugivorous families (cotingas, toucans, hornbills,
-          fruit pigeons) are among the most effective long-distance seed dispersers
-          for large-seeded trees, and their functional diversity ensures dispersal
-          of plants across a wide range of fruit sizes and morphologies
+          Thrushes (Turdus) are among the most important avian seed dispersers
+          in temperate and Neotropical forests; their high frugivory rates,
+          efficient gut passage, and wide-ranging movements make them effective
+          long-distance dispersers for fleshy-fruited shrubs and understorey trees
       - taxon:
-          id: NCBITaxon:40674
-          label: Mammalia
-        role: OTHER
+          id: NCBITaxon:9011
+          label: Alouatta
+        role: SEED_DISPERSER
         description: >
-          Mammals, particularly primates, large rodents, and bats, are critical
-          seed dispersers for the largest-fruited tree species; elephants and
-          tapirs are among the only remaining megafaunal dispersers for plants
-          that co-evolved with now-extinct Pleistocene megafauna, making
-          their conservation essential for long-term forest regeneration
+          Howler monkeys are keystone seed dispersers in Neotropical forests;
+          as one of the last large-bodied frugivorous primates to persist in
+          fragmented landscapes, Alouatta provides critical dispersal of
+          large-seeded canopy trees whose seeds pass intact through the gut
+          and are deposited in clumped distributions beneath sleeping trees
+      - taxon:
+          id: NCBITaxon:9722
+          label: Tapirus
+        role: SEED_DISPERSER
+        description: >
+          Tapirs are megafaunal seed dispersers for some of the largest-seeded
+          trees in Neotropical, Southeast Asian, and Central American forests;
+          as one of the few remaining megafaunal dispersers, Tapirus provides
+          dispersal services for plants that co-evolved with now-extinct
+          Pleistocene megafauna, and their loss from hunted landscapes
+          leads to recruitment failure of large-seeded tree species
     causal_edges:
       - subject: Frugivore ingestion of fleshy fruits
         predicate: CAUSES
@@ -395,12 +405,29 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical moist forests support the highest frugivore diversity and seed
+      dispersal complexity; large-bodied dispersers (primates, tapirs, hornbills)
+      disperse the biggest-seeded canopy trees, and the concentration of
+      specialist plant-frugivore mutualisms makes tropical forests both the
+      most dispersal-dependent and most defaunation-sensitive biome for this process
+  - habitat_term:
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate broadleaf forests support diverse frugivore communities of birds
-      and small mammals that disperse fleshy-fruited shrubs and trees; seed
-      dispersal is particularly critical for forest regeneration in the
-      understory and after gap disturbance
+      (thrushes, corvids) and small mammals that disperse fleshy-fruited shrubs
+      and understorey trees; seed dispersal is particularly critical for
+      forest regeneration following gap disturbance and range shifts under climate change
+  - habitat_term:
+      id: ENVO:01000188
+      label: tropical savanna biome
+    description: >
+      Tropical savannas rely on megafaunal dispersers including elephants,
+      rhinoceroses, and tapirs for the dispersal of large-fruited woody plants;
+      the loss of megafauna from African and Asian savannas through hunting
+      and habitat loss is driving directional change in savanna tree composition
 
 creation_date: "2026-09-02T00:00:00Z"

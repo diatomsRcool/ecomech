@@ -78,14 +78,15 @@ mechanisms:
               carbon storage.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3193
-          label: embryophytes
+          id: NCBITaxon:3490
+          label: Cecropia
         role: PRIMARY_PRODUCER
         description: >
-          Vascular land plants are the principal actors in gap dynamics:
-          canopy trees die to create gaps, and pioneer plus shade-tolerant
-          tree species recruit differentially into gaps based on their
-          light requirements, driving forest successional trajectories.
+          Cecropia is the archetypal tropical pioneer tree genus; fast-growing
+          and light-demanding, Cecropia species rapidly colonize treefall gaps
+          in Neotropical forests, outcompeting shade-tolerant species in the
+          high-light environment and driving early-successional biomass
+          accumulation before canopy closure excludes them
     causal_edges:
       - subject: Canopy tree death and gap formation
         predicate: CAUSES
@@ -352,13 +353,21 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:00000446
-      label: temperate broadleaf mixed forest biome
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
     description: >
-      Gap dynamics is a universal process in closed-canopy forests including
-      tropical, temperate, and boreal systems; the relative importance of gap
-      size, pioneer vs. shade-tolerant species, and liana competition varies
-      with latitude and forest type, but treefall gap formation and light-mediated
-      regeneration niches structure forest regeneration dynamics across biomes.
+      Tropical moist broadleaf forests show the highest gap dynamics complexity:
+      high tree diversity, rapid pioneer recruitment, intense liana competition,
+      and short gap closure times; the Panama evidence underpinning most of the
+      mechanisms here is typical of lowland Neotropical forest gap dynamics
+  - habitat_term:
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
+    description: >
+      Temperate deciduous forests experience treefall gap dynamics structuring
+      regeneration of shade-tolerant species such as Fagus and Acer; gap
+      disturbance rates are lower and pioneer assemblages differ from tropical
+      forests, but the fundamental light-mediated regeneration niche mechanism
+      is conserved across biomes
 
 creation_date: "2026-09-02T00:00:00Z"

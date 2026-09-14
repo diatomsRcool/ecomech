@@ -58,15 +58,24 @@ mechanisms:
               flood pulse, not just contemporaneous hydrological conditions.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:7898
-          label: Actinopterygii
+          id: NCBITaxon:51386
+          label: Colossoma macropomum
         role: CONSUMER
         description: >
-          Ray-finned fishes are the principal consumers responding to flood
-          pulse dynamics in tropical river-floodplain systems; fish biomass
-          accumulation during high water and concentration during low water
-          drives the trophic productivity patterns that characterize
-          flood-pulse-controlled fisheries.
+          The tambaqui is one of the most important commercial fish in Amazonian
+          river-floodplain systems; it accesses flooded forest to consume fruits
+          and seeds during high water, accumulating biomass that is then
+          harvested during low water when fish concentrate in channels and lakes
+      - taxon:
+          id: NCBITaxon:56062
+          label: Arapaima gigas
+        role: CONSUMER
+        description: >
+          The arapaima is among the world's largest freshwater fish; it is
+          an apex predator in Amazonian floodplain systems whose biomass
+          accumulation and movement between flooded forest and channel habitats
+          directly tracks flood pulse dynamics, making it a flagship indicator
+          species for flood pulse-controlled productivity
     causal_edges:
       - subject: High-water flood pulse expanding floodplain habitat
         predicate: CAUSES
@@ -401,12 +410,29 @@ interventions:
 habitat_context:
   - habitat_term:
       id: ENVO:00000043
-      label: wetland
+      label: wetland area
     description: >
       Flood pulse dynamics are most pronounced in large tropical and subtropical
       river-floodplain systems including Amazon, Congo, and Mekong river systems,
       as well as temperate floodplain wetlands; the flood pulse concept is also
       applicable to regulated rivers where managed flood releases restore
       ecological functions.
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Várzea (white-water) and igapó (black-water) flooded forests of the Amazon
+      Basin are the archetype flood pulse systems; seasonally inundated tropical
+      forest provides fish with access to fruits, seeds, and invertebrates,
+      driving the extraordinarily high fish diversity and biomass that defines
+      tropical river-floodplain productivity
+  - habitat_term:
+      id: ENVO:01000188
+      label: tropical savanna biome
+    description: >
+      Tropical savanna floodplains including the Pantanal (South America),
+      Okavango (Africa), and Tonle Sap (Southeast Asia) are flood-pulse-driven
+      systems outside Amazonian forest; seasonal inundation of savanna grassland
+      supports high fish and waterbird diversity linked to flood amplitude and timing
 
 creation_date: "2026-09-02T00:00:00Z"

@@ -420,4 +420,15 @@ interventions:
           disrupting the sediment-surface biofilms responsible for benthic
           carbon fixation.
 
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000045
+      label: estuary
+  - habitat_term:
+      id: ENVO:00000230
+      label: coastal wetland ecosystem
+  - habitat_term:
+      id: ENVO:01000181
+      label: mangrove biome
+
 creation_date: "2026-08-17T00:00:00Z"

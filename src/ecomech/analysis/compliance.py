@@ -49,6 +49,24 @@ assert sum(_WEIGHTS.values()) == 100, "Weights must sum to 100"
 _REQUIRED_FIELDS = ["id", "name", "process_term", "description", "ecological_scale", "creation_date"]
 _SECTION_FIELDS = ["mechanisms", "indicators", "drivers", "interventions", "habitat_context"]
 
+# Taxon IDs at rank above genus that trigger a curation warning.
+# These are acceptable as broad placeholders but should be replaced with
+# named genera wherever possible. See docs/taxa_and_ecoregion_enhancement_plan.md.
+_BROAD_TAXON_IDS: dict[str, str] = {
+    "NCBITaxon:2":     "Bacteria",
+    "NCBITaxon:2157":  "Archaea",
+    "NCBITaxon:2759":  "Eukaryota",
+    "NCBITaxon:4751":  "Fungi",
+    "NCBITaxon:33090": "Viridiplantae",
+    "NCBITaxon:3193":  "Embryophyta",
+    "NCBITaxon:6656":  "Arthropoda",
+    "NCBITaxon:6340":  "Annelida",
+    "NCBITaxon:40674": "Mammalia",
+    "NCBITaxon:6960":  "Insecta",
+    "NCBITaxon:8782":  "Aves",
+    "NCBITaxon:7898":  "Actinopterygii",
+}
+
 
 # ---------------------------------------------------------------------------
 # Data structures
@@ -186,6 +204,17 @@ def _score_entry(data: dict) -> tuple[float, list[str]]:
         with_ev, _ = _count_with_evidence(items)
         total_items += len(items)
         total_with_ev += with_ev
+
+    # Broad-taxon warning: flag taxa above genus level
+    for mechanism in data.get("mechanisms") or []:
+        for taxon_entry in mechanism.get("taxa_involved") or []:
+            taxon = taxon_entry.get("taxon") or {}
+            tid = taxon.get("id", "")
+            if tid in _BROAD_TAXON_IDS:
+                issues.append(
+                    f"Broad taxon in mechanism '{mechanism.get('name', '?')}': "
+                    f"{_BROAD_TAXON_IDS[tid]} ({tid}) — replace with genus-level taxon"
+                )
 
     # Evidence coverage score (proportional)
     if total_items > 0:
