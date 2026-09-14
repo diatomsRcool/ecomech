@@ -72,7 +72,7 @@ mechanisms:
               loss explains why anthropogenic defaunation threatens this ecological process.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:9302
+          id: NCBITaxon:9186
           label: Turdus
         role: SEED_DISPERSER
         description: >
@@ -81,7 +81,7 @@ mechanisms:
           efficient gut passage, and wide-ranging movements make them effective
           long-distance dispersers for fleshy-fruited shrubs and understorey trees
       - taxon:
-          id: NCBITaxon:9011
+          id: NCBITaxon:9499
           label: Alouatta
         role: SEED_DISPERSER
         description: >
@@ -91,7 +91,7 @@ mechanisms:
           large-seeded canopy trees whose seeds pass intact through the gut
           and are deposited in clumped distributions beneath sleeping trees
       - taxon:
-          id: NCBITaxon:9722
+          id: NCBITaxon:9800
           label: Tapirus
         role: SEED_DISPERSER
         description: >

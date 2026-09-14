@@ -58,7 +58,7 @@ mechanisms:
               flood pulse, not just contemporaneous hydrological conditions.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:51386
+          id: NCBITaxon:42526
           label: Colossoma macropomum
         role: CONSUMER
         description: >
@@ -67,7 +67,7 @@ mechanisms:
           and seeds during high water, accumulating biomass that is then
           harvested during low water when fish concentrate in channels and lakes
       - taxon:
-          id: NCBITaxon:56062
+          id: NCBITaxon:113544
           label: Arapaima gigas
         role: CONSUMER
         description: >

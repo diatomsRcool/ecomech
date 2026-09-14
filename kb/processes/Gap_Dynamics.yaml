@@ -78,7 +78,7 @@ mechanisms:
               carbon storage.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3490
+          id: NCBITaxon:77071
           label: Cecropia
         role: PRIMARY_PRODUCER
         description: >

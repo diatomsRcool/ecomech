@@ -351,7 +351,7 @@ mechanisms:
               state.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:5341
+          id: NCBITaxon:13205
           label: Pholiota
         role: DECOMPOSER
         description: >

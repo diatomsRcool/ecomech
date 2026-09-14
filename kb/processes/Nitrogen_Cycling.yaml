@@ -121,7 +121,7 @@ mechanisms:
               described here are mechanistically grounded in this lithotrophic metabolism.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:1246
+          id: NCBITaxon:914
           label: Nitrosomonas
         role: NITRIFIER
         ecological_function:
@@ -129,7 +129,7 @@ mechanisms:
           label: chemolithoautotroph
         description: Ammonia-oxidizing bacteria oxidizing NH4+ to NO2-
       - taxon:
-          id: NCBITaxon:1742
+          id: NCBITaxon:911
           label: Nitrobacter
         role: NITRIFIER
         ecological_function:

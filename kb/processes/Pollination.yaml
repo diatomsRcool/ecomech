@@ -81,7 +81,7 @@ mechanisms:
           Disorder and disease have caused widespread losses of managed honey
           bee colonies, increasing reliance on wild bee species
       - taxon:
-          id: NCBITaxon:27641
+          id: NCBITaxon:28641
           label: Bombus
         role: POLLINATOR
         description: >
@@ -90,7 +90,7 @@ mechanisms:
           behavior enable access to flowers unavailable to honey bees, and their
           populations buffer agricultural pollination when honey bee colonies decline
       - taxon:
-          id: NCBITaxon:213335
+          id: NCBITaxon:28646
           label: Eulaema
         role: POLLINATOR
         description: >
@@ -100,7 +100,7 @@ mechanisms:
           providing cross-pollination for rare plants at low density and acting
           as keystone pollinators for orchids and Gesneriaceae in tropical forests
       - taxon:
-          id: NCBITaxon:6500
+          id: NCBITaxon:7476
           label: Xylocopa
         role: POLLINATOR
         description: >
