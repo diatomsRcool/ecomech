@@ -354,8 +354,9 @@ slots:
     required: true
     range: string
     slot_uri: dcterms:references
+    pattern: "^(PMID:\\d+|DOI:10\\.\\d{4,}/.+)$"
     description: >
-      Publication reference identifier (e.g., PMID:12345678, DOI:10.xxxx/xxxx)
+      Publication reference identifier. Must be PMID:XXXXXXXX or DOI:10.xxxx/xxxx.
     in_subset:
       - required_subset
       - evidence_subset
@@ -652,6 +653,8 @@ classes:
         required: true
       evidence_source:
         required: true
+      snippet:
+        required: true
 
   # --- Annotation wrappers (term + evidence) ---
 
@@ -758,6 +761,9 @@ classes:
     slot_usage:
       name:
         required: true
+      evidence:
+        required: true
+        minimum_cardinality: 1
 
   EcologicalIndicator:
     description: >
@@ -774,6 +780,9 @@ classes:
     slot_usage:
       name:
         required: true
+      evidence:
+        required: true
+        minimum_cardinality: 1
 
   EcologicalDriver:
     description: >
@@ -789,6 +798,9 @@ classes:
     slot_usage:
       name:
         required: true
+      evidence:
+        required: true
+        minimum_cardinality: 1
 
   Intervention:
     description: >
@@ -803,6 +815,9 @@ classes:
     slot_usage:
       name:
         required: true
+      evidence:
+        required: true
+        minimum_cardinality: 1
 
   EcologicalProcess:
     description: >

@@ -326,6 +326,16 @@ mechanisms:
               and the dominant form of reduced reactive N in terrestrial soils;
               its production by heterotrophic decomposers is the rate-limiting
               step feeding the nitrification pathway.
+    evidence:
+      - reference: PMID:23713126
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The majority of the transformations of anthropogenic Nr are on land (240 Tg N yr(-1)) within soils and vegetation where reduced Nr contributes most of the input through the use of fertilizer nitrogen in agriculture."
+        explanation: >
+          Fowler et al. 2013 establish that terrestrial soils are the primary
+          site of reactive nitrogen transformation; ammonification is the central
+          internal recycling mechanism converting organic N to inorganic NH4+
+          available for plant uptake and nitrification.
 
   - name: Marine Biological Nitrogen Fixation
     description: >

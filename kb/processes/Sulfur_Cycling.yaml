@@ -357,6 +357,15 @@ mechanisms:
               Dimethyl sulfide is the key volatile sulfur product of the marine
               DMSP cycle; Zhang et al. review its global distribution, biosynthetic
               origins, and importance for the atmospheric sulfur cycle.
+    evidence:
+      - reference: PMID:31231779
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Dimethyl sulfide (DMS) is the most abundant form of volatile sulfur in Earth's oceans, and is mainly produced by the enzymatic clevage of dimethylsulfoniopropionate (DMSP)."
+        explanation: >
+          Zhang et al. 2019 establish the DMSP-DMS pathway as the dominant
+          marine volatile sulfur cycle, linking phytoplankton DMSP synthesis
+          to microbial cleavage and atmospheric DMS emission.
 
 indicators:
   - name: Porewater sulfate concentration profile

@@ -293,6 +293,15 @@ mechanisms:
               Phosphate ion (inorganic Pi) is the primary product of microbial P
               remineralization in marine systems and the form assimilated by
               phytoplankton for primary production.
+    evidence:
+      - reference: PMID:24405427
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "In the sea, microorganisms are primarily responsible for P assimilation and remineralization, including recently discovered P reduction-oxidation bioenergetic processes that add new complexity to the marine microbial P cycle."
+        explanation: >
+          Karl 2014 establishes marine microorganisms as the primary agents of
+          phosphorus cycling, driving remineralization of organic P to dissolved
+          inorganic phosphate that sustains surface phytoplankton production.
 
 indicators:
   - name: Soil resin-extractable phosphorus

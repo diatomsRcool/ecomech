@@ -353,6 +353,15 @@ mechanisms:
               Marine NPP consumes dissolved CO2 via photosynthetic carbon fixation;
               Field et al. identify the physical and nutrient controls on this CO2
               uptake across ocean regions.
+    evidence:
+      - reference: PMID:9657713
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Integrating conceptually similar models of the growth of marine and terrestrial primary producers yielded an estimated global net primary production (NPP) of 104.9 petagrams of carbon per year, with roughly equal contributions from land and oceans."
+        explanation: >
+          Field et al. 1998 establish that marine phytoplankton account for
+          approximately half of global NPP, demonstrating marine gross primary
+          production as a major component of the global carbon cycle.
 
   - name: Biological Carbon Pump
     description: >
@@ -418,6 +427,16 @@ mechanisms:
               The BCP removes CO2 equivalents from surface waters by converting
               dissolved carbon into sinking particulate organic matter; Jin et al.
               highlight the uncertainty in quantifying this sequestration flux.
+    evidence:
+      - reference: PMID:32836116
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "The ocean's biological carbon pump (BCP) sequesters carbon from the surface to the deep ocean and seabed, constituting one of Earth's most valuable ecosystem services."
+        explanation: >
+          Jin et al. 2020 establish the biological carbon pump as a critical
+          ecosystem service that transfers photosynthetically fixed carbon from
+          surface waters to the deep ocean and seafloor, sequestering it from
+          the atmosphere for decades to millennia.
 
 indicators:
   - name: Net Ecosystem Production
