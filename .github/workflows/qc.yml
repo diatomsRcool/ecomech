@@ -30,8 +30,27 @@ jobs:
           key: oaklib-${{ hashFiles('conf/oak_config.yaml') }}
           restore-keys: oaklib-
 
+      - name: Cache ECOCORE OWL
+        id: ecocore-cache
+        uses: actions/cache@v4
+        with:
+          path: conf/ecocore.owl
+          # Bump this key (v1 → v2, etc.) after each new ECOCORE release
+          # to force CI to re-download the updated OWL file.
+          key: ecocore-owl-v1
+
+      - name: Download ECOCORE OWL
+        if: steps.ecocore-cache.outputs.cache-hit != 'true'
+        run: curl -L -o conf/ecocore.owl http://purl.obolibrary.org/obo/ecocore.owl
+
       - name: Validate schema and entries
         run: just validate-all
+
+      - name: Validate modules
+        run: just validate-modules
+
+      - name: Validate groupings
+        run: just validate-groupings
 
       - name: Validate ontology terms
         run: just validate-terms
