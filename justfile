@@ -140,6 +140,11 @@ render-all:
     @for f in {{processes_dir}}/*.yaml; do \
         uv run python -m ecomech.render.render "$f"; \
     done
+    uv run python -m ecomech.render.index
+
+# Generate index pages only (home + process listing)
+render-index:
+    uv run python -m ecomech.render.index
 
 # --- Process Management ---
 

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMech — Ecological Process Mechanisms</title>
+  <style>
+    
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, sans-serif;
+  font-size: 15px; line-height: 1.6; color: #1a1a1a; background: #f7f9f7;
+}
+a { color: #2d6a4f; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.site-header {
+  background: #1b4332; color: #fff;
+  padding: 0.5rem 2rem; font-size: 0.85rem; letter-spacing: 0.04em;
+}
+.site-header a { color: #95d5b2; }
+footer {
+  text-align: center; padding: 2rem;
+  font-size: 0.8rem; color: #9ca3af;
+  border-top: 1px solid #e5e7eb; margin-top: 2rem;
+}
+.badge {
+  display: inline-block; border-radius: 4px;
+  padding: 0.1rem 0.5rem; font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin-right: 0.25rem;
+}
+.badge-id { background: #d8f3dc; color: #1b4332; font-family: monospace; }
+.badge-scale { background: #e0f2fe; color: #0c4a6e; }
+
+    .hero {
+      background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+      color: #fff; padding: 3rem 2rem 2.5rem;
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .hero p { max-width: 640px; opacity: 0.9; font-size: 1rem; margin-bottom: 1.5rem; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-links a {
+      background: rgba(255,255,255,0.15); color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.4rem 1.1rem; border-radius: 20px; font-size: 0.88rem;
+    }
+    .hero-links a:hover { background: rgba(255,255,255,0.25); text-decoration: none; }
+
+    .stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      padding: 1.25rem 2rem; background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .stat { text-align: center; }
+    .stat-value { font-size: 1.8rem; font-weight: 800; color: #1b4332; }
+    .stat-label { font-size: 0.75rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .main { max-width: 1080px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .category { margin-bottom: 2.5rem; }
+    .category-title {
+      font-size: 0.8rem; font-weight: 700; color: #6b7280;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      border-bottom: 2px solid #d8f3dc; padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .process-card {
+      background: #fff; border: 1px solid #e0ece4; border-radius: 8px;
+      padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .process-card:hover { border-color: #52b788; box-shadow: 0 2px 8px rgba(45,106,79,0.1); }
+    .process-card .name { font-weight: 600; color: #1b4332; font-size: 0.95rem; }
+    .process-card .desc { font-size: 0.82rem; color: #555; flex: 1; }
+    .process-card .meta { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+</header>
+
+<div class="hero">
+  <h1>EcoMech</h1>
+  <p>
+    A curated knowledge base of ecological process mechanisms — the biological,
+    chemical, and physical steps underlying how ecosystems function — backed by
+    primary literature evidence.
+  </p>
+  <div class="hero-links">
+    <a href="processes/index.html">Browse all 24 processes &rsaquo;</a>
+    <a href="https://github.com/diatomsRcool/ecomech" target="_blank" rel="noopener">GitHub &rsaquo;</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">24</div>
+    <div class="stat-label">Processes</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">84</div>
+    <div class="stat-label">Mechanisms</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">0</div>
+    <div class="stat-label">References</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">7</div>
+    <div class="stat-label">Categories</div>
+  </div>
+</div>
+
+<main class="main">
+  
+  <div class="category">
+    <div class="category-title">Nutrient Cycling</div>
+    <div class="process-grid">
+      
+      <a href="processes/Carbon_Cycling.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Carbon Cycling</div>
+          <div class="desc">Carbon cycling encompasses the biotic and abiotic transformations of carbon among the atmosphere, living biomass, soil organic matter, and aquatic systems. Photosynthesis (gross…</div>
+          <div class="meta">
+            <span class="badge badge-id">ENVO:02500010</span>
+            
+            <span class="badge badge-scale">GLOBAL</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Iron_Cycling.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Iron Cycling</div>
+          <div class="desc">Iron cycling is the biogeochemical transformation of iron between its ferric (Fe(III)) and ferrous (Fe(II)) oxidation states, mediated by microorganisms in soils, sediments, and…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000199</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Methane_Cycling.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Methane Cycling</div>
+          <div class="desc">Methane cycling in wetland and aquatic ecosystems encompasses the production of methane (CH4) by methanogenic archaea (methanogenesis), its consumption by methanotrophic bacteria…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000198</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Nitrogen_Cycling.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Nitrogen Cycling</div>
+          <div class="desc">Nitrogen cycling encompasses the biogeochemical transformations of reactive and inert nitrogen through terrestrial and aquatic ecosystems. Key transformations include biological…</div>
+          <div class="meta">
+            <span class="badge badge-id">ENVO:01001330</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Phosphorus_Cycling.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Phosphorus Cycling</div>
+          <div class="desc">Phosphorus cycling encompasses the biogeochemical transformations of phosphorus through terrestrial, freshwater, and marine ecosystems. Unlike nitrogen, there is no atmospheric…</div>
+          <div class="meta">
+            <span class="badge badge-id">ENVO:01001332</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Redox_Dynamics.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Redox Dynamics</div>
+          <div class="desc">Redox dynamics in wetland and aquatic sediment ecosystems describes the sequential reduction and oxidation of terminal electron acceptors — oxygen (O2), nitrate (NO3-), iron…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000197</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Sulfur_Cycling.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Sulfur Cycling</div>
+          <div class="desc">Sulfur cycling encompasses the biogeochemical transformations of sulfur through its multiple oxidation states (−2 to +6) across terrestrial, freshwater, and marine ecosystems.…</div>
+          <div class="meta">
+            <span class="badge badge-id">ENVO:01001331</span>
+            
+            <span class="badge badge-scale">GLOBAL</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+  <div class="category">
+    <div class="category-title">Primary Production</div>
+    <div class="process-grid">
+      
+      <a href="processes/Marine_Benthic_Primary_Production.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Marine Benthic Primary Production</div>
+          <div class="desc">Marine benthic primary production is the fixation of CO2 into organic biomass by photosynthetic organisms living on or in seafloor sediments, including microphytobenthos (MPB),…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000185</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Marine_Primary_Production.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Marine Primary Production</div>
+          <div class="desc">Marine primary production is the fixation of CO2 into organic biomass by phytoplankton in the sunlit surface waters of the ocean. Contributing roughly half of the biosphere&#39;s…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000184</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Terrestrial_Primary_Production.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Terrestrial Primary Production</div>
+          <div class="desc">Terrestrial primary production is the fixation of atmospheric CO2 into organic biomass by land plants through photosynthesis. Gross primary production (GPP) represents the total…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000183</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+  <div class="category">
+    <div class="category-title">Decomposition</div>
+    <div class="process-grid">
+      
+      <a href="processes/Litter_Decomposition.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Litter Decomposition</div>
+          <div class="desc">Litter decomposition is the biological breakdown of dead plant material—leaves, roots, woody debris, and other organic residues—into simpler compounds by saprotrophic fungi,…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000186</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+  <div class="category">
+    <div class="category-title">Trophic Interactions</div>
+    <div class="process-grid">
+      
+      <a href="processes/Detritivory.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Detritivory</div>
+          <div class="desc">Detritivory is the consumption and physical fragmentation of dead organic matter (detritus) by animals, accelerating decomposition by comminuting plant litter, stimulating…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000057</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Herbivory.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Herbivory</div>
+          <div class="desc">Herbivory is the consumption of living plant or algal tissue by animals, coupling primary production to higher trophic levels and regulating plant community structure, biomass,…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000020</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Predation.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Predation</div>
+          <div class="desc">Predation is the consumption of living prey by a predator, coupling energy flow between trophic levels and regulating prey population dynamics, community structure, and ecosystem…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000102</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+  <div class="category">
+    <div class="category-title">Symbioses</div>
+    <div class="process-grid">
+      
+      <a href="processes/Coral_Zooxanthellae_Symbiosis.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Coral-Zooxanthellae Symbiosis</div>
+          <div class="desc">Coral-zooxanthellae symbiosis is the obligate mutualistic association between reef-building scleractinian corals (Cnidaria: Scleractinia) and intracellular dinoflagellate…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000190</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Mycorrhizal_Association.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Mycorrhizal Association</div>
+          <div class="desc">Mycorrhizal symbiosis is the ancient, ubiquitous mutualistic association between soil fungi and plant roots in which the fungus provides the plant with mineral nutrients—primarily…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000188</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Root_Nodule_Symbiosis.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Root Nodule Symbiosis</div>
+          <div class="desc">Root nodule symbiosis is the mutualistic association between nitrogen-fixing bacteria (rhizobia) and the roots of host leguminous plants (Fabaceae), in which bacteria fix…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000189</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+  <div class="category">
+    <div class="category-title">Disturbance &amp; Succession</div>
+    <div class="process-grid">
+      
+      <a href="processes/Flood_Pulse.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Flood Pulse</div>
+          <div class="desc">The flood pulse is the predictable, seasonal alternation between high-water flooding and low-water terrestrial phases in river-floodplain systems, which drives the productivity,…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000196</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Gap_Dynamics.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Gap Dynamics</div>
+          <div class="desc">Gap dynamics describes the formation, light environment, and successional trajectory of canopy gaps created by death or uprooting of individual canopy trees in forest ecosystems.…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000195</span>
+            
+            <span class="badge badge-scale">COMMUNITY</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Wildfire_Succession.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Wildfire Succession</div>
+          <div class="desc">Wildfire succession is the directional sequence of community change that follows wildfire disturbance, driven by differential survival, resprouting, and recruitment of plant…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000194</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+  <div class="category">
+    <div class="category-title">Ecosystem Services</div>
+    <div class="process-grid">
+      
+      <a href="processes/Carbon_Sequestration.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Carbon Sequestration</div>
+          <div class="desc">Carbon sequestration is the long-term removal and storage of carbon dioxide from the atmosphere into terrestrial, freshwater, and coastal ocean ecosystems. Forests are the…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000203</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Pollination.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Pollination</div>
+          <div class="desc">Pollination is the transfer of pollen from the anther of a flower to a compatible stigma, enabling fertilization and seed production in flowering plants. The vast majority of wild…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000200</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Seed_Dispersal.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Seed Dispersal</div>
+          <div class="desc">Seed dispersal is the movement of seeds away from the parent plant to new locations, a critical process governing plant population dynamics, community assembly, gene flow, and…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000201</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+      <a href="processes/Water_Filtration.html" style="text-decoration:none;">
+        <div class="process-card">
+          <div class="name">Water Filtration</div>
+          <div class="desc">Water filtration is the retention, transformation, and removal of nutrients, sediments, and contaminants from water as it passes through vegetated riparian buffers, wetlands, and…</div>
+          <div class="meta">
+            <span class="badge badge-id">ECOCORE:00000202</span>
+            
+            <span class="badge badge-scale">ECOSYSTEM</span>
+            
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+</main>
+
+<footer>
+  EcoMech &mdash; Ecological Process Mechanisms Knowledge Base
+</footer>
+
+</body>
+</html>
