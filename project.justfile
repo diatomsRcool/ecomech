@@ -35,6 +35,13 @@ export-kgx:
         --input {{processes_dir}} \
         --output export/ecomech_kgx.tsv
 
+# Export indicators as Darwin Core MeasurementOrFact CSV
+export-dwc:
+    mkdir -p export
+    uv run python -m ecomech.export.dwc_export \
+        --input {{processes_dir}} \
+        --output export/ecomech_dwc_mof.csv
+
 # Export process inventory as CSV
 export-inventory:
     uv run ecomech-inventory \

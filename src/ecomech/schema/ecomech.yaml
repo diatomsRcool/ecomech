@@ -27,6 +27,8 @@ prefixes:
   dcterms: http://purl.org/dc/terms/
   schema: http://schema.org/
   xsd: http://www.w3.org/2001/XMLSchema#
+  dwc: http://rs.tdwg.org/dwc/terms/
+  skos: http://www.w3.org/2004/02/skos/core#
 
 default_prefix: ecomech
 default_range: string
@@ -278,6 +280,7 @@ slots:
   name:
     required: true
     range: string
+    slot_uri: skos:prefLabel
     description: Human-readable name of the entity
     in_subset:
       - required_subset
@@ -294,11 +297,13 @@ slots:
 
   description:
     range: string
+    slot_uri: dcterms:description
     description: Free-text description
 
   synonyms:
     multivalued: true
     range: string
+    slot_uri: skos:altLabel
     description: Alternative names and synonyms
 
   # --- Term binding slots ---
@@ -550,6 +555,7 @@ slots:
 
   creation_date:
     range: string
+    slot_uri: dcterms:created
     description: ISO 8601 / RFC 3339 creation timestamp in UTC (e.g., 2025-01-15T12:00:00Z)
 
   conforms_to:
@@ -602,11 +608,16 @@ classes:
         pattern: "^GO:\\d+$"
 
   TaxonTerm:
-    description: An NCBI Taxonomy term identifying an organism
+    description: >
+      An NCBI Taxonomy term identifying an organism.
+      The id slot maps to dwc:taxonID; the label slot maps to dwc:scientificName.
     is_a: TermDescriptor
     slot_usage:
       id:
         pattern: "^NCBITaxon:\\d+$"
+        slot_uri: dwc:taxonID
+      label:
+        slot_uri: dwc:scientificName
 
   PATOTerm:
     description: >

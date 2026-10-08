@@ -134,7 +134,7 @@ Build reusable **mechanism modules** in `kb/modules/` for conserved components:
 
 1. ✅ Open community curation via GitHub PRs with automated validation
 2. Target 200+ ecological processes covering all major biomes
-3. Integrate with Earth System ontologies (SWEET) and biodiversity informatics (DwC)
+3. ✅ Integrate with biodiversity informatics standard Darwin Core (DwC)
 4. KGX export for integration with Monarch Knowledge Graph
 
 ## Immediate Next Steps
