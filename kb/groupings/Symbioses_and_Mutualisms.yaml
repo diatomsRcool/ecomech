@@ -1,0 +1,25 @@
+id: ecomech:grouping004
+name: Symbioses and Mutualisms
+description: >
+  Intimate, persistent associations between organisms of different species in
+  which at least one partner benefits. EcoMech covers three foundational mutualistic
+  symbioses that underpin ecosystem productivity and biodiversity globally:
+  mycorrhizal associations enabling plant nutrient uptake, root nodule symbioses
+  fixing atmospheric nitrogen, and coral-zooxanthellae associations sustaining
+  tropical reef ecosystems.
+members:
+  - ECOCORE:00000188 # Mycorrhizal association
+  - ECOCORE:00000189 # Root nodule symbiosis
+  - ECOCORE:00000190 # Coral-zooxanthellae symbiosis
+grouping_basis:
+  - SHARED_MECHANISM
+  - FUNCTIONAL_GUILD
+grouping_rationale: >
+  All three processes are obligate or facultative mutualisms in which metabolic
+  complementarity between partners generates fitness benefits that neither partner
+  can achieve alone. Mycorrhizal associations and root nodule symbioses share the
+  common theme of plant-microorganism nutrient exchange (carbon for mineral
+  nutrients or fixed nitrogen), while coral-zooxanthellae symbiosis involves
+  photosynthate transfer from algae to coral host. All three are disproportionately
+  important for ecosystem function relative to the biomass of the organisms involved.
+creation_date: "2026-10-09T00:00:00Z"

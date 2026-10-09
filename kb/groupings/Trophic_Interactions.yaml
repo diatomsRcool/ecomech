@@ -1,0 +1,23 @@
+id: ecomech:grouping003
+name: Trophic Interactions
+description: >
+  Consumer-resource interactions that transfer energy and biomass between trophic
+  levels, regulate population dynamics, and structure ecological communities.
+  Herbivory, predation, and detritivory together account for the three primary
+  pathways by which organic matter moves through food webs: the grazing chain,
+  the predator chain, and the detrital chain.
+members:
+  - ECOCORE:00000020  # Herbivory
+  - ECOCORE:00000102  # Predation
+  - ECOCORE:00000057  # Detritivory
+grouping_basis:
+  - SHARED_MECHANISM
+  - SHARED_OUTCOME
+grouping_rationale: >
+  Herbivory, predation, and detritivory all involve the consumption of organic
+  matter by heterotrophic animals, transferring energy up food chains or into
+  the detrital pathway. They share top-down regulatory effects on lower trophic
+  levels and are governed by common foraging theory and population dynamics
+  frameworks. Together they define the three canonical consumer guilds in
+  ecological food web models.
+creation_date: "2026-10-09T00:00:00Z"

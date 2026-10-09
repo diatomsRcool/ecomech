@@ -1,0 +1,25 @@
+id: ecomech:grouping005
+name: Disturbance and Succession
+description: >
+  Processes initiated by discrete disturbance events that reset or reorganise
+  communities and initiate successional trajectories. EcoMech covers three
+  disturbance regimes spanning terrestrial and aquatic systems: wildfire and
+  post-fire succession in flammable ecosystems, canopy gap dynamics in closed-
+  canopy forests, and flood pulse dynamics in riparian and floodplain systems.
+members:
+  - ECOCORE:00000194 # Wildfire succession
+  - ECOCORE:00000195 # Gap dynamics
+  - ECOCORE:00000196 # Flood pulse
+grouping_basis:
+  - SHARED_MECHANISM
+  - SHARED_DRIVER
+grouping_rationale: >
+  Wildfire succession, gap dynamics, and flood pulse all follow a common
+  disturbance-recovery template: a pulse disturbance removes standing biomass
+  or reorganises resource availability, releasing suppressed species or
+  propagules, triggering a successional sequence toward a pre-disturbance or
+  novel community state. All three are intermediate-disturbance phenomena that
+  maintain biodiversity by preventing competitive exclusion, and all involve a
+  nutrient pulse (ash, gap light, floodwater nutrients) that fuels the
+  post-disturbance recovery.
+creation_date: "2026-10-09T00:00:00Z"

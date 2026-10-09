@@ -1,0 +1,23 @@
+id: ecomech:grouping002
+name: Primary Production
+description: >
+  Processes by which autotrophic organisms fix inorganic carbon into organic
+  biomass via photosynthesis or chemosynthesis, forming the energetic foundation
+  of all food webs. EcoMech covers terrestrial, marine pelagic, and marine
+  benthic primary production, which differ substantially in their dominant
+  organisms, limiting nutrients, and physical controls.
+members:
+  - ECOCORE:00000183 # Terrestrial net primary production
+  - ECOCORE:00000184 # Marine primary production
+  - ECOCORE:00000185 # Marine benthic primary production
+grouping_basis:
+  - SHARED_MECHANISM
+  - SHARED_OUTCOME
+grouping_rationale: >
+  All three processes share the core mechanism of photosynthetic carbon fixation
+  and produce organic biomass that supports consumer food webs. They are
+  distinguished by habitat (terrestrial vs. marine), dominant taxa (vascular
+  plants vs. phytoplankton vs. benthic microalgae and macroalgae), and primary
+  limiting factors (water and nutrients in terrestrial systems; light and
+  nutrients in marine systems).
+creation_date: "2026-10-09T00:00:00Z"

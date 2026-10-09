@@ -1,0 +1,27 @@
+id: ecomech:grouping001
+name: Biogeochemical Cycles
+description: >
+  Processes governing the cycling of major elements through ecosystems,
+  including nutrient transformations, redox-coupled reactions, and greenhouse
+  gas dynamics. These processes collectively regulate the availability of
+  carbon, nitrogen, phosphorus, sulfur, iron, and other biologically essential
+  elements across terrestrial and aquatic systems.
+members:
+  - ENVO:01001330    # Nitrogen cycling
+  - ENVO:01001332    # Phosphorus cycling
+  - ENVO:02500010    # Carbon cycling
+  - ENVO:01001331    # Sulfur cycling
+  - ECOCORE:00000199 # Iron cycling
+  - ECOCORE:00000198 # Methane cycling
+  - ECOCORE:00000197 # Redox dynamics
+grouping_basis:
+  - BIOGEOCHEMICAL_CYCLE
+  - SHARED_MECHANISM
+grouping_rationale: >
+  These processes share the common mechanism of element transformation between
+  oxidized and reduced forms mediated by microbial communities, and collectively
+  govern the stoichiometry and availability of nutrients in ecosystems. Redox
+  dynamics, iron cycling, and methane cycling are tightly coupled through
+  anaerobic microbial metabolism and frequently co-occur in wetland, sediment,
+  and peatland environments.
+creation_date: "2026-10-09T00:00:00Z"
