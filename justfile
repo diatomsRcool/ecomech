@@ -57,10 +57,15 @@ validate-grouping file:
 
 # Validate all grouping files
 validate-groupings:
-    @for f in {{groupings_dir}}/*.yaml; do \
-        echo "Validating grouping $f..."; \
-        uv run linkml-validate -s {{schema_path}} -C Grouping "$f" || exit 1; \
-    done
+    @shopt -s nullglob; files=({{groupings_dir}}/*.yaml); \
+    if [ ${#files[@]} -eq 0 ]; then \
+        echo "No grouping files found, skipping."; \
+    else \
+        for f in "${files[@]}"; do \
+            echo "Validating grouping $f..."; \
+            uv run linkml-validate -s {{schema_path}} -C Grouping "$f" || exit 1; \
+        done; \
+    fi
 
 # Validate a module YAML file
 validate-module file:
