@@ -1,0 +1,109 @@
+# Automatically label newly opened issues using a Haiku agent.
+#
+# The agent reads the issue (via tool call) and selects from the allowed label
+# set.  It has no write access; a separate job applies the labels.
+#
+# Prerequisites: ANTHROPIC_API_KEY repository secret.
+
+name: Triage
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Issue number to triage"
+        required: true
+        type: number
+
+jobs:
+  choose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: read
+      issues: read
+
+    outputs:
+      labels: ${{ steps.parse.outputs.labels }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - id: agent
+        uses: ./.github/actions/setup-agent
+        with:
+          workflow: triage
+
+      - name: Build prompt
+        id: prompt
+        env:
+          PROMPT_ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+          PROMPT_REPO: ${{ github.repository }}
+        run: python .github/scripts/render_prompt.py triage >> "$GITHUB_OUTPUT"
+
+      - id: run
+        uses: anthropics/claude-code-action@fd1c128679612beff4ca259c78021c506e8aa7a7 # v1.0.237
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          path_to_claude_code_executable: ${{ steps.agent.outputs.executable }}
+          direct_prompt: ${{ steps.prompt.outputs.prompt }}
+          claude_args: |
+            --model ${{ steps.agent.outputs.model }}
+            --max-turns ${{ steps.agent.outputs.max-turns }}
+            --allowedTools "Bash(gh issue view:*),Read,Glob,Grep,Write"
+
+      - name: Check agent run
+        if: always() && steps.agent.outcome == 'success'
+        env:
+          EXECUTION_FILE: ${{ steps.run.outputs.execution_file }}
+        run: python .github/scripts/check_agent_run.py "$EXECUTION_FILE" "Triage"
+
+      - name: Parse labels
+        id: parse
+        run: |
+          if [ -f triage_output.json ]; then
+            labels=$(python -c "import json,sys; d=json.load(open('triage_output.json')); print(','.join(d.get('labels',[])))")
+          else
+            labels=""
+          fi
+          echo "labels=$labels" >> "$GITHUB_OUTPUT"
+
+  apply:
+    needs: choose
+    if: needs.choose.outputs.labels != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    permissions:
+      issues: write
+
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const raw = '${{ needs.choose.outputs.labels }}';
+            const labels = raw.split(',').map(l => l.trim()).filter(Boolean);
+            if (labels.length === 0) return;
+
+            // Safety: only allow labels from the approved set
+            const allowed = new Set([
+              'curation','schema','bug','enhancement','question','documentation',
+              'low_effort','medium_effort','high_effort','high-priority','low-priority',
+              'preprint',
+            ]);
+            const safe = labels.filter(l => allowed.has(l));
+            if (safe.length === 0) return;
+
+            const issueNumber = ${{ github.event.issue.number || inputs.issue_number }};
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: safe,
+            });
+            console.log(`Applied labels: ${safe.join(', ')}`);

@@ -117,6 +117,17 @@ gbif-taxa-in-region country="" gadm="" rank="GENUS" limit="20":
 lter-search query:
     uv run python -m ecomech.ingest.lter search "{{query}}"
 
+# --- Literature Scan ---
+
+# Fetch recent ecology papers from Europe PMC and write literature_packet.json
+# Usage: just build-literature-packet MED 7
+# source: MED (PubMed), PPR (preprints), ALL (both)
+build-literature-packet source="MED" days="7":
+    uv run python -m ecomech.ingest.literature_packet \
+        --source {{source}} \
+        --days {{days}} \
+        --output literature_packet.json
+
 # --- OAK Lookups ---
 
 # Look up an ENVO term

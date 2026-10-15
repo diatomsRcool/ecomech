@@ -1,0 +1,196 @@
+# Weekly literature scan — searches Europe PMC for recent ecology process
+# papers and files GitHub issues for promising leads.
+#
+# Flow:
+#   1. build-packet: fetches papers from Europe PMC → literature_packet.json
+#   2. scan: Claude reads the packet, selects leads → scan_output.json
+#   3. publish: creates one GitHub issue per selected lead
+#
+# Triggers:
+#   - Weekly cron (Monday 07:00 UTC)
+#   - Manual dispatch with configurable parameters
+#
+# Prerequisites: ANTHROPIC_API_KEY repository secret.
+
+name: Literature scan
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"  # Monday 07:00 UTC
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Paper source"
+        type: choice
+        options: [MED, PPR, ALL]
+        default: MED
+      days:
+        description: "Lookback window (days)"
+        default: "7"
+      max_issues:
+        description: "Maximum issues to file"
+        default: "5"
+      create_issues:
+        description: "Create issues (false = dry run)"
+        type: boolean
+        default: true
+
+jobs:
+  build-packet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    outputs:
+      packet_ready: ${{ steps.build.outputs.packet_ready }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install just
+        uses: extractions/setup-just@v2
+
+      - name: Install project dependencies
+        run: just install
+
+      - name: Build literature packet
+        id: build
+        run: |
+          source="${{ inputs.source || 'MED' }}"
+          days="${{ inputs.days || '7' }}"
+          just build-literature-packet "$source" "$days"
+          if [ -f literature_packet.json ]; then
+            echo "packet_ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "packet_ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload packet
+        if: steps.build.outputs.packet_ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: literature-packet
+          path: literature_packet.json
+          retention-days: 3
+
+  scan:
+    needs: build-packet
+    if: needs.build-packet.outputs.packet_ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: read
+      issues: read
+
+    outputs:
+      has_leads: ${{ steps.check.outputs.has_leads }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download packet
+        uses: actions/download-artifact@v4
+        with:
+          name: literature-packet
+
+      - id: agent
+        uses: ./.github/actions/setup-agent
+        with:
+          workflow: literature-scan
+
+      - name: Build prompt
+        id: prompt
+        env:
+          PROMPT_MAX_LEADS: ${{ inputs.max_issues || '5' }}
+          PROMPT_SOURCE: ${{ inputs.source || 'MED' }}
+          PROMPT_DAYS: ${{ inputs.days || '7' }}
+        run: python .github/scripts/render_prompt.py literature-scan >> "$GITHUB_OUTPUT"
+
+      - id: run
+        uses: anthropics/claude-code-action@fd1c128679612beff4ca259c78021c506e8aa7a7 # v1.0.237
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          path_to_claude_code_executable: ${{ steps.agent.outputs.executable }}
+          direct_prompt: ${{ steps.prompt.outputs.prompt }}
+          claude_args: |
+            --model ${{ steps.agent.outputs.model }}
+            --max-turns ${{ steps.agent.outputs.max-turns }}
+            --allowedTools "Bash(ls:*),Read,Glob,Grep,Write"
+
+      - name: Check agent run
+        if: always() && steps.agent.outcome == 'success'
+        env:
+          EXECUTION_FILE: ${{ steps.run.outputs.execution_file }}
+        run: python .github/scripts/check_agent_run.py "$EXECUTION_FILE" "Literature scan"
+
+      - name: Check for leads
+        id: check
+        run: |
+          if [ -f scan_output.json ]; then
+            count=$(python -c "import json; d=json.load(open('scan_output.json')); print(len(d.get('leads', [])))")
+            echo "count=$count" >> "$GITHUB_OUTPUT"
+            [ "$count" -gt 0 ] && echo "has_leads=true" >> "$GITHUB_OUTPUT" || echo "has_leads=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_leads=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload scan output
+        if: steps.check.outputs.has_leads == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: scan-output
+          path: scan_output.json
+          retention-days: 3
+
+  publish:
+    needs: scan
+    if: |
+      needs.scan.outputs.has_leads == 'true' &&
+      (github.event_name == 'schedule' || inputs.create_issues == true)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: .github/
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: "*-output*"
+          merge-multiple: true
+
+      - name: Download packet
+        uses: actions/download-artifact@v4
+        with:
+          name: literature-packet
+
+      - name: File issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { publish } = require('./.github/scripts/literature-publish.js');
+            const result = JSON.parse(fs.readFileSync('scan_output.json', 'utf8'));
+            const packet = JSON.parse(fs.readFileSync('literature_packet.json', 'utf8'));
+            await publish(
+              github,
+              context.repo.owner + '/' + context.repo.repo,
+              result,
+              packet,
+              { maxIssues: parseInt('${{ inputs.max_issues || 5 }}') },
+            );

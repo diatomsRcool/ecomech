@@ -1,0 +1,77 @@
+name: "Set up EcoMech agent"
+description: >
+  Install project dependencies, warm ontology caches, resolve Claude model
+  and max-turns from .github/agent-config.yaml, and install Claude Code CLI.
+
+inputs:
+  workflow:
+    description: "Workflow name — matched against .github/agent-config.yaml"
+    required: true
+  model_override:
+    description: "Override the model resolved from agent-config.yaml"
+    required: false
+    default: ""
+
+outputs:
+  model:
+    description: "Claude model alias to use (e.g. opus, sonnet, haiku)"
+    value: ${{ steps.config.outputs.model }}
+  max-turns:
+    description: "Maximum agent turns"
+    value: ${{ steps.config.outputs.max-turns }}
+  executable:
+    description: "Absolute path to the Claude Code CLI binary"
+    value: ${{ steps.claude.outputs.executable }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: true
+
+    - name: Install just
+      uses: extractions/setup-just@v2
+
+    - name: Install project dependencies
+      shell: bash
+      run: just install
+
+    - name: Cache OAK ontology databases
+      uses: actions/cache@v4
+      with:
+        path: ~/.data/oaklib
+        key: oaklib-${{ hashFiles('conf/oak_config.yaml') }}
+        restore-keys: oaklib-
+
+    - name: Cache ECOCORE OWL
+      id: ecocore-cache
+      uses: actions/cache@v4
+      with:
+        path: conf/ecocore.owl
+        # Bump key after each new ECOCORE release (v1 → v2, etc.)
+        key: ecocore-owl-v1
+
+    - name: Download ECOCORE OWL
+      if: steps.ecocore-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: curl -L -o conf/ecocore.owl http://purl.obolibrary.org/obo/ecocore.owl
+
+    - name: Resolve agent configuration
+      id: config
+      shell: bash
+      run: |
+        override=""
+        if [ -n "${{ inputs.model_override }}" ]; then
+          override="--override ${{ inputs.model_override }}"
+        fi
+        python .github/scripts/agent_config.py "${{ inputs.workflow }}" $override
+
+    - name: Install Claude Code CLI
+      id: claude
+      shell: bash
+      run: |
+        npm install -g @anthropic-ai/claude-code 2>/dev/null
+        echo "executable=$(which claude)" >> "$GITHUB_OUTPUT"
