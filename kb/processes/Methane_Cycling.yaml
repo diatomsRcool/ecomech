@@ -65,13 +65,13 @@ mechanisms:
               carbon cycling.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2157
-          label: Archaea
+          id: NCBITaxon:2207
+          label: Methanosarcina
         role: DECOMPOSER
         traitmech_xref: METPO:1000844
         description: >
-          Strictly anaerobic methanogenic Archaea are the sole biological
-          producers of CH4 in natural wetlands; their temperature-dependent
+          Methanosarcina and related strictly anaerobic methanogens are the sole
+          biological producers of CH4 in natural wetlands; their temperature-dependent
           metabolic rates determine the temperature sensitivity of ecosystem-scale
           CH4 emissions, and their obligate anaerobiosis means that water table
           position (controlling anaerobic zone depth) is the primary physical
@@ -133,16 +133,16 @@ mechanisms:
               profile CH4 production occurs.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2157
-          label: Archaea
+          id: NCBITaxon:2222
+          label: Methanothrix
         role: DECOMPOSER
         traitmech_xref: METPO:1000844
         description: >
-          Candidatus Methanothrix paradoxum, a novel acetoclastic methanogenic
-          archaeon, drives methanogenesis in oxygenated wetland surface soils;
-          its prevalence across methane-emitting ecosystems indicates that
-          oxygen-tolerant methanogens are globally significant contributors to
-          wetland CH4 budgets.
+          Methanothrix (including Candidatus Methanothrix paradoxum), a novel
+          acetoclastic methanogenic archaeon, drives methanogenesis in oxygenated
+          wetland surface soils; its prevalence across methane-emitting ecosystems
+          indicates that oxygen-tolerant methanogens are globally significant
+          contributors to wetland CH4 budgets.
     causal_edges:
       - subject: Acetoclastic methanogenesis by oxygen-tolerant archaea in surface soils
         predicate: CAUSES
@@ -262,15 +262,15 @@ mechanisms:
               responsible for CH4 consumption in anoxic wetland zones.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2157
-          label: Archaea
+          id: NCBITaxon:1392997
+          label: Candidatus Methanoperedens
         role: DECOMPOSER
         traitmech_xref: traitmech:000033
         description: >
-          Anaerobic methanotrophic archaea (ANME groups) and potentially
-          reverse-acting methanogens carry out AOM in anoxic wetland soils,
-          consuming CH4 as an electron donor coupled to diverse electron
-          acceptors; their widespread distribution across wetland types
+          Candidatus Methanoperedens and related anaerobic methanotrophic archaea
+          (ANME groups) carry out AOM in anoxic wetland soils, consuming CH4 as
+          an electron donor coupled to diverse electron acceptors (sulfate, nitrate,
+          Fe/Mn oxides); their widespread distribution across wetland types
           establishes them as globally significant agents of the cryptic
           wetland CH4 cycle.
     causal_edges:

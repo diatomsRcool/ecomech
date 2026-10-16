@@ -56,16 +56,17 @@ mechanisms:
               driving terrestrial ecosystem carbon budgets.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3193
-          label: Embryophyta
+          id: NCBITaxon:3329
+          label: Picea abies
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
         description: >
-          Land plants are the exclusive primary producers in terrestrial ecosystems;
-          tropical trees and C4 savannahs account for 60% of global GPP,
-          with temperate and boreal forests contributing most of the remainder
+          Picea abies and other land plants are the exclusive primary producers
+          in terrestrial ecosystems; tropical trees and C4 savannahs account for
+          60% of global GPP, with temperate and boreal conifers contributing
+          most of the remainder
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209
@@ -129,13 +130,13 @@ mechanisms:
               between high-NPP and low-NPP terrestrial biomes.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3193
-          label: Embryophyta
+          id: NCBITaxon:3329
+          label: Picea abies
         role: PRIMARY_PRODUCER
         description: >
-          Under water stress, land plants reduce stomatal aperture, limiting
-          CO2 diffusion into mesophyll cells and directly suppressing
-          photosynthetic carbon fixation rates
+          Under water stress, Picea abies and other land plants reduce stomatal
+          aperture, limiting CO2 diffusion into mesophyll cells and directly
+          suppressing photosynthetic carbon fixation rates
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209
@@ -196,17 +197,18 @@ mechanisms:
               autotrophic production rates globally.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3193
-          label: Embryophyta
+          id: NCBITaxon:241855
+          label: Cecropia obtusifolia
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
         description: >
-          Tropical trees and C4 savannah grasses drive the dominant fraction
-          of global GPP through year-round high-irradiance photosynthesis;
-          C4 grasses are particularly efficient at high temperatures and low
-          water availability
+          Cecropia obtusifolia and other fast-growing tropical trees drive the
+          dominant fraction of global GPP through year-round high-irradiance
+          photosynthesis; C4 grasses are particularly efficient at high
+          temperatures and low water availability, together making tropical
+          biomes the dominant contributors to global terrestrial GPP
     causal_edges:
       - subject: High solar irradiance and temperature in tropical zones
         predicate: ENABLES

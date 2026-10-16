@@ -119,29 +119,30 @@ mechanisms:
               edaphic variation.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposition organism
         description: >
-          Soil bacteria co-decompose plant litter with fungi; microbial community
-          decomposition rates respond strongly to temperature-driven changes in
-          metabolic activity, with warming accelerating turnover of labile
-          carbon fractions across diverse soil types
+          Bacillus subtilis and other soil bacteria co-decompose plant litter with
+          fungi; microbial community decomposition rates respond strongly to
+          temperature-driven changes in metabolic activity, with warming
+          accelerating turnover of labile carbon fractions across diverse soil types
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:5544
+          label: Trichoderma harzianum
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph
         description: >
-          Saprotrophic fungi are major litter decomposers whose enzyme activities
-          are temperature-sensitive; warming accelerates fungal lignocellulose
+          Trichoderma harzianum and other saprotrophic fungi are major litter
+          decomposers whose cellulase and ligninase enzyme activities are
+          temperature-sensitive; warming accelerates fungal lignocellulose
           breakdown rates, reducing soil carbon residence times in forest
           and agricultural soils
     abiotic_conditions:

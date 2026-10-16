@@ -64,17 +64,27 @@ mechanisms:
               prey habitat use.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:40674
-          label: Mammalia
-        role: CONSUMER
+          id: NCBITaxon:9612
+          label: Canis lupus
+        role: PREDATOR
         ecological_function:
           id: ECOCORE:00000095
           label: apex predator
         description: >
-          Large mammalian carnivores (wolves, lions, tigers, cougars, sharks)
-          are the primary apex predators structuring food webs across terrestrial
-          and marine ecosystems; their extirpation triggers trophic downgrading
-          with cascading effects on prey abundance and vegetation
+          Canis lupus (grey wolf) is the paradigmatic apex predator in northern
+          hemisphere terrestrial food webs; wolf reintroduction in Yellowstone
+          triggered trophic cascades that reduced elk overbrowsing in riparian
+          corridors, cascading to vegetation recovery and altered stream morphology
+          through both direct predation and risk-mediated behavioral modification
+      - taxon:
+          id: NCBITaxon:9860
+          label: Cervus elaphus
+        role: PREY
+        description: >
+          Cervus elaphus (elk/red deer) is the primary prey of Canis lupus in
+          Yellowstone and European ecosystems; wolf predation and risk effects
+          shift elk habitat use away from riparian corridors, enabling willows,
+          aspen, and cottonwoods to recover in high-risk areas
     causal_edges:
       - subject: Apex predator
         predicate: CAUSES
@@ -117,6 +127,28 @@ mechanisms:
               suppression as the primary mechanism linking large carnivore presence
               or absence to ecosystem-wide effects; extirpation experiments and
               reintroductions confirm bidirectionality of cascade effects.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:9612
+          label: Canis lupus
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000095
+          label: apex predator
+        description: >
+          Canis lupus extirpation or reintroduction is the primary driver of
+          trophic cascade experiments; wolf removal in the 20th century released
+          elk from predation pressure, while Yellowstone wolf reintroduction
+          (1995–1996) generated measurable trophic cascade recovery
+      - taxon:
+          id: NCBITaxon:9860
+          label: Cervus elaphus
+        role: PREY
+        description: >
+          Cervus elaphus (elk) population dynamics are the direct mediator of
+          wolf-driven trophic cascades; prey release following wolf extirpation
+          drove intensive overbrowsing of riparian vegetation, while predation
+          risk after reintroduction suppressed elk browsing in vulnerable corridors
     causal_edges:
       - subject: Apex predator extirpation
         predicate: CAUSES
@@ -161,18 +193,28 @@ mechanisms:
               processes from disease to carbon sequestration to biogeochemical cycles.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:40674
-          label: Mammalia
-        role: CONSUMER
+          id: NCBITaxon:9612
+          label: Canis lupus
+        role: PREDATOR
         ecological_function:
           id: ECOCORE:00000095
           label: apex predator
         description: >
-          Mammalian apex predators create spatial gradients in predation risk
-          that modify prey habitat use; wolves in Yellowstone suppressed elk
-          browsing in riverbottom vegetation through risk effects, triggering
-          vegetation recovery in stream corridors without proportional change
-          in elk population size
+          Canis lupus creates spatial gradients in predation risk that modify
+          elk habitat use; wolves in Yellowstone suppressed elk browsing in
+          riverbottom vegetation through risk effects, triggering vegetation
+          recovery in stream corridors without proportional change in elk
+          population size—the canonical demonstration of non-lethal fear effects
+      - taxon:
+          id: NCBITaxon:9860
+          label: Cervus elaphus
+        role: PREY
+        description: >
+          Cervus elaphus shifts habitat use and reduces foraging time in
+          high-risk patches where wolf encounter probability is elevated;
+          these behavioral responses alter spatial patterns of herbivory
+          intensity across the landscape, creating vegetation mosaics
+          correlated with predation risk gradients
     causal_edges:
       - subject: Predation risk perception by prey
         predicate: CAUSES

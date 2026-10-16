@@ -58,13 +58,13 @@ mechanisms:
               the largest global CO2 uptake flux.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:33090
-          label: Viridiplantae
+          id: NCBITaxon:3329
+          label: Picea abies
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
-        description: Land plants account for the majority of terrestrial GPP through C3, C4, and CAM photosynthesis
+        description: Picea abies (Norway spruce) and other C3 land plants account for the majority of terrestrial GPP; boreal conifers, temperate broadleaf forests, and tropical trees together contribute 123 Pg C yr-1 through C3, C4, and CAM photosynthesis
       - taxon:
           id: NCBITaxon:1117
           label: Cyanobacteriota
@@ -148,23 +148,23 @@ mechanisms:
               the ECOCORE trophic process at the heart of ecosystem carbon return.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:5061
+          label: Aspergillus niger
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph
-        description: Saprotrophic fungi are the primary decomposers of recalcitrant organic matter (lignin, cellulose) in terrestrial soils
+        description: Aspergillus niger and other saprotrophic fungi are the primary decomposers of recalcitrant organic matter (lignin, cellulose) in terrestrial soils via extracellular oxidative and hydrolytic enzymes
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposer
-        description: Soil bacteria decompose labile carbon fractions and drive a large fraction of total soil respiration
+        description: Bacillus subtilis and other soil bacteria decompose labile carbon fractions and drive a large fraction of total soil respiration through rapid turnover of simple carbohydrates and amino acids
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209
@@ -243,13 +243,13 @@ mechanisms:
               woody biomass.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:33090
-          label: Viridiplantae
+          id: NCBITaxon:3329
+          label: Picea abies
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
-        description: Forest trees accumulate the majority of terrestrial above-ground biomass carbon
+        description: Picea abies (Norway spruce) and other forest trees accumulate the majority of terrestrial above-ground biomass carbon; boreal and temperate conifers have particularly long carbon residence times due to cold temperatures suppressing decomposition
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209

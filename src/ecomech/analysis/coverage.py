@@ -22,7 +22,7 @@ from typing import Any
 import yaml
 
 # Re-use compliance scoring from existing module
-from ecomech.analysis.compliance import analyze_entry, EntryCompliance, _SECTION_FIELDS
+from ecomech.analysis.compliance import analyze_entry, EntryCompliance, _SECTION_FIELDS, _BROAD_TAXON_IDS
 
 # ---------------------------------------------------------------------------
 # Data collection
@@ -50,6 +50,17 @@ def collect_entries(processes_dir: Path) -> list[dict[str, Any]]:
             continue
         ec = analyze_entry(f)
         pt = data.get("process_term") or {}
+        # Collect broad-taxon warnings as structured records
+        broad_taxon_warnings = []
+        for mech in data.get("mechanisms") or []:
+            for te in mech.get("taxa_involved") or []:
+                tid = (te.get("taxon") or {}).get("id", "")
+                if tid in _BROAD_TAXON_IDS:
+                    broad_taxon_warnings.append({
+                        "mechanism": mech.get("name", "?"),
+                        "taxon_id": tid,
+                        "taxon_name": _BROAD_TAXON_IDS[tid],
+                    })
         rows.append({
             "file": f.name,
             "id": data.get("id") or pt.get("id", ""),
@@ -64,6 +75,7 @@ def collect_entries(processes_dir: Path) -> list[dict[str, Any]]:
             "evidence_count": _evidence_count(data),
             "score": ec.score,
             "issues": ec.issues,
+            "broad_taxon_warnings": broad_taxon_warnings,
         })
     return rows
 
@@ -126,6 +138,8 @@ tr:hover td { background: #f0fdf4; }
 .score-fill { height: 100%; border-radius: 4px; background: #2d6a4f; }
 .num { font-variant-numeric: tabular-nums; }
 .issue-count { color: #b45309; font-size: 0.75rem; }
+.badge-broad { background: #fef3c7; color: #92400e; }
+.warn-cell { color: #92400e; font-size: 0.78rem; }
 footer { text-align: center; padding: 2rem; font-size: 0.78rem; color: #9ca3af;
          border-top: 1px solid #e5e7eb; margin-top: 2rem; }
 """
@@ -153,6 +167,7 @@ def render_html(entries: list[dict[str, Any]], generated_at: str = "") -> str:
     prefix_counts: dict[str, int] = {}
     for e in entries:
         prefix_counts[e["term_prefix"]] = prefix_counts.get(e["term_prefix"], 0) + 1
+    total_broad = sum(len(e.get("broad_taxon_warnings", [])) for e in entries)
 
     stats_html = f"""
     <div class="stats-grid">
@@ -160,8 +175,34 @@ def render_html(entries: list[dict[str, Any]], generated_at: str = "") -> str:
       <div class="stat-card"><div class="value">{total_mechs}</div><div class="label">Total Mechanisms</div></div>
       <div class="stat-card"><div class="value">{total_evidence}</div><div class="label">Evidence Items</div></div>
       <div class="stat-card"><div class="value">{avg_score:.0f}</div><div class="label">Avg Compliance Score</div></div>
+      <div class="stat-card" style="border-color:#fde68a;"><div class="value" style="color:#92400e;">{total_broad}</div><div class="label">Broad-Taxon Warnings</div></div>
       {"".join(f'<div class="stat-card"><div class="value">{v}</div><div class="label">{k} Entries</div></div>' for k, v in sorted(prefix_counts.items()))}
     </div>"""
+
+    # Broad-taxon warnings table
+    broad_rows_html = ""
+    for e in sorted(entries, key=lambda x: x["name"]):
+        for w in e.get("broad_taxon_warnings", []):
+            broad_rows_html += f"""
+      <tr>
+        <td><strong>{e['name']}</strong></td>
+        <td class="warn-cell">{w['mechanism']}</td>
+        <td><span class="badge badge-broad">{w['taxon_id']}</span></td>
+        <td class="warn-cell">{w['taxon_name']}</td>
+      </tr>"""
+    broad_section_html = f"""
+  <h2 class="section-title">Broad-Taxon Warnings ({total_broad})</h2>
+  <p style="font-size:0.82rem;color:#6b7280;margin-bottom:0.75rem;">
+    Taxa at phylum level or above. Replace with genus- or species-level taxa where possible.
+    See <code>docs/taxa_and_ecoregion_enhancement_plan.md</code> for priority replacements.
+    Run <code>just check-broad-taxa</code> for CLI output.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Process</th><th>Mechanism</th><th>Taxon ID</th><th>Taxon</th></tr>
+    </thead>
+    <tbody>{broad_rows_html}</tbody>
+  </table>""" if total_broad else ""
 
     rows_html = ""
     for e in sorted(entries, key=lambda x: x["score"], reverse=True):
@@ -197,6 +238,8 @@ def render_html(entries: list[dict[str, Any]], generated_at: str = "") -> str:
 <main class="main">
   <h2 class="section-title">Summary Statistics</h2>
   {stats_html}
+
+  {broad_section_html}
 
   <h2 class="section-title">Curated Processes ({total})</h2>
   <table>

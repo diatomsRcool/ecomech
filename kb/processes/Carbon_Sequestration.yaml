@@ -70,18 +70,18 @@ mechanisms:
               sequestration capacity of intact forests and recovering second-growth.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3193
-          label: Embryophyta
+          id: NCBITaxon:3329
+          label: Picea abies
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000009
           label: autotrophy
         description: >
-          Land plants (trees, shrubs, grasses, mosses) are the primary agents
-          of terrestrial carbon sequestration; woody trees dominate forest
-          carbon stocks through biomass accumulation, while Sphagnum mosses
-          accumulate peat carbon under waterlogged conditions in boreal and
-          subarctic peatlands
+          Picea abies (Norway spruce) and other forest trees are the primary
+          agents of terrestrial carbon sequestration; woody trees dominate
+          forest carbon stocks through biomass accumulation, while Sphagnum
+          mosses accumulate peat carbon under waterlogged conditions in boreal
+          and subarctic peatlands
     causal_edges:
       - subject: Photosynthesis in forest trees
         predicate: CAUSES

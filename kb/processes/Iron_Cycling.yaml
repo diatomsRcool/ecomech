@@ -138,14 +138,15 @@ mechanisms:
               confirms iron cycling as a core component of global biogeochemical cycling.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:35554
+          label: Geobacter sulfurreducens
         role: OTHER
         description: >
-          Iron-cycling bacteria span phylogenetically diverse lineages: dissimilatory
-          iron reducers (Geobacteraceae, Desulfuromonadales) and nitrate-dependent
-          Fe(II) oxidizers (Dechloromonas, Thiobacillus) together constitute the
-          microbial community driving anaerobic iron redox cycling in soils and sediments
+          Geobacter sulfurreducens is the best-characterized dissimilatory Fe(III)-
+          reducing bacterium; together with nitrate-dependent Fe(II) oxidizers
+          (Dechloromonas, Thiobacillus), Geobacter and related Geobacteraceae
+          constitute the microbial community driving anaerobic iron redox cycling
+          in soils and sediments
     causal_edges:
       - subject: Fe(III) reduction by Geobacter
         predicate: CAUSES

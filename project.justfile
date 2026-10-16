@@ -71,6 +71,12 @@ similarity-csv:
 
 # --- Cross-database Ingestion ---
 
+# --- Taxon & Ecoregion Quality ---
+
+# List all taxa at phylum level or above across the KB (broad-taxon lint check)
+check-broad-taxa:
+    uv run python scripts/check_broad_taxa.py
+
 # --- TraitMech cross-references ---
 
 # Report taxa entries missing traitmech_xref (read-only lint check)

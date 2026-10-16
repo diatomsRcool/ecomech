@@ -282,23 +282,23 @@ mechanisms:
               internal recycling mechanism for organically bound nitrogen.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:5061
+          label: Aspergillus niger
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph
-        description: Saprotrophic fungi drive organic N mineralization, particularly of recalcitrant substrates such as proteins and chitin
+        description: Aspergillus niger and other saprotrophic fungi drive organic N mineralization, particularly of recalcitrant substrates such as proteins and chitin, via extracellular protease and deaminase production
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposer
-        description: Heterotrophic soil bacteria decompose labile organic N fractions, releasing ammonium to soil solution
+        description: Bacillus subtilis and other heterotrophic soil bacteria decompose labile organic N fractions, releasing ammonium to soil solution via rapid turnover of amino acids and nucleotides
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209
@@ -467,14 +467,14 @@ mechanisms:
               confirming heterotrophy as the trophic mode of N-loss communities.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:237368
+          label: Candidatus Scalindua brodae
         role: DENITRIFIER
         traitmech_xref: traitmech:000104
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
-        description: Proteobacteria perform heterotrophic denitrification and Planctomycetes (Candidatus Scalindua) carry out anammox in OMZ waters; both groups produce N2 gas from fixed nitrogen
+        description: Candidatus Scalindua brodae (Planctomycetes) is the dominant marine anammox bacterium in oceanic OMZs, carrying out anaerobic ammonium oxidation that accounts for up to 50% of N2 production in suboxic OMZ waters
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01001547

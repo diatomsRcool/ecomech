@@ -68,30 +68,31 @@ mechanisms:
               symbiosis.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:588596
+          label: Rhizophagus irregularis
         role: SYMBIONT
         traitmech_xref: traitmech:000041
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
         description: >
-          Glomeromycota (AM fungi) and Basidiomycota/Ascomycota (EM fungi)
-          form the fungal partner; their extraradical hyphae extend into soil
-          pores inaccessible to roots, increasing the effective nutrient
-          absorption surface of the plant up to 1000-fold
+          Rhizophagus irregularis (Glomeromycota) is the most widespread and
+          best-studied arbuscular mycorrhizal fungus; its extraradical hyphae
+          extend into soil pores inaccessible to roots, increasing the effective
+          nutrient absorption surface of the plant up to 1000-fold and
+          colonizing over 70% of land plant families
       - taxon:
-          id: NCBITaxon:3193
-          label: Embryophyta
+          id: NCBITaxon:38942
+          label: Quercus robur
         role: HOST
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
         description: >
-          Land plants are the host partners supplying photosynthate (sugars)
-          to the fungus; over 90% of all land plant species form mycorrhizal
-          associations, with AM symbiosis being the ancestral form present
-          since the Ordovician colonization of land
+          Quercus robur (common oak) and other forest trees form both EM and
+          AM associations; trees supply photosynthate (up to 30% of NPP) to
+          the fungal partner in exchange for mineral nutrients, sustaining
+          mycorrhizal networks across temperate forest stands
     causal_edges:
       - subject: Mycorrhizal fungi hyphae
         predicate: ENABLES
@@ -153,19 +154,19 @@ mechanisms:
               mycorrhizal symbiosis to a community-level ecological process.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:5384
+          label: Suillus luteus
         role: SYMBIONT
         traitmech_xref: traitmech:000041
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
         description: >
-          Ectomycorrhizal Basidiomycota (Suillus, Pisolithus, Amanita)
-          form the most extensive CMNs in boreal and temperate forests;
-          a single fungal mycelium can connect multiple trees of the same
-          or different species, creating potential carbon and nutrient
-          transfer pathways
+          Suillus luteus and related ectomycorrhizal Basidiomycota form the
+          most extensive CMNs in boreal and temperate forests; a single
+          Suillus mycelium can connect multiple pine trees, creating potential
+          carbon and nutrient transfer pathways spanning hundreds of square
+          metres of forest floor
     causal_edges:
       - subject: Shared mycorrhizal fungal mycelium
         predicate: ENABLES

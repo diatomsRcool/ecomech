@@ -139,23 +139,23 @@ mechanisms:
               primary internal recycling pathway for P in terrestrial and aquatic systems.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:5061
+          label: Aspergillus niger
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph
-        description: Saprotrophic fungi produce extracellular phosphatases and are major drivers of organic P mineralization
+        description: Aspergillus niger produces extracellular phosphatases and gluconic acid for mineral phosphate solubilization, and is a model organism for studying organic P mineralization in soil
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposer
-        description: Phosphate-solubilizing bacteria release extracellular phosphatases and organic acids that mobilize inorganic P
+        description: Bacillus subtilis and other phosphate-solubilizing bacteria release extracellular phosphatases and organic acids that mobilize inorganic P from mineral phases
     causal_edges:
       - subject: Phosphatase-producing microorganisms
         predicate: CAUSES
@@ -269,14 +269,14 @@ mechanisms:
               primary production in the surface ocean.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:28108
+          label: Alteromonas macleodii
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposer
-        description: Marine heterotrophic bacteria remineralize dissolved organic phosphorus, releasing inorganic phosphate that sustains phytoplankton growth
+        description: Alteromonas macleodii and other marine heterotrophic bacteria remineralize dissolved organic phosphorus via extracellular alkaline phosphatase, releasing inorganic phosphate that sustains phytoplankton growth in the surface ocean
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209

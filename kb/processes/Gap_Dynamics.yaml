@@ -135,14 +135,15 @@ mechanisms:
               interference with tree responses to the gap light stimulus.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:3193
-          label: Embryophyta
+          id: NCBITaxon:241855
+          label: Cecropia obtusifolia
         role: PRIMARY_PRODUCER
         description: >
-          Lianas (woody climbing plants) and shade-tolerant trees compete
-          for the gap light environment; lianas suppress tree recruitment
-          through rapid exploitation of elevated light, demonstrating
-          plant–plant competition as a key process in gap dynamics.
+          Cecropia obtusifolia and related pioneer trees, together with woody
+          lianas, compete for the elevated light environment created by treefall
+          gaps; fast-growing gap colonizers suppress shade-tolerant tree
+          recruitment through rapid exploitation of canopy openings,
+          demonstrating plant–plant competition as a key process in gap dynamics.
     causal_edges:
       - subject: Liana colonization of treefall gaps
         predicate: INHIBITS

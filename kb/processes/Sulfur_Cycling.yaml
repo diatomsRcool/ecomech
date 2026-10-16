@@ -227,14 +227,14 @@ mechanisms:
               in freshwater sediments.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2157
-          label: Archaea
+          id: NCBITaxon:2207
+          label: Methanosarcina
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
-        description: Methanogenic archaea are the primary anaerobic consumers of DMS and methanethiol in freshwater sediments
+        description: Methanosarcina and related methylotrophic methanogens are the primary anaerobic consumers of DMS and methanethiol in freshwater sediments, using these C1 compounds as methylated substrates for methanogenesis
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01001547
@@ -325,22 +325,22 @@ mechanisms:
               DMSP sink in marine systems.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2759
-          label: Eukaryota
+          id: NCBITaxon:2903
+          label: Emiliania huxleyi
         role: PRIMARY_PRODUCER
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
-        description: Marine phytoplankton and macroalgae are the primary synthesizers of DMSP, which is subsequently cleaved to DMS by enzymatic action
+        description: Emiliania huxleyi (coccolithophore) is the dominant marine DMSP producer; it synthesizes DMSP as an osmolyte and cryoprotectant, and upon cell death or viral lysis releases DMSP that drives global DMS emissions
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:2433
+          label: Roseobacter
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
-        description: Marine heterotrophic bacteria are the major degraders of DMSP via demethylation and cleavage pathways, producing DMS and other sulfur compounds
+        description: Roseobacter clade bacteria are the dominant marine DMSP degraders via demethylation and cleavage pathways; their DMSP lyase activity produces DMS that is emitted to the atmosphere and influences cloud formation
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209

@@ -61,17 +61,17 @@ mechanisms:
               productivity.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:2
-          label: Bacteria
+          id: NCBITaxon:35554
+          label: Geobacter sulfurreducens
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         description: >
-          Diverse bacterial functional guilds — denitrifiers, iron reducers,
-          sulfate reducers, and nitrifiers — mediate the sequential reduction
-          and oxidation of electron acceptors that define wetland redox dynamics;
-          their thermodynamically ordered activity generates the biogeochemical
-          transformations that determine nutrient availability and phytotoxin
-          concentrations for wetland plant communities.
+          Geobacter sulfurreducens and diverse bacterial functional guilds —
+          denitrifiers, iron reducers, sulfate reducers, and nitrifiers — mediate
+          the sequential reduction and oxidation of electron acceptors that define
+          wetland redox dynamics; their thermodynamically ordered activity generates
+          the biogeochemical transformations that determine nutrient availability and
+          phytotoxin concentrations for wetland plant communities.
     causal_edges:
       - subject: Water table rise and O2 depletion
         predicate: CAUSES
@@ -212,17 +212,17 @@ mechanisms:
               dynamics to the greenhouse gas consequences of nitrogen cycling.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:4751
-          label: Fungi
+          id: NCBITaxon:169388
+          label: Fusarium solani
         role: DECOMPOSER
         traitmech_xref: traitmech:000055
         description: >
-          Fungi are unexpectedly dominant denitrifiers under moderately reducing
-          and weakly oxidizing sediment conditions, contributing 34-35% of total
-          denitrification at Eh +250 to +400 mV; because fungal denitrification
-          produces more N2O than bacterial denitrification, fungal community
-          activity under these redox conditions increases the global warming
-          potential of wetland nitrogen losses.
+          Fusarium solani and other denitrifying fungi are unexpectedly dominant
+          denitrifiers under moderately reducing and weakly oxidizing sediment
+          conditions, contributing 34-35% of total denitrification at Eh +250
+          to +400 mV; because fungal denitrification produces more N2O than
+          bacterial denitrification, fungal community activity under these redox
+          conditions increases the global warming potential of wetland nitrogen losses.
     causal_edges:
       - subject: Aerobic to moderately reducing redox conditions (Eh > +250 mV)
         predicate: ENABLES

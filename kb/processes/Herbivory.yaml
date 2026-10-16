@@ -63,17 +63,17 @@ mechanisms:
               regimes, and nutrient cycling.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:40674
-          label: Mammalia
+          id: NCBITaxon:9785
+          label: Loxodonta africana
         role: CONSUMER
         ecological_function:
           id: ECOCORE:00000019
           label: herbivory organism
         description: >
-          Large mammalian herbivores (ungulates, elephants, rhinoceroses) consume
-          plant biomass via grazing or browsing; ~74 species of large herbivores
-          (body mass ≥100 kg) shape global vegetation structure, with ~60%
-          currently threatened with extinction
+          Loxodonta africana (African elephant) is the paradigmatic large mammalian
+          herbivore exerting top-down landscape control; elephant browsing and
+          trampling modify savanna vegetation structure, suppress woody encroachment,
+          and create habitat heterogeneity that benefits other large ungulate guilds
     abiotic_conditions:
       - envo_condition_term:
           id: ENVO:01000209
@@ -196,17 +196,19 @@ mechanisms:
               basis for their indispensability to ecosystem structure and function.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:40674
-          label: Mammalia
+          id: NCBITaxon:9901
+          label: Bison bison
         role: ENGINEER
         traitmech_xref: METPO:2000006
         ecological_function:
           id: ECOCORE:00000019
           label: herbivory organism
         description: >
-          Large mammals (elephants, ungulates) physically modify vegetation
-          structure and create nutrient hotspots through excretion, trampling,
-          and wallowing; their decline removes key ecosystem engineering services
+          Bison bison (American bison) is the paradigmatic grassland ecosystem
+          engineer; grazing, wallowing, and excretion create nutrient hotspots
+          and heterogeneous vegetation structure that maintain grassland biodiversity,
+          and historical bison decline from ~60M to near-extinction removed this
+          engineering function across North American grasslands
     causal_edges:
       - subject: Large herbivore excretion and trampling
         predicate: CAUSES

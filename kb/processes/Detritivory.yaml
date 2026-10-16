@@ -65,30 +65,30 @@ mechanisms:
               decomposition activity.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:6340
-          label: Annelida
+          id: NCBITaxon:6398
+          label: Lumbricus terrestris
         role: DETRITIVORE
         ecological_function:
           id: ECOCORE:00000055
           label: detritivore
         description: >
-          Epigeic and anecic earthworms (Lumbricidae) are the dominant
-          macro-detritivores in temperate soils; epigeic species fragment
-          surface litter while anecic species bury litter fragments into
-          mineral soil, driving bioturbation and organo-mineral association
-          formation
+          Lumbricus terrestris (common earthworm) and other lumbricid earthworms
+          are the dominant macro-detritivores in temperate soils; anecic earthworms
+          bury litter fragments into mineral soil (bioturbation), creating
+          organo-mineral associations that stabilize carbon and redistributing
+          nutrients into the mineral horizon
       - taxon:
-          id: NCBITaxon:6656
-          label: Arthropoda
+          id: NCBITaxon:64697
+          label: Porcellio scaber
         role: DETRITIVORE
         ecological_function:
           id: ECOCORE:00000055
           label: detritivore
         description: >
-          Isopods (e.g., Hemilepistus reaumuri), millipedes, oribatid mites,
-          and springtails are abundant macro- and mesodetritivores; isopods
-          dominate litter processing in arid and semi-arid environments
-          where earthworm activity is moisture-limited
+          Porcellio scaber (rough woodlouse) and related isopods, millipedes,
+          oribatid mites, and springtails are abundant macro- and mesodetritivores;
+          isopods dominate litter processing in drier environments where earthworm
+          activity is moisture-limited
     causal_edges:
       - subject: Macro-detritivore feeding and fragmentation
         predicate: CAUSES
@@ -135,27 +135,29 @@ mechanisms:
               enrichment zones that accelerate local nutrient cycling.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:6656
-          label: Arthropoda
+          id: NCBITaxon:2499500
+          label: Hemilepistus
         role: DETRITIVORE
         ecological_function:
           id: ECOCORE:00000055
           label: detritivore
         description: >
-          Desert isopods (Hemilepistus reaumuri) and other macro-arthropod
-          detritivores excrete inorganic N and P near burrows, creating
-          nutrient hotspots in otherwise nutrient-poor arid soils
+          Desert isopods of genus Hemilepistus (including H. reaumuri) excavate
+          burrows in arid soils and excrete inorganic N and P near burrow entrances,
+          creating nutrient hotspots that sustain plant productivity in otherwise
+          nutrient-poor arid and semi-arid soils
       - taxon:
-          id: NCBITaxon:6340
-          label: Annelida
+          id: NCBITaxon:6398
+          label: Lumbricus terrestris
         role: DETRITIVORE
         ecological_function:
           id: ECOCORE:00000055
           label: detritivore
         description: >
-          Earthworm casts are enriched in plant-available nitrogen and phosphorus
-          relative to surrounding soil; cast deposition patterns create spatial
-          heterogeneity in soil nutrient availability at centimeter to meter scales
+          Lumbricus terrestris casts are enriched in plant-available nitrogen and
+          phosphorus relative to surrounding soil; cast deposition patterns create
+          spatial heterogeneity in nutrient availability at centimeter to meter
+          scales around burrow openings and feeding sites
     causal_edges:
       - subject: Macro-detritivore digestion and excretion
         predicate: CAUSES
@@ -203,16 +205,16 @@ mechanisms:
               litter quality mediation of decomposition.
     taxa_involved:
       - taxon:
-          id: NCBITaxon:6340
-          label: Annelida
+          id: NCBITaxon:6398
+          label: Lumbricus terrestris
         role: DETRITIVORE
         ecological_function:
           id: ECOCORE:00000055
           label: detritivore
         description: >
-          Earthworm species composition and biomass respond to plant litter
+          Lumbricus terrestris density and biomass respond to plant litter
           quality; higher litter N content and functional diversity support
-          higher earthworm density and biomass, coupling plant diversity
+          higher epigeic earthworm density and biomass, coupling plant diversity
           to detritivore community structure and decomposition rate
     causal_edges:
       - subject: Plant litter quality (C:N ratio, chemistry)
