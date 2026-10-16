@@ -1,0 +1,34 @@
+ecomech_id	ecomech_name	traitmech_id	traitmech_label	link_type	notes
+ENVO:01001330	Nitrogen Cycling	traitmech:000044	nitrogen_fixing_symbiosis	process_includes_trait	Symbiotic N fixation is a core mechanism within N cycling
+ENVO:01001330	Nitrogen Cycling	traitmech:000103	nitrogen_fixation	process_includes_trait	Free-living diazotrophs fix N2 to NH3 via NifH
+ENVO:01001330	Nitrogen Cycling	traitmech:000104	denitrification	process_includes_trait	Denitrification returns fixed N to atmosphere as N2/N2O
+ENVO:01001330	Nitrogen Cycling	traitmech:000030	dissimilatory_nitrate_reduction_to_ammonium	process_includes_trait	DNRA retains N in ecosystem rather than losing it as gas
+ECOCORE:00000189	Root Nodule Symbiosis	traitmech:000044	nitrogen_fixing_symbiosis	process_includes_trait	Root nodule symbiosis is nitrogen_fixing_symbiosis at organism scale
+ECOCORE:00000189	Root Nodule Symbiosis	traitmech:000103	nitrogen_fixation	process_includes_trait	NifH-mediated N2 reduction is the core biochemical mechanism
+ECOCORE:00000186	Litter Decomposition	traitmech:000055	saprotrophy	process_enabled_by_trait	Saprotrophic microbes are the primary executors of litter decomposition
+ECOCORE:00000186	Litter Decomposition	METPO:2000006	uses_as_carbon_source	process_enabled_by_trait	Organic C utilisation by heterotrophs underpins decomposition
+ENVO:02500010	Carbon Cycling	traitmech:000055	saprotrophy	process_enabled_by_trait	Heterotrophic decomposition drives organic C mineralisation
+ENVO:02500010	Carbon Cycling	traitmech:000019	carbon_fixation	process_includes_trait	Autotrophic C fixation is the anabolic half of C cycling
+ENVO:02500010	Carbon Cycling	METPO:2000006	uses_as_carbon_source	process_includes_trait	Catabolic C utilisation by heterotrophs closes the C cycle
+ENVO:01001331	Sulfur Cycling	traitmech:000105	dissimilatory_sulfate_reduction	process_includes_trait	Sulfate-reducing bacteria drive anaerobic S cycling
+ENVO:01001331	Sulfur Cycling	traitmech:000106	sulfur_oxidation	process_includes_trait	Sulfur-oxidising bacteria reoxidise reduced S compounds
+ECOCORE:00000199	Iron Cycling	traitmech:000031	dissimilatory_iron_reduction	process_includes_trait	Fe(III) reduction by Geobacter/Shewanella under anaerobic conditions
+ECOCORE:00000199	Iron Cycling	traitmech:000107	iron_oxidation	process_includes_trait	Fe(II) oxidation drives ferric precipitation
+ECOCORE:00000199	Iron Cycling	traitmech:000108	dissimilatory_manganese_reduction	process_includes_trait	Mn cycling co-occurs with Fe cycling in redox gradients
+ECOCORE:00000197	Redox Dynamics	traitmech:000031	dissimilatory_iron_reduction	process_includes_trait	Fe(III)/Fe(II) redox couple is a major TEA in anaerobic soils
+ECOCORE:00000197	Redox Dynamics	traitmech:000108	dissimilatory_manganese_reduction	process_includes_trait	Mn(IV) is reduced before Fe(III) in the TEA sequence
+ECOCORE:00000197	Redox Dynamics	traitmech:000104	denitrification	process_includes_trait	NO3- reduction is an early step in the redox ladder
+ECOCORE:00000198	Methane Cycling	METPO:1000844	methanogenesis	process_includes_trait	Methanogenesis is the terminal anaerobic C mineralisation step
+ECOCORE:00000198	Methane Cycling	traitmech:000033	anaerobic_oxidation_of_methane	process_includes_trait	AOM consumes ~90% of marine methane before it reaches the atmosphere
+ECOCORE:00000184	Marine Primary Production	traitmech:000019	carbon_fixation	process_enabled_by_trait	C fixation is the biochemical basis of marine NPP
+ECOCORE:00000184	Marine Primary Production	traitmech:000038	photosynthesis	process_enabled_by_trait	Oxygenic photosynthesis drives phytoplankton production
+ECOCORE:00000184	Marine Primary Production	traitmech:000020	calvin_benson_bassham_cycle	process_enabled_by_trait	CBB cycle fixes CO2 in most marine primary producers
+ECOCORE:00000183	Terrestrial Primary Production	traitmech:000019	carbon_fixation	process_enabled_by_trait	C fixation is the molecular mechanism of terrestrial NPP
+ECOCORE:00000183	Terrestrial Primary Production	traitmech:000038	photosynthesis	process_enabled_by_trait	Oxygenic photosynthesis in vascular plants and algae
+ECOCORE:00000183	Terrestrial Primary Production	traitmech:000020	calvin_benson_bassham_cycle	process_enabled_by_trait	CBB cycle is the dominant C fixation pathway in terrestrial plants
+ECOCORE:00000188	Mycorrhizal Association	traitmech:000041	mutualism	process_includes_trait	Mycorrhizal symbiosis is a mutualistic interaction
+ECOCORE:00000188	Mycorrhizal Association	traitmech:000045	endosymbiosis	process_includes_trait	Arbuscular mycorrhizae are intracellular endosymbionts
+ECOCORE:00000190	Coral-Zooxanthellae Symbiosis	traitmech:000041	mutualism	process_includes_trait	Coral-zooxanthellae is a canonical marine mutualism
+ECOCORE:00000190	Coral-Zooxanthellae Symbiosis	traitmech:000045	endosymbiosis	process_includes_trait	Symbiodinium lives intracellularly in coral tissue
+ENVO:01001332	Phosphorus Cycling	traitmech:000019	carbon_fixation	process_produces_trait_context	P availability constrains C fixation rates in oligotrophic systems
+ECOCORE:00000057	Detritivory	traitmech:000055	saprotrophy	process_enabled_by_trait	Saprotrophic microbes colonise detritus enabling macroinvertebrate detritivory

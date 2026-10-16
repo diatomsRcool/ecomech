@@ -55,6 +55,7 @@ mechanisms:
           id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: NITROGEN_FIXER
+        traitmech_xref: traitmech:000044
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
@@ -63,6 +64,7 @@ mechanisms:
           id: NCBITaxon:1117
           label: Cyanobacteriota
         role: NITROGEN_FIXER
+        traitmech_xref: traitmech:000103
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
@@ -124,6 +126,7 @@ mechanisms:
           id: NCBITaxon:914
           label: Nitrosomonas
         role: NITRIFIER
+        traitmech_xref: METPO:1005001
         ecological_function:
           id: ECOCORE:00000124
           label: chemolithoautotroph
@@ -132,6 +135,7 @@ mechanisms:
           id: NCBITaxon:911
           label: Nitrobacter
         role: NITRIFIER
+        traitmech_xref: METPO:1005001
         ecological_function:
           id: ECOCORE:00000124
           label: chemolithoautotroph
@@ -198,6 +202,7 @@ mechanisms:
           id: NCBITaxon:287
           label: Pseudomonas aeruginosa
         role: DENITRIFIER
+        traitmech_xref: traitmech:000104
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
@@ -280,6 +285,7 @@ mechanisms:
           id: NCBITaxon:4751
           label: Fungi
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph
@@ -288,6 +294,7 @@ mechanisms:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposer
@@ -378,6 +385,7 @@ mechanisms:
           id: NCBITaxon:1117
           label: Cyanobacteriota
         role: NITROGEN_FIXER
+        traitmech_xref: traitmech:000103
         ecological_function:
           id: ECOCORE:00000130
           label: photoautotroph
@@ -462,6 +470,7 @@ mechanisms:
           id: NCBITaxon:2
           label: Bacteria
         role: DENITRIFIER
+        traitmech_xref: traitmech:000104
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph

@@ -1,0 +1,11 @@
+taxon_role	traitmech_id	traitmech_label	notes
+NITROGEN_FIXER	traitmech:000044	nitrogen_fixing_symbiosis	Symbiotic N fixation (Rhizobium, Frankia etc.)
+NITROGEN_FIXER	traitmech:000103	nitrogen_fixation	Free-living diazotrophs (Azotobacter, cyanobacteria)
+DENITRIFIER	traitmech:000104	denitrification	NO3- → N2 under anaerobic conditions
+NITRIFIER	METPO:1005001	nitrification	NH4+ → NO3- by Nitrosomonas/Nitrobacter
+DECOMPOSER	traitmech:000055	saprotrophy	Saprotrophic fungi and bacteria mineralising organic matter
+PRIMARY_PRODUCER	traitmech:000019	carbon_fixation	Autotrophic C fixation underpins primary production
+PRIMARY_PRODUCER	traitmech:000038	photosynthesis	Oxygenic photosynthesis in plants, algae, cyanobacteria
+SYMBIONT	traitmech:000041	mutualism	Mutualistic partners in mycorrhizal/coral symbioses
+SYMBIONT	traitmech:000045	endosymbiosis	Intracellular symbionts (AMF arbuscules, Symbiodinium)
+ENGINEER	METPO:2000006	uses_as_carbon_source	Ecosystem engineers that mobilise C substrates

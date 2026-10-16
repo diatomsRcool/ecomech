@@ -72,6 +72,7 @@ mechanisms:
           id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: SYMBIONT
+        traitmech_xref: traitmech:000044
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
@@ -129,6 +130,7 @@ mechanisms:
           id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: NITROGEN_FIXER
+        traitmech_xref: traitmech:000044
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
@@ -188,6 +190,7 @@ mechanisms:
           id: NCBITaxon:384
           label: Rhizobium leguminosarum
         role: SYMBIONT
+        traitmech_xref: traitmech:000044
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph

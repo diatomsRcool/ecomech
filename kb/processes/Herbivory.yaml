@@ -199,6 +199,7 @@ mechanisms:
           id: NCBITaxon:40674
           label: Mammalia
         role: ENGINEER
+        traitmech_xref: METPO:2000006
         ecological_function:
           id: ECOCORE:00000019
           label: herbivory organism

@@ -65,6 +65,7 @@ mechanisms:
           id: NCBITaxon:5204
           label: Basidiomycota
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph
@@ -121,6 +122,7 @@ mechanisms:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000054
           label: decomposition organism
@@ -133,6 +135,7 @@ mechanisms:
           id: NCBITaxon:4751
           label: Fungi
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000056
           label: saprotroph

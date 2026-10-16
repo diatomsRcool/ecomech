@@ -65,6 +65,7 @@ mechanisms:
           id: NCBITaxon:872
           label: Desulfovibrio
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000171
           label: sulfur reducer
@@ -229,6 +230,7 @@ mechanisms:
           id: NCBITaxon:2157
           label: Archaea
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
@@ -334,6 +336,7 @@ mechanisms:
           id: NCBITaxon:2
           label: Bacteria
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph

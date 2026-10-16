@@ -71,6 +71,7 @@ mechanisms:
           id: NCBITaxon:28231
           label: Geobacter
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         description: >
           Geobacter species are the dominant dissimilatory iron-reducing bacteria
           in freshwater sediments and soils; Geobacter sulfurreducens can completely

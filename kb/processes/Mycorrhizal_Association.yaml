@@ -71,6 +71,7 @@ mechanisms:
           id: NCBITaxon:4751
           label: Fungi
         role: SYMBIONT
+        traitmech_xref: traitmech:000041
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph
@@ -155,6 +156,7 @@ mechanisms:
           id: NCBITaxon:4751
           label: Fungi
         role: SYMBIONT
+        traitmech_xref: traitmech:000041
         ecological_function:
           id: ECOCORE:00000132
           label: chemoheterotroph

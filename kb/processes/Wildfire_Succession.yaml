@@ -354,6 +354,7 @@ mechanisms:
           id: NCBITaxon:13205
           label: Pholiota
         role: DECOMPOSER
+        traitmech_xref: traitmech:000055
         description: >
           Pholiota is a pyrophilous Basidiomycete genus among the early fungal
           colonizers of burned forest soil; along with Pyronema and Penicillium,

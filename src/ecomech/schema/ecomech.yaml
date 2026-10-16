@@ -29,6 +29,8 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   dwc: http://rs.tdwg.org/dwc/terms/
   skos: http://www.w3.org/2004/02/skos/core#
+  traitmech: https://w3id.org/traitmech/
+  METPO: https://w3id.org/metpo/
 
 default_prefix: ecomech
 default_range: string
@@ -357,6 +359,15 @@ slots:
   role:
     range: TaxonRoleEnum
     description: Functional role of the taxon in the process
+
+  traitmech_xref:
+    range: CurieType
+    pattern: "^(traitmech:\\d+|METPO:\\d+)$"
+    description: >
+      Cross-reference to the TraitMech trait record that defines the functional
+      trait this taxon is exhibiting in this mechanism. Links organism-level
+      protein mechanism to ecosystem-level process.
+      See: https://w3id.org/traitmech
 
   chemical_agent:
     range: CHEBITerm
@@ -728,6 +739,7 @@ classes:
     slots:
       - taxon
       - role
+      - traitmech_xref
       - ecological_function
       - description
       - evidence

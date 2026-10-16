@@ -71,6 +71,17 @@ similarity-csv:
 
 # --- Cross-database Ingestion ---
 
+# --- TraitMech cross-references ---
+
+# Report taxa entries missing traitmech_xref (read-only lint check)
+check-traitmech-xrefs:
+    uv run python scripts/backfill_traitmech_xrefs.py --check
+
+# Auto-insert traitmech_xref for unambiguous role mappings; skips ambiguous roles
+backfill-traitmech-xrefs dry_run="":
+    uv run python scripts/backfill_traitmech_xrefs.py --apply \
+        $([ -n "{{dry_run}}" ] && echo "--dry-run")
+
 # --- TraitBank (EOL) — ecological traits and functional roles ---
 # Requires: export EOL_API_TOKEN="your_token"
 

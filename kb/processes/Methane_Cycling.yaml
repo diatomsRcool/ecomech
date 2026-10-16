@@ -68,6 +68,7 @@ mechanisms:
           id: NCBITaxon:2157
           label: Archaea
         role: DECOMPOSER
+        traitmech_xref: METPO:1000844
         description: >
           Strictly anaerobic methanogenic Archaea are the sole biological
           producers of CH4 in natural wetlands; their temperature-dependent
@@ -135,6 +136,7 @@ mechanisms:
           id: NCBITaxon:2157
           label: Archaea
         role: DECOMPOSER
+        traitmech_xref: METPO:1000844
         description: >
           Candidatus Methanothrix paradoxum, a novel acetoclastic methanogenic
           archaeon, drives methanogenesis in oxygenated wetland surface soils;
@@ -263,6 +265,7 @@ mechanisms:
           id: NCBITaxon:2157
           label: Archaea
         role: DECOMPOSER
+        traitmech_xref: traitmech:000033
         description: >
           Anaerobic methanotrophic archaea (ANME groups) and potentially
           reverse-acting methanogens carry out AOM in anoxic wetland soils,
