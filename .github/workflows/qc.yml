@@ -37,7 +37,7 @@ jobs:
           path: conf/ecocore.owl
           # Bump this key (v1 → v2, etc.) after each new ECOCORE release
           # to force CI to re-download the updated OWL file.
-          key: ecocore-owl-v1
+          key: ecocore-owl-v2
 
       - name: Download ECOCORE OWL
         if: steps.ecocore-cache.outputs.cache-hit != 'true'
