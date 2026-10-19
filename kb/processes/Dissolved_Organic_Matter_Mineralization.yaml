@@ -1,0 +1,395 @@
+id: ECOCORE:00000204
+name: Dissolved Organic Matter Mineralization
+process_term:
+  id: ECOCORE:00000204
+  label: dissolved organic matter mineralization
+description: >
+  Dissolved organic matter (DOM) mineralization is the microbial and photochemical
+  conversion of dissolved organic carbon and associated nutrients into inorganic
+  forms (primarily CO2, NH4+, and PO43-) across aquatic and soil ecosystems.
+  DOM — consisting of leachates from plant litter, microbial byproducts, and
+  soil organic matter — is the primary energy substrate for heterotrophic
+  microbial communities in streams, lakes, and the ocean. Marine DOM holds
+  approximately 660 Pg C, making it one of Earth's largest carbon reservoirs
+  exchangeable with the atmosphere. Mineralization rates are controlled by DOM
+  chemical recalcitrance, temperature, UV radiation, and hydrological residence
+  time, and the process links terrestrial carbon inputs to aquatic CO2 emissions
+  across the land-to-ocean continuum.
+synonyms:
+  - DOM decomposition
+  - dissolved organic carbon mineralization
+  - DOC mineralization
+  - aquatic organic matter remineralization
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Microbial Heterotrophic DOM Catabolism
+    description: >
+      Heterotrophic bacteria assimilate labile dissolved organic compounds —
+      including amino acids, simple sugars, and low-molecular-weight organic
+      acids — and respire a fraction directly to CO2 while incorporating the
+      remainder into biomass. Microbial catabolism is the dominant DOM
+      mineralization pathway in most aquatic systems and accounts for nearly
+      half of total aquatic metabolism carbon losses in streams and rivers.
+      Carbon use efficiency (CUE) and decomposition rate are controlled by
+      DOM chemical composition, temperature, and catchment land use.
+    biological_processes:
+      - term:
+          id: GO:0009056
+          label: catabolic process
+        evidence:
+          - reference: PMID:30319149
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "microbial assemblages account for 12% of the total CO2 outgassing, and nearly 50% of the aquatic metabolism C losses, from U.S. streams and rivers"
+            explanation: >
+              Quantifies the contribution of microbial heterotrophic catabolism
+              to stream carbon fluxes at national scale; microbial assemblages
+              drive nearly half of total aquatic metabolism carbon losses,
+              establishing microbial DOM catabolism as the dominant mineralization
+              pathway in flowing freshwater systems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2433
+          label: Roseobacter
+        role: DECOMPOSER
+        description: >
+          Roseobacter clade members are among the most metabolically versatile
+          marine heterotrophs and are major consumers of labile phytoplankton-
+          derived DOM including DMSP, amino acids, and carbohydrates in surface
+          ocean waters
+      - taxon:
+          id: NCBITaxon:28108
+          label: Alteromonas macleodii
+        role: DECOMPOSER
+        description: >
+          Alteromonas macleodii is a copiotrophic marine bacterium that rapidly
+          processes labile DOM pulses in marine and estuarine waters; it produces
+          extracellular hydrolytic enzymes that degrade high-molecular-weight DOM
+          polymers into bioavailable monomers
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Microbial DOM catabolism rates increase exponentially with temperature;
+          warming accelerates DOM mineralization in streams and lakes, reducing
+          DOC export to downstream systems and increasing CO2 outgassing
+    causal_edges:
+      - subject: Heterotrophic bacteria
+        predicate: CAUSES
+        object: Conversion of dissolved organic carbon to CO2 and microbial biomass
+      - subject: Temperature
+        predicate: MODULATES
+        object: Microbial DOM catabolism rate and carbon use efficiency
+    evidence:
+      - reference: PMID:30319149
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Rm, CUE, and -k were correlated with water and sediment chemistry; CUE and -k were also correlated with stream bed fine sediments; and CUE was further correlated with catchment land cover."
+        explanation: >
+          Demonstrates that microbial carbon use efficiency (CUE) and decomposition
+          rate (-k) are controlled by environmental chemistry, sediment properties,
+          and catchment land use; these correlations confirm that microbial DOM
+          catabolism is strongly mediated by the abiotic and landscape context
+          of stream systems.
+
+  - name: Photomineralization of Chromophoric DOM
+    description: >
+      Solar UV and visible radiation cleave covalent bonds in chromophoric
+      dissolved organic matter (CDOM), directly mineralizing a fraction to CO2
+      and transforming refractory humic compounds into labile low-molecular-weight
+      photoproducts that are bioavailable to bacteria. Photomineralization and
+      microbial degradation are coupled processes: photodegradation generates
+      substrates that prime bacterial DOM uptake, particularly for allochthonous
+      terrestrial DOM that is otherwise recalcitrant to direct microbial attack.
+    biological_processes:
+      - term:
+          id: GO:0009416
+          label: response to light stimulus
+        evidence:
+          - reference: PMID:25351141
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "Photochemical and bacterial degradation are important pathways to carbon mineralization and can be coupled in dissolved organic matter (DOM) decomposition."
+            explanation: >
+              Establishes photomineralization as a primary pathway to carbon
+              mineralization that operates alongside and is coupled with bacterial
+              degradation; the interaction between photochemical and biological
+              processing jointly determines DOM fate and CO2 yield in sunlit
+              aquatic systems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2433
+          label: Roseobacter
+        role: DECOMPOSER
+        description: >
+          Marine heterotrophic bacteria including Roseobacter take up
+          photodegradation products — small labile organic molecules produced
+          when UV cleaves larger CDOM molecules — completing the coupled
+          photobiological DOM degradation pathway in surface ocean waters
+      - taxon:
+          id: NCBITaxon:28108
+          label: Alteromonas macleodii
+        role: DECOMPOSER
+        description: >
+          Alteromonas and other copiotrophic marine bacteria rapidly assimilate
+          labile photodegradation products released from CDOM, linking
+          photomineralization rates to bacterial production in sunlit coastal
+          and open ocean waters
+    causal_edges:
+      - subject: Solar UV radiation
+        predicate: CAUSES
+        object: Cleavage of chromophoric DOM into labile photoproducts and CO2
+      - subject: Photodegradation products
+        predicate: ENABLES
+        object: Enhanced bacterial DOM uptake and mineralization
+    evidence:
+      - reference: PMID:25351141
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "bacteria growing on DOM sources that are low in labile amino acids, such as those in terrestrially influenced environments, experience more of the benefits associated with photochemical exposure"
+        explanation: >
+          Shows that allochthonous terrestrial DOM — the primary DOM input to
+          boreal and temperate streams — benefits most from photomineralization
+          because photodegradation transforms recalcitrant humic material into
+          bacterial substrates, establishing photomineralization as especially
+          important in catchment-dominated aquatic systems.
+
+  - name: Residence Time Control of Lake DOC Fate
+    description: >
+      In lake ecosystems, the fraction of allochthonous dissolved organic carbon
+      that is mineralized versus exported downstream is governed primarily by
+      hydrological residence time and DOM recalcitrance. Lakes with residence
+      times greater than six years mineralize the majority of incoming DOC,
+      releasing CO2 to the atmosphere, while short-residence-time lakes act as
+      conduits exporting terrestrial DOC to downstream rivers and coasts.
+    biological_processes:
+      - term:
+          id: GO:0009056
+          label: catabolic process
+        evidence:
+          - reference: PMID:21779347
+            supports: SUPPORT
+            evidence_source: COMPUTATIONAL
+            snippet: "Lakes with residence times <1 year exported approximately 60% of the DOC, whereas lakes with residence times >6 years mineralized approximately 60% of the DOC."
+            explanation: >
+              Quantifies the residence time threshold that switches lake DOC fate
+              from export-dominated to mineralization-dominated; the six-year
+              threshold identifies hydrological residence time as the primary
+              abiotic control on net lake DOM catabolism at ecosystem scale.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:1423
+          label: Bacillus subtilis
+        role: DECOMPOSER
+        description: >
+          Freshwater heterotrophic bacteria including Bacillus subtilis are key
+          mediators of allochthonous DOC mineralization in lake water columns;
+          their catabolism of terrestrially derived organic compounds drives CO2
+          supersaturation and atmospheric outgassing in retention-dominated lakes
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Water temperature interacts with residence time to control DOC
+          mineralization; warmer lakes with longer residence times achieve the
+          highest fractions of allochthonous DOC mineralization per unit volume
+    causal_edges:
+      - subject: Hydrological residence time
+        predicate: MODULATES
+        object: Fraction of allochthonous DOC mineralized versus exported downstream
+      - subject: Microbial community
+        predicate: CAUSES
+        object: Conversion of allochthonous DOC to CO2 in the lake water column
+    evidence:
+      - reference: PMID:21779347
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "the fate of allochthonous DOC was controlled primarily by the mineralization rate and the hydrologic residence time"
+        explanation: >
+          Establishes that ecosystem-scale DOC mineralization in lakes is
+          determined by DOM recalcitrance (mineralization rate) and physical
+          hydrology (residence time); this two-factor framework enables prediction
+          of lake carbon balance from readily measured variables and confirms
+          microbial catabolism as the dominant processing pathway in retention-
+          dominated lake systems.
+
+indicators:
+  - name: DOC concentration change along aquatic continuum
+    description: >
+      Decline in dissolved organic carbon concentration from headwater inputs
+      to downstream export integrates net DOM mineralization by microbial and
+      photochemical pathways across streams, rivers, and lake chains.
+    indicator_term:
+      id: PATO:0000033
+      label: concentration of
+    measurement: "DOC in mg C L-1 (grab samples or continuous sensors along stream/lake transects)"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:21779347
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Inputs of dissolved organic carbon (DOC) to lakes derived from the surrounding landscape can be stored, mineralized or passed to downstream ecosystems."
+        explanation: >
+          Identifies DOC concentration dynamics — the balance of input,
+          mineralization, and export — as the fundamental measure of DOM fate
+          in lakes; DOC concentration gradients integrated over residence time
+          provide the primary indicator of DOM mineralization at ecosystem scale.
+
+  - name: Marine dissolved organic carbon pool size
+    description: >
+      The global marine DOM pool (~660 Pg C) and its turnover time (days for
+      labile fractions to millennia for recalcitrant deep-ocean DOM) quantify
+      the scope and significance of marine DOM mineralization to the global
+      carbon cycle.
+    indicator_term:
+      id: PATO:0000033
+      label: concentration of
+    measurement: "Marine DOC in µmol C L-1 (JGOFS/CLIVAR ocean survey data)"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:34563014
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Marine dissolved organic matter (DOM) holds ~660 billion metric tons of carbon, making it one of Earth's major carbon reservoirs that is exchangeable with the atmosphere on annual to millennial time scales."
+        explanation: >
+          Establishes the magnitude and atmospheric exchangeability of the
+          marine DOM pool as the key indicator of marine DOM mineralization
+          significance; the 660 Pg C pool and annual-to-millennial exchange
+          timescales define the range of marine DOM turnover rates that
+          mineralization processes must explain and manage.
+
+drivers:
+  - name: DOM recalcitrance and molecular composition
+    description: >
+      The molecular composition of DOM — from labile amino acids and simple
+      sugars to refractory humic substances and condensed aromatic compounds —
+      is the primary determinant of mineralization rate and the fraction of
+      DOM respired versus exported. Recalcitrant DOM fractions persist for
+      centuries in the deep ocean and peatland soils.
+    driver_type: GEOCHEMICAL
+    evidence:
+      - reference: PMID:21779347
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "The balance among these OC fates depends on a suite of physical, chemical, and biological processes within the lake, as well as the degree of recalcintrance of the allochthonous DOC load."
+        explanation: >
+          Explicitly identifies DOM recalcitrance as the primary geochemical
+          control on the balance between lake DOC mineralization and export;
+          the chemical quality of the DOM substrate is the dominant factor
+          determining what fraction of organic carbon is converted to CO2
+          versus transported to downstream ecosystems.
+
+  - name: Temperature and solar UV radiation
+    description: >
+      Temperature accelerates microbial DOM catabolism rates following Arrhenius
+      kinetics; UV radiation drives photomineralization of chromophoric DOM.
+      Together these physical drivers control DOM breakdown rates in surface
+      waters and are expected to intensify under climate warming.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:30319149
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Rm increasing from eastern ecoregions through the plains to the western ecoregions"
+        explanation: >
+          The geographic gradient in microbial respiration (Rm) across U.S.
+          stream ecoregions reflects temperature and organic matter quality
+          effects on DOM catabolism; higher Rm in warmer western ecoregions
+          confirms temperature as a primary climate driver of stream DOM
+          mineralization rates.
+
+  - name: Hydrological residence time
+    description: >
+      Water residence time determines DOM contact time with microbial communities
+      and UV exposure; longer residence times allow more complete mineralization
+      of recalcitrant DOM fractions in lakes and reservoirs, while short
+      residence times limit mineralization and increase export.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:21779347
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Results from simulations indicated that the fate of allochthonous DOC was controlled primarily by the mineralization rate and the hydrologic residence time."
+        explanation: >
+          Confirms hydrological residence time as a co-equal abiotic driver of
+          DOM mineralization alongside DOM recalcitrance; the primacy of these
+          two factors enables practical prediction of lake carbon processing and
+          identifies residence time management as a lever for regulating DOC
+          export and CO2 emissions in regulated water bodies.
+
+interventions:
+  - name: Riparian buffer restoration to regulate DOM inputs
+    description: >
+      Restoring riparian vegetation shifts DOM entering streams toward more
+      bioavailable fractions and reduces agricultural DOM inputs; this regulates
+      DOM mineralization rates, CO2 outgassing, and the balance between
+      respiration and downstream DOC export.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:30319149
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "CUE was further correlated with catchment land cover"
+        explanation: >
+          The correlation of microbial carbon use efficiency (CUE) with catchment
+          land cover demonstrates that land management decisions propagate directly
+          to DOM mineralization rates in streams; riparian buffer restoration
+          modifies catchment land cover and can be targeted to optimize DOM
+          processing for water quality and carbon outcomes.
+
+  - name: Water level management to suppress aerobic DOM mineralization
+    description: >
+      Maintaining high water tables in peatlands and wetlands suppresses aerobic
+      microbial DOM mineralization, protecting large DOC stores from rapid
+      breakdown and net CO2 emission; drainage accelerates mineralization and
+      converts these systems from net carbon sinks to sources.
+    intervention_type: MANAGEMENT
+    evidence:
+      - reference: PMID:21779347
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "the fate of allochthonous DOC was controlled primarily by the mineralization rate and the hydrologic residence time."
+        explanation: >
+          Residence time is a hydrologically manageable variable in regulated
+          lakes and wetlands; water level management extends DOM residence time,
+          shifting DOC fate from export toward mineralization or burial, and
+          provides the primary intervention lever for managing peatland and
+          wetland carbon stocks under climate change.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:00000044
+      label: peatland
+    description: >
+      Peatlands export some of the highest DOC concentrations of any terrestrial
+      biome, with Sphagnum-derived humic substances dominating the DOM pool;
+      DOM mineralization within peat is suppressed by waterlogging and low pH,
+      enabling century-scale DOC accumulation, but drainage dramatically
+      accelerates mineralization and CO2 release
+
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      The ocean contains ~660 Pg C of dissolved organic carbon; surface ocean
+      DOM undergoes rapid microbial and photochemical mineralization within
+      days to weeks, while deep-ocean recalcitrant DOM turns over on
+      millennial timescales, constituting one of Earth's largest exchangeable
+      carbon reservoirs
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal catchments are among the largest exporters of terrestrial DOC to
+      freshwater systems; humic-rich DOM from boreal soils dominates stream
+      and lake DOC budgets, and permafrost thaw is increasing export of
+      ancient dissolved organic carbon as previously frozen organic matter
+      becomes hydrologically mobile
+
+creation_date: "2026-10-19T00:00:00Z"

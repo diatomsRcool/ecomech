@@ -1,0 +1,388 @@
+id: ECOCORE:00000205
+name: Trophic Cascade
+process_term:
+  id: ECOCORE:00000205
+  label: trophic cascade
+description: >
+  A trophic cascade is an indirect ecological interaction in which apex predators
+  suppress herbivore populations or alter their behavior, releasing plants from
+  top-down consumer pressure and increasing primary production and carbon storage.
+  Cascades operate through density-mediated effects (predators reduce herbivore
+  numbers) and behaviorally mediated effects (fear of predation alters herbivore
+  foraging without direct kill). They occur across terrestrial, marine, and
+  freshwater ecosystems and can traverse ecosystem boundaries via species with
+  complex life histories. The global loss of apex consumers through hunting and
+  habitat degradation is reversing trophic cascades worldwide, with cascading
+  consequences for ecosystem carbon storage, fire dynamics, and biogeochemical cycles.
+synonyms:
+  - top-down trophic cascade
+  - top-down control
+  - predator-mediated indirect effect
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Density-Mediated Top-Down Control
+    description: >
+      Apex predators suppress herbivore population densities through direct
+      predation, releasing plant communities from chronic overgrazing and
+      restoring vegetation structure, biomass, and species composition. This
+      density-mediated mechanism is the classical driver of trophic cascades
+      in terrestrial and aquatic systems and has been documented following
+      large predator extirpation and reintroduction globally.
+    biological_processes:
+      - term:
+          id: GO:0007610
+          label: behavior
+        evidence:
+          - reference: PMID:21764740
+            supports: SUPPORT
+            evidence_source: REVIEW
+            snippet: "recent research reveals extensive cascading effects of their disappearance in marine, terrestrial, and freshwater ecosystems worldwide"
+            explanation: >
+              Synthesizes global evidence that apex predator loss triggers trophic
+              cascades across ecosystem types; density-mediated top-down control
+              is the primary mechanism linking predator presence to vegetation
+              biomass and community composition across marine, terrestrial, and
+              freshwater systems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:9612
+          label: Canis lupus
+        role: PREDATOR
+        description: >
+          Wolves exert top-down control on elk and deer populations; reintroduction
+          to Yellowstone National Park suppressed elk browsing on riparian
+          vegetation, allowing willow, aspen, and cottonwood to recover and
+          stabilizing stream banks through a density-mediated cascade
+      - taxon:
+          id: NCBITaxon:9860
+          label: Cervus elaphus
+        role: PREY
+        description: >
+          Red deer and elk are the primary ungulate prey suppressed by wolf
+          predation; their reduced density releases palatable plants from chronic
+          browsing pressure, triggering measurable vegetation recovery in
+          wolf-occupied systems
+    causal_edges:
+      - subject: Apex predator
+        predicate: INHIBITS
+        object: Herbivore population density
+      - subject: Reduced herbivore density
+        predicate: ENABLES
+        object: Plant biomass recovery and vegetation restoration
+    evidence:
+      - reference: PMID:10542455
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "trophic cascades are also altered by humans. Analyses of the extirpation of large animals reveal loss of cascades, and the potential of conservation to restore not only predator populations but also the ecosystem-level effects that ramify from their presence."
+        explanation: >
+          Documents that human-driven extirpation of large predators eliminates
+          trophic cascades, and that predator reintroduction can restore the full
+          suite of ecosystem-level effects; establishes density-mediated control
+          as a reversible mechanism with direct implications for rewilding
+          and conservation.
+
+  - name: Behaviorally Mediated Trophic Cascade
+    description: >
+      Predator presence alone, even without direct consumption, induces foraging
+      avoidance and spatial redistribution in herbivores through a landscape of
+      fear. These non-consumptive effects alter herbivore foraging intensity in
+      risky microhabitats, enhancing plant biomass and carbon storage without
+      requiring a reduction in total herbivore numbers. Behaviorally mediated
+      cascades can generate carbon storage effects comparable to density-mediated
+      mechanisms.
+    biological_processes:
+      - term:
+          id: GO:0007610
+          label: behavior
+        evidence:
+          - reference: PMID:23776213
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "up to 1.4-fold more carbon is retained in plant biomass when carnivores are present compared with when they are absent, owing primarily to greater carbon storage in grass and belowground plant biomass driven largely by predator nonconsumptive (fear) effects on herbivores"
+            explanation: >
+              Directly quantifies the carbon storage consequence of a behaviorally
+              mediated cascade: fear effects alone increase plant carbon retention
+              by up to 40%, demonstrating that non-consumptive predator presence
+              can restructure ecosystem carbon dynamics without requiring direct
+              predation.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:9612
+          label: Canis lupus
+        role: PREDATOR
+        description: >
+          Wolf predation risk causes elk to avoid open areas and riparian zones;
+          this landscape of fear effect drives vegetation recovery in risky
+          habitats even where elk abundance is unchanged, contributing to
+          carbon storage through altered plant community composition
+      - taxon:
+          id: NCBITaxon:9860
+          label: Cervus elaphus
+        role: PREY
+        description: >
+          Elk alter foraging behavior and spatial use in response to wolf
+          predation risk, reducing browsing pressure on palatable plants in
+          open and riparian habitats without necessarily declining in total
+          population size
+    causal_edges:
+      - subject: Predator presence
+        predicate: MODULATES
+        object: Herbivore foraging behavior and spatial distribution
+      - subject: Altered herbivore foraging
+        predicate: CAUSES
+        object: Enhanced plant carbon fixation and belowground carbon storage
+    evidence:
+      - reference: PMID:23776213
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "the cascading effects of predators in this system begin to affect carbon cycling through enhanced carbon fixation by plants"
+        explanation: >
+          Demonstrates that behaviorally mediated cascades propagate to ecosystem
+          carbon cycling; enhanced plant carbon fixation through fear-induced
+          shifts in herbivore foraging links the mere presence of apex predators
+          to terrestrial carbon storage at ecosystem scale.
+
+  - name: Cross-Ecosystem Trophic Cascade
+    description: >
+      Trophic cascades traverse ecosystem boundaries when species with complex
+      life histories (e.g., aquatic larvae and terrestrial adults) transport
+      predator effects across habitats. Predators in one ecosystem alter the
+      abundance and behavior of organisms in adjacent ecosystems, indirectly
+      affecting processes including pollination, primary production, and nutrient
+      transfer in the recipient habitat. Marine examples include the sea otter–
+      sea urchin–kelp forest cascade, where otter predation on urchins releases
+      giant kelp from overgrazing, structuring entire coastal ecosystems.
+    biological_processes:
+      - term:
+          id: GO:0007610
+          label: behavior
+        evidence:
+          - reference: PMID:16208370
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "strong species interactions can reverberate across ecosystems, and emphasize the importance of landscape-level processes in driving local species interactions."
+            explanation: >
+              Establishes the principle that predator effects cross ecosystem
+              boundaries via organisms with complex life histories; this cross-
+              ecosystem cascade mechanism underlies the sea otter–urchin–kelp
+              cascade in which marine predators regulate coastal primary production
+              and habitat structure.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:34882
+          label: Enhydra lutris
+        role: PREDATOR
+        description: >
+          Sea otters control sea urchin populations in North Pacific kelp forests;
+          otter predation on urchins releases giant kelp from overgrazing,
+          generating a three-level trophic cascade with major consequences for
+          kelp forest biodiversity, primary production, and coastal carbon storage
+      - taxon:
+          id: NCBITaxon:7668
+          label: Strongylocentrotus purpuratus
+        role: CONSUMER
+        description: >
+          Purple sea urchins are the keystone herbivore in kelp forest cascades;
+          without otter predation, urchin populations expand to barrens-forming
+          aggregations that eliminate kelp canopy and convert productive forests
+          to species-poor urchin barrens
+      - taxon:
+          id: NCBITaxon:35122
+          label: Macrocystis pyrifera
+        role: PRIMARY_PRODUCER
+        description: >
+          Giant kelp is released from urchin overgrazing when sea otters maintain
+          urchin populations at low densities; kelp forest canopies support among
+          the highest marine primary productivity and biodiversity, and their loss
+          following predator removal reverses carbon uptake in coastal waters
+    causal_edges:
+      - subject: Sea otter predation
+        predicate: INHIBITS
+        object: Sea urchin herbivory on kelp
+      - subject: Reduced urchin overgrazing
+        predicate: ENABLES
+        object: Kelp forest recovery and coastal primary production
+    evidence:
+      - reference: PMID:16208370
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Fish reduce larval dragonfly abundances in ponds, leading to fewer adult dragonflies nearby. Adult dragonflies consume insect pollinators and alter their foraging behaviour."
+        explanation: >
+          Documents a mechanistically complete cross-ecosystem trophic cascade
+          spanning aquatic and terrestrial habitats; the fish–dragonfly–pollinator
+          cascade demonstrates the pathway by which aquatic predation restructures
+          terrestrial processes, establishing the cross-ecosystem cascade as a
+          general mechanism also exemplified by the marine otter–urchin–kelp system.
+
+indicators:
+  - name: Vegetation biomass or cover response to predator manipulation
+    description: >
+      Changes in plant biomass, basal area, or canopy cover following predator
+      addition or removal are the most broadly applicable indicators of trophic
+      cascade strength in terrestrial and coastal marine systems.
+    indicator_term:
+      id: PATO:0000161
+      label: rate
+    measurement: "Plant cover (%) or basal area (m2 ha-1) before and after predator manipulation"
+    frequency: COMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:10542455
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "New studies are documenting trophic cascades in theoretically unlikely systems such as tropical forests and the open ocean."
+        explanation: >
+          Establishes vegetation response to predator manipulation as the key
+          cascade indicator across diverse ecosystem types; documentation of
+          cascades in tropical forests and open ocean confirms that plant biomass
+          change is the most broadly applicable metric for quantifying trophic
+          cascade strength.
+
+  - name: Plant carbon storage anomaly under predator presence
+    description: >
+      Plant carbon stocks (above- and below-ground) compared between predator-
+      present and predator-absent areas quantify the contribution of trophic
+      cascades to ecosystem carbon budgets, capturing both density- and
+      behaviorally mediated cascade effects.
+    indicator_term:
+      id: PATO:0000161
+      label: rate
+    measurement: "Plant biomass C (g C m-2) compared between predator-present and predator-absent plots"
+    frequency: UNCOMMON
+    temporality: CHRONIC
+    evidence:
+      - reference: PMID:23776213
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "up to 1.4-fold more carbon is retained in plant biomass when carnivores are present compared with when they are absent"
+        explanation: >
+          Provides a quantitative benchmark for the carbon storage indicator:
+          1.4-fold greater plant carbon retention in predator-present plots
+          establishes a measurable signal for detecting trophic cascade effects
+          on terrestrial carbon stocks using standard plant biomass sampling.
+
+drivers:
+  - name: Apex predator abundance and functional density
+    description: >
+      The strength of trophic cascades scales with predator abundance relative
+      to prey; behaviorally mediated cascades can be triggered at low predator
+      densities, while density-mediated effects require sufficient predator
+      numbers to suppress prey populations measurably.
+    driver_type: BIOTIC
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Until recently, large apex consumers were ubiquitous across the globe and had been for millions of years. The loss of these animals may be humankind's most pervasive influence on nature."
+        explanation: >
+          Establishes apex predator abundance as the primary biotic driver of
+          trophic cascade presence and strength; the historical ubiquity of
+          large apex consumers and their ongoing decline confirm that predator
+          density is the dominant driver modulating cascade intensity globally.
+
+  - name: Human hunting and persecution of apex predators
+    description: >
+      Direct killing of apex predators through hunting, trapping, and conflict
+      management is the primary mechanism driving predator population declines
+      and the consequent weakening or elimination of trophic cascades globally.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Although such losses are widely viewed as an ethical and aesthetic problem, recent research reveals extensive cascading effects of their disappearance in marine, terrestrial, and freshwater ecosystems worldwide"
+        explanation: >
+          Frames human-driven apex predator loss as causing ecosystem-level
+          cascading consequences across all major biome types; human persecution
+          is identified as the dominant anthropogenic driver that disrupts
+          trophic cascades and reverses the ecosystem services they provide.
+
+  - name: Ecosystem productivity
+    description: >
+      Trophic cascade strength is amplified in productive ecosystems where
+      herbivore populations reach densities sufficient to strongly suppress
+      plant biomass in the absence of predators; cascades are weaker where
+      food web connectivity is low or refuges decouple predator–prey dynamics.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:10542455
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "These conditions include the relative productivity of ecosystems, presence of refuges and the potential for compensation."
+        explanation: >
+          Identifies ecosystem productivity, refuges, and compensatory dynamics
+          as conditions that modulate trophic cascade transmission; high productivity
+          amplifies cascade strength by supporting herbivore densities sufficient
+          to strongly suppress vegetation, while refuges and compensation dampen
+          cascade propagation.
+
+interventions:
+  - name: Predator reintroduction and rewilding
+    description: >
+      Reintroducing extirpated apex predators restores trophic cascades and
+      the ecosystem services they provide, including vegetation recovery, stream
+      bank stabilization, and carbon sequestration. Wolf reintroduction in
+      Yellowstone and sea otter recovery in Pacific kelp forests are landmark
+      examples of cascade restoration through rewilding.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:10542455
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "the potential of conservation to restore not only predator populations but also the ecosystem-level effects that ramify from their presence."
+        explanation: >
+          Establishes predator reintroduction as the primary intervention for
+          restoring trophic cascades; conservation of predator populations
+          restores not just the species themselves but the full suite of
+          ecosystem-level effects that cascade from their presence, validating
+          rewilding as a cascade and carbon restoration strategy.
+
+  - name: Legal protection and conflict management for apex predators
+    description: >
+      Hunting bans, protected areas, and non-lethal livestock protection
+      measures sustain apex predator populations at densities sufficient to
+      maintain trophic cascades; even partial protection can prevent the
+      threshold decline that collapses cascade effects.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:21764740
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "These findings emphasize the urgent need for interdisciplinary research to forecast the effects of trophic downgrading on process, function, and resilience in global ecosystems."
+        explanation: >
+          The urgent research need for forecasting trophic downgrading consequences
+          underscores the importance of interventions that prevent apex predator
+          loss; protected areas and hunting restrictions are the primary policy
+          tools for sustaining predator populations and the cascade-delivered
+          ecosystem resilience they maintain.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
+    description: >
+      Temperate forests are the setting of landmark trophic cascade research;
+      wolf–elk–vegetation cascades in Yellowstone and European boreal systems
+      demonstrate how predator reintroduction drives riparian vegetation recovery,
+      stream bank stabilization, and increased forest carbon stocks
+
+  - habitat_term:
+      id: ENVO:01000188
+      label: tropical savanna biome
+    description: >
+      African savannahs support the world's most intact large predator guilds
+      including lions, leopards, and African wild dogs; intact predator
+      communities regulate ungulate density and behavior, maintaining
+      grass-woody plant balance and nutrient cycling across the landscape
+
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      Marine trophic cascades link apex predators to phytoplankton production;
+      the sea otter–sea urchin–giant kelp cascade structures North Pacific
+      coastal ecosystems, and overfishing of sharks and large pelagic predators
+      drives mesopredator release and altered prey community composition
+
+creation_date: "2026-10-19T00:00:00Z"
