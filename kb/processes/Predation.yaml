@@ -410,16 +410,37 @@ habitat_context:
       label: temperate broadleaf forest biome
     description: >
       Temperate mixed forests historically supported apex predators (wolves, bears,
-      cougars) whose loss has released deer and elk populations from top-down
-      control, causing overbrowsing and suppressing tree regeneration
+      cougars) whose extirpation released deer and elk populations from top-down
+      control, causing overbrowsing, suppressed tree regeneration, and loss of
+      riparian vegetation across North America and Europe.
 
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000188
+      label: tropical savanna biome
     description: >
-      Broadleaf forests are subject to trophic cascades from mesopredator release
-      following large carnivore extirpation; fox and raccoon populations expand,
-      altering bird nesting success, small mammal dynamics, and forest understory
-      structure
+      African savannas support the highest density and diversity of large
+      mammalian predators globally; lion (Panthera leo), leopard, cheetah,
+      and wild dog interact with diverse ungulate prey communities, and
+      apex predator removal in African reserves has triggered trophic cascades
+      affecting vegetation structure and smaller predator abundances.
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forests support wolf-moose-vegetation trophic chains that are
+      among the best-studied predator-prey systems; wolf predation on moose
+      regulates moose browsing of young conifers and deciduous trees in
+      the boreal zone, and wolf extirpation in parts of North America has
+      led to moose overabundance and tree recruitment failure.
+
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      Marine pelagic ecosystems support trophic cascades from apex predators
+      (sharks, tunas, marine mammals) to zooplankton and phytoplankton;
+      shark overfishing has released mesopredator fish populations in coastal
+      systems, altering prey community structure and carbon export dynamics.
 
 creation_date: "2026-08-17T00:00:00Z"

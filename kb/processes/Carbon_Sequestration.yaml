@@ -453,21 +453,41 @@ interventions:
 
 habitat_context:
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
     description: >
       Temperate forests are significant carbon sinks where deciduous and mixed
       forest biomass accumulation, soil organic matter, and coarse woody debris
       represent major carbon pools maintained by ongoing photosynthetic uptake
-      exceeding ecosystem respiration in mature and regrowing stands
+      exceeding ecosystem respiration in mature and regrowing stands.
 
   - habitat_term:
-      id: ENVO:00000043
-      label: wetland area
+      id: ENVO:00000044
+      label: peatland
     description: >
-      Peatland wetlands are the most carbon-dense terrestrial ecosystems;
-      Sphagnum-dominated bogs and sedge-dominated fens accumulate peat carbon
-      under anaerobic waterlogged conditions, storing disproportionate global
-      carbon stocks relative to their area in boreal, subarctic, and tropical regions
+      Northern peatlands are the most carbon-dense terrestrial ecosystems,
+      storing ~600 Pg C; Sphagnum-dominated bogs and sedge-dominated fens
+      accumulate peat carbon under anaerobic waterlogged conditions at rates
+      of 20-30 g C m-2 yr-1 in boreal and subarctic regions, and tropical
+      peatlands of Southeast Asia hold a further 100-200 Pg C.
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forests form the largest terrestrial biome and a major carbon
+      reservoir in both biomass and soil organic matter; slow decomposition
+      at cold temperatures allows carbon accumulation, and boreal peatlands
+      embedded within the biome contribute a large additional soil carbon stock
+      vulnerable to permafrost thaw and fire.
+
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical forests account for ~40% of global terrestrial carbon stocks
+      in above-ground biomass; primary tropical forests are net carbon sinks,
+      while deforestation and degradation of tropical forests make them the
+      largest source of land-use carbon emissions globally.
 
 creation_date: "2026-09-02T00:00:00Z"

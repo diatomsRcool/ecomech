@@ -418,6 +418,26 @@ habitat_context:
       waterlogging creates the anaerobic conditions required for dissimilatory
       iron reduction, and fluctuating water tables drive alternating Fe(III)
       reduction and Fe(II) oxidation cycling that controls nutrient and
-      carbon dynamics
+      carbon dynamics.
+
+  - habitat_term:
+      id: ENVO:01000181
+      label: mangrove biome
+    description: >
+      Mangrove sediments are hotspots of anaerobic iron cycling; high organic
+      matter inputs from mangrove litter fuel Fe(III) reduction, and tidal
+      flushing repeatedly oxidizes Fe(II) back to Fe(III) minerals, driving
+      a rapid redox cycle that strongly influences phosphorus availability
+      and sulfide accumulation in mangrove porewater.
+
+  - habitat_term:
+      id: ENVO:01000030
+      label: marine hydrothermal vent biome
+    description: >
+      Deep-sea hydrothermal vents export reduced iron (Fe2+) from the oceanic
+      crust in enormous quantities; Fe(II) oxidized by chemolithoautotrophic
+      Zetaproteobacteria at vent fields supports chemosynthetic food webs,
+      and hydrothermal Fe fluxes influence iron availability across wide
+      areas of the deep ocean.
 
 creation_date: "2026-09-02T00:00:00Z"

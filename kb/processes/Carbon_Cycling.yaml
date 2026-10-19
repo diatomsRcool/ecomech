@@ -650,4 +650,31 @@ habitat_context:
       label: cropland biome
     description: Agricultural soils have lost significant SOC through tillage; soil carbon restoration is a major management target
 
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forests store ~270 Pg C in biomass and soil, with permafrost
+      soils holding an additional ~1,700 Pg C; warming-driven permafrost thaw
+      is converting this region from a net carbon sink to a source, with
+      decomposition of previously frozen organic matter releasing CO2 and CH4
+
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical forests hold ~40% of terrestrial carbon stocks despite covering
+      only ~12% of land area; high GPP and rapid turnover create large carbon
+      fluxes through the system; deforestation and degradation are converting
+      these biomes from net carbon sinks to significant CO2 sources
+
+  - habitat_term:
+      id: ENVO:00000044
+      label: peatland
+    description: >
+      Northern peatlands store ~600 Pg C accumulated over millennia under
+      waterlogged, anoxic conditions that suppress decomposition; these
+      systems represent the single largest terrestrial carbon pool per unit
+      area and are highly vulnerable to climate warming and drainage
+
 creation_date: "2025-07-22T00:00:00Z"

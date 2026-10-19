@@ -591,4 +591,34 @@ habitat_context:
       areas also support significant methanogenesis and contribute to global
       CH4 budgets through ebullition and diffusion.
 
+  - habitat_term:
+      id: ENVO:00000044
+      label: peatland
+    description: >
+      Northern peatlands (bogs and fens) are the single largest natural
+      terrestrial source of atmospheric CH4, storing ~30% of global soil
+      carbon; Sphagnum-dominated peatlands create strongly anoxic, acidic
+      conditions that sustain high methanogen activity, and peatland CH4 flux
+      is highly sensitive to water table drawdown and warming.
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forest soils overlying permafrost or with seasonally waterlogged
+      depressions are a significant CH4 source; permafrost thaw exposes
+      previously frozen organic carbon to methanogenesis, and thermokarst
+      lakes formed by subsidence are hotspots of CH4 ebullition in the
+      boreal-arctic transition zone.
+
+  - habitat_term:
+      id: ENVO:01000245
+      label: cropland biome
+    description: >
+      Flooded rice paddies are the largest anthropogenic source of CH4 from
+      agriculture; anaerobic decomposition of soil organic matter under
+      continuous flooding sustains methanogen communities, and CH4 is
+      transported to the atmosphere via aerenchyma in rice stems, bypassing
+      aerobic oxidation in the water column.
+
 creation_date: "2026-09-02T00:00:00Z"

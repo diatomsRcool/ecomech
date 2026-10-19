@@ -509,4 +509,24 @@ habitat_context:
       label: freshwater biome
     description: Lacustrine P cycling is driven by sedimentation and internal loading; P is the primary eutrophication driver
 
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Highly weathered tropical soils (Oxisols, Ultisols) are among the most
+      P-limited terrestrial systems; occluded and mineral-bound P fractions
+      dominate after millennia of weathering, and plants rely on mycorrhizal
+      networks and phosphatase exudation for P acquisition; biological cycling
+      is extremely tight with rapid P recycling from decomposing litter
+
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      Marine P cycling is dominated by rapid regeneration of dissolved
+      inorganic P from sinking organic particles; phosphate limits
+      phytoplankton production in the tropical North Atlantic and
+      Mediterranean; biological pump efficiency determines the ratio of P
+      exported to depth vs. recycled in the upper ocean
+
 creation_date: "2025-07-22T00:00:00Z"

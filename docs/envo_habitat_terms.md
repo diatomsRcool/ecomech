@@ -40,6 +40,8 @@ Use `just validate-terms-file` to confirm any ID before committing.
 | Kelp forest | ENVO:01000058 | kelp forest |
 | Estuary | ENVO:00000045 | estuary |
 | Coastal wetland | ENVO:00000230 | coastal wetland ecosystem |
+| Marine hydrothermal vent | ENVO:01000030 | marine hydrothermal vent biome |
+| Marine salt marsh | ENVO:01000022 | marine salt marsh biome |
 
 ## Terms from the plan that were WRONG — do not use
 

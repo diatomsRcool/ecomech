@@ -703,16 +703,50 @@ habitat_context:
   - habitat_term:
       id: ENVO:01000202
       label: temperate broadleaf forest biome
-    description: N cycling in temperate forests is strongly seasonal; dominated by immobilization
+    description: >
+      N cycling in temperate forests is strongly seasonal; plant N demand
+      during the growing season drives net N immobilization, while autumn
+      litterfall and winter microbial activity sustain ammonification and
+      nitrification; acid rain and N deposition have accelerated nitrification
+      and NO3- leaching in heavily impacted temperate forests.
 
   - habitat_term:
       id: ENVO:01000245
       label: cropland biome
-    description: Agricultural systems have elevated N inputs and high denitrification and leaching rates
+    description: >
+      Agricultural systems receive large N inputs via synthetic fertilizers
+      and manure; high nitrification rates convert applied ammonium to nitrate
+      subject to rapid leaching, and denitrification under wet soil conditions
+      loses fixed N as N2O and N2, making croplands the dominant anthropogenic
+      source of reactive N to the environment.
 
   - habitat_term:
       id: ENVO:00000873
       label: freshwater biome
-    description: Aquatic N cycling includes coupled nitrification-denitrification in sediments
+    description: >
+      Aquatic N cycling includes coupled nitrification-denitrification in
+      sediments, anammox in low-oxygen hypolimnia, and riverine transport
+      of agricultural N loads; riparian zones are critical N retention buffers
+      that intercept NO3- leaching from terrestrial landscapes via denitrification.
+
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical forests cycle nitrogen rapidly via mineralization-dominated
+      pathways; high temperatures and moisture sustain intense ammonification
+      and nitrification year-round, and tropical soils are characteristically
+      N-rich relative to P-poor conditions (Redfield stoichiometry inversion),
+      leading to high gaseous N losses and NO3- leaching.
+
+  - habitat_term:
+      id: ENVO:01000180
+      label: tundra biome
+    description: >
+      Arctic tundra is severely N-limited; cold temperatures slow ammonification
+      and nitrification, and plant N demand is met primarily through mycorrhizal
+      uptake of organic N, bypassing the mineralization-nitrification pathway;
+      warming-induced permafrost thaw is releasing large pulses of inorganic N
+      that exceed plant uptake capacity and accelerate N losses to streams.
 
 creation_date: "2025-06-29T00:00:00Z"

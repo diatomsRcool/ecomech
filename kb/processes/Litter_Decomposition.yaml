@@ -408,15 +408,36 @@ habitat_context:
       Temperate mixed forests generate large annual leaf litter pulses that drive
       decomposer community dynamics; seasonal temperature variation and mixed
       litter quality from conifers and deciduous species create heterogeneous
-      decomposition environments
+      decomposition environments with earthworms as dominant macrofaunal decomposers.
 
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
     description: >
-      Broadleaf temperate forests produce moderate-C:N leaf litter that supports
-      rapid decomposition and high nutrient cycling rates; Agaricomycetes fungi
-      are the dominant decomposers, sensitive to both nitrogen deposition
-      and climate warming impacts on litter breakdown
+      Tropical forests have the fastest litter decomposition rates globally
+      (k > 2 yr-1 in humid tropics vs. < 0.5 in boreal); year-round warmth
+      and moisture sustain high fungal and bacterial activity, and termites
+      replace earthworms as the dominant macrofaunal litter processors,
+      consuming up to 40% of annual litter fall in some tropical forests.
+
+  - habitat_term:
+      id: ENVO:01000180
+      label: tundra biome
+    description: >
+      Arctic tundra has the slowest decomposition rates globally; cold
+      temperatures and waterlogging suppress microbial activity, and the
+      resulting slow turnover allows soil organic matter to accumulate to
+      depths of meters in permafrost; climate warming is accelerating
+      tundra decomposition and releasing ancient carbon stocks.
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forests produce high-lignin, high-C:N conifer litter that
+      decomposes slowly; cold winters and acidic soils favour fungal over
+      bacterial decomposers, and decomposition may take decades for needle
+      litter; the slow turnover contributes to deep organic soil horizons
+      that are sensitive to warming and fire.
 
 creation_date: "2026-08-17T00:00:00Z"

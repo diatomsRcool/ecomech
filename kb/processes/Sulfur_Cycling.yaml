@@ -557,16 +557,39 @@ habitat_context:
   - habitat_term:
       id: ENVO:00000873
       label: freshwater biome
-    description: Freshwater lake sediments cycle sulfur via sulfate reduction at oxic/anoxic interfaces; sulfate concentrations are typically low
+    description: >
+      Freshwater lake sediments cycle sulfur via sulfate reduction at oxic/anoxic
+      interfaces; sulfate concentrations are typically low (< 1 mM) compared to
+      marine systems, limiting sulfate reduction rates and favouring methanogenesis
+      as the terminal electron acceptor process.
 
   - habitat_term:
       id: ENVO:01000245
       label: cropland biome
-    description: Terrestrial sulfur cycling is driven by SO2 deposition, plant uptake, and microbial mineralization of organic sulfur in soil
+    description: >
+      Agricultural soils receive sulfur via atmospheric deposition and fertilizers;
+      reduced SO2 deposition from cleaner air legislation is increasing sulfur
+      deficiency in croplands, while organic matter mineralization provides the
+      main internal sulfur cycling flux in intensively managed soils.
 
   - habitat_term:
-      id: ENVO:01000245
-      label: cropland biome
-    description: Agricultural soils receive sulfur via atmospheric deposition and some fertilizers; sulfur deficiency is increasing with reduced acid deposition
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      The marine sulfur cycle is dominated by the DMSP-DMS pathway; phytoplankton
+      (especially coccolithophores and Phaeocystis) synthesize DMSP as an osmolyte
+      and cryoprotectant, and bacterial degradation releases DMS to the atmosphere,
+      making the ocean the largest natural source of atmospheric sulfur and a key
+      driver of the marine sulfur cycle.
+
+  - habitat_term:
+      id: ENVO:01000022
+      label: marine salt marsh biome
+    description: >
+      Salt marsh and coastal marine sediments support intense sulfate reduction
+      (sulfate concentrations ~28 mM in seawater); dissimilatory sulfate reduction
+      by Desulfovibrio and related sulfate reducers is the dominant anaerobic
+      decomposition pathway in coastal marine sediments, generating sulfide that
+      drives diagenetic iron and carbon cycling.
 
 creation_date: "2025-07-22T00:00:00Z"

@@ -386,4 +386,25 @@ habitat_context:
       estuaries also exhibit strong redox dynamics linked to organic matter
       decomposition.
 
+  - habitat_term:
+      id: ENVO:01000181
+      label: mangrove biome
+    description: >
+      Mangrove sediments exhibit some of the steepest redox gradients in
+      coastal ecosystems; high sulfate availability from seawater sustains
+      intense sulfate reduction in anoxic layers, creating sulfide-rich
+      conditions that are juxtaposed against oxygenated surface sediments
+      flushed by tidal cycles, making mangroves models for studying redox
+      ladder dynamics.
+
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      Oceanic oxygen minimum zones (OMZs) are large-scale pelagic redox
+      environments where O2 depletion at mid-water depths drives suboxic
+      to anoxic biogeochemistry; nitrogen cycling, iron reduction, and
+      manganese cycling occur along depth-stratified redox gradients that
+      expand and intensify with ocean deoxygenation driven by climate warming.
+
 creation_date: "2026-09-02T00:00:00Z"

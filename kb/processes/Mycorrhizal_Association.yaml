@@ -415,14 +415,35 @@ habitat_context:
       Temperate mixed forests support both AM (broadleaf trees) and EM (conifers)
       associations; the transition zone between AM-dominated deciduous and
       EM-dominated coniferous stands creates mycorrhizal ecotones that shape
-      tree species turnover and soil nutrient cycling regimes
+      tree species turnover and soil nutrient cycling regimes.
 
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
     description: >
-      Broadleaf temperate forests are predominantly AM-associated; high AM
-      fungal diversity in broadleaf forest soils supports plant community
-      diversity and rapid phosphorus cycling compared to EM-dominated systems
+      Boreal forests are dominated by ectomycorrhizal associations between
+      conifers (Picea, Pinus, Abies) and Basidiomycota fungi (Suillus, Amanita,
+      Cortinarius); EM fungi are the primary pathway for nitrogen acquisition
+      in N-limited boreal soils, and the EM fungal community plays a key role
+      in regulating soil carbon cycling through priming effects on decomposition.
+
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical forests are dominated by arbuscular mycorrhizal associations;
+      AM symbiosis is the ancestral form and is prevalent in the high-diversity
+      families of tropical trees (Fabaceae, Moraceae, Meliaceae); at high soil
+      P availability in weathered tropical soils, AM associations may be less
+      obligate but remain widespread.
+
+  - habitat_term:
+      id: ENVO:01000193
+      label: temperate grassland biome
+    description: >
+      Grassland plants are predominantly AM-associated; AM fungi in grassland
+      soils form dense hyphal networks that deliver P and water to grass roots,
+      and AM fungal diversity is a significant predictor of plant community
+      diversity and productivity in temperate and tropical grasslands.
 
 creation_date: "2026-08-17T00:00:00Z"

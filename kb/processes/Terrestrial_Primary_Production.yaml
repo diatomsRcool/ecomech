@@ -391,13 +391,34 @@ habitat_context:
       label: temperate broadleaf forest biome
     description: >
       Temperate forests contribute substantially to Northern Hemisphere terrestrial
-      NPP; seasonally limited by low winter temperatures and periodic drought
+      NPP; seasonally limited by low winter temperatures and periodic drought;
+      net ecosystem production is highest in middle-aged regrowing stands.
 
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
     description: >
-      Broadleaf temperate forests have high summer NPP peaks; sensitive to
-      drought-induced NPP reductions and vulnerable to climate-driven regime shifts
+      Tropical moist forests account for ~34% of global terrestrial GPP despite
+      covering only 12% of land area; year-round warm temperatures and high
+      moisture eliminate the seasonal limitation that constrains temperate NPP,
+      producing the highest above-ground biomass production rates on Earth.
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forests account for ~24% of global terrestrial NPP; low temperatures
+      limit growing season to 2-4 months, but large forest area compensates;
+      boreal NPP is increasing with climate warming in the short term, but
+      drought and fire are beginning to offset gains in some regions.
+
+  - habitat_term:
+      id: ENVO:01000193
+      label: temperate grassland biome
+    description: >
+      Temperate grasslands and prairies support high below-ground NPP relative
+      to above-ground production; C4 grasses in warmer grasslands achieve high
+      water-use efficiency, and grassland NPP responds sensitively to
+      interannual precipitation variability.
 
 creation_date: "2026-08-17T00:00:00Z"

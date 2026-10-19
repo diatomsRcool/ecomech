@@ -406,11 +406,30 @@ habitat_context:
       regeneration following disturbance in the absence of predator control
 
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000188
+      label: tropical savanna biome
     description: >
-      Broadleaf forests support diverse insect herbivore guilds that consume
-      substantial fractions of canopy leaf area; large mammalian herbivores
-      regulate understory vegetation structure and forest floor litter inputs
+      African savannahs host the highest diversity and biomass of large mammalian
+      herbivores on Earth; elephants, buffalo, and wildebeest regulate grass-woody
+      plant balance through selective grazing and browsing, and termites are the
+      dominant invertebrate herbivores consuming dead plant material
+
+  - habitat_term:
+      id: ENVO:01000250
+      label: subpolar coniferous forest biome
+    description: >
+      Boreal forests are shaped by moose browsing on willows and deciduous trees
+      adjacent to spruce stands; high herbivore pressure on preferred forage
+      species shifts tree species composition and influences stand-level carbon
+      dynamics across the circumpolar boreal zone
+
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      Marine pelagic herbivory is dominated by zooplankton (copepods, krill)
+      grazing on phytoplankton; in kelp forest systems, sea urchin grazing
+      on macroalgae creates phase shifts between kelp-dominated and urchin
+      barrens states depending on predator control of urchin populations
 
 creation_date: "2026-08-17T00:00:00Z"

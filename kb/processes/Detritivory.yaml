@@ -417,12 +417,23 @@ habitat_context:
       detritivore community dynamics
 
   - habitat_term:
-      id: ENVO:00000446
-      label: terrestrial biome
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
     description: >
-      Broadleaf forest litter supports high earthworm biomass and diversity;
-      litter quality variation among broadleaf species creates detritivore
-      habitat heterogeneity and supports diverse macro-arthropod detritivore
-      guilds that couple plant diversity to belowground nutrient cycling
+      Tropical forests support the highest detritivore diversity and activity;
+      termites and millipedes dominate macrofaunal litter processing, and
+      decomposition rates (k > 2 yr-1) far exceed temperate values; the
+      warm, moist conditions support year-round detritivore activity that
+      rapidly recycles nutrients from high-turnover leaf litter
+
+  - habitat_term:
+      id: ENVO:01000180
+      label: tundra biome
+    description: >
+      Arctic and subarctic tundra supports the slowest detritivore activity
+      due to low temperatures, waterlogging, and short growing seasons;
+      enchytraeids and collembolans replace earthworms as dominant fauna;
+      decomposition rates (k < 0.1 yr-1) cause organic matter to accumulate,
+      contributing to large soil carbon stocks vulnerable to permafrost thaw
 
 creation_date: "2026-08-17T00:00:00Z"
