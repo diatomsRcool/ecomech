@@ -93,6 +93,7 @@ just gbif-resolve "Rhizobium leguminosarum"   # returns ncbitaxon_curie
 **Requirements:**
 - Include **≥ 3 taxa at genus level or below** per process
 - Avoid phylum-level placeholders (Bacteria, Fungi, Insecta) — use named genera instead
+- Check the broad-taxon table in `docs/taxa_and_ecoregion_enhancement_plan.md` before finalizing taxa
 - Use GBIF for occurrence/distribution data only (`just gbif-taxa-in-region`), not for traits
 
 ### Step 3 — Research the Process
@@ -135,6 +136,10 @@ Each mechanism must have:
 - At least one `biological_processes` entry with GO term
 - At least one `evidence` item with exact verbatim `snippet`
 
+`habitat_context` must have:
+- **≥ 2 distinct biome types** (not just one temperate forest entry)
+- Use verified ENVO IDs from `docs/envo_habitat_terms.md` — do not guess IDs
+
 ### Step 5 — Validate Ontology Terms
 
 ```bash
@@ -161,9 +166,10 @@ Fix any snippet mismatches. Snippets must be **exact substrings** of the cached 
 
 ```bash
 just qc-fast
+just check-broad-taxa
 ```
 
-All checks must pass before committing.
+All checks must pass before committing. `check-broad-taxa` will exit non-zero if any taxa are at phylum level or above.
 
 ### Step 8 — Commit
 
