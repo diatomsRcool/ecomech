@@ -56,13 +56,13 @@ before KB entries can be curated. The EcoMech schema now accepts both `ENVO:` an
    is published; the sqlite adapter will pick up new terms automatically.
 
 **Scaling strategy:** Draft all needed terms in one template pass rather than
-issue-by-issue. The remaining gaps (2 processes) still need new ECOCORE terms:
-DOM mineralization and trophic cascades. Terms added in the 2026-08 ECOCORE release
+issue-by-issue. All term gaps are now resolved. Terms added in the 2026-08 ECOCORE release
 (ECOCORE:00000183–00000190) cover primary production and symbiosis targets. A subsequent
 release (ECOCORE:00000191–00000203) added ecological succession, biogeochemical cycling,
 mutualism, wildfire succession, gap dynamics, flood pulse, redox dynamics, methane cycling,
-iron cycling, pollination, seed dispersal, water filtration, and carbon sequestration —
-resolving all disturbance/succession, biogeochemical coupling, and ecosystem services gaps.
+iron cycling, pollination, seed dispersal, water filtration, and carbon sequestration.
+A further release added ECOCORE:00000204 (dissolved organic matter mineralization) and
+ECOCORE:00000205 (trophic cascade), resolving all remaining term gaps in the target list.
 Prioritize terms that cover multiple EcoMech entries.
 
 > **Note:** Query the live OWL rather than the sqlite mirror for the most current terms:
@@ -86,11 +86,11 @@ biogeochemical cycles and ecosystem function categories:
 | Primary production | Marine primary production | ✅ ECOCORE:00000184 |
 | Primary production | Benthic production | ✅ ECOCORE:00000185 |
 | Decomposition | Litter decomposition | ✅ ECOCORE:00000186 |
-| Decomposition | Dissolved organic matter mineralization | ❌ need ECOCORE term |
+| Decomposition | Dissolved organic matter mineralization | ✅ ECOCORE:00000204 |
 | Trophic processes | Herbivory | ✅ ECOCORE:00000020 |
 | Trophic processes | Predation | ✅ ECOCORE:00000102 |
 | Trophic processes | Detritivory | ✅ ECOCORE:00000057 |
-| Trophic processes | Trophic cascades | ❌ need ECOCORE term |
+| Trophic processes | Trophic cascades | ✅ ECOCORE:00000205 |
 | Symbioses | Mycorrhizal association | ✅ ECOCORE:00000188 |
 | Symbioses | Root nodule symbiosis | ✅ ECOCORE:00000189 |
 | Symbioses | Coral-zooxanthellae symbiosis | ✅ ECOCORE:00000190 |
