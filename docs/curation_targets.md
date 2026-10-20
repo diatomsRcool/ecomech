@@ -26,7 +26,7 @@ Biome tags use abbreviations defined at the bottom of this file.
 - [ ] Ocean denitrification — *marine OMZ, continental shelf* — need term
 - [ ] Phosphorus sorption and desorption — *tropical weathering soils, lake sediment* — need term
 - [ ] Biological nitrogen fixation (free-living) — *tropical forest floor, prairie* — need term
-- [ ] Dissolved organic matter mineralization — *freshwater, marine, soil* — ECOCORE (pending release)
+- [x] Dissolved organic matter mineralization — *freshwater, marine, soil* — ECOCORE:00000204
 - [ ] Priming effect — *soil, peatland* — need term
 - [ ] Nutrient spiraling — *stream, river* — need term
 - [ ] Benthic nutrient flux — *lake, marine sediment* — need term
@@ -81,7 +81,7 @@ Biome tags use abbreviations defined at the bottom of this file.
 - [x] Herbivory — *all terrestrial and aquatic* — ECOCORE:00000020
 - [x] Predation — *all* — ECOCORE:00000102
 - [x] Detritivory — *soil, aquatic sediment* — ECOCORE:00000057
-- [ ] Trophic cascades — *all* — ECOCORE (pending release)
+- [x] Trophic cascades — *all* — ECOCORE:00000205
 - [ ] Filter feeding — *coastal marine, freshwater* — need term
 - [ ] Deposit feeding — *marine sediment, estuary* — need term
 - [ ] Suspension feeding — *coral reef, open ocean* — need term
