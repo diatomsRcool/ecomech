@@ -1,0 +1,500 @@
+id: ECOCORE:00000182
+name: Deposit Feeding
+process_term:
+  id: ECOCORE:00000182
+  label: deposit feeding
+description: >
+  Deposit feeding is the ingestion of organic-rich sediment particles by benthic
+  invertebrates, enabling the transfer of particulate organic carbon and associated
+  microbial biomass from the sediment matrix into animal tissue and inorganic
+  breakdown products. Deposit feeders—including polychaete worms, sea cucumbers,
+  bivalves, and amphipods—collectively process vast quantities of marine and
+  estuarine sediment, accelerating microbial degradation of organic matter,
+  enhancing porewater nutrient release, and generating bioturbation that
+  oxygenates sediment layers and restructures microbial communities. Marine benthic
+  deposit feeders are among the most abundant animals on Earth and are the primary
+  consumers of the organic rain reaching the seafloor from the water column. Through
+  physical sediment reworking (bioturbation) and burrow irrigation (bioirrigation),
+  deposit feeders function as ecosystem engineers that govern the rate and
+  spatial distribution of carbon and nitrogen cycling in soft-sediment ecosystems
+  from intertidal flats to the deep sea.
+synonyms:
+  - sediment ingestion
+  - sediment deposit feeding
+  - benthic deposit feeding
+  - macrofaunal organic matter processing
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Direct Sediment Ingestion and Organic Matter Mineralization
+    description: >
+      Deposit feeders ingest bulk sediment containing particulate organic matter,
+      bacteria, meiofauna, diatoms, and detrital particles through non-selective
+      or selective surface deposit feeding. Digestive enzymes and gut bacteria
+      hydrolyze labile organic compounds; inorganic nutrients (ammonium, phosphate)
+      are excreted into the sediment porewater and overlying water, mineralizing
+      organic nitrogen and phosphorus and reducing organic matter content in
+      enriched sediments. Sea cucumber deposit feeders in organically loaded
+      coastal sediments shift the microbial balance from primary producers to
+      decomposers, increasing inorganic nitrogen efflux and stimulating algal
+      productivity in the water column.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:23209636
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "The sea cucumbers increased the efflux of inorganic nitrogen (ammonium, NH(4) (+)) from organically enriched sediments, which stimulated algal productivity."
+            explanation: >
+              Quantifies the direct product of deposit feeder ingestion—increased
+              ammonium efflux from organically enriched sediments—demonstrating
+              that sea cucumber feeding behavior is the mechanism coupling sediment
+              organic nitrogen to the water column as bioavailable ammonium, which
+              then stimulates overlying algal productivity in a benthopelagic
+              nutrient loop.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000182
+          label: deposit feeding
+        evidence:
+          - reference: PMID:23209636
+            supports: SUPPORT
+            evidence_source: LABORATORY
+            snippet: "This shift explains the increased efflux of inorganic nitrogen and concordant reduction in organic matter content in sediment with bioturbators."
+            explanation: >
+              Establishes deposit feeding as the process generating two coupled
+              outcomes—reduced sediment organic matter content and increased
+              inorganic nitrogen efflux—confirming that macrofaunal ingestion
+              is the mechanistic driver converting sediment organic nitrogen
+              to dissolved inorganic forms available to primary producers.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:2032702
+          label: Apostichopus californicus
+        role: DETRITIVORE
+        description: >
+          Apostichopus californicus (giant red sea cucumber) is a large deposit-
+          feeding holothurian of the northeastern Pacific; it ingests sediment
+          as a primary food source, processing organic particles and associated
+          bacteria, excreting inorganic nutrients, and reducing organic enrichment
+          in coastal and nearshore soft-sediment habitats
+      - taxon:
+          id: NCBITaxon:273052
+          label: Abarenicola pacifica
+        role: DETRITIVORE
+        description: >
+          Abarenicola pacifica is a subsurface deposit-feeding polychaete worm
+          found in intertidal sands of the northeastern Pacific; it selectively
+          ingests fine, algae-rich sediment particles and processes large volumes
+          of sediment while excreting nutrients, strongly altering the microbial
+          community composition and organic matter content of intertidal sands
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Sediment temperature modulates deposit feeder metabolic rate, ingestion
+          rate, and nutrient excretion; warmer sediment temperatures increase
+          organic matter processing rates in temperate benthic systems, though
+          extreme warming can reduce invertebrate activity in shallow intertidal
+          habitats through thermal stress
+    causal_edges:
+      - subject: Deposit feeder sediment ingestion
+        predicate: CAUSES
+        object: Breakdown of sediment organic matter and release of inorganic nutrients
+      - subject: Inorganic nutrient efflux from deposit feeding
+        predicate: ENABLES
+        object: Stimulation of overlying water column primary productivity
+    evidence:
+      - reference: PMID:23209636
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our study demonstrates the functional role and potential of sea cucumbers to ameliorate some of the adverse effects of organic matter enrichment in coastal ecosystems."
+        explanation: >
+          Establishes deposit-feeding sea cucumbers as functionally important
+          mediators of organic matter reduction in enriched coastal sediments;
+          the demonstration of sea cucumber functional role in organic matter
+          amelioration confirms that deposit feeding is a key ecosystem process
+          governing benthic carbon and nitrogen dynamics in organically loaded
+          coastal systems.
+
+  - name: Bioturbation-Enhanced Microbial Organic Matter Degradation
+    description: >
+      Physical reworking of sediment by deposit-feeding invertebrates (bioturbation)
+      mixes surface organic inputs into deeper sediment layers, transports
+      oxygenated porewater into anoxic zones, and disrupts microbial community
+      structure in ways that favor bacteria capable of degrading refractory
+      organic compounds. Selective feeding by polychaete worms on fine,
+      algae-rich sediment particles removes labile organic substrates preferentially,
+      increasing the relative abundance of microbial taxa specialized in
+      breaking down recalcitrant organic matter, driving carbon cycling in
+      sub-surface sediment layers. Bioturbation rates of key species such as
+      Arenicola marina can reach 375 cm2 yr-1, generating intense sediment
+      reworking that governs carbon cycling in intertidal sands.
+    biological_processes:
+      - term:
+          id: GO:0009056
+          label: catabolic process
+        evidence:
+          - reference: PMID:36714871
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "percentages of clades involved in degradation of refractory organic matter, oxidative nitrogen, and sulfur cycling increase"
+            explanation: >
+              In sediment layers dominated by deposit-feeding worms, the relative
+              increase in microbial clades specialized in refractory organic matter
+              degradation demonstrates that bioturbation by deposit feeders shifts
+              microbial community composition toward catabolism of recalcitrant
+              organic compounds; this confirms deposit feeding as a driver of
+              enhanced catabolic process activity in sub-surface sediment
+              carbon and nitrogen cycling.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:273052
+          label: Abarenicola pacifica
+        role: DETRITIVORE
+        description: >
+          Abarenicola pacifica creates U-shaped burrows in intertidal sand and
+          defecates surface fecal mounds; selective ingestion of algae-rich
+          fine particles dramatically reduces the abundance and diversity of
+          bacteria, archaea, and eukaryotes in deeper sediment layers, while
+          shifting the surviving community toward refractory organic matter
+          degradation specialists
+      - taxon:
+          id: NCBITaxon:6344
+          label: Arenicola marina
+        role: DETRITIVORE
+        description: >
+          Arenicola marina (common lugworm) is the dominant bioturbator in
+          European intertidal sand flats; it irrigates its burrow system at
+          high rates and processes enormous volumes of sediment, making it
+          the primary driver of sediment reworking, oxygen penetration, and
+          organic matter processing in Wadden Sea and other temperate intertidal
+          ecosystems
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Temperature accelerates bioturbation rates in key deposit feeders;
+          experiments show that Arenicola marina bioturbation intensity increases
+          with warming, enhancing sediment reworking and organic carbon processing
+          rates in intertidal systems under projected climate change scenarios
+    causal_edges:
+      - subject: Deposit feeder bioturbation
+        predicate: CAUSES
+        object: Restructuring of microbial community toward refractory organic matter degradation
+      - subject: Selective removal of labile particles by deposit feeders
+        predicate: MODULATES
+        object: Microbial community composition and carbon cycling in sub-surface sediment
+    evidence:
+      - reference: PMID:36714871
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Our findings reveal macrofaunal activity as the key driver of biological community structure and functioning, that in turn influence carbon cycling in intertidal sands below the mainly physically controlled surface layer."
+        explanation: >
+          Establishes macrofaunal deposit feeding activity—not hydrodynamic
+          forcing—as the key driver of biological community structure and carbon
+          cycling in sub-surface intertidal sediments; this confirms that
+          bioturbation by deposit feeders is the primary biological mechanism
+          governing organic matter degradation and carbon flux in deeper
+          sediment zones where physical mixing is insufficient.
+
+  - name: Bioirrigation and Benthic-Pelagic Nutrient Coupling
+    description: >
+      Deposit-feeding invertebrates ventilate their burrows by pumping oxygenated
+      overlying water into anoxic sediment, creating spatial gradients in redox
+      chemistry that accelerate nitrification, denitrification, and sulfur
+      cycling at the burrow wall-sediment interface. Bioirrigation enhances
+      the efflux of dissolved inorganic nutrients (ammonium, silicate, phosphate)
+      from sediment porewater to the overlying water column, coupling benthic
+      organic matter remineralization to pelagic primary production. Bioturbating
+      species differ substantially in their bioirrigation capacity: Arenicola
+      marina facilitates nearly double the silicate efflux compared to other
+      species, and both lugworms and ragworms (Hediste diversicolor) generate
+      temperature-dependent nutrient effluxes that tighten benthic-pelagic coupling.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:39670098
+            supports: SUPPORT
+            evidence_source: MESOCOSM
+            snippet: "Bioturbating fauna facilitate ecosystem functions such as bentho-pelagic coupling and sediment nutrient remineralization capacities."
+            explanation: >
+              Establishes bioturbating deposit feeders as the functional group
+              generating bentho-pelagic coupling and sediment nutrient
+              remineralization; the facilitation of these ecosystem functions
+              through bioturbation and bioirrigation behavior confirms deposit
+              feeding as the mechanism linking benthic organic matter processing
+              to water column productivity across soft-sediment ecosystems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:6344
+          label: Arenicola marina
+        role: DETRITIVORE
+        description: >
+          Arenicola marina generates the highest bioturbation rates in Wadden
+          Sea mesocosm experiments (up to 375 cm2 yr-1) and facilitates nearly
+          double the silicate efflux compared to other benthic species; as the
+          dominant intertidal bioturbator in European soft sediments, its feeding
+          and burrow ventilation activity drives benthopelagic nutrient coupling
+          at ecosystem scale
+      - taxon:
+          id: NCBITaxon:126592
+          label: Hediste diversicolor
+        role: DETRITIVORE
+        description: >
+          Hediste diversicolor (ragworm/mudworm) combines deposit feeding and
+          suspension feeding in estuarine and intertidal habitats; its elaborate
+          burrow networks and strong bioirrigation generate significant nutrient
+          effluxes and stimulate nitrogen cycling at sediment interfaces,
+          making it one of the most functionally important bioturbators in
+          European estuaries and mudflats
+    causal_edges:
+      - subject: Deposit feeder burrow ventilation (bioirrigation)
+        predicate: CAUSES
+        object: Oxygen injection into anoxic sediment and enhanced nutrient efflux to water column
+      - subject: Benthic nutrient release via bioirrigation
+        predicate: ENABLES
+        object: Benthopelagic coupling and stimulation of water column primary production
+    evidence:
+      - reference: PMID:39670098
+        supports: SUPPORT
+        evidence_source: MESOCOSM
+        snippet: "Arenicola marina and H. diversicolor accordingly facilitated stronger nutrient effluxes under a warmer temperature than L. conchilega and C. edule."
+        explanation: >
+          Demonstrates that lugworms and ragworms—the dominant deposit-feeding
+          bioturbators—generate significantly stronger nutrient effluxes than
+          non-deposit-feeding benthic species; this confirms that deposit
+          feeding behavior, not simply benthic presence, is the mechanism
+          driving elevated nutrient efflux and benthopelagic coupling at the
+          sediment-water interface.
+
+indicators:
+  - name: Sediment organic matter content in presence vs. absence of deposit feeders
+    description: >
+      Organic matter content of surface and sub-surface sediment layers in
+      plots with versus without deposit feeders quantifies the capacity of
+      macrofaunal ingestion to reduce organic enrichment. Losses in sediment
+      organic carbon and nitrogen provide the primary indicator of deposit
+      feeder mineralization activity in coastal and estuarine systems.
+    indicator_term:
+      id: PATO:0000033
+      label: concentration of
+    measurement: "Sediment organic carbon (% dry weight) in deposit-feeder-present vs. excluded plots"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:23209636
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "concordant reduction in organic matter content in sediment with bioturbators"
+        explanation: >
+          The reduction in sediment organic matter content in sea cucumber-
+          present treatments provides the direct indicator that deposit feeding
+          activity reduces organic enrichment; organic matter content is the
+          primary quantitative measure of deposit feeder organic processing
+          capacity and is routinely measured across benthic monitoring programs.
+
+  - name: Bioturbation rate
+    description: >
+      Sediment reworking rates (cm2 yr-1) measured from particle tracer
+      (luminophore) experiments quantify the intensity of deposit feeder
+      bioturbation activity, integrating ingestion and defecation movement
+      into a single physical sediment mixing metric correlated with organic
+      matter processing and nutrient cycling rates.
+    indicator_term:
+      id: PATO:0000161
+      label: rate
+    measurement: "Bioturbation diffusion coefficient Db (cm2 yr-1) from luminophore tracer experiments"
+    frequency: UNCOMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:39670098
+        supports: SUPPORT
+        evidence_source: MESOCOSM
+        snippet: "The highest bioturbation rates were observed from A. marina, reaching up to 375 cm2yr-1"
+        explanation: >
+          The quantification of Arenicola marina bioturbation rate at up to
+          375 cm2 yr-1 from luminophore tracer experiments establishes
+          bioturbation rate as a validated, quantitative indicator of deposit
+          feeder sediment processing intensity; the difference in bioturbation
+          rates between deposit-feeding and non-feeding species confirms that
+          this metric captures deposit feeder activity specifically.
+
+  - name: Benthic nutrient efflux at the sediment-water interface
+    description: >
+      Dissolved inorganic nutrient (ammonium, silicate, phosphate, nitrate)
+      flux across the sediment-water interface, measured from sediment core
+      incubations, integrates the full bioirrigation and mineralization activity
+      of deposit feeders and their stimulation of anaerobic microbial metabolism
+      in the sediment.
+    indicator_term:
+      id: PATO:0000161
+      label: rate
+    measurement: "Nutrient efflux (µmol m-2 h-1) from sediment core incubations"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:39670098
+        supports: SUPPORT
+        evidence_source: MESOCOSM
+        snippet: "The enhanced bioturbation activity, oxygen consumption, and facilitated nutrient effluxes from these invertebrates themselves, will aid in the ongoing high levels of primary productivity and organic matter production."
+        explanation: >
+          Links enhanced nutrient efflux from deposit-feeder bioturbation to
+          sustained water column primary productivity; benthic nutrient efflux
+          measured in mesocosm incubations is the primary validated indicator
+          connecting deposit feeder activity to ecosystem-scale carbon and
+          nitrogen cycling outcomes.
+
+drivers:
+  - name: Sediment organic matter quality and quantity
+    description: >
+      The concentration and chemical recalcitrance of sediment organic matter
+      determines the food quality available to deposit feeders and governs
+      ingestion rates. Organic enrichment from eutrophication increases food
+      availability for deposit feeders but can shift anoxic conditions and
+      sediment chemistry in ways that stress sensitive deposit feeder species.
+    driver_type: GEOCHEMICAL
+    evidence:
+      - reference: PMID:23209636
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Bioturbators affect multiple biogeochemical interactions and have been suggested as suitable candidates to mitigate organic matter loading in marine sediments."
+        explanation: >
+          The potential of deposit feeders to mitigate organic enrichment
+          confirms that organic matter loading is the primary geochemical
+          driver regulating deposit feeder functional role; higher organic
+          enrichment provides greater substrate for deposit feeding and
+          amplifies the role of deposit feeders in organic matter
+          remediation in coastal soft-sediment ecosystems.
+
+  - name: Temperature and climate change
+    description: >
+      Temperature governs deposit feeder metabolic rates, bioturbation
+      intensity, and bioirrigation volume. Warming enhances bioturbation
+      activity in temperate species like Arenicola marina and Hediste
+      diversicolor, increasing nutrient efflux and benthopelagic coupling
+      in the short term; prolonged warming may alter deposit feeder species
+      composition and compromise deep burrowing activity in shallow-water
+      intertidal habitats.
+    driver_type: CLIMATE
+    evidence:
+      - reference: PMID:39670098
+        supports: SUPPORT
+        evidence_source: MESOCOSM
+        snippet: "increases in sea temperatures may initially be beneficial to ecosystem functioning in the Wadden Sea as faunal bioturbation is definitely expedited, leading to a tighter coupling between the sediment and overlying water column"
+        explanation: >
+          Demonstrates temperature as the primary climate driver of deposit
+          feeder bioturbation intensity and benthopelagic coupling; the
+          initial increase in ecosystem functioning with warming confirms
+          that temperature is a key modulator of deposit feeder activity
+          rates, with predicted climate warming amplifying deposit feeding
+          effects in temperate soft-sediment ecosystems.
+
+  - name: Macrofauna community composition and species diversity
+    description: >
+      The identity and diversity of deposit feeder species strongly determine
+      bioturbation type, depth, and intensity. Different species create
+      different bioturbation modes (biodiffusion vs. gallery-diffusion vs.
+      conveyor belt feeding), and species interactions and diversity affect
+      the cumulative ecosystem engineering effects on carbon and nitrogen cycling.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:36714871
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "selective feeding by worms on fine, algae-rich particles strongly decreases the abundance and richness of all three domains"
+        explanation: >
+          The strong selective feeding effect of subsurface deposit-feeding
+          worms on microbial community composition confirms that deposit feeder
+          species identity—not just abundance—is a key driver of community-level
+          outcomes; different worm species feeding on different particle classes
+          generate distinct microbial community restructuring, establishing
+          species composition as a primary driver of deposit feeding ecosystem
+          effects.
+
+interventions:
+  - name: Restoration of deposit feeder communities in degraded sediments
+    description: >
+      Reintroducing or protecting deposit feeder populations in sediments
+      degraded by hypoxia, trawling, or eutrophication restores bioturbation
+      activity, oxygenates sub-surface sediment layers, and enhances organic
+      matter mineralization and nutrient cycling. Holothurian (sea cucumber)
+      aquaculture combined with deposit feeding in organically enriched coastal
+      systems has been proposed as a bioremediaton approach to mitigate sediment
+      organic loading.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:23209636
+        supports: SUPPORT
+        evidence_source: LABORATORY
+        snippet: "Our study demonstrates the functional role and potential of sea cucumbers to ameliorate some of the adverse effects of organic matter enrichment in coastal ecosystems."
+        explanation: >
+          Demonstrates the potential of deposit-feeding sea cucumbers as a
+          bioremediation intervention for organically enriched coastal sediments;
+          the functional role of sea cucumbers in reducing organic enrichment
+          and stimulating algal productivity through nutrient release establishes
+          deposit feeder restoration as a nature-based intervention for coastal
+          eutrophication management.
+
+  - name: Reduction of demersal trawling to protect bioturbator communities
+    description: >
+      Bottom trawling physically destroys macrofaunal communities and
+      bioturbator populations in marine sediments, eliminating deposit feeder
+      bioturbation activity and disrupting benthic-pelagic nutrient coupling.
+      Trawl exclusion zones allow deposit feeder communities to recover,
+      restoring sediment reworking rates and associated ecosystem functions
+      over years to decades.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:39670098
+        supports: SUPPORT
+        evidence_source: MESOCOSM
+        snippet: "Bioturbating fauna facilitate ecosystem functions such as bentho-pelagic coupling and sediment nutrient remineralization capacities."
+        explanation: >
+          The demonstration that bioturbating deposit feeders facilitate
+          benthopelagic coupling and nutrient remineralization directly
+          justifies protection of deposit feeder communities from trawling
+          disturbance; any management intervention that preserves or restores
+          deposit feeder abundance maintains the bioturbation functions
+          identified as essential to sediment carbon and nutrient cycling.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000023
+      label: marine pelagic biome
+    description: >
+      Marine soft sediments beneath pelagic surface waters are the primary
+      habitat of deposit-feeding invertebrates; polychaete worms, sea
+      cucumbers, and bivalves dominate the benthic infauna of intertidal
+      sand flats, subtidal mudflats, and shallow coastal seafloor, where
+      they process the organic carbon raining down from the pelagic zone
+      through sedimentation
+
+  - habitat_term:
+      id: ENVO:01000181
+      label: mangrove biome
+    description: >
+      Mangrove estuaries and intertidal mudflats accumulate high loads of
+      allochthonous and autochthonous organic matter; deposit feeders
+      including polychaetes, fiddler crabs, and mudskippers are highly
+      abundant in mangrove sediments and are primary agents of organic
+      matter processing, nutrient cycling, and sediment aeration in these
+      carbon-rich coastal systems
+
+  - habitat_term:
+      id: ENVO:00000043
+      label: wetland area
+    description: >
+      Coastal wetlands and estuarine sediments receive high organic matter
+      inputs from tidal exchange and riparian sources; deposit-feeding
+      invertebrates in wetland sediments process organic matter and mediate
+      nutrient cycling between sediments and the water column, contributing
+      to the high biogeochemical productivity of coastal wetland ecosystems
+
+creation_date: "2026-10-20T00:00:00Z"

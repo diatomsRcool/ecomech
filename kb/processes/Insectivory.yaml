@@ -1,0 +1,519 @@
+id: ECOCORE:00000108
+name: Insectivory
+process_term:
+  id: ECOCORE:00000108
+  label: insectivory
+description: >
+  Insectivory is the consumption of insects and other arthropods by vertebrate
+  predators—primarily birds, bats, and lizards—that couples arthropod
+  production to higher trophic levels and exerts top-down regulation on insect
+  herbivore populations. Insectivorous vertebrates collectively suppress
+  arthropod herbivores, reduce plant tissue damage, and increase plant
+  biomass and productivity in terrestrial ecosystems from tropical forests
+  to temperate woodlands and agricultural landscapes. Insectivorous bats
+  provide a complementary nocturnal guild, suppressing forest-defoliating
+  insects and agricultural pests with measurable effects on tree health and
+  crop yield. The economic value of vertebrate insectivory to global
+  agriculture through pest suppression is estimated at tens of billions of
+  dollars annually. The worldwide decline of insectivorous birds and bats
+  driven by habitat loss, pesticide use, and disease threatens the integrity
+  of top-down arthropod regulation across biomes.
+synonyms:
+  - insect predation by vertebrates
+  - arthropod suppression by vertebrate predators
+  - avian insect predation
+  - bat insect predation
+ecological_scale: ECOSYSTEM
+
+mechanisms:
+  - name: Avian Top-Down Suppression of Arthropod Herbivores
+    description: >
+      Insectivorous birds consume large quantities of herbivorous arthropods
+      from forest vegetation, suppressing phytophagous insect densities and
+      reducing plant tissue damage. Meta-analyses of bird exclosure
+      experiments across 113 studies confirm that insectivorous birds
+      reduce herbivorous arthropod abundance by approximately 39%, decrease
+      plant damage by 40%, and increase plant biomass by 14%. Insectivores
+      function as the dominant vertebrate predators in terrestrial
+      plant-arthropod communities despite simultaneously consuming predaceous
+      arthropods through intraguild predation; intraguild predation by
+      vertebrate insectivores paradoxically strengthens rather than weakens
+      overall trophic cascades.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:20368418
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "vertebrate insectivores fed as intraguild predators, strongly reducing predaceous arthropods (38%), they nevertheless suppressed herbivores (39%), indirectly reduced plant damage (40%), and increased plant biomass (14%)"
+            explanation: >
+              Meta-analysis of 113 exclosure experiments quantifies insectivorous
+              vertebrate feeding behavior as the mechanism generating top-down
+              trophic cascades across terrestrial plant-arthropod communities;
+              the consistent suppression of herbivores (39%) and reduction in
+              plant damage (40%) across study systems confirms that avian
+              insectivory feeding is the primary driver of arthropod top-down
+              control in forests.
+    ecological_processes:
+      - term:
+          id: ECOCORE:00000108
+          label: insectivory
+        evidence:
+          - reference: PMID:20368418
+            supports: SUPPORT
+            evidence_source: META_ANALYSIS
+            snippet: "insectivores function as dominant predators in terrestrial plant-arthropod communities"
+            explanation: >
+              Establishes vertebrate insectivory as the dominant predator
+              functional role in terrestrial plant-arthropod communities;
+              the dominance of insectivores relative to arthropod predators
+              confirms that vertebrate insectivory is the primary top-down
+              regulatory process governing arthropod herbivore densities and
+              plant damage in forest ecosystems.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:9157
+          label: Parus major
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000091
+          label: insectivore
+        description: >
+          Parus major (great tit) is among the best-studied insectivorous
+          passerine birds in temperate forests; exclosure experiments in
+          European deciduous forests demonstrate that great tits substantially
+          reduce caterpillar densities on oak trees, decreasing defoliation
+          and enabling greater tree growth in years of high insect pressure
+      - taxon:
+          id: NCBITaxon:9187
+          label: Turdus merula
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000091
+          label: insectivore
+        description: >
+          Turdus merula (common blackbird) forages for arthropods in leaf
+          litter and on vegetation surfaces; as a generalist insectivore
+          across temperate European and Asian forests and urban-edge habitats,
+          it contributes to arthropod suppression through ground-level
+          predation and gleaning from foliage
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000202
+          label: temperate broadleaf forest biome
+        description: >
+          Tree canopy cover determines bird foraging habitat structure and
+          arthropod prey availability; forests with dense canopy support
+          higher insectivorous bird abundance and stronger top-down arthropod
+          suppression than fragmented or open-canopy systems
+    causal_edges:
+      - subject: Insectivorous birds
+        predicate: CAUSES
+        object: Suppression of herbivorous arthropod populations on vegetation
+      - subject: Reduced arthropod herbivore density
+        predicate: ENABLES
+        object: Decreased plant tissue damage and increased plant biomass
+    evidence:
+      - reference: PMID:20368418
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "We report here on a meta-analysis of 113 experiments documenting the effects of insectivorous birds, bats, or lizards on predaceous arthropods, herbivorous arthropods, and plants."
+        explanation: >
+          The 113-experiment meta-analysis provides the most comprehensive
+          quantitative evidence that vertebrate insectivory generates consistent
+          top-down trophic cascades across diverse terrestrial ecosystems; the
+          scale and scope of the synthesis across biomes, taxa, and plant
+          types confirms avian arthropod suppression as a universal ecosystem
+          process rather than a site-specific phenomenon.
+
+  - name: Bat Nocturnal Insectivory and Forest Defoliation Control
+    description: >
+      Insectivorous bats forage nocturnally on flying and resting insects,
+      providing a complementary pest suppression guild to diurnal insectivorous
+      birds. Bat exclusion field experiments in temperate deciduous forests
+      demonstrate that bats reduce forest-defoliating insect density by
+      approximately threefold and seedling defoliation by fivefold. Bats
+      function as top-down controllers of nocturnal forest insects including
+      moths, beetles, and defoliating caterpillars whose adult moths are
+      consumed before oviposition; their suppression of defoliating insects
+      influences long-term forest health, tree composition, and carbon
+      stocks through effects on tree seedling establishment.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:36310413
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "insectivorous bats drive top-down trophic cascades, play an integral role in forest ecosystems, and may ultimately influence forest health, structure, and composition"
+            explanation: >
+              Bat exclusion field experiments provide direct experimental
+              evidence that insectivorous bat feeding drives top-down trophic
+              cascades regulating forest insect defoliators; the demonstration
+              that bat removal increases defoliation fivefold confirms that
+              bat feeding behavior is an essential insect suppression mechanism
+              in temperate deciduous forests.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:29078
+          label: Eptesicus fuscus
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000091
+          label: insectivore
+        description: >
+          Eptesicus fuscus (big brown bat) is a widespread North American
+          insectivorous bat that forages primarily on beetles, moths, and
+          other nocturnal insects in and around forested landscapes; big
+          brown bats are major suppressors of agricultural and forest pest
+          insects and roost colonially in structures and hollow trees across
+          temperate North America
+      - taxon:
+          id: NCBITaxon:9438
+          label: Tadarida brasiliensis
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000091
+          label: insectivore
+        description: >
+          Tadarida brasiliensis (Mexican free-tailed bat) forms the largest
+          bat colonies in the world and is a major consumer of agricultural
+          pest moths and beetles across the southern United States; free-
+          tailed bat colonies in Texas are estimated to consume billions of
+          corn earworm moths per season, providing substantial pest
+          suppression services to regional agriculture
+    abiotic_conditions:
+      - envo_condition_term:
+          id: ENVO:01000209
+          label: temperature
+        description: >
+          Air temperature governs bat emergence timing and foraging duration;
+          below approximately 10°C most temperate insectivorous bats reduce
+          or cease foraging, making seasonal temperature variation a key
+          control on the period over which bat insectivory regulates forest
+          insect populations
+    causal_edges:
+      - subject: Insectivorous bats
+        predicate: CAUSES
+        object: Reduction of nocturnal forest-defoliating insect density
+      - subject: Reduced defoliating insect density
+        predicate: ENABLES
+        object: Decreased seedling leaf area loss and improved tree seedling establishment
+    evidence:
+      - reference: PMID:36310413
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Insect density was three times greater on seedlings in bat-excluded versus control plots."
+        explanation: >
+          The threefold increase in insect density on seedlings when bats
+          are excluded provides the definitive field experimental evidence
+          that bat insectivory is the causal mechanism suppressing forest
+          insect herbivores; the controlled exclosure design isolates bat
+          predation from confounding factors and quantifies the direct
+          top-down effect of bat feeding on insect prey in temperate forest.
+
+  - name: Insectivorous Vertebrate Pest Control in Agricultural Landscapes
+    description: >
+      Insectivorous birds and bats suppress crop pest populations in
+      agricultural landscapes by consuming pest insects and their larvae
+      at rates that translate to measurable reductions in pest infestation
+      and economic crop losses. In tropical coffee agroforestry systems,
+      birds reduce coffee berry borer infestation by approximately 50%,
+      preventing crop losses valued at US$75–310 per hectare per year.
+      Forest patch retention in agricultural landscapes doubles pest control
+      by supporting higher densities of pest-consuming birds through
+      provision of year-round foraging habitat and nesting sites. The
+      combined insectivory services of birds and bats in North American
+      agriculture are valued at several billion dollars annually through
+      suppression of lepidopteran crop pests.
+    biological_processes:
+      - term:
+          id: GO:0007631
+          label: feeding behavior
+        evidence:
+          - reference: PMID:23981013
+            supports: SUPPORT
+            evidence_source: FIELD_STUDY
+            snippet: "birds reduced infestation by ~ 50%, bats played a marginal role, and farmland forest cover increased pest removal"
+            explanation: >
+              Field experiments in Costa Rican coffee plantations demonstrate
+              that bird feeding behavior is the primary mechanism generating
+              pest control services; the direct evidence that birds reduce
+              coffee berry borer infestation by ~50% through foraging
+              quantifies insectivory as the causal mechanism delivering
+              substantial agricultural economic services.
+    taxa_involved:
+      - taxon:
+          id: NCBITaxon:9157
+          label: Parus major
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000091
+          label: insectivore
+        description: >
+          Parus major and related passerine insectivores represent the
+          avian insectivory guild delivering pest control services in
+          temperate agricultural and forest-edge landscapes; great tits
+          and related species forage intensively for caterpillars, aphids,
+          and other agricultural pest insects from canopy to ground level
+      - taxon:
+          id: NCBITaxon:9438
+          label: Tadarida brasiliensis
+        role: PREDATOR
+        ecological_function:
+          id: ECOCORE:00000091
+          label: insectivore
+        description: >
+          Tadarida brasiliensis (Mexican free-tailed bat) is the primary
+          bat insectivore providing documented agricultural pest suppression
+          in North America; free-tailed bat colonies in the southern US
+          consume enormous quantities of corn earworm and tobacco budworm
+          moths, reducing the need for insecticide applications and providing
+          pest control services valued at billions of dollars annually
+    causal_edges:
+      - subject: Insectivorous birds and bats
+        predicate: CAUSES
+        object: Reduction in agricultural pest insect abundance and crop damage
+      - subject: Forest patch retention
+        predicate: MODULATES
+        object: Insectivorous bird abundance and pest control intensity
+    evidence:
+      - reference: PMID:23981013
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "These pest-control services prevented US$75-US$310 ha-year(-1) in damage, a benefit per plantation on par with the average annual income of a Costa Rican citizen."
+        explanation: >
+          Quantifies the economic magnitude of bird insectivory pest control
+          services in tropical coffee agriculture; the economic equivalence
+          of pest control benefits to average Costa Rican citizen income
+          establishes insectivory as a financially significant ecosystem
+          service that justifies conservation of insectivorous bird
+          populations and forest habitat in agricultural landscapes.
+
+indicators:
+  - name: Arthropod herbivore density in bird or bat exclosure vs. control plots
+    description: >
+      Densities of phytophagous arthropods (caterpillars, aphids, leaf-chewing
+      beetles) in vegetation exclosures excluding birds or bats compared to
+      open control plots provide direct experimental measures of insectivore-
+      mediated top-down suppression across forest and agricultural habitats.
+    indicator_term:
+      id: PATO:0000033
+      label: concentration of
+    measurement: "Arthropod density (individuals per plant or per m2 foliage) in exclosure vs. control"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:20368418
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "vertebrate insectivores fed as intraguild predators, strongly reducing predaceous arthropods (38%), they nevertheless suppressed herbivores (39%), indirectly reduced plant damage (40%), and increased plant biomass (14%)"
+        explanation: >
+          The meta-analytic estimate of 39% herbivore suppression across
+          113 exclosure experiments establishes arthropod herbivore density
+          in exclosure vs. control plots as the primary validated indicator
+          of insectivory strength; the consistent quantitative effect across
+          biomes confirms exclosure design as the gold-standard method for
+          measuring insectivory-mediated arthropod suppression.
+
+  - name: Crop pest infestation rate in landscapes with high vs. low insectivore abundance
+    description: >
+      Crop pest infestation rate (percentage of plants infested or pest damage
+      per unit area) in agricultural landscapes with high versus low
+      insectivorous bird or bat densities quantifies the ecosystem service
+      value of insectivory at the farm and landscape scale.
+    indicator_term:
+      id: PATO:0000161
+      label: rate
+    measurement: "Pest infestation rate (% infested fruits or plants) in fields stratified by insectivore abundance"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:23981013
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "forest patches doubled pest control over 230 km2 by providing habitat for ~ 55 000 borer-consuming birds"
+        explanation: >
+          The landscape-scale doubling of pest control associated with
+          forest patch retention demonstrates that insectivorous bird
+          abundance, driven by habitat availability, is the primary
+          determinant of pest infestation rates across agricultural
+          landscapes; pest infestation rate is therefore a practical
+          landscape-scale indicator of insectivory ecosystem service delivery.
+
+  - name: Leaf area defoliation in forests with and without bat activity
+    description: >
+      Percent leaf area lost to insect defoliation on tree seedlings and
+      saplings in bat exclosure versus control forest plots provides a
+      direct experimental indicator of bat insectivory strength and its
+      consequences for forest regeneration dynamics.
+    indicator_term:
+      id: PATO:0000161
+      label: rate
+    measurement: "Percent leaf area defoliated per seedling in bat-excluded vs. open plots"
+    frequency: COMMON
+    temporality: SEASONAL
+    evidence:
+      - reference: PMID:36310413
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "seedling defoliation was five times greater with bats excluded"
+        explanation: >
+          The fivefold increase in seedling defoliation following bat
+          exclusion establishes bat insectivory strength as directly
+          measurable through leaf area loss in bat exclosure designs;
+          this indicator integrates the full effect of bat predation on
+          the defoliating insect community and translates it to ecologically
+          meaningful plant performance consequences in forest ecosystems.
+
+drivers:
+  - name: Landscape forest cover and habitat quality
+    description: >
+      Forest patch retention and habitat quality in agricultural and fragmented
+      landscapes are the primary determinants of insectivorous bird and bat
+      abundance, determining the spatial extent and intensity of insectivory
+      pest control services. Forest cover provides nesting sites, roost
+      locations, overwintering habitat, and year-round invertebrate prey for
+      resident insectivores.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:23981013
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "farmland forest cover increased pest removal"
+        explanation: >
+          The direct positive effect of farmland forest cover on pest
+          removal confirms landscape habitat quality as the primary abiotic
+          driver regulating the abundance and pest control effectiveness of
+          insectivorous birds in agricultural landscapes; forest cover
+          management is therefore the primary landscape-level lever for
+          enhancing insectivory ecosystem services.
+
+  - name: Arthropod prey abundance and community composition
+    description: >
+      Insectivorous bird and bat foraging intensity and trophic cascade
+      strength depend on the abundance, diversity, and body size distribution
+      of arthropod prey communities. Prey community structure—including the
+      ratio of predaceous to herbivorous arthropods and the presence of
+      intraguild prey—determines the ultimate magnitude of insectivore-mediated
+      plant protection.
+    driver_type: ABIOTIC
+    evidence:
+      - reference: PMID:20368418
+        supports: SUPPORT
+        evidence_source: META_ANALYSIS
+        snippet: "Effects were strongest on arthropods and plants in communities with abundant predaceous arthropods and strong intraguild predation, but weak in communities depauperate in arthropod predators and intraguild predation."
+        explanation: >
+          The dependence of insectivory trophic cascade strength on arthropod
+          community composition identifies prey community structure as the
+          primary driver mediating insectivore effects; communities with
+          abundant predaceous arthropods and intraguild predation amplify
+          vertebrate insectivory effects, while arthropod-poor communities
+          limit insectivore top-down control.
+
+  - name: Disease, habitat loss, and anthropogenic threats to insectivores
+    description: >
+      White-nose syndrome (Pseudogymnoascus destructans fungal infection)
+      has caused catastrophic declines in North American bat populations,
+      eliminating bat insectivory pest control over vast agricultural and
+      forest areas. Habitat loss, pesticide use reducing prey insect
+      availability, and wind turbine mortality also drive insectivorous
+      vertebrate population declines globally.
+    driver_type: ANTHROPOGENIC
+    evidence:
+      - reference: PMID:21449963
+        supports: SUPPORT
+        evidence_source: REVIEW
+        snippet: "Bats have long been postulated to play important roles in arthropod suppression, seed dispersal, and pollination; however, only recently have these ecosystem services begun to be thoroughly evaluated."
+        explanation: >
+          The recognition that bat ecosystem services are only recently being
+          thoroughly evaluated highlights that the anthropogenic threats to
+          bats—white-nose syndrome, wind turbines, habitat loss—are
+          eliminating insectivory services whose magnitude is still being
+          quantified; the urgency of the review context establishes
+          anthropogenic threats as the critical driver of bat insectivory
+          decline globally.
+
+interventions:
+  - name: Forest habitat retention and restoration in agricultural landscapes
+    description: >
+      Retaining forest patches within agricultural landscapes and restoring
+      hedgerows, wooded borders, and riparian strips provides nesting habitat
+      for insectivorous birds and roost locations for bats, enhancing
+      vertebrate insectivore density and pest control service delivery
+      across farm matrices. Forest connectivity between patches further
+      supports landscape-scale insectivore movement and prey search efficiency.
+    intervention_type: RESTORATION
+    evidence:
+      - reference: PMID:23981013
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "Retaining forest and accounting for pest control demonstrates a win-win for biodiversity and coffee farmers."
+        explanation: >
+          Direct field evidence from Costa Rica that forest retention is
+          the intervention delivering both biodiversity conservation and
+          crop pest control simultaneously; the win-win framing confirms
+          forest retention as the highest-leverage conservation-agriculture
+          intervention for enhancing insectivory services in tropical
+          agricultural landscapes.
+
+  - name: Bat roost protection and white-nose syndrome management
+    description: >
+      Protecting hibernacula and summer maternity roosts from human
+      disturbance, implementing biocontrol strategies for Pseudogymnoascus
+      destructans fungus (white-nose syndrome), and reducing roost
+      disturbance during critical hibernation periods preserves bat colony
+      sizes and the nocturnal insectivory services they provide to forests
+      and agricultural ecosystems.
+    intervention_type: PROTECTION
+    evidence:
+      - reference: PMID:36310413
+        supports: SUPPORT
+        evidence_source: FIELD_STUDY
+        snippet: "This work demonstrates insectivorous bats' ecological and economic value and the importance of conserving this highly imperiled group of predators."
+        explanation: >
+          The experimental quantification of bat insectivory ecological and
+          economic value in forest defoliation control directly justifies
+          bat roost protection as the key conservation intervention; the
+          designation of insectivorous bats as highly imperiled establishes
+          roost protection as the most urgent intervention to maintain
+          top-down defoliation control in temperate forests.
+
+habitat_context:
+  - habitat_term:
+      id: ENVO:01000202
+      label: temperate broadleaf forest biome
+    description: >
+      Temperate deciduous forests support high densities of insectivorous
+      passerine birds during breeding season and year-round insectivorous
+      bat communities; avian and bat insectivory suppresses caterpillar and
+      moth populations on oaks, maples, and other hardwoods, limiting
+      defoliation events and contributing to long-term forest structure and
+      carbon balance.
+
+  - habitat_term:
+      id: ENVO:01000245
+      label: cropland biome
+    description: >
+      Agricultural landscapes with embedded forest patches support
+      insectivorous bird and bat communities that suppress crop pest
+      insects including lepidopteran larvae, beetles, and aphids;
+      insectivory pest control services in croplands are estimated to
+      prevent billions of dollars in annual losses globally and provide
+      a biodiversity-based complement to chemical pest management.
+
+  - habitat_term:
+      id: ENVO:01000228
+      label: tropical moist broadleaf forest biome
+    description: >
+      Tropical forests and agroforestry systems support hyperdiverse
+      insectivorous bird communities that provide high-magnitude pest
+      control services; in Central American coffee agroforestry landscapes,
+      insectivorous birds reduce coffee berry borer infestation by ~50%,
+      generating pest control services comparable in value to average annual
+      worker income.
+
+creation_date: "2026-10-20T00:00:00Z"

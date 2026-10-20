@@ -83,7 +83,7 @@ Biome tags use abbreviations defined at the bottom of this file.
 - [x] Detritivory — *soil, aquatic sediment* — ECOCORE:00000057
 - [x] Trophic cascades — *all* — ECOCORE:00000205
 - [ ] Filter feeding — *coastal marine, freshwater* — need term
-- [ ] Deposit feeding — *marine sediment, estuary* — need term
+- [x] Deposit feeding — *marine sediment, estuary* — ECOCORE:00000182
 - [ ] Suspension feeding — *coral reef, open ocean* — need term
 - [ ] Copepod grazing — *open ocean, coastal* — need term
 - [ ] Zooplankton predation — *open ocean, lake* — need term
@@ -95,7 +95,7 @@ Biome tags use abbreviations defined at the bottom of this file.
 - [ ] Mesopredator release — *all* — need term
 - [ ] Krill-whale-phytoplankton coupling — *polar marine* — need term
 - [ ] Mast seeding and consumer satiation — *temperate and tropical forest* — need term
-- [ ] Insectivory — *all terrestrial* — need term
+- [x] Insectivory — *all terrestrial* — ECOCORE:00000108
 - [ ] Piscivory — *freshwater, marine* — need term
 - [ ] Cannibalism and cohort regulation — *freshwater, marine* — need term
 
